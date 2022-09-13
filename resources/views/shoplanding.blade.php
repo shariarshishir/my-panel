@@ -12,257 +12,236 @@
 @section('ogimage', Storage::disk('s3')->url('public/frontendimages/merchantbay_logoX200.png'))
 
 @section('robots', 'index, nofollow')
-
+@php
+$searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : '';
+@endphp
 @section('content')
-    <h1 style="display: none;">Merchant Bay, B2B fashion e-supply chain platform connecting demand directly to production and empowering SME manufacturers</h1>
-    <section class="landing_page_wrapper" itemprop="mainContentOfPage">
-        <!-- New Landing design start -->
-        <div class="landing_intro_wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col s12 m6 animate_home_intro_left">
-                        <div class="home_intro_left" itemscope>
-                            <h1 itemprop="title">Find Your Next Apparel <br/> Manufacturing Partner</h1>
-                            <p itemprop="text">Connecting demand directly to production powered <br/>
-                            with tech and product development support.</p>
 
-                            <p>#SourcingMadeEasy</p>
+    <div class="container">
+        <div class="row">
+            <div class="col m12">
 
-                            <div class="quotation_request">
-                                <a href="{{route('rfq.create')}}">
-                                    <span class="quotation_text">Submit a Request for Quotation</span>
-                                    <span class="quotation_arrow animate_quotation_arrow"><i class="material-icons">arrow_forward</i></span>
-                                </a>
-                            </div>
 
-                            <!-- <div class="home_intro_right mobile_home_intro_img" itemscope style="display: none;">
-                                <img itemprop="img" alt="" src="{{asset('images/frontendimages/new-home/home-intro.png')}}" />
-                            </div>
 
-                            <div class="landing_intro_button_box" itemscope>
-                                <a class="btn_howWrok btn_border_black" itemprop="How we work" data-fancybox href="https://youtu.be/8z7uqq_Zqzg"><i class="material-icons"> play_circle_outline </i> How we work</a>
-                                <a href="javascript:void(0);" itemprop="Talk to us" class="btn_green btn_talk" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/merchantbay/virtual-meeting'});return false;">Talk to us <i class="material-icons"> east </i></a>
-                            </div> -->
 
-                        </div>
-                    </div>
-                    <div class="col s12 m6 animate_home_intro_right">
-                        <div class="home_intro_right" itemscope>
-                            <!-- <img itemprop="img" alt="" src="{{asset('images/frontendimages/new-home/home-intro.png')}}" /> -->
-
-                            <div class="home_intro_video_box">
-                                <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/SLcqwqr0Hr4?autoplay=1&mute=1&enablejsapi=1&rel=0&loop=1" title="Merchant Bay Explainer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <!--iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/LevhWgMGtDA?autoplay=1&mute=1&enablejsapi=1&rel=0&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe-->
-                                <!-- <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/ZvyTEE4vjZY?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="landing_provide_wrap">
-            <div class="container" itemscope>
-                <h2 itemprop="title" class="landing_provide_title" >Values we provide...</h2>
-                <div class="row">
-                    <div class="col s12 m12 l1">&nbsp;</div>
-                    <div class="col s12 m6 l5 animate_provide_items_box_left">
-                        <div class="provide_items_box provide_left" itemscope>
-                            <h3 class="landing_provide_innerTitle_left"><span itemprop="title">For Buyers</span></h3>
-                            <ul itemscope itemtype="https://schema.org/ListItem">
-                                <li itemprop="itemListElement">Find Vetted Manufacturers</li>
-                                <li itemprop="itemListElement">Find Manufacturers for Low MOQ</li>
-                                <li itemprop="itemListElement">Source Textiles and Accessories</li>
-                                <li itemprop="itemListElement">Source with Shortest Lead Time</li>
-                                <li itemprop="itemListElement">Manage Orders with Transparency</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l5 animate_provide_items_box_right">
-                        <div class="provide_items_box" itemscope>
-                            <h3 class="landing_provide_innerTitle_right"><span itemprop="title">For Suppliers</span></h3>
-                            <ul itemscope itemtype="https://schema.org/ListItem">
-                                <li itemprop="itemListElement">Create and Promote Your Digital Presence</li>
-                                <li itemprop="itemListElement">Create Your Digital Product Library</li>
-                                <li itemprop="itemListElement">Source Raw Materials at Best Deal</li>
-                                <li itemprop="itemListElement">Be Data Driven with Smart Bi Tools</li>
-                                <li itemprop="itemListElement">Manage Orders with Efficiency</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col s12 m12 l1">&nbsp;</div>
-                </div>
-                <div class="center-align provide_btn_wrap animate_provide_btn_wrap" itemscope>
-                    <a href="{{env('SSO_REGISTRATION_URL').'/?flag=global'}}" class="btn_green" itemprop="Sign up">Sign up</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="landing_spotlight_wrap">
-            <div class="landing_spotlight_top">
-                <div class="container">
-                    <div class="spotlight_box animate_spotlight_box" itemscope><img itemprop="img" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/Spotlight.png')}}" alt="Spotlight" /></div>
-                </div>
-            </div>
-            <div class="landing_spotlight_infoWrap animate_landing_spotlight_infoWrap">
-                <div class="container-full-width">
-                    @php
-                        $spotlightCount = 0;
-                    @endphp
-                    @foreach($spotlightBusinessProfile as $businessProfile)
-                        <div id="spotlight-{{$spotlightCount}}">
-                            <div class="spotlight_overlay"></div>
-                            <div class="spotlight-inside-image" itemscope>
-                                @if($businessProfile->business_profile_banner)
-                                <img itemprop="img" src="{{ Storage::disk('s3')->url('public/'.$businessProfile->business_profile_banner) }}" alt="Business profile banner" />
-                                @else
-                                <img itemprop="img" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/spot-li.png')}}" alt="Spot list" />
-                                @endif
-                            </div>
-                            <div class="container">
-                                <div class="spotlight-inside">
-                                    <div class="right-align sayel_group_logo_box" itemscope>
-                                        <!--img src="{{ asset('storage/'.$businessProfile->user->image) }}" alt="" /-->
-                                        @if($businessProfile->business_profile_logo)
-                                        <img itemprop="img" src="{{ Storage::disk('s3')->url('public/'.$businessProfile->business_profile_logo) }}" alt="Business profile logo" />
-                                        @else
-                                            @php
-                                                $img = $businessProfile->user->image ?'storage/'.$businessProfile->user->image : 'images/frontendimages/no-image.png';
-                                            @endphp
-                                            <img itemprop="img" itemprop="img" src="{{asset($img)}}" alt="avatar" />
-                                        @endif
-                                    </div>
-                                    <div class="spotlight_inner_info" itemscope>
-                                        <h3 itemprop="title">{{ $businessProfile->business_name }}</h3>
-                                        <div class="spotlight_info" itemscope>
-                                            <span itemprop="text">
-                                                {{ \Illuminate\Support\Str::limit($businessProfile->companyOverview->about_company, 550, $end='[...]') }}
-                                            </span>
+                <div class="profile_account_myrfq_info">
+                    <div class="row">
+                        <div class="col s12 m12 l7">
+                            <div class="product_design_wrapper">
+                                <div class="profile_account_searchBar">
+                                    <div class="row">
+                                        <div class="col s12 m5 l4">
+                                            <a class="post_new" href="{{route('rfq.create')}}">
+                                            <i class="material-icons">add</i><span>Post New</span>
+                                            </a>
+                                        </div>
+                                        <div class="col s12 m7 l8">
+                                            <form action="{{route('new.profile.search_my_rfqs',$alias)}}" data-hs-cf-bound="true">
+                                                @csrf
+                                                <div class="profile_account_search">
+                                                    <i class="material-icons">search</i>
+                                                    <input class="profile_filter_search" type="search" name="search_input" value="{{$searchInput}}" placeholder="Search Merchant Bay Studio/Raw Material Libraries">
+                                                    <a href="javascript:void(0);" class="reset_myrfq_filter" style="@php echo isset($_REQUEST['search_input']) ? 'display: block;' : 'display: none;' @endphp"><i class="material-icons">restart_alt</i></a>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                    <div class="right-align" itemscope>
-                                        <a href="{{route('supplier.profile', $businessProfile->alias)}}" class="btn_green landing_view_profile" itemprop="View Profile">View Profile</a>
+                                </div>
+                                <div class="profile_account_myrfq_innerbox">
+                                    <div class="row rfq_account_title_bar">
+                                        <div class="col s8">
+                                            <h4>{{$pageTitle}}</h4>
+                                        </div>
+                                        <div class="col s4 right-align">
+                                            <span class="rfqView">{{count($rfqLists)}} results</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        @if($rfqLists)
+                                            @foreach($rfqLists as $key=>$rfq)
+                                            <div class="col s12 m6">
+                                                <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}">
+                                                    <h5>{{$rfq['title']}}</h5>
+                                                    <span class="posted_time">{{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
+
+                                                    <div class="row">
+                                                        <div class="col s6 m6 l5">
+                                                            <p>Quantity <br/> <b>{{$rfq['quantity']}} pcs</b></p>
+                                                            <p>Target Price <br/> <b>{{$rfq['unit_price']}} / {{$rfq['unit']}}</b></p>
+                                                        </div>
+                                                        <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
+                                                        <div class="col s6 m6 l5">
+                                                            <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</b></p>
+                                                            <p>Deliver to <br/> <b>{{$rfq['destination']}}</b></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="account_rfq_btn_wrap" >
+                                                        <div class="rfq_btn_box">
+                                                            <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
+                                                            @if($rfq['unseen_quotation_count'] >0)
+                                                                <span class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                            @else
+                                                                <span style="display:none" class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                            @endif
+                                                        </div>
+                                                        <div class="rfq_btn_box">
+                                                            <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}">Messages</button>
+                                                            @if(($rfq['unseen_count'] - $rfq['unseen_quotation_count']) >0)
+                                                                <span  class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                            @else
+                                                                <span style="display:none" class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        @else
+                                        <div class="card-alert card cyan">
+                                            <div class="card-content white-text">
+                                                <p>No Queries are available.</p>
+                                            </div>
+                                        </div>
+                                        @endif
+                                    </div>
+
+                                    @if( $noOfPages > 1)
+                                    @php
+                                        $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1;
+                                    @endphp
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="" href="javascript:void(0);" data-page="0" tabindex="-1">Previous</a>
+                                            </li>
+                                            @for( $i=1; $i <= $noOfPages; $i++)
+                                                @php
+                                                    $r=route('new.profile.my_rfqs', $alias);
+                                                @endphp
+                                                <li class="page-item" >
+                                                    <a class="" href="{{ $r.'?page='.$i }}" {{ ($page == $i) ? 'selected="selected"':'' }} data-page="{{$i}}">{{$i}}</a>
+                                                </li>
+                                            @endfor
+                                            <li class="page-item">
+                                                <a class="" href="javascript:void(0);" data-page="2">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    @endif
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        @if($rfqLists)
+                        <div class="col s12 m12 l5 new_profile_account_rightsidebar_desktop">
+                            <div class="new_profile_account_myrfq_details fixed-rfq-message-bar">
+                                <div class="new_profile_myrfq_details_topbox">
+                                    <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6>
+                                    <h5>{{$rfqLists[0]['title']}}</h5>
+                                    <span class="posted_time">{{date('Y-m-d', strtotime($rfqLists[0]['created_at']))}}</span>
+                                    <div class="center-align btn_accountrfq_info">
+                                        <a class="accountrfq_btn" href="javascript:void(0);" onclick="">Show More</a>
+                                    </div>
+                                    <div id="accountRfqDetailesInfo" class="account_rfqDetailes_infoWrap" style="display: none;">
+                                        <div class="row">
+                                            <div class="col s6 m6 l5">
+                                                <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
+                                                <p>Target Price <br/> <b>{{$rfqLists[0]['unit_price']}} / {{$rfqLists[0]['unit']}}</b></p>
+                                            </div>
+                                            <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
+                                            <div class="col s6 m6 l5">
+                                                <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
+                                                <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col s12 m12 l12">
+                                                <p>Description <br/> <b>{{$rfqLists[0]['full_specification']}}</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="account_rfqDetailes_imgWrap">
+                                            <h6>Attachments</h6>
+                                            @foreach ($rfqLists[0]['images'] as $rfqImg)
+                                            <a href="{{$rfqImg['image']}}" data-fancybox>
+                                            <img src="{{$rfqImg['image']}}" />
+                                            </a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rfq_review_results_wrap">
+                                    <div class="rfq_review_results_nav">
+                                        <ul>
+                                            <li  class="active message_tab_li"><a href="javascript:void(0);" class="message_tab" data-rfq_id="{{$rfqLists[0]['id']}}">Messages</a></li>
+                                            <li class="quotation_tab_li"><a href="javascript:void(0);" class="quotation_tab" data-rfq_id="{{$rfqLists[0]['id']}}">Quotations</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="my_rfq_quotation_box" style="display:none">
+                                        <div class="my_rfq_review_results_box">
+                                            My Quotation will show here.
+                                        </div>
+                                    </div>
+
+                                    <div class="rfq_quotation_box" style="display:none">
+                                        <div class="rfq_review_results_box">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="rfq_message_box" >
+                                        <div class="rfq_review_message_box">
+                                            @if(count($chatdata)>0)
+                                                @foreach($chatdata as $chat)
+                                                    @if( $chat['from_id'] == auth()->user()->sso_reference_id && $chat['rfq_id'] == $rfqLists[0]['id'])
+                                                        <div class="rfq_message_box chat-right right">
+                                                            <div class="chat-text right-align">
+                                                                <p><span> @php echo html_entity_decode($chat['message']); @endphp</span></p>
+                                                            </div>
+                                                        </div>
+                                                    @elseif($chat['to_id'] == auth()->user()->sso_reference_id && $chat['rfq_id'] == $rfqLists[0]['id'])
+                                                        <div class="rfq_message_box chat-left left">
+                                                            <div class="chat-text left-align">
+                                                                <p><span>@php echo html_entity_decode($chat['message']); @endphp</span></p>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                        <form>
+                                            <div class="rfq_message_box_bottom">
+                                                <input class="message_type_box messagebox" type="text" placeholder="Type a message..." />
+
+                                                <div class="message_icon_box">
+                                                    <i class="material-icons">sentiment_satisfied</i>
+                                                    <i class="material-icons">attach_file</i>
+                                                    <i class="material-icons">image</i>
+                                                    <a class="btn_green send messageSendButton">send</a>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                        @php $spotlightCount++; @endphp
-                    @endforeach
-                </div>
-            </div>
-        </div>
+                        @endif
 
-        <div class="landing_nav_wrap">
-          <div class="container">
-            <div class="landing_tab_menu" itemscope>
-                <ul class="spotlight_tabs" itemscope itemtype="https://schema.org/ListItem">
-                    @php
-                        $spotlightCount = 0;
-                    @endphp
-                    @foreach($spotlightBusinessProfile as $businessProfile)
-                        <li class="tab" itemprop="itemListElement"><a itemprop="{{ $businessProfile->business_name }}" href="#spotlight-{{$spotlightCount}}">{{ $businessProfile->business_name }}</a></li>
-                        @php $spotlightCount++; @endphp
-                    @endforeach
-                </ul>
-            </div>
-          </div>
-        </div>
 
-        <div class="mvc_produce_design_wrap">
-          <div class="container">
-            <div class="row">
-                <div class="col s12 m6 product_video_wrap animate_product_video_wrap">
-                    <div class="product_video_box" itemscope>
-                        <img itemprop="img" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/360-white.GIF')}}" alt="Animated Image" />
                     </div>
                 </div>
-                <div class="col s12 m6 product_video_infobox animate_product_video_infobox">
-                    <div class="product_3d_info_box" itemscope>
-                        <h3 itemprop="title"><span>Develop your product<br />with <span class="bold_text" >MB Studio</span></span></h3>
-                        <span class="title_border">&nbsp;</span>
-                        <p itemprop="text">Our 3D design service helps you to reduce lead time significantly. <br> We have a huge library of 1000+ designs ranging from outerwear <br> to underwear. Our product development team brings the design <br> to life as best valued products with our technical expertise and <br> wide sourcing network.</p>
-                    </div>
 
-                    <div class="visit_studio animate_visit_studio" itemscope >
-                        <a href="{{route('product.type.mapping',['studio', 'design'])}}" itemprop="Visit Studio" class="btn_green btn_visit_studio" >Visit Studio</a>
-                    </div>
-                </div>
+
 
             </div>
-          </div>
         </div>
+    </div>
 
-        <div class="landing_sourcing_wrap">
-          <div class="container">
-            <div class="row">
-              <div class="col s12 m6 animate_sourcing_info_box_left">
-                <div class="sourcing_info_box" itemscope>
-                    <h3 itemprop="title"><span> Bring the <span class="bold_text" >Sourcing</span> <br/>
-                    to your <span class="bold_text">Pocket</span> </h1>
-                    <span class="title_border">&nbsp;</span>
-                    <p itemprop="text">Everything you need for your Apparel Business.</p>
-                    <p itemprop="text"><span class="bold_text" itemprop="text">Yarn, Fabrics, Trims, Accessories, Garments </span> <br/> and many more....</p>
-                </div>
-                <div class="sourcing_img_box mobile_sourcing_img_box" style="display: none;" itemscope>
-                    <img itemprop="img" alt="" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/sourcing-img.jpg')}}" />
-                </div>
-                <div class="sourcing_apps_box" itemscope>
-                    <h3 itemprop="title">Download the App</h3>
-                    <div class="apps_wrap" itemscope>
-                        <a href="https://apps.apple.com/dk/app/merchant-bay/id1590720968?l=en" itemscope itemprop="App Store"><img class="animate-app-store" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/app-store.png')}}" itemprop="img" alt="App Store" /></a>
-                        <a href="https://play.google.com/store/apps/details?id=com.sayemgroup.merchantbay" itemscope itemprop="Google Play Store"><img class="google-play-store" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/google-play.png')}}" itemprop="img" alt="Google Play Store" /></a>
-                    </div>
-                </div>
-              </div>
-              <div class="col s12 m6 animate_sourcing_info_box_right">
-                    <div class="sourcing_img_box" itemscope>
-                        <img alt="Sourcing Image" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/sourcing-img.png')}}" itemprop="img" />
-                    </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="landing_tools_wrap">
-            <div class="container">
-                <div class="row">
-                    <div class="col s12 m6 landing_tools_left animate_landing_tools_left">
-                        <div class="landing_tools_img" itemscope>
-                            <img itemprop="img" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/tools-img.png')}}" alt="Tools Image" />
-                        </div>
-                    </div>
-                    <div class="col s12 m6 landing_tools_right animate_landing_tools_right">
-                        <div class="landing_tools_infobox" itemscope>
-                            <h3 itemprop="title">Increase your <span class="bold_text" >Efficiency</span> <br/> with <span class="bold_text" >Smart BI Tools</span></h3>
-                            <span class="title_border">&nbsp;</span>
-                            <p itemprop="text">Subscribe to the Smart Order Management Dashboard and a suit of BI tools offered by Merchant Bay to make your operation data driven and transparent.</p>
-                            <div class="tools_button_box animate_tools_button_box" itemscope>
-                                <a href="https://tools.merchantbay.com/" class="btn_green" itemprop="Explore MB Smart Tools" target="_blank" >Explore MB Smart Tools</a>
-                                <!-- <button class="btn_green request_demo">Request a Demo</button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="landing_request_wrap">
-            <div class="container">
-                <div class="request_innter_box center-align" itemscope>
-                    <h3 itemprop="title" class="landing_request_toptitle">Want to get started now?</h3>
-                    <h5 itemprop="title" class="landing_request_title">Submit a request for quotation and find the best match for your sourcing need</h5>
-                    <div class="landing_request_img animate_landing_request_img" itemscope>
-                        <img itemprop="img" src="{{Storage::disk('s3')->url('public/frontendimages/new-home/landing-rfq.png')}}" alt="" />
-                    </div>
-                    <div class="request_button_box center-align" itemscope>
-                        <a href="{{route('rfq.create')}}" class="btn_border_black animate_btn_border_black" itemprop="Submit RFQ">Submit RFQ</a>
-                        <span class="btn_green btn_talk animate_btn_talk" itemprop="Talk to us" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/merchantbay/virtual-meeting'});return false;">Talk to us <i class="material-icons"> east </i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- New Landing design end -->
-    </section>
-
+    @include('new_business_profile.create_rfq_modal')
+    @include('new_business_profile._rfq_scripts')
+    @include('new_business_profile.share_modal')
 @endsection

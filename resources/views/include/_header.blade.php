@@ -8,36 +8,11 @@
 			<div class="row header_innrer" itemscope>
 				<div class="col m3 logo" itemscope><a href="{{route('home')}}" itemprop="Merchantbay Home"><img itemprop="img" src="{{Storage::disk('s3')->url('public/frontendimages/logo.png')}}" alt="logo" /></a></div>
 				<div class="col m5 mainnav_wrap" itemscope>
-					<nav class="mainNav" itemscope>
+					<nav class="mainNav" itemscope style="display: none;">
 						<ul class="left hide-on-med-and-down" itemscope itemtype="https://schema.org/ListItem">
-							<li>
-								<span class="dropdown-trigger parent-li-item" itemprop="Products" data-target="explore-products">Explore<i class="material-icons right">arrow_drop_down</i></span>
-
-								<ul id="explore-products" class="dropdown-content subNav" itemscope itemtype="https://schema.org/ListItem">
-									<li itemprop="itemListElement">
-										<span class="sub-parent-li-item" itemprop="Products" data-target="">Studio<i class="material-icons right">arrow_drop_down</i></span>
-										<!-- Dropdown Structure -->
-										<ul id="" class="sub_dropdown" itemscope itemtype="https://schema.org/ListItem">
-                                            @foreach ($studio_child as $id => $title)
-											    <li itemprop="itemListElement"><a itemprop={{ucwords(str_replace("_", " ",$title))}} href="{{route('product.type.mapping',['studio', $title])}}" >{{ucwords(str_replace("_", " ",$title))}}</a></li>
-                                            @endforeach
-										</ul>
-									</li>
-									<li itemprop="itemListElement">
-										<span class="sub-parent-li-item" itemprop="Products" data-target="">Raw Materials<i class="material-icons right">arrow_drop_down</i></span>
-										<!-- Dropdown Structure -->
-										<ul id="" class="sub_dropdown" itemscope itemtype="https://schema.org/ListItem">
-                                            @foreach ($raw_materials_child as $id => $title)
-                                                <li itemprop="itemListElement"><a itemprop={{ucwords(str_replace("_", " ",$title))}} href="{{route('product.type.mapping',['raw_materials', $title])}}" >{{ucwords(str_replace("_", " ",$title))}}</a></li>
-                                            @endforeach
-										</ul>
-									</li>
-									<li itemprop="itemListElement"><a itemprop="Suppliers" class="{{ Route::is('suppliers') ? 'active' : ''}}" href="{{route('suppliers')}}">Suppliers</a></li>
-								</ul>
-							</li>
-
-							<li><a href="{{route('new_rfq.index')}}" class="{{ Route::is('new_rfq.index') ? 'active' : ''}}">RFQ</a></li>
-							<li itemprop="itemListElement"><a itemprop="M Factory" href="https://app.merchantbay.com/">M Factory</a></li>
+                            <li itemprop="itemListElement"><a itemprop="Pricing" href="javascript:void(0);">Pricing</a></li>
+							<li itemprop="itemListElement"><a href="{{route('new_rfq.index')}}" class="{{ Route::is('new_rfq.index') ? 'active' : ''}}">RFQ</a></li>
+							<li itemprop="itemListElement"><a itemprop="Insights" href="javascript:void(0);">Insights</a></li>
 							<li itemprop="itemListElement" class="item_whyus">
 								<span class="dropdown-trigger parent-li-item" itemprop="Why Us" data-target="whyus-system-links">Why Us<i class="material-icons right">arrow_drop_down</i></span>
 
@@ -80,12 +55,10 @@
 								<form id="logout-form" itemscope action="{{ route('users.logout') }}" method="POST">
 									@csrf
 								</form>
-							@else
-								<a href="#login-register-modal" itemprop="Login / Register" class="btn_logRegi btn_white modal-trigger">Login / Register</a>
 							@endif
 
-							@else
-								@if(Auth::guard('web')->check())
+						@else
+							@if(Auth::guard('web')->check())
 								<a href="javascript:void(0);" itemscope class="dropdown-trigger waves-effect waves-block waves-light" data-target="profile-dropdown">
 									<span class="avatar-status avatar-online" itemprop="Merchantbay User avatar">
 										@if(auth()->user()->image)
@@ -109,160 +82,14 @@
 								<form id="logout-form" itemscope action="{{ route('users.logout') }}" method="POST">
 									@csrf
 								</form>
-								@else
-									<a href="#login-register-modal" itemprop="Login / Register" class="btn_logRegi btn_white modal-trigger">Login / Register</a>
 							@endif
 
 						@endif
 					</div>
 
-					@if(auth()->user())
-
-					<div class="notifications_icon_wrap" itemscope>
-						<a href="javascript:void(0);" class="dropdown-trigger" data-target="countdown-dropdown" itemprop="Message Notification">
-							<i class="material-icons">notifications</i>
-							@if(count($userNotifications) > 0)
-							<span id="" class="noticication_counter">{{ count($userNotifications) }}</span>
-							@endif
-						</a>
-					</div>
-
-					<ul id="countdown-dropdown" class="dropdown-content card" itemscope itemtype="https://schema.org/ListItem">
-						@if(count($userNotifications)>0)
-						<li class="notifications-list" itemprop="itemListElement">
-							@foreach($userNotifications as $notification)
-								@if($notification->type == 'App\Notifications\NewOrderHasPlacedNotification')
-								<a itemprop="New Order Notification" href="{{route('vendor.order.show.notification',['businessProfile'=>$notification->data['order']['business_profile_id'],'order'=>$notification->data['order']['order_number'],'notification'=>$notification->id])}}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@elseif($notification->type == 'App\Notifications\NewOrderHasApprovedNotification')
-								<a itemprop="New Order Approved Notification" href="{{ url($notification->data['url']) }}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@elseif ($notification->type == 'App\Notifications\OrderQueryNotification' )
-								<a itemprop="Order Query Notification" href="{{ url($notification->data['url']) }}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@elseif ($notification->type == 'App\Notifications\OrderQueryFromAdminNotification' )
-								<a itemprop="Order Query From Admin Notification" href="{{ url($notification->data['url']) }}">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-
-								@elseif ($notification->type == 'App\Notifications\NewOrderModificationRequestNotification' )
-								<a itemprop="New Order Modification Request Notification" href="{{ url($notification->data['url']) }}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@elseif ($notification->type == 'App\Notifications\QueryCommuncationNotification' )
-								<a itemprop="Query Communication Notification" href="{{ url($notification->data['url']) }}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@elseif ($notification->type == 'App\Notifications\QueryWithModificationToUserNotification')
-								<a itemprop="Query With Modification To User Notification" href="{{ url($notification->data['url']) }}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@elseif ($notification->type == 'App\Notifications\PaymentSuccessNotification')
-								<a itemprop="Payment Success Notification" href="{{ url($notification->data['url']) }}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@elseif ($notification->type =='App\Notifications\NewRfqNotification')
-								<a itemprop="New RFQ Notification" href="{{ url($notification->data['url']) }}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@elseif ($notification->type =='App\Notifications\RfqBidNotification')
-								<a itemprop="RFQ Bid Notification" href="{{ url($notification->data['url']) }}" class="dropdown-item">
-									<i class="fas fa-envelope mr-2"></i>
-									<div class="admin-notification-content" itemscope>
-										<div class="admin-notification-title" itemprop="{{$notification->data['title']}}">{{$notification->data['title']}}</div>
-										<div class="text-muted text-sm" itemprop="Create Date" datetime="{{$notification->created_at}}">{{$notification->created_at}}</div>
-									</div>
-								</a>
-								@endif
-							@endforeach
-						</li>
-						@else
-						<li class="no-notifications" itemprop="itemListElement">
-							No notifications
-						</li>
-						@endif
-					</ul>
-
-					<div class="header_message_box" itemscope>
-						<a href="javascript:void(0);" itemprop="Message Notification Count" class="message-center-dropdown-trigger" data-target="message-countdown-dropdown">
-							<i class="material-icons">message</i>
-							@if($messageCenterNotifications['count'] > 0)
-							<span class="sms_counter">{{ $messageCenterNotifications['count'] }}</span>
-							@endif
-						</a>
-
-						<ul id="message-countdown-dropdown" class="dropdown-content card" itemscope itemtype="https://schema.org/ListItem">
-							@if($messageCenterNotifications['count'] > 0)
-								@foreach($messageCenterNotifications['data'] as $notification)
-									<li class="notifications-list" itemprop="itemListElement">
-										<a href="{{route('new.profile.my_rfqs',$notification['business_profile_alias'])}}" class="dropdown-item" itemprop="Buyer want to contact">
-											<i class="fas fa-envelope mr-2"></i>
-											<div class="admin-notification-content" itemscope>
-												<div class="admin-notification-title" itemprop="{{ $notification['rfq_title'] }}"> {{ $notification['rfq_title'] }} </div>
-											</div>
-										</a>
-									</li>
-								@endforeach
-							@else
-							<li class="no-notifications" itemprop="itemListElement">
-								No Messages
-							</li>
-							@endif
-						</ul>
-					</div>
-
-					@endif
-
-					<a href="{{route('business.profile.create')}}" itemprop="Join MB Pool" type="button" class="btn_profile btn_green">
-					     Join MB Pool
+					<a href="javascript:void(0);" itemprop="Subscribe" type="button" class="btn_profile btn_green">
+					    Subscribe
 					</a>
-
-					<button class="header_search_bar">
-						<i class="material-icons dp48">search</i>
-					</button>
-
-					<!-- <a href="{{route('business.profile.create')}}" itemprop="Business Profile" type="button" class="btn_profile btn_green">
-					    <span class="material-icons"> add </span> Business Profile
-					</a> -->
 
 				</div>
 			</div>
