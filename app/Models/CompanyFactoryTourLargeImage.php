@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class CompanyFactoryTourLargeImage extends Model
+{
+    use HasFactory;
+    protected $guarded=[];
+    public function companyFactoryTour()
+    {
+        return $this->belongsTo(CompanyFactoryTour::class);
+    }
+}

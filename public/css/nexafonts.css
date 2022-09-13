@@ -1,0 +1,161 @@
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-Black.woff2") format("woff2"),
+    url("../webfont/Nexa-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/NexaLight.woff2") format("woff2"),
+    url("../webfont/NexaLight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/NexaBold.woff2") format("woff2"),
+    url("../webfont/NexaBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-BookItalic.woff2") format("woff2"),
+    url("../webfont/Nexa-BookItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-BlackItalic.woff2") format("woff2"),
+    url("../webfont/Nexa-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-Bold.woff2") format("woff2"),
+    url("../webfont/Nexa-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-Book.woff2") format("woff2"),
+    url("../webfont/Nexa-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-Heavy.woff2") format("woff2"),
+    url("../webfont/Nexa-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-BoldItalic.woff2") format("woff2"),
+    url("../webfont/Nexa-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-HeavyItalic.woff2") format("woff2"),
+    url("../webfont/Nexa-HeavyItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-Light.woff2") format("woff2"),
+    url("../webfont/Nexa-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-Thin.woff2") format("woff2"),
+    url("../webfont/Nexa-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-RegularItalic.woff2") format("woff2"),
+    url("../webfont/Nexa-RegularItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-Regular.woff2") format("woff2"),
+    url("../webfont/Nexa-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-XBoldItalic.woff2") format("woff2"),
+    url("../webfont/Nexa-XBoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-LightItalic.woff2") format("woff2"),
+    url("../webfont/Nexa-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-ThinItalic.woff2") format("woff2"),
+    url("../webfont/Nexa-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../webfont/Nexa-XBold.woff2") format("woff2"),
+    url("../webfont/Nexa-XBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

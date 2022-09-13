@@ -1,0 +1,120 @@
+body {
+    font-size: 11px;
+    line-height: 14px;
+}
+.printPageButton {
+    display: none;
+}
+legend {
+    background: #ddd !important;
+    font-weight: 600;
+    color: #000;
+    padding: 3px;
+    display: block;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-size: 10px !important;
+    margin: 0;
+}
+.row .col {
+    margin: 0;
+}
+.row .col.s6,
+.row .col.m6 {
+    width: 50%;
+}
+.has_feedback_wrap .row .col.s6.m4.l2 {
+    width: 16.6666666667%;
+}
+.invoice_advising_bank .row .col.s6.m3 {
+    width: 25%;
+}
+
+td, th {
+    padding: 5px;
+    font-size: 10px !important;
+}
+td span {
+    font-size: 10px !important;
+}
+.card {
+    padding: 5px !important;
+    box-shadow: none !important;
+}
+.input-field {
+    margin: 0;
+}
+.input-field span {
+    font-size: 10px;
+    line-height: 12px;
+}
+.input-field label {
+    font-size: 10px !important;
+    padding: 0;
+    margin: 0;
+    line-height: 12px;
+}
+.invoice_page_header {
+    padding-top: 10px;
+}
+.shipping_details  {
+    padding-bottom: 5px;
+}
+.invoice_top_button_wrap {
+    display: none;
+}
+.line_item_wrap {
+    padding-top: 0 !important;
+}
+.has_feedback_wrap .has-feedback label {
+    font-size: 10px;
+    font-weight: 500;
+    margin: 0;
+}
+.has_feedback_wrap .has-feedback span {
+    font-size: 10px;
+}
+
+.has_feedback_wrap span {
+    line-height: 40px !important;
+}
+
+.pro_porma_invoice .invoice_terms_conditions li:first-child {
+    margin-bottom: 5px;
+}
+.pro_porma_invoice .invoice_terms_conditions label {
+    padding: 0;
+}
+.pro_porma_invoice .invoice_terms_conditions .terms-label .material-icons {
+    font-size: 18px !important;
+}
+
+.invoice_terms_conditions legend {
+    margin-bottom: 0 !important;
+}
+.terms_conditions_list {
+    margin-top: -10px !important;
+}
+.invoice_advising_bank {
+    padding-bottom: 10px;
+}
+
+.line_item_wrap h6 {
+    margin-bottom: 0px;
+    font-size: 10px !important;
+    font-weight: 500;
+}
+
+.shipping_attachment_wrap {
+    padding-top: 10px !important;
+}
+.shipping_attachment_wrap ul li {
+    float: left;
+    width: 100%;
+    font-size: 10px !important;
+    line-height: 15px;
+    padding: 0;
+}
+.shipping_attachment_wrap .material-icons {
+    font-size: 18px !important;
+}
