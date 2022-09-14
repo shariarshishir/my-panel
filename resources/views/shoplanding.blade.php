@@ -33,11 +33,9 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                             <div class="col s6 right-align">
                                 <div class="input-field select_rfq_status">
                                     <select class="select2 browser-default">
-                                        <option value="RFQ Status 1">RFQ Status 1</option>
-                                        <option value="RFQ Status 2">RFQ Status 2</option>
-                                        <option value="RFQ Status 3">RFQ Status 3</option>
-                                        <option value="RFQ Status 4">RFQ Status 4</option>
-                                        <option value="RFQ Status 5">RFQ Status 5</option>
+                                        <option value="0">Select Status</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="accepted">Accepted</option>
                                     </select>
                                 </div>
                             </div>
@@ -85,19 +83,21 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             </div>
                                         </div>
                                         @if($rfqLists)
-                                            @foreach($rfqLists as $key=>$rfq)
+                                            @foreach($rfqLists as $key => $rfq)
                                             <div class="col s12 m6">
                                                 <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}">
                                                     <div class="rfq_status_wrap">
                                                         <div class="row">
-                                                            <span class="status accepted_rfq">RFQ Status 1</span>
+                                                            <span class="status {{($rfq['status'] == "pending") ? "pending_rfq" : "accepted_rfq"}}">
+                                                                {{($rfq['status'] == "pending") ? "Pending" : "Accepted"}}
+                                                            </span>
                                                             {{-- <span class="status pending_rfq">RFQ Status 1</span> --}}
                                                             <span class="more_vert">
-                                                                <a class='dropdown-trigger' href='#' data-target='rfqStatusDropdown'><i class="material-icons">more_vert</i></a>
-                                                                <ul id='rfqStatusDropdown' class='dropdown-content rfq_status_dropdown'>
-                                                                    <li><a href="#!">Remove</a></li>
-                                                                    <li><a href="#!">Archive</a></li>
-                                                                    <li><a href="#!">Option</a></li>
+                                                                <a class="dropdown-trigger" href="javascript:void(0);" data-target="rfqStatusDropdown"><i class="material-icons">more_vert</i></a>
+                                                                <ul id="rfqStatusDropdown" class="dropdown-content rfq_status_dropdown">
+                                                                    <li><a href="javascript:void(0);">Remove</a></li>
+                                                                    <li><a href="javascript:void(0);">Archive</a></li>
+                                                                    <li><a href="javascript:void(0);">Option</a></li>
                                                                 </ul>
                                                             </span>
                                                         </div>
