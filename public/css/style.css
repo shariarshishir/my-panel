@@ -14972,6 +14972,79 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-left: 5px;
 }
 
+/* Fixed side nav start */
+.mainSidenav {
+    height: 100%;
+    width: 40px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 100px;
+    white-space: nowrap;
+    word-break: normal;
+    box-shadow: 3px 3px 6px -3px rgb(0 0 0 / 16%);
+    background: #fff;
+}
+
+.mainSidenav ul li {
+    padding: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    float: left;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.mainSidenav ul li a,
+.mainSidenav ul li a:link,
+.mainSidenav ul li a:active,
+.mainSidenav ul li a:visited {
+    color: #818181;
+    font-size: 16px;
+    display: block;
+    cursor: pointer;
+}
+.mainSidenav ul li a:hover {
+    color: #54a958;
+}
+.mainSidenav ul li a .material-icons {
+    font-size: 20px;
+    float: left;
+    margin-top: 3px;
+}
+.mainSidenav .material-icons {
+    margin-right: 20px;
+}
+
+.mainSidenav a:hover {
+    color: #f1f1f1;
+}
+
+.mainSidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#buyerLayoutView {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+#mainSidenavCover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000;
+}
+/* Fixed side nav end */
+
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {
     .container.howWeWorkContainer .manufacture_container {

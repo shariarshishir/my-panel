@@ -472,12 +472,22 @@
 		</div>
 	</div>
 </section>
-
-
-
-
-
 <!-- Header section end -->
-
-
+<div id="mainSidenav" class="mainSidenav">
+	<span style="font-size:22px; cursor:pointer; color: #000; margin-left: 10px;" onclick="openClose()">&#9776; </span>
+	<ul>
+		<li>
+			<a class="tooltipped" data-position="right" data-tooltip="My Orders"><i class="material-icons">library_books</i><span>My Orders</span></a>
+		</li>
+		<li>
+			<a class="tooltipped" data-position="right" data-tooltip="My Orders"><i class="material-icons">library_books</i><span>My Orders</span></a>
+		</li>
+		<li>
+			<a class="tooltipped" data-position="right" data-tooltip="My Orders"><i class="material-icons">library_books</i><span>My Orders</span></a>
+		</li>
+		<li>
+			<a class="tooltipped" data-position="right" data-tooltip="My Orders"><i class="material-icons">library_books</i><span>My Orders</span></a>
+		</li>
+	</ul>
+</div>
 

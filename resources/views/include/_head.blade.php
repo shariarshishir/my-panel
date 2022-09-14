@@ -152,6 +152,24 @@
             e.style.display = 'block';
         }
     }
+
+    function openClose() {
+        var x = document.getElementById("mainSidenav");
+        if (x.style.width === "250px") {
+            $(".mainSidenav").removeClass("mainSidenavLg");
+            $(".mainSidenav").addClass("mainSidenavSm");
+            x.style.width = "40px";
+            document.getElementById("mainSidenav").style.width = "40px";
+            document.getElementById("buyerLayoutView").style.marginLeft= "40px";
+            
+        } else {
+            x.style.width = "250px";
+            document.getElementById("mainSidenav").style.width = "250px";
+            document.getElementById("buyerLayoutView").style.marginLeft = "250px";
+            $(".mainSidenav").removeClass("mainSidenavSm");
+            $(".mainSidenav").addClass("mainSidenavLg");
+        }
+    }    
 </script>
 
 <script type="application/ld+json">
