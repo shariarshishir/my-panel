@@ -28,11 +28,11 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                     <div class="row">
                         <div class="col s12 m12 l7">
                             <div class="product_design_wrapper">
-                                <div class="profile_account_searchBar">
+                                {{-- <div class="profile_account_searchBar">
                                     <div class="row">
                                         <div class="col s12 m5 l4">
                                             <a class="post_new" href="{{route('rfq.create')}}">
-                                            <i class="material-icons">add</i><span>Post New</span>
+                                                <i class="material-icons">add</i><span>Post New </span>
                                             </a>
                                         </div>
                                         <div class="col s12 m7 l8">
@@ -46,7 +46,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             </form>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="profile_account_myrfq_innerbox">
                                     <div class="row rfq_account_title_bar">
                                         <div class="col s8">
@@ -58,6 +58,13 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                     </div>
 
                                     <div class="row">
+                                        <div class="col s12 m6">
+                                            <div class="profile_account_myrfq_addPost">
+                                                <a class="post_new" href="{{route('rfq.create')}}">
+                                                    <i class="material-icons">add</i><span>Post New </span>
+                                                </a>
+                                            </div>
+                                        </div>
                                         @if($rfqLists)
                                             @foreach($rfqLists as $key=>$rfq)
                                             <div class="col s12 m6">

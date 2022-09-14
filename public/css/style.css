@@ -76,7 +76,7 @@ a:hover {
     outline: none;
 }
 b {
-    font-family: 'nexablack';
+    font-family: "nexablack";
     font-weight: inherit;
 }
 td,
@@ -243,7 +243,7 @@ button:hover {
     border-radius: 10px;
 }
 .radio_box {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
 }
 .radio_box [type="radio"] + span:before,
@@ -308,7 +308,7 @@ textarea:focus {
     transform: translate(-50%, -20%);
 }
 .loading-message {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     margin-top: -20px;
 }
@@ -345,7 +345,7 @@ input[type="number"]:not(.browser-default):disabled {
 legend {
     background-color: #ddd;
     font-size: 16px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #000;
     padding: 10px;
     display: block;
@@ -368,7 +368,7 @@ legend {
 .page_content_wrap .mainTitle {
     background: #fff;
     font-size: 25px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
     margin-bottom: 25px;
 }
@@ -740,7 +740,10 @@ legend {
     padding-left: 15px !important;
     padding-right: 20px;
 }
-.banner_search .select2-container--default .select2-selection--single .select2-selection__arrow {
+.banner_search
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 10px;
     right: 7px;
 }
@@ -903,7 +906,7 @@ legend {
 .product_wrapper .product_view a:visited {
     color: #257356;
     font-size: 18px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .product_wrapper .product_slider .productBox {
     margin-bottom: 0px;
@@ -990,7 +993,8 @@ legend {
 
 /* ***************************** */
 .profile_bannerwrap .banner_overlay {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/profile-banner-update.png") no-repeat center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/profile-banner-update.png")
+        no-repeat center;
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.2);
     left: 0;
@@ -1017,7 +1021,8 @@ legend {
     display: none;
 }
 .profile_bannerwrap .erified {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/mark_icon.png") no-repeat left 8px;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/mark_icon.png")
+        no-repeat left 8px;
     position: absolute;
     bottom: 70px;
     right: 70px;
@@ -1026,7 +1031,8 @@ legend {
     line-height: 30px;
 }
 .verified_by_merchantbay {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/mark_icon.png") no-repeat left center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/mark_icon.png")
+        no-repeat left center;
     padding: 18px 10px 18px 35px;
     font-size: 18px;
     line-height: 30px;
@@ -1036,7 +1042,8 @@ legend {
     text-decoration: underline;
 }
 .profile_bannerwrap .rightText {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/info_icon.png") no-repeat right center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/info_icon.png")
+        no-repeat right center;
     padding-right: 30px;
 }
 .profile-image-block img {
@@ -1156,7 +1163,7 @@ legend {
 }
 .profile_leftCol .left_top .addressBox span,
 .leftCol_wrap .left_top .addressBox span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     margin-bottom: 5px;
     display: inline-block;
     font-size: 16px;
@@ -1205,7 +1212,7 @@ legend {
 .profile_tab_menu .tabs .tab a:link,
 .profile_tab_menu .tabs .tab a:active,
 .profile_tab_menu .tabs .tab a:visited {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     color: #464545;
     text-transform: capitalize;
@@ -1238,7 +1245,7 @@ legend {
     opacity: 0.5;
 }
 .profile_tab_menu button {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 22px;
     border: none;
     margin: 0 20px;
@@ -1300,7 +1307,7 @@ legend {
 }
 .profile_tabNav_wrap .tabcontent .company_stuff .title,
 .account_profile_wrapper .company_stuff .title {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     color: #54a958;
     line-height: 20px;
@@ -1336,7 +1343,7 @@ legend {
 .account_profile_wrapper .product_view a:link,
 .account_profile_wrapper .product_view a:active,
 .account_profile_wrapper .product_view a:visited {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #257356;
     font-size: 20px;
 }
@@ -1485,13 +1492,14 @@ legend {
     width: 100%;
 }
 .profile_not_updated_inner a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .profile_not_updated_inner a:hover {
     text-decoration: none;
 }
 .annaouncement_icon {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/annaouncement-icon.png") no-repeat left top;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/annaouncement-icon.png")
+        no-repeat left top;
     background-size: 50px;
     position: absolute;
     top: -28px;
@@ -1599,10 +1607,22 @@ legend {
     font-size: 16px;
     text-transform: capitalize;
 }
-.profile_tabNav_wrap .manpower_table_wrapper .production-flow-and-manpower-table tr,
-.profile_tabNav_wrap .manpower_table_wrapper .production-flow-and-manpower-table th,
-.account_profile_wrapper .manpower_table_wrapper .production-flow-and-manpower-table tr,
-.account_profile_wrapper .manpower_table_wrapper .production-flow-and-manpower-table th {
+.profile_tabNav_wrap
+    .manpower_table_wrapper
+    .production-flow-and-manpower-table
+    tr,
+.profile_tabNav_wrap
+    .manpower_table_wrapper
+    .production-flow-and-manpower-table
+    th,
+.account_profile_wrapper
+    .manpower_table_wrapper
+    .production-flow-and-manpower-table
+    tr,
+.account_profile_wrapper
+    .manpower_table_wrapper
+    .production-flow-and-manpower-table
+    th {
     text-align: center;
     width: 40% !important;
 }
@@ -1628,7 +1648,7 @@ legend {
 #ready_stock_order_customize_block .ready-stock-table-block th,
 .account_profile_wrapper .color-size-table-block th,
 .account_profile_wrapper .fresh-order-attribute-table-block th {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 15px;
     text-align: center;
 }
@@ -1700,11 +1720,27 @@ legend {
     padding: 8px 15px;
 }
 .profile_tabNav_wrap .overview_table .production-flow-and-manpower-table tr td,
-.account_profile_wrapper .overview_table .production-flow-and-manpower-table tr td {
+.account_profile_wrapper
+    .overview_table
+    .production-flow-and-manpower-table
+    tr
+    td {
     padding: 0;
 }
-.profile_tabNav_wrap .overview_table .production-flow-and-manpower-table tr td tr td,
-.account_profile_wrapper .overview_table .production-flow-and-manpower-table tr td tr td {
+.profile_tabNav_wrap
+    .overview_table
+    .production-flow-and-manpower-table
+    tr
+    td
+    tr
+    td,
+.account_profile_wrapper
+    .overview_table
+    .production-flow-and-manpower-table
+    tr
+    td
+    tr
+    td {
     width: 50% !important;
     padding: 8px 15px;
 }
@@ -1726,7 +1762,7 @@ legend {
 }
 .profile_tabNav_wrap .production_flow tr th,
 .account_profile_wrapper .production_flow tr th {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     border-right: 1px solid #54a958;
     padding: 15px;
     text-align: center;
@@ -1750,7 +1786,7 @@ legend {
     padding-bottom: 0;
 }
 .worker_welfare_wrap .worker_welfare_box .welfare_box {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     padding: 8px 0;
     font-size: 16px;
     line-height: 30px;
@@ -1856,7 +1892,7 @@ legend {
     transform: translate(-50%, -50%);
 }
 .profile_products_gallery .gallery_textbox h5 span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     display: block;
     font-size: 18px;
 }
@@ -1881,16 +1917,17 @@ legend {
 }
 .account_profile_wrapper .tab_navMenu ul li {
     display: inline-block;
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 22px;
     padding-right: 10px;
 }
 .account_profile_wrapper .tab_navMenu ul li a:link,
 .account_profile_wrapper .tab_navMenu ul li a:active,
 .account_profile_wrapper .tab_navMenu ul li a:visited {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/path_arrow.png") no-repeat right center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/path_arrow.png")
+        no-repeat right center;
     padding-right: 30px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 22px;
     color: #464545;
     background-size: 14px;
@@ -2001,7 +2038,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     line-height: 20px;
 }
 .product_data_table_wrap .btn_product_edit {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
 }
 .add-new-product-button {
@@ -2047,7 +2084,11 @@ div.dataTables_wrapper table.mdc-data-table__table {
 .product_preview_info_wrap .product_preview_wrap .slick-slider .slick-list {
     padding: 0 !important;
 }
-.product_preview_info_wrap .product_preview_wrap .slick-slider .slick-list .slick-track {
+.product_preview_info_wrap
+    .product_preview_wrap
+    .slick-slider
+    .slick-list
+    .slick-track {
     transition: inherit !important;
     max-height: 535px;
     overflow: hidden;
@@ -2165,7 +2206,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 }
 .product_details_info_wrap .seller-store a,
 .product_details_wrapper .seller-store a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
 }
 .product_description {
@@ -2181,18 +2222,18 @@ div.dataTables_wrapper table.mdc-data-table__table {
     font-size: 18px;
 }
 .single-product-price .label {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
 }
 .single-product-price-value {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 28px;
 }
 .single-product-price-value a {
     font-size: 18px;
 }
 .ready_order_attr_block {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     padding: 10px 0;
     font-size: 14px;
 }
@@ -2210,18 +2251,18 @@ div.dataTables_wrapper table.mdc-data-table__table {
 }
 .single-product-moq {
     padding: 10px 0;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
 }
 .single-product-moq span {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 28px;
 }
 .single-product-moq .unit {
     font-size: 12px;
 }
 .single-product-colors {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
     padding-top: 25px;
 }
@@ -2233,7 +2274,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     margin: 0 5px 10px 0;
 }
 .single-product-colors ul li a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 14px;
     color: #3d3d3d;
     background: #ffffff;
@@ -2257,7 +2298,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 }
 .fresh_order_block_wrapper,
 .ready_stock_block_wrapper {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
     padding-top: 10px;
 }
@@ -2285,7 +2326,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     font-size: 18px;
 }
 .total-price-block label {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
 }
 #ready_stock_order_customize_block.modal .modal-footer {
@@ -2330,7 +2371,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 .single-product-description-block-wrapper ul li a:link,
 .single-product-description-block-wrapper ul li a:active,
 .single-product-description-block-wrapper ul li a:visited {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #707070;
     font-size: 16px;
     text-transform: capitalize;
@@ -2351,7 +2392,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     float: left;
     color: #0a0a0a;
     padding: 5px 0;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     box-shadow: none;
     background: none !important;
@@ -2446,7 +2487,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     width: 115px;
     height: 40px;
     text-transform: capitalize;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     border-radius: 5px;
     float: right;
@@ -2471,13 +2512,16 @@ div.dataTables_wrapper table.mdc-data-table__table {
     padding: 20px 20px 10px !important;
 }
 .product_details_info_wrap .ic-product-title {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 22px;
     color: #464545;
     margin-bottom: 30px;
     text-transform: capitalize;
 }
-.user-profile-basic-info-block .my_businesses_wrap .my_businesses_box .businessName {
+.user-profile-basic-info-block
+    .my_businesses_wrap
+    .my_businesses_box
+    .businessName {
     width: 85%;
     max-height: 40px;
     text-overflow: ellipsis;
@@ -2487,7 +2531,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     overflow: hidden;
 }
 .user-profile-basic-info-block .my_businesses_wrap .my_businesses_innerbox b {
-    font-family: 'nexablack';
+    font-family: "nexablack";
     font-weight: inherit;
     font-size: 13px;
     color: #285460;
@@ -2502,7 +2546,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     padding-left: 58px;
 }
 .category_name a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #464545;
     margin-bottom: 30px;
     text-transform: capitalize;
@@ -2550,7 +2594,8 @@ div.dataTables_wrapper table.mdc-data-table__table {
 .category_nav ul li a:link,
 .category_nav ul li a:active,
 .category_nav ul li a:visited {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/path_arrow.png") no-repeat 94% 20px;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/path_arrow.png")
+        no-repeat 94% 20px;
     background-size: 10px;
     padding-right: 35px;
     border-radius: 10px;
@@ -2574,10 +2619,10 @@ div.dataTables_wrapper table.mdc-data-table__table {
     margin-bottom: 10px;
 }
 .customizationText {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
     font-size: 14px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 .product_preview_info_wrap .mycolorwrapper {
     padding-bottom: 10px;
@@ -2606,7 +2651,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     display: inline-block;
 }
 .single-product-price-value .price_negotiable {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 22px;
 }
 .single-product-price-value .nego_price {
@@ -2635,7 +2680,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     margin-bottom: 15px;
 }
 .product_details_tab_wrap .com_detalts {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
     padding-top: 30px;
     display: block;
@@ -2651,7 +2696,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 0;
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .product_preview_right .ic-place-order {
     margin-bottom: 20px;
@@ -2661,7 +2706,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     line-height: 22px;
 }
 .product_preview_right h3 {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 15px;
     margin-bottom: 30px;
 }
@@ -2669,7 +2714,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     padding-bottom: 20px;
 }
 .product_preview_right .requestbox a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     margin-bottom: 10px;
     display: inline-block;
 }
@@ -2718,15 +2763,27 @@ div.dataTables_wrapper table.mdc-data-table__table {
     line-height: 5px;
 }
 .product_design_wrapper .favorite .product-add-wishlist .material-icons,
-.product_details_wrapper .related-products .product_quick_options a .material-icons {
+.product_details_wrapper
+    .related-products
+    .product_quick_options
+    a
+    .material-icons {
     color: #b0b0b2;
     font-size: 26px;
     line-height: 18px;
 }
 .product_design_wrapper .favorite .product-add-wishlist:hover .material-icons,
 .product_design_wrapper .favorite .product-add-wishlist.active .material-icons,
-.product_details_wrapper .related-products .product_quick_options a.active .material-icons,
-.product_details_wrapper .related-products .product_quick_options a:hover .material-icons {
+.product_details_wrapper
+    .related-products
+    .product_quick_options
+    a.active
+    .material-icons,
+.product_details_wrapper
+    .related-products
+    .product_quick_options
+    a:hover
+    .material-icons {
     color: #54a958;
 }
 /* ****************************************** */
@@ -2750,7 +2807,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     position: relative;
 }
 .product_details_wrapper .related-products .product-title a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 12px;
     color: #000000;
     line-height: 15px;
@@ -2806,12 +2863,12 @@ div.dataTables_wrapper table.mdc-data-table__table {
 }
 .wishlist-product .product-title {
     margin: 10px 0;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     text-transform: capitalize;
 }
 .wishlist-product .product_price {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
     margin-bottom: 15px;
 }
@@ -2822,7 +2879,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     padding: 0px 15px 10px !important;
 }
 .related_products_slider .product_short_details .btn_view_wishlist {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
     font-size: 16px;
     text-transform: capitalize;
@@ -2896,7 +2953,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 .profile_factory_tourWrap .top_titleWrap a:link,
 .profile_factory_tourWrap .top_titleWrap a:active,
 .profile_factory_tourWrap .top_titleWrap a:visited {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #257356;
     font-size: 18px;
     margin-top: 10px;
@@ -2940,7 +2997,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 .profile_factory_tourWrap .gallery_navbar ul li a:link,
 .profile_factory_tourWrap .gallery_navbar ul li a:active,
 .profile_factory_tourWrap .gallery_navbar ul li a:visited {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #464545;
     font-size: 16px;
     text-transform: capitalize;
@@ -3062,7 +3119,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 }
 #factory-tour-add-modal-block .factory_file_uploader label,
 #factory-tour-edit-modal-block .factory_file_uploader label {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 20px;
     margin-bottom: 20px;
     display: block;
@@ -3117,7 +3174,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     float: left;
 }
 .suppliers_container .suppliers_filter_wrap .title {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 20px;
     color: #464545;
 }
@@ -3156,7 +3213,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     display: block;
 }
 .suppliers_container .suppliers_filter_wrap .dropdown-content li label span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
     font-size: 16px;
 }
@@ -3254,7 +3311,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     max-height: 45px;
 }
 .suppliers_content_wrap .industry_address {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     padding: 20px 0 30px;
     text-align: center;
 }
@@ -3267,7 +3324,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     margin-right: 5px;
 }
 .suppliers_content_wrap .industry_details {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     padding: 0 42px 35px;
 }
 .suppliers_content_wrap .industry_details img {
@@ -3289,7 +3346,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 .suppliers_content_wrap .industry_view a:link,
 .suppliers_content_wrap .industry_view a:active,
 .suppliers_content_wrap .industry_view a:visited {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #fff;
     font-size: 18px;
     display: block;
@@ -3308,7 +3365,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     padding-bottom: 30px;
 }
 .suppliers_filter_list .filter_box label span {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 16px;
     color: #4e4e4e;
 }
@@ -3443,7 +3500,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
 }
 .suppliers_filter_content .supplier_profile_image_block a {
     border-bottom: 1px solid #54a958;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 15px;
     margin: 20px 0 10px;
     display: inline-block;
@@ -3478,7 +3535,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     float: left;
 }
 .suppliers_filter_content .short_info_box .info_details {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     width: 70%;
     float: left;
     padding-left: 10px;
@@ -3525,7 +3582,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     left: 50px;
     background: #fff;
     padding: 10px 20px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 30px;
     color: #54a958;
     margin: 0;
@@ -3846,7 +3903,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     color: #54a958;
 }
 .rfq_leftCol .rfq_follow_wrap .rfq_follow span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 35px;
     display: block;
 }
@@ -3895,7 +3952,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     border: 1px solid #54a958;
 }
 .rfq_select .btn_filter_dropMenu span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
     padding-right: 20px;
 }
@@ -3938,7 +3995,8 @@ div.dataTables_wrapper table.mdc-data-table__table {
     min-height: 150px;
 }
 .quick_rfqForm_wrap .btn_detailed_rfq {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/rfq_detaile_arrow_down.png.png") no-repeat center bottom;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/rfq_detaile_arrow_down.png.png")
+        no-repeat center bottom;
 }
 .rfq_info_wrap {
     padding: 35px;
@@ -3957,7 +4015,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     transform: translate(-50%, -50%);
 }
 .rfq_view_detail_wrap {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
 }
 .detail_table {
@@ -4100,7 +4158,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
 }
 .rfq_leftCol .rfq_follow_wrap .rfq_follow span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 35px;
     display: block;
 }
@@ -4142,7 +4200,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     border: 1px solid #54a958;
 }
 .rfq_content_box .rfq_select .btn_filter_dropMenu span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
     padding-right: 20px;
 }
@@ -4288,7 +4346,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     border: 2px solid #54a958;
 }
 .rfq_detail_from .input-field label {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 14px;
     color: #000000;
     padding-top: 0;
@@ -4302,7 +4360,10 @@ div.dataTables_wrapper table.mdc-data-table__table {
 }
 .rfq_detail_from .input-field input[type="date"]:not(.browser-default),
 .rfq_detail_from .input-field input[type="number"]:not(.browser-default),
-.rfq_detail_from .input-field .select2-container--default .select2-selection--single,
+.rfq_detail_from
+    .input-field
+    .select2-container--default
+    .select2-selection--single,
 .rfq_detail_from .input-field input[type="text"]:not(.browser-default),
 .rfq_detail_from .select2-container--default .select2-selection--single,
 .rfq_detail_from .input-field textarea,
@@ -4359,33 +4420,54 @@ div.dataTables_wrapper table.mdc-data-table__table {
     line-height: 44px;
     border-radius: 4px;
 }
-.profile_product_upload_modal .moqQuantity .productUnitBox{
+.profile_product_upload_modal .moqQuantity .productUnitBox {
     height: 43px;
 }
-.product_add_wrap_modal .moqQuantity .select2-container--default .select2-selection--single .select2-selection__rendered {
+.product_add_wrap_modal
+    .moqQuantity
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     height: 40px;
     line-height: 42px;
 }
-.product_add_wrap_modal .input-field .moqQuantity  .select2-container--default .select2-selection--single {
+.product_add_wrap_modal
+    .input-field
+    .moqQuantity
+    .select2-container--default
+    .select2-selection--single {
     height: 40px;
 }
-.product_add_wrap_modal .moqQuantity .select2-container--default .select2-selection--single .select2-selection__arrow {
+.product_add_wrap_modal
+    .moqQuantity
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 9px;
     right: 6px;
 }
 .profile_product_upload_modal .moqQuantity #moq {
     height: 46px;
 }
-.wholesaler_add_product_form .moqQuantity .select2-container--default .select2-selection--single .select2-selection__arrow {
+.wholesaler_add_product_form
+    .moqQuantity
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     height: 23px;
 }
 /* ************************* */
 
-
-.rfq_detail_from .select2-container--default .select2-selection--single .select2-selection__rendered {
+.rfq_detail_from
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 45px;
 }
-.rfq_detail_from .select2-container--default .select2-selection--single .select2-selection__arrow {
+.rfq_detail_from
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 10px;
     right: 7px;
 }
@@ -4450,7 +4532,8 @@ div.dataTables_wrapper table.mdc-data-table__table {
     padding: 30px 0 0;
 }
 .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq {
-    background: url(../images/rfq_detaile_arrow_down.png) no-repeat center bottom !important;
+    background: url(../images/rfq_detaile_arrow_down.png) no-repeat center
+        bottom !important;
     padding-bottom: 30px;
     font-size: 20px;
     color: #54a958;
@@ -4563,7 +4646,7 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     cursor: pointer;
 }
 .rfq_content_box .rfq_view_detail_wrap {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     padding: 15px 0;
 }
 .rfq_content_box .rfq_view_detail_wrap .green_active {
@@ -4588,7 +4671,7 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     font-size: 15px;
 }
 .rfq_content_box .rfq_view_detail_wrap .btn_view_detail {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     color: #54a958;
     padding: 0;
@@ -4604,7 +4687,7 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     padding: 5px 0;
 }
 .rfq_content_box .rfq_profile_detail .responses_wrap {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     padding: 20px 0 0px;
     color: #54a958;
 }
@@ -4661,7 +4744,8 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     display: inline-block;
 }
 .respones_detail_wrap .responses_open {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/respons_bg.png") no-repeat center top;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/respons_bg.png")
+        no-repeat center top;
     padding-bottom: 50px;
     position: absolute;
     right: 75px;
@@ -4681,14 +4765,14 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     text-transform: capitalize;
 }
 .rfq_content_box .respones_detail_wrap .btn_view_detail {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .rfq_content_box .respones_detail_wrap .full_specification,
 .rfq_content_box .respones_detail_wrap .full_details .title {
     font-family: "nexalight";
 }
 .rfq_content_box .respones_detail_wrap .full_specification .title {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .rfq_content_box .respones_detail_wrap .rfq_profile_img {
     width: 70px;
@@ -4760,7 +4844,8 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     border-radius: 5px;
 }
 .rfq_thum_img .doc_icon {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/doc-bg.png") no-repeat center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/doc-bg.png")
+        no-repeat center;
     background-size: 75px;
     width: auto;
     height: 84px;
@@ -4768,7 +4853,8 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     font-size: 0;
 }
 .rfq_thum_img .xlsx_icon {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/excel-bg.png") no-repeat center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/excel-bg.png")
+        no-repeat center;
     background-size: 75px;
     width: auto;
     height: 84px;
@@ -4776,7 +4862,8 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     font-size: 0;
 }
 .rfq_thum_img .pdf_icon {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/pdf-bg.png") no-repeat center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/pdf-bg.png")
+        no-repeat center;
     background-size: 75px;
     width: auto;
     height: 84px;
@@ -4784,7 +4871,8 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     font-size: 0;
 }
 .rfq_thum_img .zip_icon {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/zip-bg.png") no-repeat center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/zip-bg.png")
+        no-repeat center;
     background-size: 75px;
     width: auto;
     height: 84px;
@@ -4796,7 +4884,7 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     font-family: "nexalight";
 }
 .rfq_view_detail_info .full_specification .title {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .rfq_view_detail_info .full_details {
     text-transform: capitalize;
@@ -4941,7 +5029,7 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
 }
 .business_stepper_wrap h3 {
     font-size: 25px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #3d3d3d;
     margin: 0 0 40px;
 }
@@ -4963,7 +5051,7 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
 .business_stepper_wrap .tabs li a:link,
 .business_stepper_wrap .tabs li a:active,
 .business_stepper_wrap .tabs li a:visited {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #000000;
     font-size: 18px;
     text-transform: capitalize;
@@ -5007,7 +5095,9 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
 .business_stepper_wrap .tabs li a.hover .step_count {
     background: #397b3d;
 }
-.select2-container--default .select2-selection--single .select2-selection__arrow {
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 13px;
     right: 10px;
 }
@@ -5054,7 +5144,10 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
 .business_stepper_wrap .input-field select {
     width: 100%;
 }
-.business_stepper_wrap .select2-container--default .select2-selection--single .select2-selection__rendered {
+.business_stepper_wrap
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 46px;
 }
 ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
@@ -5063,7 +5156,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 }
 .business_stepper_wrap .next_to_representative_details_info {
     background: #54a958;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 18px;
     width: 130px;
     height: 45px;
@@ -5078,7 +5171,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     color: #ffffff;
 }
 .business_stepper_wrap .previous-step {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #397b3d;
     font-size: 20px;
     padding-top: 10px;
@@ -5106,7 +5199,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 }
 .business_stepper_wrap .representative_box .radio_box {
     margin-left: 30px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
 }
 .business_stepper_wrap [type="radio"] + span:before,
@@ -5165,7 +5258,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     font-size: 16px;
 }
 .business_list_wrapper .list_box span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .business_list_wrapper .list_box p a {
     display: block;
@@ -5212,8 +5305,18 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 .business_list_inner_wrap .business_list_itembox .list_box .switch {
     bottom: 50px;
 }
-.my_businesses_wrap .my_businesses_box .switch label input[type="checkbox"]:checked + .lever,
-.business_list_itembox .list_box .switch label input[type="checkbox"]:checked + .lever {
+.my_businesses_wrap
+    .my_businesses_box
+    .switch
+    label
+    input[type="checkbox"]:checked
+    + .lever,
+.business_list_itembox
+    .list_box
+    .switch
+    label
+    input[type="checkbox"]:checked
+    + .lever {
     background: #73d578;
     margin: 0 0 5px 0;
 }
@@ -5222,11 +5325,21 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     background: none !important;
     color: #54a958 !important;
     border-radius: 10px;
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 12px;
 }
-.my_businesses_wrap .my_businesses_box .switch label input[type="checkbox"]:checked + .lever:after,
-.business_list_itembox .list_box .switch label input[type="checkbox"]:checked + .lever:after {
+.my_businesses_wrap
+    .my_businesses_box
+    .switch
+    label
+    input[type="checkbox"]:checked
+    + .lever:after,
+.business_list_itembox
+    .list_box
+    .switch
+    label
+    input[type="checkbox"]:checked
+    + .lever:after {
     background: #54a958;
 }
 .my_businesses_wrap .my_businesses_box .switch .enable_disable_label,
@@ -5242,7 +5355,6 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 }
 
 /* business_stepper_wrap css end  */
-
 
 /* Modal css  */
 .modal {
@@ -5403,27 +5515,51 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     background: none;
     text-transform: capitalize;
 }
-.select2-container--default .select2-results>.select2-results__options {
+.select2-container--default .select2-results > .select2-results__options {
     text-transform: capitalize;
 }
-#profileAccountPostNew .input-field .select2-container--default .select2-selection--single {
+#profileAccountPostNew
+    .input-field
+    .select2-container--default
+    .select2-selection--single {
     height: 50px;
 }
-#profileAccountPostNew .select2-container--default .select2-selection--single .select2-selection__rendered {
+#profileAccountPostNew
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 46px;
 }
 
-.input-field .select2-container--default .select2-search--inline .select2-search__field {
+.input-field
+    .select2-container--default
+    .select2-search--inline
+    .select2-search__field {
     box-shadow: inherit !important;
     border: none !important;
 }
 .createRfqForm .rfq_detail_from .input-wrapper ul.select2-selection__rendered {
     padding: 5px;
 }
-.profile_form_modal .input-field .select2-container--default .select2-search--inline .select2-search__field,
-.product_add_wrap_modal .input-field .select2-container--default .select2-search--inline input.select2-search__field,
-.new_profile_account_filterbox .select2-container .select2-search--inline .select2-search__field,
-#create-rfq-form .input-field .select2-container--default .select2-search--inline input.select2-search__field {
+.profile_form_modal
+    .input-field
+    .select2-container--default
+    .select2-search--inline
+    .select2-search__field,
+.product_add_wrap_modal
+    .input-field
+    .select2-container--default
+    .select2-search--inline
+    input.select2-search__field,
+.new_profile_account_filterbox
+    .select2-container
+    .select2-search--inline
+    .select2-search__field,
+#create-rfq-form
+    .input-field
+    .select2-container--default
+    .select2-search--inline
+    input.select2-search__field {
     display: block;
     min-width: 10px !important;
     line-height: 10px;
@@ -5432,21 +5568,41 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     margin: 0;
     width: auto !important;
 }
-.input-field .select2-container--default .select2-search--inline .select2-search__field:focus {
+.input-field
+    .select2-container--default
+    .select2-search--inline
+    .select2-search__field:focus {
     border: none !important;
 }
-.select2-container--default .select2-selection--single .select2-selection__rendered {
+.select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 46px;
     padding-left: 0;
 }
-.product_add_wrap_modal .input-field .priceRange .priceRangeUnit .select2-container--default .select2-selection--single .select2-selection__rendered {
+.product_add_wrap_modal
+    .input-field
+    .priceRange
+    .priceRangeUnit
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 42px;
 }
-.banner_search .select2-container--default .select2-selection--single .select2-selection__rendered {
+.banner_search
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 44px;
 }
-.pro_porma_invoice .select2-container--default .select2-selection--single .select2-selection__rendered,
-.line_item_wrap .select2-container--default .select2-selection--single .select2-selection__rendered {
+.pro_porma_invoice
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered,
+.line_item_wrap
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 48px;
 }
 .modal .submit_wrap {
@@ -5476,9 +5632,9 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     min-width: 100%;
     height: 158px;
     border-radius: 0;
-    -webkit-box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
-    -moz-box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
-    box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
+    box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
 }
 .product_media_wrap .media_img img {
     height: 100%;
@@ -5504,7 +5660,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     display: block;
 }
 .profile_form_modal .add_more_box .add-more-block {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
 }
 .modal .add_more_box .material-icons,
@@ -5565,7 +5721,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 
 /* ************************************** */
 .profile_form_modal label {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 14px;
     color: #000000;
     padding: 0 0 10px 0;
@@ -5671,21 +5827,24 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     margin: 10px 0 5px 0;
 }
 .account_profile_wrapper .certification_file_down {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/pdf-bg.png") no-repeat center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/pdf-bg.png")
+        no-repeat center;
     background-size: 125px;
     height: 100%;
     display: block;
     width: 100%;
 }
 .certificate_img_wrap .certificate_img .xlsx_icon {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/excel-bg.png") no-repeat center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/excel-bg.png")
+        no-repeat center;
     background-size: 125px;
     height: 100%;
     display: block;
     width: 100%;
 }
 .certificate_img_wrap .certificate_img .certification_doc {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/doc-bg.png") no-repeat center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/doc-bg.png")
+        no-repeat center;
     background-size: 125px;
     height: 100%;
     display: block;
@@ -5859,26 +6018,43 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     height: 55px;
     width: 160px !important;
 }
-.certification-details-table-block .select2-container .select2-selection--single {
+.certification-details-table-block
+    .select2-container
+    .select2-selection--single {
     height: 46px;
     margin-top: 5px;
     border: 1px solid #d9d9d9 !important;
     background: none;
 }
-.certification-details-table-block .select2-container .select2-selection--single:focus {
+.certification-details-table-block
+    .select2-container
+    .select2-selection--single:focus {
     border: 1px solid #54a948 !important;
 }
-.certification-details-table-block .select2-container--default .select2-selection--single .select2-selection__arrow b {
+.certification-details-table-block
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow
+    b {
     margin-top: 3px;
 }
-.certification-details-table-block .select2-container--default .select2-selection--single .select2-selection__clear {
+.certification-details-table-block
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__clear {
     margin-right: 5px;
 }
-.certification-details-table-block .select2-container--default .select2-selection--single .select2-selection__rendered {
+.certification-details-table-block
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 45px;
     padding-left: 10px;
 }
-.certification-details-table-block .select2-container--default .select2-selection--single .select2-selection__arrow {
+.certification-details-table-block
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 10px;
     right: 5px;
 }
@@ -6257,7 +6433,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 .profile-menu-list ul li a:link,
 .profile-menu-list ul li a:active,
 .profile-menu-list ul li a:visited {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     color: #464545;
     text-transform: capitalize;
@@ -6317,7 +6493,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 #rejectPoDetailsModal h4.modal-title {
     padding: 15px;
     font-size: 20px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #ffffff;
 }
 .invoice_top_button_wrap {
@@ -6344,7 +6520,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     border-radius: 3px;
 }
 .has_feedback_wrap .has-feedback label {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     display: block;
 }
 .has_feedback_wrap .has-feedback span {
@@ -6496,7 +6672,7 @@ nav .pagination li.active .page-link {
     float: left;
 }
 .cart_item_edit {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #54a958;
 }
 .cart_totals {
@@ -6942,7 +7118,7 @@ nav .pagination li.active .page-link {
     padding: 20px 0 0;
 }
 .invoice_terms_conditions .add_more_condi a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .invoice_terms_conditions .add_more_condi .fa {
     font-size: 16px;
@@ -6993,7 +7169,7 @@ nav .pagination li.active .page-link {
     margin-bottom: 20px;
 }
 .invoice_container_wrap table thead th {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .invoice_advising_bank {
     padding-top: 20px;
@@ -7030,7 +7206,7 @@ nav .pagination li.active .page-link {
 }
 /* ****************************** */
 #homepage {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     color: #707070;
     font-size: 14px;
     position: relative;
@@ -7059,7 +7235,9 @@ nav .pagination li.active .page-link {
     transform: translateX(-50%);
 }
 #homepage .banner .description {
-    background: transparent linear-gradient(180deg, #21715610 0%, #f9f9f924 85%, #80808000 100%) 0% 0% no-repeat padding-box;
+    background: transparent
+        linear-gradient(180deg, #21715610 0%, #f9f9f924 85%, #80808000 100%) 0%
+        0% no-repeat padding-box;
     border-radius: 15px;
     position: relative;
 }
@@ -7130,7 +7308,8 @@ nav .pagination li.active .page-link {
     margin-top: -10px;
 }
 #homepage .about .about-item .icon-box {
-    background: transparent linear-gradient(270deg, #217156 0%, #81a95a 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(270deg, #217156 0%, #81a95a 100%) 0%
+        0% no-repeat padding-box;
     border-radius: 7px;
     height: 165px;
     display: flex;
@@ -7273,7 +7452,9 @@ nav .pagination li.active .page-link {
     padding-top: 80px;
 }
 #homepage .delivaryTime .ontimeDescription .description {
-    background: transparent linear-gradient(180deg, #21715610 0%, #f9f9f924 85%, #80808000 100%) 0% 0% no-repeat padding-box;
+    background: transparent
+        linear-gradient(180deg, #21715610 0%, #f9f9f924 85%, #80808000 100%) 0%
+        0% no-repeat padding-box;
     border-radius: 15px;
 }
 #homepage .delivaryTime .ontimeDescription .description span {
@@ -7294,7 +7475,7 @@ nav .pagination li.active .page-link {
     line-height: 25px;
 }
 #homepage .delivaryTime .ontimeDescription .description a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 #homepage .delivaryTime .ontimeDescription .banner-image {
     height: 100%;
@@ -7323,7 +7504,8 @@ nav .pagination li.active .page-link {
 }
 #homepage .tbm li a.active,
 .tbm li a:first-child:hover {
-    background: transparent linear-gradient(90deg, #217156 0%, #81a95a 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(90deg, #217156 0%, #81a95a 100%) 0%
+        0% no-repeat padding-box;
     text-decoration: none;
 }
 #homepage #book-call-modal .ic-signup-title {
@@ -7405,28 +7587,29 @@ nav .pagination li.active .page-link {
     padding: 15px 30px;
     display: block;
     background: #fff;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #000;
     font-size: 20px;
 }
 #homepage .tbm li a span {
     font-size: 14px;
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
 }
 #homepage .tbm li a:hover,
 #homepage .tbm li a.active,
 #homepage .tbm li a:first-child:hover {
-    background: transparent linear-gradient(90deg, #217156 0%, #81a95a 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(90deg, #217156 0%, #81a95a 100%) 0%
+        0% no-repeat padding-box;
     text-decoration: none;
     padding: 15px 30px;
     display: block;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #fff;
     font-size: 20px;
     border-radius: 6px 0 0 0;
 }
 #homepage .homebHd-sm {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 34px;
     color: #217156;
     text-align: center;
@@ -7472,7 +7655,7 @@ nav .pagination li.active .page-link {
     background-color: #217156;
     border-radius: 6px;
     padding: 15px 20px 12px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #fff;
     font-size: 18px;
     text-transform: uppercase;
@@ -7545,23 +7728,63 @@ nav .pagination li.active .page-link {
 .messagedata_leftbar .valign-wrapper {
     line-height: 40px;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .chat-body .chat-text p {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat
+    .chat-body
+    .chat-text
+    p {
     min-height: 33px;
 }
 .chat-application .app-chat .chat-content .chat-content-area .chat-area {
     background: #f5f5f5 !important;
 }
-.chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user {
+.chat-application
+    .app-chat
+    .chat-content
+    .sidebar
+    .sidebar-chat
+    .chat-list
+    .chat-user {
     padding-left: 10px !important;
 }
-.chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user .info-section .star-timing {
+.chat-application
+    .app-chat
+    .chat-content
+    .sidebar
+    .sidebar-chat
+    .chat-list
+    .chat-user
+    .info-section
+    .star-timing {
     width: 140px !important;
 }
-.chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user .info-section .star-timing .time {
+.chat-application
+    .app-chat
+    .chat-content
+    .sidebar
+    .sidebar-chat
+    .chat-list
+    .chat-user
+    .info-section
+    .star-timing
+    .time {
     white-space: nowrap;
     line-height: 42px;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .chat-avatar .avatar {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat
+    .chat-avatar
+    .avatar {
     width: 45px;
     height: 45px;
     display: block;
@@ -7570,14 +7793,40 @@ nav .pagination li.active .page-link {
     border: 1px solid #ddd;
     padding: 8px;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat.chat-right .chat-avatar .avatar {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat.chat-right
+    .chat-avatar
+    .avatar {
     line-height: 30px;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat.chat-right .chat-avatar .avatar span {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat.chat-right
+    .chat-avatar
+    .avatar
+    span {
     font-family: "nexabold";
     font-size: 20px;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .chat-avatar .avatar img {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat
+    .chat-avatar
+    .avatar
+    img {
     width: 100%;
     height: 100%;
     border-radius: 0;
@@ -7586,10 +7835,28 @@ nav .pagination li.active .page-link {
     position: relative;
     padding-bottom: 30px;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .chat-body .chat_sms_box p {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat
+    .chat-body
+    .chat_sms_box
+    p {
     min-height: 40px;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .chat-body .chat-text .sms_strtotime {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat
+    .chat-body
+    .chat-text
+    .sms_strtotime {
     position: absolute;
     left: 18px;
     color: #757575;
@@ -7597,7 +7864,15 @@ nav .pagination li.active .page-link {
     font-size: 14px;
     white-space: nowrap;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat-right .chat-text .sms_strtotime {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat-right
+    .chat-text
+    .sms_strtotime {
     left: 0px !important;
 }
 .chat_messagedata .chat_sms {
@@ -7632,7 +7907,13 @@ nav .pagination li.active .page-link {
     display: inline-block;
     width: auto;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-footer .chat-input .message {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-footer
+    .chat-input
+    .message {
     background: #f5f5f5 !important;
 }
 .chat-application .app-chat .chat-content .chat-content-area .chat-footer {
@@ -7742,7 +8023,7 @@ nav .pagination li.active .page-link {
     min-height: inherit;
     min-width: inherit;
     width: auto;
-    height:auto;
+    height: auto;
     max-height: 120px;
     object-fit: cover;
 }
@@ -7776,14 +8057,39 @@ nav .pagination li.active .page-link {
 .chat-application .app-chat .chat-content .chat-content-area .chat-header {
     min-height: 55px;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-footer .chat-input .send {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-footer
+    .chat-input
+    .send {
     padding: 5px 10px !important;
 }
-.chatting_app_wrapper .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat.chat-right .chat-body .chat-text p {
+.chatting_app_wrapper
+    .chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat.chat-right
+    .chat-body
+    .chat-text
+    p {
     word-break: initial;
     min-height: 35px;
 }
-.chatting_app_wrapper .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .chat-body .chat-text {
+.chatting_app_wrapper
+    .chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat
+    .chat-body
+    .chat-text {
     margin-top: 5px !important;
     margin-bottom: 0 !important;
 }
@@ -7828,7 +8134,7 @@ nav .pagination li.active .page-link {
 .mainNav_mobile_wrap .mySidenav ul li a:visited,
 .mainNav_mobile_wrap .mySidenav ul li span.mobile-parent-li-item,
 .mainNav_mobile_wrap .mySidenav ul li span.mobile-sub-parent-li-item {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 17px;
     color: #000000;
     display: block;
@@ -7874,7 +8180,7 @@ nav .pagination li.active .page-link {
     background: none !important;
     background-color: transparent !important;
     padding: 5px 5px 5px 20px;
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 16px;
 }
 .mainNav_mobile_wrap .mySidenav ul li ul li ul li a:hover,
@@ -8004,7 +8310,7 @@ nav .pagination li.active .page-link {
     text-transform: capitalize;
 }
 .search-item-tag {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #999;
     font-size: 14px;
     text-transform: uppercase;
@@ -8195,7 +8501,10 @@ nav .pagination li.active .page-link {
 .messageCenter_leftTop .select2-selection {
     margin-top: 10px;
 }
-.messageCenter_leftTop .select2-container--default .select2-selection--single .select2-selection__arrow {
+.messageCenter_leftTop
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 22px;
 }
 .header_message_box #message-countdown-dropdown {
@@ -8215,12 +8524,18 @@ nav .pagination li.active .page-link {
 .messageCenter_leftForm {
     width: 100%;
 }
-.chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat {
+.chat-application
+    .app-chat
+    .chat-content
+    .chat-content-area
+    .chat-area
+    .chats
+    .chat {
     position: relative;
 }
 .chat_messagedata .just_now {
     margin-top: 9px !important;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 13px;
     color: #54a958;
     position: absolute;
@@ -8248,7 +8563,9 @@ nav .pagination li.active .page-link {
 /* *************** Footer Container css start ***************** */
 
 .footer_bottomWrap {
-    background: #191919 url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/footer-bg-update.png") no-repeat left center;
+    background: #191919
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/footer-bg-update.png")
+        no-repeat left center;
     padding: 200px 100px 50px;
     color: #fff;
     background-size: cover;
@@ -8319,7 +8636,9 @@ nav .pagination li.active .page-link {
     color: #73d578;
     z-index: 1;
 }
-.footer_newsletter_bar .footer_buttonWrap .industry_textbox::-webkit-input-placeholder {
+.footer_newsletter_bar
+    .footer_buttonWrap
+    .industry_textbox::-webkit-input-placeholder {
     color: #73d578;
 }
 .footer_newsletter_bar .footer_buttonWrap .industry_textbox:focus {
@@ -8404,7 +8723,9 @@ nav .pagination li.active .page-link {
 .rfq_post_success,
 .login_landing_inner,
 .footer_topWrap_inner {
-    background: #ffffff url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/footer-half-logo-right.png") no-repeat -2px center;
+    background: #ffffff
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/footer-half-logo-right.png")
+        no-repeat -2px center;
     background-size: 165px;
     padding: 50px 30px 30px;
     border-radius: 20px;
@@ -8420,7 +8741,9 @@ nav .pagination li.active .page-link {
 .rfq_post_success .rfq_post_success_inner_right,
 .footer_topWrap_inner .footer_topWrap_inner_right_bg,
 .login_landing_inner .login_landing_inner_right {
-    background: #ffffff url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/footer-half-logo-left.png") no-repeat right center;
+    background: #ffffff
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/footer-half-logo-left.png")
+        no-repeat right center;
     background-size: 165px;
     position: absolute;
     right: 0;
@@ -8452,7 +8775,7 @@ nav .pagination li.active .page-link {
     max-width: 480px;
 }
 .footer_topWrap .btn_talk {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 25px;
     color: #257356;
     background: #ffffff;
@@ -8550,7 +8873,9 @@ nav .pagination li.active .page-link {
     margin: 0;
 }
 .landing_intro_wrapper {
-    background: #ffffff url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/landing-intro-bg.jpg") no-repeat right 30px;
+    background: #ffffff
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/landing-intro-bg.jpg")
+        no-repeat right 30px;
     padding: 20px 0 130px;
     background-size: contain;
 }
@@ -8594,7 +8919,7 @@ nav .pagination li.active .page-link {
     font-size: 35px;
 }
 .landing_provide_wrap h3 {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 22px;
     line-height: 40px;
     margin-bottom: 50px;
@@ -8605,7 +8930,8 @@ nav .pagination li.active .page-link {
     padding-bottom: 10px;
 }
 .landing_provide_wrap ul li {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/about-image/icons/success-achievement.png") no-repeat left center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/about-image/icons/success-achievement.png")
+        no-repeat left center;
     padding: 12px 0 12px 45px;
     background-size: 25px;
     border-bottom: 1px solid #eee;
@@ -8621,7 +8947,8 @@ nav .pagination li.active .page-link {
     padding: 8px 35px;
 }
 .landing_spotlight_top {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/spotlight-bg.png") no-repeat bottom right;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/spotlight-bg.png")
+        no-repeat bottom right;
     padding: 50px 0;
     background-size: contain;
     min-height: 295px;
@@ -8731,7 +9058,8 @@ nav .pagination li.active .page-link {
     margin-right: 20px;
 }
 .landing_tools_wrap {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/landing_tools_wrap_bg.png") no-repeat left top;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/landing_tools_wrap_bg.png")
+        no-repeat left top;
     background-size: 335px;
     padding: 50px 0 0;
 }
@@ -8924,7 +9252,9 @@ nav .pagination li.active .page-link {
 .products_filter_list .filter_search .filter_search_inputbox:focus {
     border: 1px solid #54a948;
 }
-.products_filter_list .filter_search input[type="text"]:not(.browser-default):hover,
+.products_filter_list
+    .filter_search
+    input[type="text"]:not(.browser-default):hover,
 .products_filter_list .filter_search input[type="text"]:not(.browser-default) {
     background: none !important;
     padding-top: 2px;
@@ -9104,7 +9434,7 @@ nav .pagination li.active .page-link {
     border: 1px solid #50a554;
     padding: 5px;
     border-radius: 10px 0 10px 0px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     color: #257356;
     line-height: 25px;
@@ -9180,7 +9510,12 @@ nav .pagination li.active .page-link {
     object-fit: contain;
     padding: 20px;
 }
-.product_design_wrapper .productBox .modal-content .rfq_profile_info .imgBox .rfqFileImage {
+.product_design_wrapper
+    .productBox
+    .modal-content
+    .rfq_profile_info
+    .imgBox
+    .rfqFileImage {
     padding: 10px;
 }
 .product_design_wrapper .productBox .imgBox img:hover {
@@ -9236,7 +9571,7 @@ nav .pagination li.active .page-link {
     text-align: right;
 }
 .product_design_wrapper .priceBox .price {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
     color: #0a0a0a;
     text-align: right;
@@ -9255,7 +9590,7 @@ nav .pagination li.active .page-link {
 }
 .product_design_wrapper .product_moq,
 .product_design_wrapper .product_item_box .pro_price {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 15px;
     line-height: 22px;
     color: #131313;
@@ -9526,7 +9861,9 @@ nav .pagination li.active .page-link {
 .single-product-details-block-wrapper .store-more-products legend {
     font-size: 16px;
 }
-.single-product-details-block-wrapper .store-more-products .more-products-block {
+.single-product-details-block-wrapper
+    .store-more-products
+    .more-products-block {
     max-height: 360px;
     overflow: auto;
 }
@@ -9551,7 +9888,7 @@ nav .pagination li.active .page-link {
     font-size: 14px;
 }
 .store-more-products .product_short_details .product_price {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 20px;
 }
 #product-add-modal-block .related-product .select2-container,
@@ -9680,11 +10017,18 @@ nav .pagination li.active .page-link {
     height: 44px;
     margin: 3px;
 }
-.product_upload_innerBox .uom_box .select2-selection--single .select2-selection__rendered {
+.product_upload_innerBox
+    .uom_box
+    .select2-selection--single
+    .select2-selection__rendered {
     color: #ffffff;
     font-size: 13px;
 }
-.product_upload_innerBox .uom_box .select2-selection--single .select2-selection__arrow b {
+.product_upload_innerBox
+    .uom_box
+    .select2-selection--single
+    .select2-selection__arrow
+    b {
     border-color: #ffffff transparent transparent transparent;
 }
 .product_upload_innerBox .media_info {
@@ -9723,7 +10067,10 @@ nav .pagination li.active .page-link {
     border-radius: 0 !important;
     height: 40px;
 }
-.product_upload_innerBox .select2-container .select2-selection--single .select2-selection__rendered {
+.product_upload_innerBox
+    .select2-container
+    .select2-selection--single
+    .select2-selection__rendered {
     padding-right: 10px;
 }
 .product_upload_boxwrap .add_more_box {
@@ -9739,12 +10086,20 @@ nav .pagination li.active .page-link {
 .product_upload_boxwrap .switch label input[type="checkbox"]:checked + .lever {
     background: #448547;
 }
-.product_upload_boxwrap input[type="checkbox"]:checked:not(:disabled) ~ .lever:active::before,
-.product_upload_boxwrap input[type="checkbox"]:checked:not(:disabled).tabbed:focus ~ .lever::before {
+.product_upload_boxwrap
+    input[type="checkbox"]:checked:not(:disabled)
+    ~ .lever:active::before,
+.product_upload_boxwrap
+    input[type="checkbox"]:checked:not(:disabled).tabbed:focus
+    ~ .lever::before {
     background: none;
     transform: none;
 }
-.product_upload_boxwrap .switch label input[type="checkbox"]:checked + .lever:after {
+.product_upload_boxwrap
+    .switch
+    label
+    input[type="checkbox"]:checked
+    + .lever:after {
     background: #ffffff;
     transform: none;
 }
@@ -9756,8 +10111,16 @@ nav .pagination li.active .page-link {
     width: 60px;
     height: 22px;
 }
-.product_upload_boxwrap .switch label input[type="checkbox"]:checked + .lever:before,
-.product_upload_boxwrap .switch label input[type="checkbox"]:checked + .lever:after {
+.product_upload_boxwrap
+    .switch
+    label
+    input[type="checkbox"]:checked
+    + .lever:before,
+.product_upload_boxwrap
+    .switch
+    label
+    input[type="checkbox"]:checked
+    + .lever:after {
     left: 38px;
     top: 1px;
     transform: none;
@@ -9768,7 +10131,10 @@ nav .pagination li.active .page-link {
     top: 1px;
     transform: none;
 }
-.product_preview_info_wrap .product_preview_wrap a.simpleLens-thumbnail-wrapper img {
+.product_preview_info_wrap
+    .product_preview_wrap
+    a.simpleLens-thumbnail-wrapper
+    img {
     max-width: 60px;
     max-height: 55px;
 }
@@ -9852,7 +10218,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 50%;
     text-align: right;
 }
-.chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list.chat-user {
+.chat-application
+    .app-chat
+    .chat-content
+    .sidebar
+    .sidebar-chat
+    .chat-list.chat-user {
     padding: 10px 15px !important;
     border-bottom: 1px solid #eeeeee;
 }
@@ -9909,7 +10280,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_profile_menu ul li a:link,
 .account_profile_menu ul li a:active,
 .account_profile_menu ul li a:visited {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     font-size: 16px;
     color: #646565;
     line-height: 25px;
@@ -9986,108 +10357,130 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background-size: 45px;
 }
 .account_item_menu li.profile_insight .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-insights-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-insights-non-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile_insight.active .icon_img,
 .account_item_menu li.profile_insight:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-insights-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-insights-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-non-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile.active .icon_img,
 .account_item_menu li.profile:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile_explore .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/explore-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/explore-non-active.png")
+        no-repeat center center;
     background-size: 55px;
 }
 .account_item_menu li.profile_explore.active .icon_img,
 .account_item_menu li.profile_explore:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/explore-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/explore-active.png")
+        no-repeat center center;
     background-size: 55px;
 }
 .account_item_menu li.profile_my_rfq .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/my-rfq-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/my-rfq-non-active.png")
+        no-repeat center center;
     background-size: 45px;
     height: 60px;
 }
 .account_item_menu li.profile_my_rfq.active .icon_img,
 .account_item_menu li.profile_my_rfq:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/my-rfq-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/my-rfq-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile_pos_pending .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/pending-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/pending-non-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile_pos_pending.active .icon_img,
 .account_item_menu li.profile_pos_pending:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/Pending-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/Pending-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile_pos_ongoing .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/ongoing-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/ongoing-non-active.png")
+        no-repeat center center;
     background-size: 40px;
 }
 .account_item_menu li.profile_pos_ongoing.active .icon_img,
 .account_item_menu li.profile_pos_ongoing:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/ongoing-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/ongoing-active.png")
+        no-repeat center center;
     background-size: 40px;
 }
 .account_item_menu li.profile_pos_shipped .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/shipped-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/shipped-non-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile_pos_shipped.active .icon_img,
 .account_item_menu li.profile_pos_shipped:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/shipped-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/shipped-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile_dev_designs .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/designs-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/designs-non-active.png")
+        no-repeat center center;
     background-size: 45px;
     height: 52px;
 }
 .account_item_menu li.profile_dev_designs.active .icon_img,
 .account_item_menu li.profile_dev_designs:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/designs-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/designs-active.png")
+        no-repeat center center;
     background-size: 45px;
 }
 .account_item_menu li.profile_dev_tech .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/tech-pack-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/tech-pack-non-active.png")
+        no-repeat center center;
     background-size: 40px;
     height: 80px;
 }
 .account_item_menu li.profile_dev_tech.active .icon_img,
 .account_item_menu li.profile_dev_tech:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/tech-pack-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/tech-pack-active.png")
+        no-repeat center center;
     background-size: 40px;
 }
 .account_item_menu li.profile_dev_supplyChain .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/supply-chain-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/supply-chain-non-active.png")
+        no-repeat center center;
     background-size: 50px;
     height: 50px;
 }
 .account_item_menu li.profile_dev_supplyChain.active .icon_img,
 .account_item_menu li.profile_dev_supplyChain:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/supply-chain-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/supply-chain-active.png")
+        no-repeat center center;
     background-size: 50px;
 }
 
 .account_item_menu li.profile_home .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-home-non-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-home-non-active.png")
+        no-repeat center center;
     background-size: 50px;
     height: 50px;
 }
 .account_item_menu li.profile_home.active .icon_img,
 .account_item_menu li.profile_home:hover .icon_img {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-home-active.png") no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-home-active.png")
+        no-repeat center center;
     background-size: 50px;
 }
 .profile_account_searchBar {
@@ -10191,8 +10584,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-bottom: 15px !important;
     border-radius: 4px;
 }
-.new_profile_account_filterbar .select2-container--default .select2-selection--multiple,
-.new_profile_account_filterbar .select2-container--default.select2-container--focus .select2-selection--multiple {
+.new_profile_account_filterbar
+    .select2-container--default
+    .select2-selection--multiple,
+.new_profile_account_filterbar
+    .select2-container--default.select2-container--focus
+    .select2-selection--multiple {
     border: none;
 }
 .new_profile_account_filterbar ul:first-child {
@@ -10257,7 +10654,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-family: "nexaregular";
     font-size: 10px;
 }
-.new_profile_account_filterbar .irs--flat .irs-handle.state_hover > i:first-child,
+.new_profile_account_filterbar
+    .irs--flat
+    .irs-handle.state_hover
+    > i:first-child,
 .new_profile_account_filterbar .irs--flat .irs-handle:hover > i:first-child,
 .new_profile_account_filterbar .irs--flat .irs-handle > i:first-child {
     background: #54a958;
@@ -10266,7 +10666,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: auto;
     height: auto;
 }
-.new_profile_account_filterbox .select2-container .select2-search--inline .select2-search__field {
+.new_profile_account_filterbox
+    .select2-container
+    .select2-search--inline
+    .select2-search__field {
     border: none !important;
     height: auto;
     box-shadow: none !important;
@@ -10307,16 +10710,28 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 #profileAccountPostNew .input-field.col label {
     left: inherit !important;
 }
-#create_new_tech_pac .input-field .select2-container--default .select2-selection--single,
-#create_new_design .input-field .select2-container--default .select2-selection--single,
-#profileAccountPostNew .input-field .select2-container--default .select2-selection--single,
+#create_new_tech_pac
+    .input-field
+    .select2-container--default
+    .select2-selection--single,
+#create_new_design
+    .input-field
+    .select2-container--default
+    .select2-selection--single,
+#profileAccountPostNew
+    .input-field
+    .select2-container--default
+    .select2-selection--single,
 #profileAccountPostNew .input-field textarea,
 #profileAccountPostNew .input-field input {
     box-shadow: none !important;
     border: 1px solid #d9d9d9 !important;
     background: none;
 }
-#create_new_design .select2-container--default .select2-selection--single .select2-selection__rendered {
+#create_new_design
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 44px;
 }
 #profileAccountPostNew .input-field textarea {
@@ -10455,7 +10870,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .new_profile_myrfq_details_topbox h6 span {
     padding-left: 10px;
     font-size: 14px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .account_rfqDetailes_imgWrap {
     padding-top: 15px;
@@ -10524,10 +10939,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .rfq_review_results_box .new_rfq_review p span {
     font-size: 14px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .rfq_review_results_box .new_rfq_review p span a {
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     height: 20px;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -10629,14 +11044,16 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_rfqDetailes_infoWrap p b,
 .profile_account_myrfq_box p b,
 .profile_account_poinfo_box p b {
-    font-family: 'nexablack';
+    font-family: "nexablack";
     font-size: 12px;
-    opacity: .8;
+    opacity: 0.8;
 }
 .profile_account_poinfo_innerbox .profile_account_poinfo_box.active {
     border: 1px solid #707070;
 }
-.profile_account_poinfo_innerbox .po_block.rejected .profile_account_poinfo_box {
+.profile_account_poinfo_innerbox
+    .po_block.rejected
+    .profile_account_poinfo_box {
     border: 1px solid #ffb1b1;
     background: #fff6f6;
 }
@@ -10752,11 +11169,19 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .faq_contentinfo_wrapper .faq_search_box .tt-menu .tt-selectable .tt-highlight {
     color: #54a958 !important;
 }
-.faq_contentinfo_wrapper .faq_search_box .tt-menu .tt-selectable strong.tt-highlight {
+.faq_contentinfo_wrapper
+    .faq_search_box
+    .tt-menu
+    .tt-selectable
+    strong.tt-highlight {
     color: #484848 !important;
     font-weight: normal !important;
 }
-.faq_contentinfo_wrapper .faq_search_box .tt-menu .tt-selectable:hover .tt-highlight {
+.faq_contentinfo_wrapper
+    .faq_search_box
+    .tt-menu
+    .tt-selectable:hover
+    .tt-highlight {
     color: #fff !important;
 }
 .faq_contentinfo_wrapper .faq_search_box .faq_search_input {
@@ -10801,12 +11226,19 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 0;
 }
 .faq_infobox_wrap .faq_collaps_content .collapsible-header h4 {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/arrow-down.png") no-repeat 98% center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/arrow-down.png")
+        no-repeat 98% center;
     padding: 17px 40px 15px 20px;
     background-size: 22px;
 }
-.faq_contentinfo_wrapper .faq_collaps_content ul.collapsible li.active .collapsible-header h4 {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/arrow-active.png") no-repeat 98% center;
+.faq_contentinfo_wrapper
+    .faq_collaps_content
+    ul.collapsible
+    li.active
+    .collapsible-header
+    h4 {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/arrow-active.png")
+        no-repeat 98% center;
     background-size: 22px;
     font-family: "nexablack";
     color: #285460;
@@ -10820,11 +11252,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .faq_contentinfo_wrapper .faq_collaps_content ul.collapsible li.active {
     border: 1px solid #54a958;
 }
-.faq_contentinfo_wrapper .faq_collaps_content ul.collapsible li .collapsible-body {
+.faq_contentinfo_wrapper
+    .faq_collaps_content
+    ul.collapsible
+    li
+    .collapsible-body {
     padding: 0px 20px 15px;
 }
-.faq_contentinfo_wrapper .faq_collaps_content ul.collapsible li .collapsible-body a {
-    font-family: 'nexabold';
+.faq_contentinfo_wrapper
+    .faq_collaps_content
+    ul.collapsible
+    li
+    .collapsible-body
+    a {
+    font-family: "nexabold";
 }
 .faq_contentinfo_wrapper .faq_talkToUs_boxWrap {
     padding: 100px 0 0;
@@ -10939,7 +11380,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding-bottom: 30px;
 }
 .profile_supplier_account_insight_wrap .search_appearance_box span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 60px;
     line-height: 75px;
     display: block;
@@ -10956,7 +11397,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .supllir_profile_incomplete_field ul li a:link,
 .supllir_profile_incomplete_field ul li a:active,
 .supllir_profile_incomplete_field ul li a:visited {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/down-arrow.png") no-repeat right center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/down-arrow.png")
+        no-repeat right center;
     color: #000000;
     padding-right: 25px;
     background-size: 15px;
@@ -11043,7 +11485,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .account_profile_box form .input-field select,
 .account_profile_box form .input-field textarea,
-.account_profile_box form .input-field input[type="text"]:not(.browser-default) {
+.account_profile_box
+    form
+    .input-field
+    input[type="text"]:not(.browser-default) {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     border: 1px solid #707070 !important;
@@ -11112,7 +11557,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 #create_new_supplyChain .modal_name_and_action p,
 .account_profile_box .modal_name_and_action p {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 22px;
     margin-bottom: 0;
 }
@@ -11123,7 +11568,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .account_profile_box .modal_name_and_action p span {
     margin-right: 2rem;
-    font-family: 'nexalight';
+    font-family: "nexalight";
     display: inline-block;
 }
 .account_profile_box .modal_name_and_action .material-icons {
@@ -11168,7 +11613,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background-color: unset !important;
 }
 .account_profile_box .tabs .tab a.active {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .account_profile_box .create_new_tech_pac_modal,
 .account_profile_box .tech_pach_details_modal_container,
@@ -11237,21 +11682,63 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -ms-flex-align: center;
     align-items: center;
 }
-.create_new_tech_pac_modal form .tech_img .upload_img_buttons_wrapper .upload_img_buttons,
-.tech_pach_details_modal_container form .tech_img .upload_img_buttons_wrapper .upload_img_buttons,
-.create_new_supplyChain_modal form .tech_img .upload_img_buttons_wrapper .upload_img_buttons {
+.create_new_tech_pac_modal
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons,
+.tech_pach_details_modal_container
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons,
+.create_new_supplyChain_modal
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons {
     text-align: center;
 }
-.create_new_tech_pac_modal form .tech_img .upload_img_buttons_wrapper .upload_img_buttons p,
-.tech_pach_details_modal_container form .tech_img .upload_img_buttons_wrapper .upload_img_buttons p,
-.create_new_supplyChain_modal form .tech_img .upload_img_buttons_wrapper .upload_img_buttons p {
+.create_new_tech_pac_modal
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons
+    p,
+.tech_pach_details_modal_container
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons
+    p,
+.create_new_supplyChain_modal
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons
+    p {
     font-size: 18px;
     margin: 1.25rem 0;
 }
 
-.create_new_tech_pac_modal form .tech_img .upload_img_buttons_wrapper .upload_img_buttons a,
-.tech_pach_details_modal_container form .tech_img .upload_img_buttons_wrapper .upload_img_buttons a,
-.create_new_supplyChain_modal form .tech_img .upload_img_buttons_wrapper .upload_img_buttons a {
+.create_new_tech_pac_modal
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons
+    a,
+.tech_pach_details_modal_container
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons
+    a,
+.create_new_supplyChain_modal
+    form
+    .tech_img
+    .upload_img_buttons_wrapper
+    .upload_img_buttons
+    a {
     height: 44px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11275,7 +11762,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 1rem 2rem;
 }
 .account_profile_box .create_new_tech_pac_modal form .form_footer .buttons,
-.account_profile_box .tech_pach_details_modal_container form .form_footer.buttons,
+.account_profile_box
+    .tech_pach_details_modal_container
+    form
+    .form_footer.buttons,
 .account_profile_box .create_new_supplyChain_modal form .form_footer .buttons {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11285,7 +11775,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     justify-content: space-between;
 }
 .account_profile_box .create_new_tech_pac_modal form .form_footer .buttons a,
-.account_profile_box .tech_pach_details_modal_container form .form_footer .buttons a,
+.account_profile_box
+    .tech_pach_details_modal_container
+    form
+    .form_footer
+    .buttons
+    a,
 .account_profile_box .create_new_supplyChain_modal form .form_footer .buttonsa {
     margin: 0;
     width: 190px;
@@ -11327,7 +11822,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 #create_new_supplyChain .modal_footer .buttons a,
 .account_profile_box .create_new_tech_pac_modal .modal_footer .buttons a,
-.account_profile_box .tech_pach_details_modal_container .modal_footer .buttons a,
+.account_profile_box
+    .tech_pach_details_modal_container
+    .modal_footer
+    .buttons
+    a,
 .account_profile_box .create_new_supplyChain_modal .modal_footer .buttons a {
     margin: 0;
     width: 190px;
@@ -11342,7 +11841,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -ms-flex-align: center;
     align-items: center;
 }
-.profile_account_dev_design .profile_account_searchBar .create_new_design_modal {
+.profile_account_dev_design
+    .profile_account_searchBar
+    .create_new_design_modal {
     padding: 1.5rem;
 }
 .profile_account_dev_design .product_cards .product_card {
@@ -11369,10 +11870,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 10px 20px;
     min-height: 64px;
 }
-.profile_account_dev_design .product_cards .product_card .card_description p span {
+.profile_account_dev_design
+    .product_cards
+    .product_card
+    .card_description
+    p
+    span {
     margin-left: 20px;
     display: inline-block;
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 .profile_account_dev_design .product_cards .product_card:hover .card_image img {
     -webkit-transform: scale(1.2);
@@ -11381,20 +11887,36 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .profile_account_dev_design .product_card_modal {
     padding: 1.5rem;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .design_history {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .design_history {
     border-right: 1px solid #707070;
     padding-top: 24px;
     height: 100%;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .design_history p {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .design_history
+    p {
     margin: 0 0 60px;
     font-size: 18px;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .design_history .tab {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .design_history
+    .tab {
     width: 140px;
     margin-bottom: 1.5rem;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .design_history .tab a {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .design_history
+    .tab
+    a {
     font-size: 18px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11406,13 +11928,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .design_history .tab a.active {
-    font-family: 'nexabold';
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .design_history
+    .tab
+    a.active {
+    font-family: "nexabold";
 }
 .profile_account_dev_design .product_card_modal .modal_contents .model_content {
     padding-top: 1.5rem;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .content_header {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .content_header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -11423,20 +11953,36 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     align-items: center;
     margin-bottom: 50px;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .content_header h5 {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .content_header
+    h5 {
     margin: 0;
     color: #54a958;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .content_header p {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .content_header
+    p {
     margin: 0;
     font-style: italic;
     color: #54a958;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .content_header a {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .content_header
+    a {
     text-align: center;
     margin: 0;
 }
-.profile_account_dev_design .product_card_modal .modal_contents .content_body img {
+.profile_account_dev_design
+    .product_card_modal
+    .modal_contents
+    .content_body
+    img {
     width: 100%;
 }
 .profile_account_dev_design .product_card_modal .modal_contents .message_box {
@@ -11506,7 +12052,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 0.5rem;
 }
 .account_profile_box .profile_account_dev_tech .card_footer p span {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     display: inline-block;
     margin-left: 1.25rem;
 }
@@ -11534,7 +12080,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 3rem;
     text-align: center;
 }
-.account_profile_box #tech_pack_card1_modal .tech_pach_card_modal .modal_body img {
+.account_profile_box
+    #tech_pack_card1_modal
+    .tech_pach_card_modal
+    .modal_body
+    img {
     height: 100%;
 }
 .account_profile_box .profile_account_dev_tech .modal {
@@ -11566,17 +12116,36 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     justify-content: center;
     height: 200px;
 }
-.account_profile_box .modal .select_tech_pack_picture_modal .modal_body ul li a {
+.account_profile_box
+    .modal
+    .select_tech_pack_picture_modal
+    .modal_body
+    ul
+    li
+    a {
     cursor: pointer;
     border: 1px solid transparent;
     display: inline-block;
     height: 100%;
     padding: 2rem;
 }
-.account_profile_box .modal .select_tech_pack_picture_modal .modal_body ul li a:focus {
+.account_profile_box
+    .modal
+    .select_tech_pack_picture_modal
+    .modal_body
+    ul
+    li
+    a:focus {
     border-color: #54a958;
 }
-.account_profile_box .modal .select_tech_pack_picture_modal .modal_body ul li a img {
+.account_profile_box
+    .modal
+    .select_tech_pack_picture_modal
+    .modal_body
+    ul
+    li
+    a
+    img {
     max-height: 100%;
 }
 .profile_account_dev_tech .modal .tech_pach_details_modal_container {
@@ -11605,11 +12174,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     display: flex;
     margin-bottom: 1rem;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .title p {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .title
+    p {
     margin: 0;
     padding-top: 10px;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .item {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .item {
     -ms-flex-negative: 0;
     flex-shrink: 0;
     width: 50%;
@@ -11624,35 +12202,72 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -ms-flex-pack: center;
     justify-content: center;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .item_inner {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .item_inner {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     position: relative;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .item_inner .main_img {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .item_inner
+    .main_img {
     height: 350px;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .item_inner .bottom_arrow,
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .item_inner .left_arrow {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .item_inner
+    .bottom_arrow,
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .item_inner
+    .left_arrow {
     position: absolute;
     left: 0;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .item_inner .left_arrow {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .item_inner
+    .left_arrow {
     top: 0;
     height: 100%;
     left: -1.5rem;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .item_inner .bottom_arrow {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .item_inner
+    .bottom_arrow {
     bottom: -25px;
     width: 100%;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .actions {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .actions {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .roughArea_card .actions_container {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .roughArea_card
+    .actions_container {
     width: 100%;
     height: 40px;
     background-color: #f1efef;
@@ -11661,7 +12276,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border: 1px solid #b2b2b2;
     padding: 0.5rem;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .materials_card .table_wrapper {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .materials_card
+    .table_wrapper {
     height: 145px;
 }
 .profile_account_dev_tech .modal .tech_pach_details_modal .details_list_card {
@@ -11669,7 +12288,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 0.5rem;
     margin-bottom: 1rem;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .details_list_card .inputForm {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .details_list_card
+    .inputForm {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -11678,17 +12301,36 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -ms-flex-align: center;
     align-items: center;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .details_list_card .inputForm p {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .details_list_card
+    .inputForm
+    p {
     -ms-flex-negative: 0;
     flex-shrink: 0;
     padding-right: 1rem;
     margin: 0;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .details_list_card .inputForm select,
-.profile_account_dev_tech .modal .tech_pach_details_modal .details_list_card .inputForm input {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .details_list_card
+    .inputForm
+    select,
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .details_list_card
+    .inputForm
+    input {
     max-width: 300px;
 }
-.profile_account_dev_tech .modal .tech_pach_details_modal .details_list_card .table_wrapper {
+.profile_account_dev_tech
+    .modal
+    .tech_pach_details_modal
+    .details_list_card
+    .table_wrapper {
     height: 150px;
 }
 .profile_account_dev_tech .modal .photo_list_card {
@@ -11833,12 +12475,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .tech_pack_details .tech_pack_collapsible li .collapsible-body.attachments {
     padding: 1rem 0;
 }
-.tech_pack_details .tech_pack_collapsible li .collapsible-body.attachments .imgs {
+.tech_pack_details
+    .tech_pack_collapsible
+    li
+    .collapsible-body.attachments
+    .imgs {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
-.tech_pack_details .tech_pack_collapsible li .collapsible-body.attachments .imgs .img {
+.tech_pack_details
+    .tech_pack_collapsible
+    li
+    .collapsible-body.attachments
+    .imgs
+    .img {
     height: 100px;
     width: 100px;
     margin-right: 0.5rem;
@@ -11846,7 +12497,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-bottom: 1rem;
     overflow: hidden;
 }
-.tech_pack_details .tech_pack_collapsible li .collapsible-body.attachments .imgs .img img {
+.tech_pack_details
+    .tech_pack_collapsible
+    li
+    .collapsible-body.attachments
+    .imgs
+    .img
+    img {
     height: 100%;
     width: 100%;
     -o-object-fit: cover;
@@ -11870,13 +12527,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -o-object-fit: cover;
     object-fit: cover;
 }
-.profile_account_dev_supplychain .supplyChain_container .products_inner_textbox {
+.profile_account_dev_supplychain
+    .supplyChain_container
+    .products_inner_textbox {
     border: none !important;
 }
-.profile_account_dev_supplychain .supplyChain_container .products_inner_textbox .product_moq {
+.profile_account_dev_supplychain
+    .supplyChain_container
+    .products_inner_textbox
+    .product_moq {
     font-size: 13px;
 }
-.profile_account_dev_supplychain .supplyChain_container .productBox:hover .imgBox img {
+.profile_account_dev_supplychain
+    .supplyChain_container
+    .productBox:hover
+    .imgBox
+    img {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
@@ -11927,7 +12593,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     flex-wrap: wrap;
     height: 100%;
 }
-.account_profile_box .send_rfq .send_rfq_card .card_body .add_button_container .add_button {
+.account_profile_box
+    .send_rfq
+    .send_rfq_card
+    .card_body
+    .add_button_container
+    .add_button {
     height: 200px;
     width: 200px;
     border: 1px dashed #878686;
@@ -11942,10 +12613,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     align-items: center;
     margin-bottom: 1rem;
 }
-.account_profile_box .send_rfq .send_rfq_card .card_body .add_button_container .add_button span {
+.account_profile_box
+    .send_rfq
+    .send_rfq_card
+    .card_body
+    .add_button_container
+    .add_button
+    span {
     font-size: 70px;
 }
-.account_profile_box .send_rfq .send_rfq_card .card_body .add_button_container p {
+.account_profile_box
+    .send_rfq
+    .send_rfq_card
+    .card_body
+    .add_button_container
+    p {
     text-align: center;
     margin: 0;
 }
@@ -11953,7 +12635,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 265px;
     overflow: auto;
 }
-.account_profile_box .send_rfq .send_rfq_card .card_body .item_list_container .item_list {
+.account_profile_box
+    .send_rfq
+    .send_rfq_card
+    .card_body
+    .item_list_container
+    .item_list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -11966,13 +12653,26 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -ms-flex-pack: center;
     justify-content: center;
 }
-.account_profile_box .send_rfq .send_rfq_card .card_body .item_list_container .item_list .item {
+.account_profile_box
+    .send_rfq
+    .send_rfq_card
+    .card_body
+    .item_list_container
+    .item_list
+    .item {
     width: 90px;
     height: 100px;
     padding: 0.5rem;
     overflow: hidden;
 }
-.account_profile_box .send_rfq .send_rfq_card .card_body .item_list_container .item_list .item img {
+.account_profile_box
+    .send_rfq
+    .send_rfq_card
+    .card_body
+    .item_list_container
+    .item_list
+    .item
+    img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -12128,7 +12828,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-bottom: 32px;
 }
 #mb_about .about_us .about_content p a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #285460;
     margin-left: 10px;
     font-size: 16px;
@@ -12170,7 +12870,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #000;
 }
 #mb_about .why_us .why_us-tab .tab a.active {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     color: #285460;
     border-bottom: 2px solid #285460;
 }
@@ -12276,7 +12976,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 #mb_about .work_process .work_process-box .left_side h6 {
     width: 100%;
     text-align: center;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     margin: 0;
 }
 #mb_about .work_process .work_process-box .arrow {
@@ -12436,8 +13136,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 #mb_about .features .navigation .swiper-pagination-current {
     color: #484848;
 }
-#mb_about .features .navigation .features_slider-pagination .swiper-pagination-current {
-        font-family: 'nexabold';
+#mb_about
+    .features
+    .navigation
+    .features_slider-pagination
+    .swiper-pagination-current {
+    font-family: "nexabold";
 }
 #mb_about .testemonial h3 {
     margin-bottom: 50px;
@@ -12513,7 +13217,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .switch_buttons .switch_button_wrapper .document_tabs li a {
     height: 45px;
     width: 215px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     letter-spacing: 3px;
     font-size: 16px;
     color: #000;
@@ -12540,10 +13244,18 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background: #54a958;
     color: #ffffff;
 }
-.switch_buttons .switch_button_wrapper .document_tabs li.animate_document_tab_left a {
+.switch_buttons
+    .switch_button_wrapper
+    .document_tabs
+    li.animate_document_tab_left
+    a {
     border-radius: 5px 0 0 5px;
 }
-.switch_buttons .switch_button_wrapper .document_tabs li.animate_document_tab_right a {
+.switch_buttons
+    .switch_button_wrapper
+    .document_tabs
+    li.animate_document_tab_right
+    a {
     border-radius: 0px 5px 5px 0;
 }
 #how_we_work .page_title {
@@ -12630,7 +13342,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -ms-flex-pack: center;
     justify-content: center;
     font-size: 45px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     margin-bottom: 30px;
 }
 .steps_section .steps_box .count_and_details .count .count_number span {
@@ -12658,7 +13370,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .steps_section .steps_box .count_and_details .details p a {
     color: #285460;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 14px;
     padding-left: 5px;
 }
@@ -12697,7 +13409,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 #how_we_work .features .col .feature_box h5 {
     font-size: 20px;
     text-align: center;
-    font-family: 'nexaregular';
+    font-family: "nexaregular";
     margin-bottom: 0;
 }
 #how_we_work .why_us .why_us_box {
@@ -12879,7 +13591,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     justify-content: center;
     height: 50px;
     font-size: 15px;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     letter-spacing: 2px;
     margin: 0 auto;
     padding-left: 30px;
@@ -12963,7 +13675,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     line-height: 92px;
     margin-bottom: 30px;
 }
-.rfq_update_question_bar .rfq_update_question_innerBox:hover .rfq_icon_img span {
+.rfq_update_question_bar
+    .rfq_update_question_innerBox:hover
+    .rfq_icon_img
+    span {
     background: #d7df23;
 }
 .rfq_update_question_innerBox h3 {
@@ -13033,7 +13748,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 14px;
     padding-top: 2px;
 }
@@ -13118,15 +13833,27 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .update_rfq_product_upload_form input {
     float: none !important;
 }
-.update_rfq_product_upload_form .input-field .select2-container--default .select2-selection--single,
-.update_rfq_product_upload_form .select2-container--default .select2-selection--multiple {
+.update_rfq_product_upload_form
+    .input-field
+    .select2-container--default
+    .select2-selection--single,
+.update_rfq_product_upload_form
+    .select2-container--default
+    .select2-selection--multiple {
     border: 1px solid #d9d9d9 !important;
 }
-.update_rfq_product_upload_form .select2-container--default .select2-selection--multiple {
+.update_rfq_product_upload_form
+    .select2-container--default
+    .select2-selection--multiple {
     min-height: 45px;
 }
-.update_rfq_product_upload_form .input-field .select2-container--default .select2-selection--single:focus,
-.update_rfq_product_upload_form .select2-container--default.select2-container--focus .select2-selection--multiple,
+.update_rfq_product_upload_form
+    .input-field
+    .select2-container--default
+    .select2-selection--single:focus,
+.update_rfq_product_upload_form
+    .select2-container--default.select2-container--focus
+    .select2-selection--multiple,
 .update_rfq_product_upload_form .input-field textarea:focus,
 .update_rfq_product_upload_form .input-field input:focus {
     border: 1px solid #54a958 !important;
@@ -13137,22 +13864,32 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border: 1px solid red !important;
     outline: none;
 }
-.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+.select2-container--default
+    .select2-selection--multiple
+    .select2-selection__rendered {
     height: 100%;
     padding: 0 10px;
 }
-.new_profile_account_filterbox .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+.new_profile_account_filterbox
+    .select2-container--default
+    .select2-selection--multiple
+    .select2-selection__rendered {
     border: none;
     margin-bottom: 0 !important;
 }
-.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+.select2-container--default
+    .select2-selection--multiple
+    .select2-selection__rendered
+    li {
     position: relative;
     margin-right: 12px;
     margin-top: 8px;
     text-transform: capitalize;
     font-size: 11px;
 }
-.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+.select2-container--default
+    .select2-selection--multiple
+    .select2-selection__choice__remove {
     position: absolute;
     right: -5px;
     top: -4px;
@@ -13167,41 +13904,66 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .profile_form_modal .select2-container--default .select2-selection--multiple,
-.product_add_wrap_modal .select2-container--default .select2-selection--multiple {
+.product_add_wrap_modal
+    .select2-container--default
+    .select2-selection--multiple {
     min-height: 46px;
 }
-.select2-container--default.select2-container--focus .select2-selection--multiple {
+.select2-container--default.select2-container--focus
+    .select2-selection--multiple {
     border: 1px solid #54a958 !important;
 }
-#company-overview-update-form .select2-container--default .select2-selection--multiple {
+#company-overview-update-form
+    .select2-container--default
+    .select2-selection--multiple {
     padding: 0;
     border: none !important;
 }
-#company-overview-update-form .select2-container--default .select2-selection--multiple input.select2-search__field {
+#company-overview-update-form
+    .select2-container--default
+    .select2-selection--multiple
+    input.select2-search__field {
     height: 22px;
     margin: 0;
     min-width: 10px !important;
     padding: 0 !important;
 }
-#company-overview-update-form .select2-container--default .select2-selection--multiple ul.select2-selection__rendered {
+#company-overview-update-form
+    .select2-container--default
+    .select2-selection--multiple
+    ul.select2-selection__rendered {
     padding: 10px;
     height: 47px;
     overflow: auto;
     border: 1px solid #d9d9d9 !important;
 }
-#company-overview-update-form .select2-container--default.select2-container--focus .select2-selection--multiple ul.select2-selection__rendered {
+#company-overview-update-form
+    .select2-container--default.select2-container--focus
+    .select2-selection--multiple
+    ul.select2-selection__rendered {
     border: 1px solid #54a958 !important;
 }
-#company-overview-update-form .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+#company-overview-update-form
+    .select2-container--default
+    .select2-selection--multiple
+    .select2-selection__rendered
+    li {
     margin: 0 5px 5px 0;
 }
 .update_rfq_product_upload_form .input-field .target_price_block {
     display: flex;
 }
-.update_rfq_product_upload_form .input-field .target_price_block .target_price_negotiable {
+.update_rfq_product_upload_form
+    .input-field
+    .target_price_block
+    .target_price_negotiable {
     margin-left: auto;
 }
-.update_rfq_product_upload_form .input-field .target_price_block .target_price_negotiable span {
+.update_rfq_product_upload_form
+    .input-field
+    .target_price_block
+    .target_price_negotiable
+    span {
     color: #000;
 }
 .product_add_wrap_modal .input-field .priceRange #producut-quality,
@@ -13230,18 +13992,30 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     line-height: 47px;
     border-radius: 4px;
 }
-.update_rfq_product_upload_form .rfqQuantity .select2-container--default .select2-selection--single {
+.update_rfq_product_upload_form
+    .rfqQuantity
+    .select2-container--default
+    .select2-selection--single {
     height: 41px;
     background: #e5e5e5 !important;
     border: none !important;
 }
-.update_rfq_product_upload_form .rfqQuantity .select2-container--default .select2-selection--single:focus {
+.update_rfq_product_upload_form
+    .rfqQuantity
+    .select2-container--default
+    .select2-selection--single:focus {
     border: none !important;
 }
-.update_rfq_product_upload_form .select2-container--default .select2-selection--single .select2-selection__rendered {
+.update_rfq_product_upload_form
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 44px;
 }
-.update_rfq_product_upload_form .select2-container--default .select2-selection--single .select2-selection__arrow {
+.update_rfq_product_upload_form
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 10px;
     right: 5px;
 }
@@ -13384,7 +14158,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     top: 0px;
 }
 .uploaded-image.doc_file {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/doc-bg.png") no-repeat center !important;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/doc-bg.png")
+        no-repeat center !important;
     background-size: 75px !important;
     width: 84px !important;
     height: 84px !important;
@@ -13392,7 +14167,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 0 !important;
 }
 .uploaded-image.xls_file {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/excel-bg.png") no-repeat center !important;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/excel-bg.png")
+        no-repeat center !important;
     background-size: 75px !important;
     width: 84px !important;
     height: 84px !important;
@@ -13400,7 +14176,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 0 !important;
 }
 .uploaded-image.pdf_file {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/pdf-bg.png") no-repeat center !important;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/pdf-bg.png")
+        no-repeat center !important;
     background-size: 75px !important;
     width: 84px !important;
     height: 84px !important;
@@ -13466,7 +14243,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 0 20px;
 }
 .login_landing_inner ul li a {
-    font-family: 'nexabold';
+    font-family: "nexabold";
 }
 /* ****************Welcome and loginlanding page css end ******************* */
 
@@ -13560,7 +14337,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .rfq_post_success h2 span {
     font-size: 40px;
 }
-#company-overview-modal .input-field input.input_profile_url{
+#company-overview-modal .input-field input.input_profile_url {
     border: none !important;
     border-bottom: 1px solid #d9d9d9 !important;
     border-radius: 0;
@@ -13597,19 +14374,17 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 100%;
 }
 
-
-
 /* order_management_inner_wrap css start */
 .order_management_inner_wrap .order_management_inner_left {
     border: 1px solid #d9d9d9;
     padding: 30px 20px;
     border-radius: 5px;
-  }
-  .order_management_inner_wrap .order_management_inner_left:hover,
-  .order_management_inner_wrap .order_management_inner_left:focus {
+}
+.order_management_inner_wrap .order_management_inner_left:hover,
+.order_management_inner_wrap .order_management_inner_left:focus {
     border: 1px solid #54a958;
-  }
-  .order_management_inner_left .order_manag_icon {
+}
+.order_management_inner_left .order_manag_icon {
     text-align: center;
     background: #eee;
     width: 70px;
@@ -13618,39 +14393,40 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 16px;
     overflow: hidden;
     margin: 0 auto 35px;
-  }
-  .order_management_inner_left h3 {
+}
+.order_management_inner_left h3 {
     font-size: 25px;
     line-height: 35px;
     text-align: center;
-  }
-  .order_management_inner_left ul {
+}
+.order_management_inner_left ul {
     padding: 0 20px 20px;
-  }
-  .order_management_inner_left ul li {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/check_mark.png") no-repeat left center;
+}
+.order_management_inner_left ul li {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/check_mark.png")
+        no-repeat left center;
     background-size: 18px;
     padding: 5px 10px 10px 30px;
     font-size: 16px;
-  }
-  .order_management_inner_wrap .order_management_inner_left .btn_lounch {
+}
+.order_management_inner_wrap .order_management_inner_left .btn_lounch {
     height: 35px;
     line-height: 24px;
-  }
-  .order_management_inner_right  {
+}
+.order_management_inner_right {
     padding-left: 50px;
-  }
-  .order_management_inner_right .order_manage_right_infobox_wrap {
+}
+.order_management_inner_right .order_manage_right_infobox_wrap {
     border: 1px solid #d9d9d9;
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 40px;
-  }
-  .order_management_inner_right .order_manage_right_infobox_wrap:hover,
-  .order_management_inner_right .order_manage_right_infobox_wrap:focus {
+}
+.order_management_inner_right .order_manage_right_infobox_wrap:hover,
+.order_management_inner_right .order_manage_right_infobox_wrap:focus {
     border: 1px solid #54a958;
-  }
-  .order_management_inner_right .order_icon_image {
+}
+.order_management_inner_right .order_icon_image {
     text-align: center;
     background: #eee;
     width: 70px;
@@ -13659,13 +14435,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 16px;
     overflow: hidden;
     margin: 15px auto 15px;
-  }
-  .order_management_inner_right .order_icon_infobox h4 {
+}
+.order_management_inner_right .order_icon_infobox h4 {
     font-size: 20px;
     line-height: 30px;
     margin-bottom: 20px;
-  }
-  .order_icon_infobox .comingSoon {
+}
+.order_icon_infobox .comingSoon {
     border: 1px solid #54a958;
     color: #54a958;
     font-size: 16px;
@@ -13673,8 +14449,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border-radius: 5px;
     max-width: 180px;
     text-align: center;
-  }
-  /* order_management_inner_wrap css end */
+}
+/* order_management_inner_wrap css end */
 
 .profile_account_myrfq_innerbox h4 {
     display: inline-block;
@@ -13796,27 +14572,44 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #54a958;
 }
 
-
-
 /* profile_product_upload_modal new start  */
 
 .profile_product_upload_modal {
     width: 75%;
 }
-.wholesaler_add_product_modal .input-field .select2-container--default .select2-selection--single {
+.wholesaler_add_product_modal
+    .input-field
+    .select2-container--default
+    .select2-selection--single {
     float: inherit;
     height: 48px;
 }
 .profile_product_upload_modal .moqQuantity .producWholetUnitBox {
     top: 2px;
 }
-.input-field .producWholetUnitBox .select2-container--default .select2-selection--single,
-.profile_product_upload_modal .moqQuantity .producWholetUnitBox .select2-container--default .select2-selection--single .select2-selection__rendered,
-.wholesaler_add_product_modal .input-field .producWholetUnitBox .select2-container--default .select2-selection--single {
+.input-field
+    .producWholetUnitBox
+    .select2-container--default
+    .select2-selection--single,
+.profile_product_upload_modal
+    .moqQuantity
+    .producWholetUnitBox
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered,
+.wholesaler_add_product_modal
+    .input-field
+    .producWholetUnitBox
+    .select2-container--default
+    .select2-selection--single {
     height: 43px;
     line-height: 43px;
 }
-.input-field .producWholetUnitBox .select2-container--default .select2-selection--single .select2-selection__arrow {
+.input-field
+    .producWholetUnitBox
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 10px;
     right: 7px;
 }
@@ -13854,7 +14647,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .product_type_infobox .multipleArrowBox .catDisabledInput {
     background: #e5e5e5 !important;
 }
-.input-field .product_type_infobox .select2-container--default .select2-selection--single {
+.input-field
+    .product_type_infobox
+    .select2-container--default
+    .select2-selection--single {
     height: 48px !important;
 }
 
@@ -13863,7 +14659,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     display: block;
 }
 .modal .prices-breakdown-block .add-more-block {
-    font-family: 'nexabold';
+    font-family: "nexabold";
     font-size: 16px;
 }
 .modal .prices-breakdown-block .add-more-block .material-icons {
@@ -13891,14 +14687,28 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     line-height: 42px;
     height: 40px;
 } */
-.profile_product_upload_modal .moqQuantity .productUnitBox .select2-container--default .select2-selection--single .select2-selection__rendered {
+.profile_product_upload_modal
+    .moqQuantity
+    .productUnitBox
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     line-height: 42px;
 }
-.profile_product_upload_modal .input-field .priceRange .select2-container--default .select2-selection--single {
+.profile_product_upload_modal
+    .input-field
+    .priceRange
+    .select2-container--default
+    .select2-selection--single {
     border: none !important;
     height: 42px;
 }
-.profile_product_upload_modal .input-field .priceRange .select2-container--default .select2-selection--single .select2-selection__arrow {
+.profile_product_upload_modal
+    .input-field
+    .priceRange
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
     top: 8px;
 }
 .profile_product_upload_modal .input-field table tr input {
@@ -13912,16 +14722,25 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: auto !important;
 }
 .select2.select2-container.select2-container--default {
-    opacity: .6;
+    opacity: 0.6;
 }
-.wholesaler_add_product_form .related-product .select2.select2-container.select2-container--default,
-.wholesaler_edit_product_form .select2.select2-container.select2-container--default,
-#manufacture-product-update-form .select2.select2-container.select2-container--default,
+.wholesaler_add_product_form
+    .related-product
+    .select2.select2-container.select2-container--default,
+.wholesaler_edit_product_form
+    .select2.select2-container.select2-container--default,
+#manufacture-product-update-form
+    .select2.select2-container.select2-container--default,
 .select2.select2-container.select2-container--default.select2-container--below,
 .select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
     opacity: 1;
 }
-.product_add_wrap_modal .input-field .product_size_box .select2-container--default .select2-search--inline input.select2-search__field {
+.product_add_wrap_modal
+    .input-field
+    .product_size_box
+    .select2-container--default
+    .select2-search--inline
+    input.select2-search__field {
     width: 40px !important;
 }
 /* order_management_inner_wrap css start */
@@ -13935,9 +14754,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .overlay-image-div .overlay-image-preview-block img {
     width: 100%;
     height: 100%;
-    -webkit-box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
-    -moz-box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
-    box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
+    box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
     object-fit: cover;
 }
 .video-image-preview-block {
@@ -13953,9 +14772,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 100%;
     height: 170px;
     max-height: 170px !important;
-    -webkit-box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
-    -moz-box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
-    box-shadow: 0px 0px 4px 0px rgba(238,238,238,1);
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
+    box-shadow: 0px 0px 4px 0px rgba(238, 238, 238, 1);
 }
 #lineitems_video video,
 .edit-video-show-div video,
@@ -14016,7 +14835,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 /* profile_product_upload_modal new end  */
-
 
 .edit_product_box {
     position: relative;
@@ -14127,13 +14945,23 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border-color: #474747;
 }
 .sitemap-inside-wrapper li span {
-    background-color: #DDF3FE;
+    background-color: #ddf3fe;
 }
 .sitemap-inside-wrapper li li span {
-    background-color: #DDEBC8;
+    background-color: #ddebc8;
 }
 .sitemap-inside-wrapper li li li span {
-    background-color: #FEFCD5;
+    background-color: #fefcd5;
+}
+
+/* New css start */
+.profile_account_myrfq_addPost {
+    border: 2px dashed #878787;
+    padding: 50px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    max-height: 310px;
+    min-height: 310px;
 }
 
 /* ******************** Media css style start *********************** */
@@ -14224,8 +15052,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         padding: 0 30px 20px;
     }
 
-    #lineitems_video, .overlay-image-preview-block,
-    .edit-video-show-div video, .edit-video-show-block,
+    #lineitems_video,
+    .overlay-image-preview-block,
+    .edit-video-show-div video,
+    .edit-video-show-block,
     .edit-video-upload-block #editVideo,
     .edit-video-show-div,
     .video-image-preview-block #video {
@@ -14349,7 +15179,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     #mb_about .ending {
         max-width: 650px;
     }
-
 }
 
 @media only screen and (min-width: 1300px) {
@@ -14374,7 +15203,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .product_media_wrap .row .col.s6.m4.l3 {
         width: 20%;
     }
-
 }
 
 @media only screen and (max-width: 1899px) {
@@ -14467,26 +15295,48 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .profile_account_myrfq_innerbox .profile_account_myrfq_box {
         padding: 20px 10px 60px;
     }
-    .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box .rfq_btn {
+    .profile_account_myrfq_innerbox
+        .account_rfq_btn_wrap
+        .rfq_btn_box
+        .rfq_btn {
         font-size: 12px;
     }
     .account_profile_box .profile_account_dev_design .product_cards .modal {
         width: 80%;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .design_history_tabs .tab {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .design_history_tabs
+        .tab {
         width: 120px;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .design_history_tabs .tab a {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .design_history_tabs
+        .tab
+        a {
         font-size: 16px;
     }
     .account_profile_box .profile_account_dev_tech .modal {
         width: 80% !important;
     }
-    .account_profile_box .send_rfq .send_rfq_card .card_body .add_button_container .add_button {
+    .account_profile_box
+        .send_rfq
+        .send_rfq_card
+        .card_body
+        .add_button_container
+        .add_button {
         height: 160px;
         width: 160px;
     }
-    .account_profile_box .profile_account_dev_tech .tech_pach_details_modal .modal_body .item_inner .main_img {
+    .account_profile_box
+        .profile_account_dev_tech
+        .tech_pach_details_modal
+        .modal_body
+        .item_inner
+        .main_img {
         height: 270px;
     }
 
@@ -14717,7 +15567,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .product_design_wrapper .product_item_box .pro_price {
         font-size: 13px;
     }
-    .account_profile_box .send_rfq .send_rfq_card .card_body .item_list_container .item_list .item {
+    .account_profile_box
+        .send_rfq
+        .send_rfq_card
+        .card_body
+        .item_list_container
+        .item_list
+        .item {
         width: 70px;
         height: 80px;
         padding: 0.5rem;
@@ -15095,11 +15951,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         width: 100%;
         text-align: center !important;
     }
-    .account_profile_box .profile_account_dev_design .product_cards .product_card .card_image {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_cards
+        .product_card
+        .card_image {
         height: 320px;
         text-align: center;
     }
-    .account_profile_box .profile_account_dev_design .product_cards .product_card_modal .modal_contents .design_history .design_history_tabs .tab {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_cards
+        .product_card_modal
+        .modal_contents
+        .design_history
+        .design_history_tabs
+        .tab {
         width: 100px;
     }
     .proinfo_account_blank {
@@ -15524,7 +16391,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         margin-top: 50px;
     }
     .profile_bannerwrap .erified {
-        background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/mark_icon.png") no-repeat left 14px;
+        background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/mark_icon.png")
+            no-repeat left 14px;
         background-size: 40px;
         bottom: 0px;
         font-size: 16px;
@@ -15958,7 +16826,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .footer_bottomWrap {
         background: #191919
-            url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/footer-sm-bg.jpg") repeat-x left top;
+            url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new-home/footer-sm-bg.jpg")
+            repeat-x left top;
         border-radius: 15px 15px 0 0;
     }
     .footer_left_bottom .addressWrap {
@@ -16034,8 +16903,18 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .business_list_itembox .list_box .switch .enable_disable_label {
         font-size: 9px;
     }
-    .my_businesses_wrap .my_businesses_box .switch label input[type="checkbox"]:checked + .lever,
-    .business_list_itembox .list_box .switch label input[type="checkbox"]:checked + .lever {
+    .my_businesses_wrap
+        .my_businesses_box
+        .switch
+        label
+        input[type="checkbox"]:checked
+        + .lever,
+    .business_list_itembox
+        .list_box
+        .switch
+        label
+        input[type="checkbox"]:checked
+        + .lever {
         margin: 0;
     }
     .spotlight_info {
@@ -16317,10 +17196,18 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         min-width: 90px;
         font-size: 12px;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .design_history_tabs p {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .design_history_tabs
+        p {
         margin-bottom: 30px;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .design_history_tabs .tab {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .design_history_tabs
+        .tab {
         width: 120px;
     }
     .account_profile_box .profile_account_dev_tech .modal {
@@ -16329,7 +17216,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .account_profile_box .pack_details_desktop {
         display: none;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .design_history_tabs .tab a {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .design_history_tabs
+        .tab
+        a {
         font-size: 14px;
     }
     #profileAccountRight .tech_pack_details {
@@ -16349,7 +17241,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     #profileAccountRight .tech_pack_details ul li .material-icons {
         right: 17px;
     }
-    .account_profile_box .profile_account_dev_tech .tech_pack_cards .card_footer .buttons a {
+    .account_profile_box
+        .profile_account_dev_tech
+        .tech_pack_cards
+        .card_footer
+        .buttons
+        a {
         min-width: 80px;
     }
     #profileAccountRight .send_rfq .item_list {
@@ -16368,7 +17265,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     #profileAccountRight .add_button_container .material-icons {
         font-size: 60px;
     }
-    .modal .create_new_tech_pac_modal .select_tech_pack_picture_modal .modal_body ul li {
+    .modal
+        .create_new_tech_pac_modal
+        .select_tech_pack_picture_modal
+        .modal_body
+        ul
+        li {
         width: calc(100% / 3);
     }
     .account_profile_wrapper .contentBox {
@@ -16727,7 +17629,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         height: 200px;
         max-height: 200px !important;
     }
-
 }
 
 @media only screen and (max-width: 900px) {
@@ -16745,19 +17646,57 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .chat-application .app-chat .chat-content .sidebar {
         width: 100% !important;
     }
-    .chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user {
+    .chat-application
+        .app-chat
+        .chat-content
+        .sidebar
+        .sidebar-chat
+        .chat-list
+        .chat-user {
         width: 100% !important;
     }
-    .chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user .user-section {
+    .chat-application
+        .app-chat
+        .chat-content
+        .sidebar
+        .sidebar-chat
+        .chat-list
+        .chat-user
+        .user-section {
         width: 60%;
     }
-    .home_wrap .chatting_app_wrapper .chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user .user-section {
+    .home_wrap
+        .chatting_app_wrapper
+        .chat-application
+        .app-chat
+        .chat-content
+        .sidebar
+        .sidebar-chat
+        .chat-list
+        .chat-user
+        .user-section {
         width: 100%;
     }
-    .chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user .info-section {
+    .chat-application
+        .app-chat
+        .chat-content
+        .sidebar
+        .sidebar-chat
+        .chat-list
+        .chat-user
+        .info-section {
         width: 40%;
     }
-    .chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user .info-section .star-timing .time {
+    .chat-application
+        .app-chat
+        .chat-content
+        .sidebar
+        .sidebar-chat
+        .chat-list
+        .chat-user
+        .info-section
+        .star-timing
+        .time {
         white-space: inherit;
         word-break: break-word;
         line-height: 13px;
@@ -16772,7 +17711,16 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         height: auto !important;
     }
     .chat_messagedata .chat_sms_left,
-    .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .chat-body .chat_sms_box p {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-area
+        .chats
+        .chat
+        .chat-body
+        .chat_sms_box
+        p {
         width: 100% !important;
         font-size: 13px;
         min-height: 30px;
@@ -16785,10 +17733,24 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         margin: 0;
         font-size: 13px;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-area
+        .chats
+        .chat {
         width: 100% !important;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat-right .chat-text .sms_strtotime {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-area
+        .chats
+        .chat-right
+        .chat-text
+        .sms_strtotime {
         left: inherit !important;
         right: 14px !important;
     }
@@ -16879,7 +17841,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         padding-right: 10px;
         white-space: inherit;
         text-align: left;
-        font-family: 'nexabold';
+        font-family: "nexabold";
     }
     .no_more_tables td:before {
         content: attr(data-title);
@@ -17258,7 +18220,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         max-width: 100%;
         margin-bottom: 15px;
     }
-    .banner_search .select2-container--default .select2-selection--single .select2-selection__rendered {
+    .banner_search
+        .select2-container--default
+        .select2-selection--single
+        .select2-selection__rendered {
         line-height: 40px;
     }
     .suppliers_filter_list {
@@ -17353,7 +18318,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .line_item_wrap {
         overflow: auto;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-area
+        .chats
+        .chat {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
@@ -17378,8 +18349,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         font-size: 12px;
         line-height: 18px;
     }
-     table.production-flow-and-manpower-table td,
-     table.production-flow-and-manpower-table th {
+    table.production-flow-and-manpower-table td,
+    table.production-flow-and-manpower-table th {
         font-size: 12px;
         line-height: 18px;
     }
@@ -17714,28 +18685,57 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .account_profile_box .profile_account_dev_design .product_cards .modal {
         width: calc(100% - 16px);
     }
-    .account_profile_box .profile_account_dev_design .product_cards .card_image {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_cards
+        .card_image {
         height: 240px;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .design_history_tabs .tab {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .design_history_tabs
+        .tab {
         width: 80px;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .design_history_tabs .tab a .material-icons {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .design_history_tabs
+        .tab
+        a
+        .material-icons {
         display: none;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .content_header {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .content_header {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .content_header h5 {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .content_header
+        h5 {
         width: 100%;
     }
-    .account_profile_box .profile_account_dev_design .product_card_modal .content_header p {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_card_modal
+        .content_header
+        p {
         -webkit-box-flex: 1;
         -ms-flex-positive: 1;
         flex-grow: 1;
     }
-    .account_profile_box .profile_account_dev_tech .modal .select_tech_pack_picture_modal ul li {
+    .account_profile_box
+        .profile_account_dev_tech
+        .modal
+        .select_tech_pack_picture_modal
+        ul
+        li {
         width: 50%;
     }
     .account_rfqDetailes_infoWrap p,
@@ -18014,13 +19014,24 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .profile_form_modal .submit_btn_wrap .btn_green {
         float: none;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-footer .chat-input {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-footer
+        .chat-input {
         display: inherit !important;
     }
     .chat-application .app-chat .chat-content .chat-content-area .chat-footer {
         margin: 0 !important;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-footer .chat-input .message {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-footer
+        .chat-input
+        .message {
         width: 85% !important;
         padding: 0 10px !important;
         margin-right: 0 !important;
@@ -18037,11 +19048,25 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         text-align: left;
         float: none;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .col {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-area
+        .chats
+        .chat
+        .col {
         padding-left: 6px;
         width: 100% !important;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat .col.m12 {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-area
+        .chats
+        .chat
+        .col.m12 {
         margin-bottom: 10px;
     }
     .blog_detail_info_wrap iframe {
@@ -18172,7 +19197,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .spotlight-inside-image {
         background: #285460;
     }
-    .product_design_wrapper .product_item_box .products_inner_textbox .col.s12.m6 {
+    .product_design_wrapper
+        .product_item_box
+        .products_inner_textbox
+        .col.s12.m6 {
         width: 50%;
     }
     .product_design_wrapper .price_negotiable {
@@ -18220,7 +19248,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         margin-bottom: 15px;
     }
     .createRfqForm .rfq_user_information_wrap .input-wrapper input,
-    .modal .createRfqForm .rfq_detail_from .input-wrapper .add_short_description,
+    .modal
+        .createRfqForm
+        .rfq_detail_from
+        .input-wrapper
+        .add_short_description,
     .modal .createRfqForm .rfq_detail_from .input-wrapper input {
         margin-bottom: 0;
     }
@@ -18407,10 +19439,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .account_item_menu ul li a:visited {
         padding: 8px 10px;
     }
-    .account_profile_box .profile_account_dev_design .product_cards .product_card .card_image {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_cards
+        .product_card
+        .card_image {
         height: 300px;
     }
-    .account_profile_box .profile_account_dev_design .product_cards .product_card_modal .modal_contents .model_content .content_header {
+    .account_profile_box
+        .profile_account_dev_design
+        .product_cards
+        .product_card_modal
+        .modal_contents
+        .model_content
+        .content_header {
         -webkit-box-pack: start;
         -ms-flex-pack: start;
     }
@@ -18812,13 +19854,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         height: 100%;
         object-fit: contain;
     }
-    #lineitems_video, .overlay-image-preview-block,
+    #lineitems_video,
+    .overlay-image-preview-block,
     .edit-video-show-div video,
     .edit-video-show-block,
     .edit-video-upload-block #editVideo,
     .edit-video-show-div,
     .video-image-preview-block #video,
-    .video-image-preview-block #video, .overlay-image-div .overlay-image-preview-block img {
+    .video-image-preview-block #video,
+    .overlay-image-div .overlay-image-preview-block img {
         box-shadow: none;
         height: auto;
     }
@@ -18951,11 +19995,31 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .chatting_app_wrapper .content-area .card {
         padding-top: 45px !important;
     }
-    .chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user {
+    .chat-application
+        .app-chat
+        .chat-content
+        .sidebar
+        .sidebar-chat
+        .chat-list
+        .chat-user {
         display: block !important;
     }
-    .chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user .info-section,
-    .chat-application .app-chat .chat-content .sidebar .sidebar-chat .chat-list .chat-user .user-section {
+    .chat-application
+        .app-chat
+        .chat-content
+        .sidebar
+        .sidebar-chat
+        .chat-list
+        .chat-user
+        .info-section,
+    .chat-application
+        .app-chat
+        .chat-content
+        .sidebar
+        .sidebar-chat
+        .chat-list
+        .chat-user
+        .user-section {
         width: 100% !important;
     }
     .profile_not_updated {
@@ -19096,7 +20160,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         padding: 5px 10px;
         min-height: auto;
     }
-    .product_wrapper .productBox .favorite .product-add-wishlist
+    .product_wrapper
+        .productBox
+        .favorite
+        .product-add-wishlist
         .material-icons {
         font-size: 22px;
     }
@@ -19200,7 +20267,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .rfq_content_box .rfq_profile_detail .responses_wrap .btn_responses {
         margin-left: 5px;
     }
-    .account_profile_box .profile_account_dev_tech .modal .create_new_tech_pac_modal .select_tech_pack_picture_modal .modal_body ul li {
+    .account_profile_box
+        .profile_account_dev_tech
+        .modal
+        .create_new_tech_pac_modal
+        .select_tech_pack_picture_modal
+        .modal_body
+        ul
+        li {
         width: 100%;
     }
     .new_rfq_upload_form_wrap .btn_green,
@@ -19397,12 +20471,26 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .profile_factory_tourWrap .factory_image_gallery .imgBox {
         height: auto;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat-right .chat-text .sms_strtotime {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-area
+        .chats
+        .chat-right
+        .chat-text
+        .sms_strtotime {
         bottom: -5px;
         font-size: 10px;
         white-space: inherit;
     }
-    .chat-application .app-chat .chat-content .chat-content-area .chat-area .chats .chat {
+    .chat-application
+        .app-chat
+        .chat-content
+        .chat-content-area
+        .chat-area
+        .chats
+        .chat {
         width: 245px !important;
     }
     .association-membership-img {
