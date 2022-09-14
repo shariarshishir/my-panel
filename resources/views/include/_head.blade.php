@@ -158,9 +158,9 @@
         if (x.style.width === "250px") {
             $(".mainSidenav").removeClass("mainSidenavLg");
             $(".mainSidenav").addClass("mainSidenavSm");
-            x.style.width = "40px";
-            document.getElementById("mainSidenav").style.width = "40px";
-            document.getElementById("buyerLayoutView").style.marginLeft= "40px";
+            x.style.width = "50px";
+            document.getElementById("mainSidenav").style.width = "50px";
+            document.getElementById("buyerLayoutView").style.marginLeft= "50px";
             
         } else {
             x.style.width = "250px";

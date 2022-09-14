@@ -386,11 +386,14 @@ legend {
 
 /* ****************** Header css start r********************* */
 .header_wrap {
-    padding: 30px 0 5px;
+    padding: 20px 0;
     position: relative;
     z-index: 3;
     background: #fff;
     transition: all 0.5s;
+    -webkit-box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
+    -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
 }
 .header_wrap.fixed {
     background-color: rgba(255, 255, 255, 1);
@@ -428,7 +431,7 @@ legend {
 .logo img {
     max-width: 250px;
     height: auto;
-    margin-top: 16px;
+    margin-top: 10px;
 }
 
 /* Logo css end  */
@@ -436,7 +439,6 @@ legend {
 /* Header Top right css start  */
 .header_wrap .top_right {
     text-align: right;
-    padding-top: 8px;
     padding-top: 4px;
     position: relative;
 }
@@ -816,7 +818,7 @@ legend {
 
 /* ************** Main Container css start ************** */
 #main {
-    padding: 50px 0;
+    padding: 40px 0;
 }
 .account_profile_wrapper {
     margin-top: -30px;
@@ -10756,9 +10758,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #000000;
 }
 .rfq_account_title_bar {
-    margin-bottom: 15px;
     font-size: 15px;
     color: #1e1e1e;
+    margin: 0 0 15px !important;
 }
 .profile_account_myrfq_innerbox h4 {
     font-family: "nexaregular";
@@ -10806,6 +10808,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     line-height: 12px;
     font-size: 24px;
 }
+.btn_accountrfq_info .accountrfq_btn {
+    color: #54a958;
+    display: inline-block;
+}
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap {
     text-align: right;
     display: inline-block;
@@ -10851,16 +10857,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #1e1e1e;
 }
 .new_profile_account_myrfq_details .accountrfq_btn {
-    color: #1e1e1e;
+    font-family: "nexabold";
+    color: #54a958;
     font-size: 14px;
-    padding-bottom: 5px;
+    padding-bottom: 0;
     display: inline-block;
 }
 .new_profile_myrfq_details_topbox {
-    padding-bottom: 5px;
+    border: 1px solid #d9d9d9;
+    padding: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 0;
 }
 .account_rfqDetailes_infoWrap {
-    padding-bottom: 5px;
+    padding: 10px 0 5px;
+    float: left;
+    width: 100%;
 }
 .new_profile_myrfq_details_topbox h6 {
     font-family: "nexaregular";
@@ -10871,6 +10883,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding-left: 10px;
     font-size: 14px;
     font-family: "nexabold";
+    color: #000000;
+}
+
+.new_profile_myrfq_details_topbox .titleBox {
+    display: inline-block;
+    width: 100%;
+}
+.new_profile_myrfq_details_topbox .titleBox h5 {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+.new_profile_myrfq_details_topbox .titleBox .btn_accountrfq_info {
+    float: left;
 }
 .account_rfqDetailes_imgWrap {
     padding-top: 15px;
@@ -10975,10 +11001,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     max-width: 265px;
     margin-bottom: 20px;
 }
+.rfq_review_message_box .chat-text.left-align span {
+    border: 1px solid #c5dfc6;
+}
 .rfq_review_message_box .chat-text span {
-    -webkit-box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
+    /* -webkit-box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
     -moz-box-shadow: 0px 2p6x 8px 0px rgba(0, 0, 0, 0.16);
-    box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
+    box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%); */
     padding: 5px 10px;
     border-radius: 6px;
     display: inline-block;
@@ -14957,25 +14986,40 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 /* New css start */
 .profile_account_myrfq_addPost {
     border: 2px dashed #878787;
-    padding: 50px;
-    border-radius: 10px;
     margin-bottom: 30px;
-    max-height: 310px;
-    min-height: 310px;
+    border-radius: 10px;
+}
+.profile_account_myrfq_addPost .post_new {
+    padding: 50px;
     display: flex;
     align-items: center;
     vertical-align: middle;
     justify-content: center;
+    flex-flow: column wrap;
+    max-height: 305px;
+    min-height: 305px;
+    color: #9e9e9e;
 }
 .profile_account_myrfq_addPost .material-icons {
-    float: left;
-    margin-left: 5px;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 50px;
+    white-space: inherit;
+}
+.profile_account_myrfq_addPost h6 {
+    display: block;
 }
 
 /* Fixed side nav start */
+.mainSidenav .btn_mainSidenav {
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+    margin-left: 15px;
+}
 .mainSidenav {
     height: 100%;
-    width: 40px;
+    width: 50px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -14988,41 +15032,42 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     box-shadow: 3px 3px 6px -3px rgb(0 0 0 / 16%);
     background: #fff;
 }
-
 .mainSidenav ul li {
-    padding: 8px;
+    padding: 8px 8px 8px 15px;
     text-decoration: none;
     transition: 0.3s;
     float: left;
     width: 100%;
     white-space: nowrap;
 }
+.mainSidenav ul li a span {
+    color: #9e9e9e;
+}
 
+.mainSidenav ul li a .material-icons {
+    font-size: 22px;
+    float: left;
+    margin-top: 3px;
+    margin-right: 20px;
+}
 .mainSidenav ul li a,
 .mainSidenav ul li a:link,
 .mainSidenav ul li a:active,
 .mainSidenav ul li a:visited {
-    color: #818181;
+    color: #c9c9c9;
     font-size: 16px;
     display: block;
     cursor: pointer;
 }
-.mainSidenav ul li a:hover {
+.mainSidenav ul li:hover {
+    background: #defcdf;
+}
+
+.mainSidenav ul li.active a span,
+.mainSidenav ul li a:hover,
+.mainSidenav ul li.active a {
     color: #54a958;
 }
-.mainSidenav ul li a .material-icons {
-    font-size: 20px;
-    float: left;
-    margin-top: 3px;
-}
-.mainSidenav .material-icons {
-    margin-right: 20px;
-}
-
-.mainSidenav a:hover {
-    color: #f1f1f1;
-}
-
 .mainSidenav .closebtn {
     position: absolute;
     top: 0;
@@ -15030,7 +15075,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 36px;
     margin-left: 50px;
 }
-
 #buyerLayoutView {
     transition: margin-left 0.5s;
     padding: 16px;
@@ -15043,6 +15087,54 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     bottom: 0;
     background: #000000;
 }
+
+.rfq_status_wrap {
+    padding: 0 10px 15px;
+}
+.rfq_status_wrap .status {
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    padding: 3px 10px 2px;
+    font-size: 12px;
+    line-height: 20px;
+}
+.rfq_status_wrap .accepted_rfq {
+    background: #54a958;
+    color: #ffffff;
+}
+.rfq_status_wrap .pending_rfq {
+    background: #d7df23;
+    color: #000000;
+}
+.rfq_status_wrap .more_vert {
+    float: right;
+}
+.rfq_status_wrap .rfq_status_dropdown {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #54a958;
+    max-width: 200px;
+    padding: 10px 0;
+}
+.rfq_status_wrap .more_vert .dropdown-content li {
+    min-height: inherit;
+    line-height: normal;
+}
+.rfq_status_wrap .more_vert .dropdown-content li > a,
+.rfq_status_wrap .more_vert .dropdown-content li > span {
+    padding: 5px 20px;
+    color: #54a958;
+}
+.rfq_status_wrap .more_vert .dropdown-content li > a:hover {
+    background: #54a958;
+    color: #ffffff;
+}
+.select_rfq_status {
+    width: 150px;
+    float: right;
+}
+
 /* Fixed side nav end */
 
 /* ******************** Media css style start *********************** */
@@ -15374,7 +15466,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         padding: 0 15px;
     }
     .profile_account_myrfq_innerbox .profile_account_myrfq_box {
-        padding: 20px 10px 60px;
+        padding: 20px 15px 60px;
     }
     .profile_account_myrfq_innerbox
         .account_rfq_btn_wrap

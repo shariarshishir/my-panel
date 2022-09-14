@@ -26,6 +26,24 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
 
                 <div class="profile_account_myrfq_info">
                     <div class="row">
+                        <div class="row rfq_account_title_bar">
+                            <div class="col s6">
+                                <h4>{{$pageTitle}}</h4>
+                            </div>
+                            <div class="col s6 right-align">
+                                <div class="input-field select_rfq_status">
+                                    <select class="select2 browser-default">
+                                        <option value="RFQ Status 1">RFQ Status 1</option>
+                                        <option value="RFQ Status 2">RFQ Status 2</option>
+                                        <option value="RFQ Status 3">RFQ Status 3</option>
+                                        <option value="RFQ Status 4">RFQ Status 4</option>
+                                        <option value="RFQ Status 5">RFQ Status 5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col s12 m12 l7">
                             <div class="product_design_wrapper">
                                 {{-- <div class="profile_account_searchBar">
@@ -48,20 +66,21 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                     </div>
                                 </div> --}}
                                 <div class="profile_account_myrfq_innerbox">
-                                    <div class="row rfq_account_title_bar">
+                                    {{-- <div class="row rfq_account_title_bar">
                                         <div class="col s8">
                                             <h4>{{$pageTitle}}</h4>
                                         </div>
                                         <div class="col s4 right-align">
                                             <span class="rfqView">{{count($rfqLists)}} results</span>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="row">
                                         <div class="col s12 m6">
                                             <div class="profile_account_myrfq_addPost">
                                                 <a class="post_new" href="{{route('rfq.create')}}">
-                                                    <i class="material-icons">add</i><span>Post New </span>
+                                                    <i class="material-icons">add_circle_outline</i>
+                                                    <h6>Create bew RFQ </h6>
                                                 </a>
                                             </div>
                                         </div>
@@ -69,6 +88,20 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             @foreach($rfqLists as $key=>$rfq)
                                             <div class="col s12 m6">
                                                 <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}">
+                                                    <div class="rfq_status_wrap">
+                                                        <div class="row">
+                                                            <span class="status accepted_rfq">RFQ Status 1</span>
+                                                            {{-- <span class="status pending_rfq">RFQ Status 1</span> --}}
+                                                            <span class="more_vert">
+                                                                <a class='dropdown-trigger' href='#' data-target='rfqStatusDropdown'><i class="material-icons">more_vert</i></a>
+                                                                <ul id='rfqStatusDropdown' class='dropdown-content rfq_status_dropdown'>
+                                                                    <li><a href="#!">Remove</a></li>
+                                                                    <li><a href="#!">Archive</a></li>
+                                                                    <li><a href="#!">Option</a></li>
+                                                                </ul>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                     <h5>{{$rfq['title']}}</h5>
                                                     <span class="posted_time">{{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
 
@@ -148,35 +181,37 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                             <div class="new_profile_account_myrfq_details fixed-rfq-message-bar">
                                 <div class="new_profile_myrfq_details_topbox">
                                     <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6>
-                                    <h5>{{$rfqLists[0]['title']}}</h5>
-                                    <span class="posted_time">{{date('Y-m-d', strtotime($rfqLists[0]['created_at']))}}</span>
-                                    <div class="center-align btn_accountrfq_info">
-                                        <a class="accountrfq_btn" href="javascript:void(0);" onclick="">Show More</a>
-                                    </div>
-                                    <div id="accountRfqDetailesInfo" class="account_rfqDetailes_infoWrap" style="display: none;">
-                                        <div class="row">
-                                            <div class="col s6 m6 l5">
-                                                <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
-                                                <p>Target Price <br/> <b>{{$rfqLists[0]['unit_price']}} / {{$rfqLists[0]['unit']}}</b></p>
-                                            </div>
-                                            <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
-                                            <div class="col s6 m6 l5">
-                                                <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
-                                                <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
-                                            </div>
+                                    <div class="titleBox">
+                                        <h5>{{$rfqLists[0]['title']}} </h5>
+                                        {{-- <span class="posted_time">{{date('Y-m-d', strtotime($rfqLists[0]['created_at']))}}</span> --}}
+                                        <div class="center-align btn_accountrfq_info">
+                                            <a class="accountrfq_btn" href="javascript:void(0);" onclick="">Show More</a>
                                         </div>
-                                        <div class="row">
-                                            <div class="col s12 m12 l12">
-                                                <p>Description <br/> <b>{{$rfqLists[0]['full_specification']}}</b></p>
+                                        <div id="accountRfqDetailesInfo" class="account_rfqDetailes_infoWrap" style="display: none;">
+                                            <div class="row">
+                                                <div class="col s6 m6 l5">
+                                                    <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
+                                                    <p>Target Price <br/> <b>{{$rfqLists[0]['unit_price']}} / {{$rfqLists[0]['unit']}}</b></p>
+                                                </div>
+                                                <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
+                                                <div class="col s6 m6 l5">
+                                                    <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
+                                                    <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="account_rfqDetailes_imgWrap">
-                                            <h6>Attachments</h6>
-                                            @foreach ($rfqLists[0]['images'] as $rfqImg)
-                                            <a href="{{$rfqImg['image']}}" data-fancybox>
-                                            <img src="{{$rfqImg['image']}}" />
-                                            </a>
-                                            @endforeach
+                                            <div class="row">
+                                                <div class="col s12 m12 l12">
+                                                    <p>Description <br/> <b>{{$rfqLists[0]['full_specification']}}</b></p>
+                                                </div>
+                                            </div>
+                                            <div class="account_rfqDetailes_imgWrap">
+                                                <h6>Attachments</h6>
+                                                @foreach ($rfqLists[0]['images'] as $rfqImg)
+                                                <a href="{{$rfqImg['image']}}" data-fancybox>
+                                                <img src="{{$rfqImg['image']}}" />
+                                                </a>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
