@@ -381,7 +381,7 @@ Route::group(['middleware'=>['sso.verified','auth']],function (){
     //endtinymc
 
     //my order
-    Route::get('my-order',[MyOrderController::class, 'index'])->name('myorder');
+    Route::get('my-orders',[MyOrderController::class, 'index'])->name('myorders');
     //rfq
 
     Route::get('my-rfq-by-page-no',[RfqController::class, 'myRfqByPageNumber'])->name('my.rfq.frontend.pagination');

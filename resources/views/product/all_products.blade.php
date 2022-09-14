@@ -65,11 +65,12 @@
                         </div>
                         <div class="product_design_wrapper">
                             <div class="product_wrapper">
-                                @if($mapping_type_child == "product_sample")
-                                <h1>Production Sample</h1>
-                                @else
-                                <h1>{{ucwords(str_replace("_", " ", $mapping_type_child))}}</h1>
-                                @endif
+                                <h1>Raw Materials</h1>
+                                <ul>
+                                    <li><a href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">Textile</a></li>
+                                    <li><a href="{{route('product.type.mapping',['raw_materials', 'yarn'])}}">Yarn</a></li>
+                                    <li><a href="{{route('product.type.mapping',['raw_materials', 'trims and accessories'])}}">Accessories</a></li>
+                                </ul>
                                 @include('product._all_product_data')
                             </div>
                         </div>
