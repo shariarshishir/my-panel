@@ -178,7 +178,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             <div class="row">
                                                 <div class="col s12 m5 l4">
                                                     <a class="post_new" href="{{route('rfq.create')}}">
-                                                        <i class="material-icons">add</i><span>Post New</span>
+                                                        <i class="material-icons">add_circle_outline</i><span>Create New RFQ</span>
                                                     </a>
                                                 </div>
                                                 <div class="col s12 m7 l8">

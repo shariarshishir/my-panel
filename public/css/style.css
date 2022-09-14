@@ -14962,6 +14962,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-bottom: 30px;
     max-height: 310px;
     min-height: 310px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+.profile_account_myrfq_addPost .material-icons {
+    float: left;
+    margin-left: 5px;
 }
 
 /* ******************** Media css style start *********************** */
