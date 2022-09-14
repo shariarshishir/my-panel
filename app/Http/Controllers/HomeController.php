@@ -45,68 +45,76 @@ class HomeController extends Controller
         $business_profile = BusinessProfile::with('user')->firstOrFail();
         $alias = $business_profile->alias;
         $user = Auth::user();
-        $token = Cookie::get('sso_token');
-        //get all rfqs of auth user
-        $response = Http::withToken($token)
-        ->get(env('RFQ_APP_URL').'/api/quotation/user/'.$user->sso_reference_id.'/filter/null/page/'.$page.'/limit/10');
-        $data = $response->json();
-        //dd($data);
-        $rfqLists = $data['data'] ?? [];
-        $rfqsCount = $data['count'];
-        $noOfPages = ceil($data['count']/10);
-        //all messages of auth user from mongodb messages collection
-        $chatdataRfqIds = Userchat::where('to_id',$user->sso_reference_id)->orWhere('from_id',$user->sso_reference_id)->pluck('rfq_id')->toArray();
-        $uniqueRfqIdsWithChatdata = array_unique($chatdataRfqIds);
-        //all rfqs where auth user has messages
-        $rfqs = RfqApp::whereIn('id',$uniqueRfqIdsWithChatdata)->latest()->get();
-        if(count($rfqs)>0){
-            //messages of first rfq of auth user
-            $response = Http::get(env('RFQ_APP_URL').'/api/messages/'.$rfqLists[0]['id'].'/user/'.$user->sso_reference_id);
+
+        if($user) {
+            $token = Cookie::get('sso_token');
+            //get all rfqs of auth user
+            $response = Http::withToken($token)
+            ->get(env('RFQ_APP_URL').'/api/quotation/user/'.$user->sso_reference_id.'/filter/null/page/'.$page.'/limit/10');
             $data = $response->json();
-            $chats = $data['data']['messages'];
+            //dd($data);
+            $rfqLists = $data['data'] ?? [];
+            $rfqsCount = $data['count'];
+            $noOfPages = ceil($data['count']/10);
+            //all messages of auth user from mongodb messages collection
+            $chatdataRfqIds = Userchat::where('to_id',$user->sso_reference_id)->orWhere('from_id',$user->sso_reference_id)->pluck('rfq_id')->toArray();
+            $uniqueRfqIdsWithChatdata = array_unique($chatdataRfqIds);
+            //all rfqs where auth user has messages
+            $rfqs = RfqApp::whereIn('id',$uniqueRfqIdsWithChatdata)->latest()->get();
+            if(count($rfqs)>0){
+                //messages of first rfq of auth user
+                $response = Http::get(env('RFQ_APP_URL').'/api/messages/'.$rfqLists[0]['id'].'/user/'.$user->sso_reference_id);
+                $data = $response->json();
+                $chats = $data['data']['messages'];
 
-            //$chatdata = $chats;
-            $chatdataAllData = $chats;
-            $chatdata = $chatdataAllData;
-            foreach ($chatdataAllData as $key => $value) {
-                $messageStr = preg_replace('!(((f|ht)tp(s)?://)[-a-zA-Zа-яА-Я()0-9@:%_+.~#?&;//=]+)!i', '<a href="$1">$1</a>', $value['message']);
-                $chatdata[$key]['message'] = $messageStr;
-                //echo "<pre>"; print_r($chatdataAllData[$key]); exit();
-            }
+                //$chatdata = $chats;
+                $chatdataAllData = $chats;
+                $chatdata = $chatdataAllData;
+                foreach ($chatdataAllData as $key => $value) {
+                    $messageStr = preg_replace('!(((f|ht)tp(s)?://)[-a-zA-Zа-яА-Я()0-9@:%_+.~#?&;//=]+)!i', '<a href="$1">$1</a>', $value['message']);
+                    $chatdata[$key]['message'] = $messageStr;
+                    //echo "<pre>"; print_r($chatdataAllData[$key]); exit();
+                }
 
-            if($rfqs[0]['user']['user_picture'] !=""){
-                $userImage = $rfqs[0]['user']['user_picture'];
-                $userNameShortForm = "";
+                if($rfqs[0]['user']['user_picture'] !=""){
+                    $userImage = $rfqs[0]['user']['user_picture'];
+                    $userNameShortForm = "";
+                }else{
+                    $userImage = $rfqs[0]['user']['user_picture'];
+                    //if user picture does not exist then we need to show user name short form insetad of user image in chat box
+                    $nameWordArray = explode(" ", $rfqs[0]['user']['user_name']);
+                    $firstWordFirstLetter = $nameWordArray[0][0];
+                    $secorndWordFirstLetter = $nameWordArray[1][0] ??'';
+                    $userNameShortForm = $firstWordFirstLetter.$secorndWordFirstLetter;
+                }
             }else{
-                $userImage = $rfqs[0]['user']['user_picture'];
+                $chatdata = [];
+                $userImage ="";
                 //if user picture does not exist then we need to show user name short form insetad of user image in chat box
-                $nameWordArray = explode(" ", $rfqs[0]['user']['user_name']);
+                $nameWordArray = explode(" ", $user->name);
                 $firstWordFirstLetter = $nameWordArray[0][0];
                 $secorndWordFirstLetter = $nameWordArray[1][0] ??'';
                 $userNameShortForm = $firstWordFirstLetter.$secorndWordFirstLetter;
             }
-        }else{
-            $chatdata = [];
-            $userImage ="";
-            //if user picture does not exist then we need to show user name short form insetad of user image in chat box
-            $nameWordArray = explode(" ", $user->name);
-            $firstWordFirstLetter = $nameWordArray[0][0];
-            $secorndWordFirstLetter = $nameWordArray[1][0] ??'';
-            $userNameShortForm = $firstWordFirstLetter.$secorndWordFirstLetter;
-        }
-        $quotations = Userchat::select("*", DB::raw('count(*) as total'))
-        ->groupBy('rfq_id')
-        ->get();
+            $quotations = Userchat::select("*", DB::raw('count(*) as total'))
+            ->groupBy('rfq_id')
+            ->get();
 
-        if(env('APP_ENV') == 'local'){
-            $adminUser = User::Find('5552');
-        }else{
-            $adminUser = User::Find('5771');
+            if(env('APP_ENV') == 'local'){
+                $adminUser = User::Find('5552');
+            }else{
+                $adminUser = User::Find('5771');
+            }
+            $adminUserImage = isset($adminUser->image) ? asset($adminUser->image) : asset('images/frontendimages/no-image.png');
+            $pageTitle = "My RFQs";
+            $pageActive = "RFQ";
+
+            return view('shoplanding',compact('pageTitle','pageActive','rfqLists','noOfPages','alias','chatdata','business_profile','adminUserImage','userImage','userNameShortForm','user'));
+        } else {
+            //die("User not Authenticated");
+            return redirect('/login');
         }
-        $adminUserImage = isset($adminUser->image) ? asset($adminUser->image) : asset('images/frontendimages/no-image.png');
-        $pageTitle = "My RFQs";
-        $pageActive = "RFQ";
-        return view('shoplanding',compact('pageTitle','pageActive','rfqLists','noOfPages','alias','chatdata','business_profile','adminUserImage','userImage','userNameShortForm','user'));
+
     }
 
     public function productList(Request $request)
