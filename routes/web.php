@@ -381,7 +381,7 @@ Route::group(['middleware'=>['sso.verified','auth']],function (){
     //endtinymc
 
     //my order
-    Route::get('my-order',[MyOrderController::class, 'index'])->name('myorder');
+    Route::get('my-orders',[MyOrderController::class, 'index'])->name('myorders');
     //rfq
 
     Route::get('my-rfq-by-page-no',[RfqController::class, 'myRfqByPageNumber'])->name('my.rfq.frontend.pagination');
@@ -427,6 +427,7 @@ Route::group(['middleware'=>['sso.verified','auth']],function (){
     Route::get('/po/edit', [PoController::class, 'edit'])->name('po.edit');
     Route::post('/po/store', [PoController::class,'store'])->name('po.store');
     Route::get('/po',[PoController::class,'index'])->name('po.index');
+    Route::get('/my-orders',[PoController::class,'myOrders'])->name('po.myorders');
     Route::get('/product-list-by-business-profile-id', [PoController::class, 'getProductListByBuisnessProfileId'])->name('product_list.by_profile_id');
     Route::get('/getsupplierbycat/{id}', [PoController::class, 'getsupplierbycat'])->name('getsupplierbycat');
     Route::get('/open-proforma-single-html/{id}', [PoController::class, 'openProformaSingleHtml'])->name('open.proforma.single.html');
