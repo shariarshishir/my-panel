@@ -156,20 +156,22 @@
     function openClose() {
         var x = document.getElementById("mainSidenav");
         if (x.style.width === "250px") {
+            document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">arrow_forward</i>';
             $(".mainSidenav").removeClass("mainSidenavLg");
             $(".mainSidenav").addClass("mainSidenavSm");
             x.style.width = "50px";
             document.getElementById("mainSidenav").style.width = "50px";
             document.getElementById("buyerLayoutView").style.marginLeft= "50px";
-            
+
         } else {
+            document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">arrow_back</i>';
             x.style.width = "250px";
             document.getElementById("mainSidenav").style.width = "250px";
             document.getElementById("buyerLayoutView").style.marginLeft = "250px";
             $(".mainSidenav").removeClass("mainSidenavSm");
             $(".mainSidenav").addClass("mainSidenavLg");
         }
-    }    
+    }
 </script>
 
 <script type="application/ld+json">
