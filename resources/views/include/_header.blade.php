@@ -494,7 +494,7 @@
             </a>
 		</li>
 		<li>
-			<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="javascript:void(0);">
+			<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="{{route('product.type.mapping',['studio', 'design'])}}">
                 <i class="material-icons">library_books</i><span>Design Studio</span>
             </a>
 		</li>
