@@ -10928,7 +10928,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .rfq_review_results_nav ul li.active a {
     font-family: "nexabold";
     font-size: 16px;
-    color: #000;
+    color: #285460;
+    border-bottom: 2px solid #285460;
+    padding-bottom: 6px;
 }
 .rfq_review_results_box {
     border-bottom: 1px solid #707070;
