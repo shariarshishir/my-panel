@@ -6631,6 +6631,18 @@ nav .pagination li.active .page-link {
 #orders .order_inquiries_table table .btn_green {
     max-width: 205px;
     min-width: 170px;
+    background: none;
+    border: 1px solid #54a958;
+    color: #54a958 !important;
+    border-radius: 10px;
+}
+#orders .order_inquiries_table table .pi_pending {
+    border: 1px solid #c8cf20;
+    color: #c8cf20 !important;
+}
+#orders .order_inquiries_table table .pi_rejected {
+    border: 1px solid red;
+    color: red !important;
 }
 #orders .order_inquiries_table table a {
     color: #ffffff !important;
@@ -15042,6 +15054,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     float: left;
     width: 100%;
     white-space: nowrap;
+    margin-bottom: 5px;
 }
 .mainSidenav ul li a span {
     color: #9e9e9e;
@@ -15066,36 +15079,129 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .mainSidenav ul li:hover a {
     background: #defcdf;
 }
+.mainSidenav ul li.active a span {
+    color: #54a958;
+}
 .mainSidenav ul li.myRfqs a {
-    background: url("../images/frontendimages/main-sidenav-images/my-rfqs.png")
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-rfqs.png")
         no-repeat 15px center;
     background-size: 20px;
 }
 .mainSidenav ul li.myRfqs.active a,
 .mainSidenav ul li.myRfqs:hover a {
     background: #defcdf
-        url("../images/frontendimages/main-sidenav-images/my-rfqs-active.png")
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-rfqs-active.png")
         no-repeat 15px center;
     background-size: 20px;
 }
 .mainSidenav ul li.myOrders a {
-    background: url("../images/frontendimages/main-sidenav-images/my-orders.png")
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-orders.png")
         no-repeat 15px center;
     background-size: 18px;
 }
 .mainSidenav ul li.myOrders.active a,
 .mainSidenav ul li.myOrders:hover a {
     background: #defcdf
-        url("../images/frontendimages/main-sidenav-images/my-orders-active.png")
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-orders-active.png")
         no-repeat 15px center;
     background-size: 18px;
 }
-
-/* .mainSidenav ul li.active a span,
-.mainSidenav ul li.active a {
-    color: #54a958;
-    background: #defcdf;
-} */
+.mainSidenav ul li.mySupplyChain a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-supply-chain.png")
+        no-repeat 15px center;
+    background-size: 23px;
+}
+.mainSidenav ul li.mySupplyChain.active a,
+.mainSidenav ul li.mySupplyChain:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-supply-chain-active.png")
+        no-repeat 15px center;
+    background-size: 23px;
+}
+.mainSidenav ul li.designStudio a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/design-studio.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.designStudio.active a,
+.mainSidenav ul li.designStudio:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/design-studio-active.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.designers a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/designers.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.designers.active a,
+.mainSidenav ul li.designers:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/designers-active.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.rawMaterials a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/raw-materials.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.rawMaterials.active a,
+.mainSidenav ul li.rawMaterials:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/raw-materials-active.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.suppliers a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/suppliers.png")
+        no-repeat 15px center;
+    background-size: 21px;
+}
+.mainSidenav ul li.suppliers.active a,
+.mainSidenav ul li.suppliers:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/suppliers-active.png")
+        no-repeat 15px center;
+    background-size: 21px;
+}
+.mainSidenav ul li.messages a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/messages.png")
+        no-repeat 15px center;
+    background-size: 23px;
+}
+.mainSidenav ul li.messages.active a,
+.mainSidenav ul li.messages:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/messages-active.png")
+        no-repeat 15px center;
+    background-size: 23px;
+}
+.mainSidenav ul li.samples a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/samples.png")
+        no-repeat 15px center;
+    background-size: 23px;
+}
+.mainSidenav ul li.samples.active a,
+.mainSidenav ul li.samples:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/samples-active.png")
+        no-repeat 15px center;
+    background-size: 23px;
+}
+.mainSidenav ul li.oms a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/oms.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.oms.active a,
+.mainSidenav ul li.oms:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/oms-active.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
 
 .mainSidenav .closebtn {
     position: absolute;
@@ -16952,6 +17058,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         max-width: inherit;
         min-width: auto;
     }
+
     .account_profile_wrapper .editBox .btn_green_White.btn_delete {
         margin-left: 8px;
     }

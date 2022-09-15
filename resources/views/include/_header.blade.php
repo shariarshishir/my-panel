@@ -478,12 +478,12 @@
 <div id="mainSidenav" class="mainSidenav">
 	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">arrow_forward</i></span>
 	<ul>
-		<li class="{{ Route::is('home') ? 'active' : ''}} myRfqs">
+		<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
                 <span>My RFQs</span>
             </a>
 		</li>
-		<li class="{{ Route::is('po.myorders') ? 'active' : ''}} myOrders">
+		<li class="myOrders{{ Route::is('po.myorders') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="{{route('po.myorders')}}">
                 <span>My Orders</span>
             </a>
@@ -508,12 +508,12 @@
                 <span>Raw Materials</span>
             </a>
 		</li>
-        <li class="{{ Route::is('suppliers') ? 'active' : ''}} suppliers">
+        <li class="suppliers{{ Route::is('suppliers') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="{{route('suppliers')}}">
                 <span>Suppliers</span>
             </a>
 		</li>
-        <li class="{{ Route::is('message.center') ? 'active' : ''}} messages">
+        <li class="messages{{ Route::is('message.center') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Messages" href="{{route('message.center')}}">
                 <span>Messages</span>
             </a>
@@ -525,7 +525,7 @@
 		</li>
         <li class="oms">
 			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
-                <i class="material-icons">library_books</i><span>OMS</span>
+                <span>OMS</span>
             </a>
 		</li>
 	</ul>
