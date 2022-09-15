@@ -473,21 +473,61 @@
 	</div>
 </section>
 <!-- Header section end -->
+
+@if(auth()->user())
 <div id="mainSidenav" class="mainSidenav">
-	<span class="btn_mainSidenav" onclick="openClose()">&#9776; </span>
+	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">arrow_forward</i></span>
 	<ul>
 		<li class="active">
-			<a class="tooltipped" data-position="right" data-tooltip="My RFQs"><i class="material-icons">library_books</i><span>My RFQs</span></a>
+			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>My RFQs</span>
+            </a>
 		</li>
 		<li>
-			<a class="tooltipped" data-position="right" data-tooltip="My Orders"><i class="material-icons">library_books</i><span>My Orders</span></a>
+			<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>My Orders</span>
+            </a>
 		</li>
 		<li>
-			<a class="tooltipped" data-position="right" data-tooltip="My Orders"><i class="material-icons">library_books</i><span>My Orders</span></a>
+			<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>My Supply Chain</span>
+            </a>
 		</li>
 		<li>
-			<a class="tooltipped" data-position="right" data-tooltip="My Orders"><i class="material-icons">library_books</i><span>My Orders</span></a>
+			<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>Design Studio</span>
+            </a>
+		</li>
+        <li>
+			<a class="tooltipped" data-position="right" data-tooltip="Designers" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>Designers</span>
+            </a>
+		</li>
+        <li>
+			<a class="tooltipped" data-position="right" data-tooltip="Raw Materials" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>Raw Materials</span>
+            </a>
+		</li>
+        <li>
+			<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>Suppliers</span>
+            </a>
+		</li>
+        <li>
+			<a class="tooltipped" data-position="right" data-tooltip="Messages" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>Messages</span>
+            </a>
+		</li>
+        <li>
+			<a class="tooltipped" data-position="right" data-tooltip="Samples" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>Samples</span>
+            </a>
+		</li>
+        <li>
+			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
+                <i class="material-icons">library_books</i><span>OMS</span>
+            </a>
 		</li>
 	</ul>
 </div>
-
+@endif

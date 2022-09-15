@@ -158,10 +158,10 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             </li>
                                             @for( $i=1; $i <= $noOfPages; $i++)
                                                 @php
-                                                    $r=route('new.profile.my_rfqs', $alias);
+                                                    $r = route('home');
                                                 @endphp
-                                                <li class="page-item" >
-                                                    <a class="" href="{{ $r.'?page='.$i }}" {{ ($page == $i) ? 'selected="selected"':'' }} data-page="{{$i}}">{{$i}}</a>
+                                                <li class="page-item {{ ($page == $i) ? 'active':'' }}">
+                                                    <a href="{{ $r.'?page='.$i }}" data-page="{{$i}}">{{$i}}</a>
                                                 </li>
                                             @endfor
                                             <li class="page-item">

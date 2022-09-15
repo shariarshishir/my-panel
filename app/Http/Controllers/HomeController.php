@@ -38,7 +38,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $page = isset($request->page) ? $request->page : 1;
 
@@ -109,7 +109,7 @@ class HomeController extends Controller
             $pageTitle = "My RFQs";
             $pageActive = "RFQ";
 
-            return view('shoplanding',compact('pageTitle','pageActive','rfqLists','noOfPages','alias','chatdata','business_profile','adminUserImage','userImage','userNameShortForm','user'));
+            return view('shoplanding',compact('pageTitle','pageActive','page','rfqLists','noOfPages','alias','chatdata','business_profile','adminUserImage','userImage','userNameShortForm','user'));
         } else {
             //die("User not Authenticated");
             return redirect('/login');
