@@ -478,13 +478,13 @@
 <div id="mainSidenav" class="mainSidenav">
 	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">arrow_forward</i></span>
 	<ul>
-		<li class="active">
-			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="javascript:void(0);">
+		<li class="{{ Route::is('home') ? 'active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
                 <i class="material-icons">library_books</i><span>My RFQs</span>
             </a>
 		</li>
-		<li>
-			<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="javascript:void(0);">
+		<li class="{{ Route::is('po.myorders') ? 'active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="{{route('po.myorders')}}">
                 <i class="material-icons">library_books</i><span>My Orders</span>
             </a>
 		</li>
@@ -504,17 +504,17 @@
             </a>
 		</li>
         <li>
-			<a class="tooltipped" data-position="right" data-tooltip="Raw Materials" href="javascript:void(0);">
+			<a class="tooltipped" data-position="right" data-tooltip="Raw Materials" href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">
                 <i class="material-icons">library_books</i><span>Raw Materials</span>
             </a>
 		</li>
-        <li>
-			<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="javascript:void(0);">
+        <li class="{{ Route::is('suppliers') ? 'active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="{{route('suppliers')}}">
                 <i class="material-icons">library_books</i><span>Suppliers</span>
             </a>
 		</li>
-        <li>
-			<a class="tooltipped" data-position="right" data-tooltip="Messages" href="javascript:void(0);">
+        <li class="{{ Route::is('message.center') ? 'active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="Messages" href="{{route('message.center')}}">
                 <i class="material-icons">library_books</i><span>Messages</span>
             </a>
 		</li>
