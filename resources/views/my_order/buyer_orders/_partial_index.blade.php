@@ -4,12 +4,11 @@
             <thead class="cf">
                 <tr >
                     <th>created_at</th>
-                    <th> Invoice Id</th>
-                    <th> Date</th>
-                    <th> Total Price</th>
-                    <th> Payment Within </th>
-                    <th> Proforma Type</th>
-                    <th class="center-align" > Status</th>
+                    <th>Order Id</th>
+                    <th>Delivery Date</th>
+                    <th>Delivery Status</th>
+                    <th>Payment Status</th>
+                    <th class="center-align">Action</th>
                 </tr>
             </thead>
 
@@ -26,11 +25,9 @@
                                 PO ID: {{$po->po_no}}
                             @endif
                         </td>
-                        <td data-title="Date">{{ $po->proforma_date }}</td>
-                        {{-- <td data-title="Total Price"><a href="javascript:void(0)" data-toggle="modal" data-target="#detailsFormModal{{ $index }}">{{ number_format($total_price_wt,2) }}</a></td> --}}
-                        <td data-title="Total Price">USD ${{ number_format($total_price_wt,2) }}</td>
-                        <td data-title="Payment Within">{{ $po->payment_within }}</td>
-                        <td data-title="Proforma Type">{{ $po->proforma_type}}</td>
+                        <td data-title="Date">{{ $po->shipping_date }}</td>
+                        <td>Accepted</td>  <!-- if po_no has value then show accepted or pending -->
+                        <td>{{ $po->PaymentTerm->name }}</td>
                         <td data-title="Status">
                             @if($po->status == 0)
                                 <div class="status-btn center-align">

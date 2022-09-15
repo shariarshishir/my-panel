@@ -101,30 +101,33 @@ class PoController extends Controller
     public function myOrders(Request $request)
     {
         $user = Auth::user();
-        $user_business_id=[];
-        if($user->businessProfile()->exists()){
-            foreach($user->businessProfile as $profile){
-                array_push($user_business_id, $profile->id);
-            }
-        }
-        if($user->businessProfileForRepresentative()->exists()){
-            array_push($user_business_id, $user->businessProfileForRepresentative->id);
-        }
 
-        $giving=Proforma::with('performa_items')->whereIn('business_profile_id', $user_business_id)->latest()->get();
-        foreach($giving as $g){
-            $g['proforma_type'] = 'giving';
-        }
-        $received=Proforma::with('performa_items')->where('buyer_id', auth()->id())->latest()->get();
-        foreach($received as $r){
-            $r['proforma_type'] = 'received';
-        }
+        $proforma = Proforma::with('performa_items', 'PaymentTerm')->where('buyer_id', $user->id)->latest()->get();
 
-        $proforma=$giving->merge($received);
-        if(isset($request->business_id)){
-            $proforma = $proforma->where('business_profile_id' , $request->business_id)->where('proforma_type', 'giving');
-            $proforma->all();
-        }
+        // $user_business_id = [];
+        // if($user->businessProfile()->exists()){
+        //     foreach($user->businessProfile as $profile){
+        //         array_push($user_business_id, $profile->id);
+        //     }
+        // }
+        // if($user->businessProfileForRepresentative()->exists()){
+        //     array_push($user_business_id, $user->businessProfileForRepresentative->id);
+        // }
+
+        // $giving=Proforma::with('performa_items')->whereIn('business_profile_id', $user_business_id)->latest()->get();
+        // foreach($giving as $g){
+        //     $g['proforma_type'] = 'giving';
+        // }
+        // $received=Proforma::with('performa_items')->where('buyer_id', auth()->id())->latest()->get();
+        // foreach($received as $r){
+        //     $r['proforma_type'] = 'received';
+        // }
+
+        // $proforma=$giving->merge($received);
+        // if(isset($request->business_id)){
+        //     $proforma = $proforma->where('business_profile_id' , $request->business_id)->where('proforma_type', 'giving');
+        //     $proforma->all();
+        // }
 
         return view('my_order.buyer_orders.index',compact('proforma'));
     }
