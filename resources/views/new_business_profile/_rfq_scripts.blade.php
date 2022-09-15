@@ -585,8 +585,9 @@
                         $(unseenMessageCountClass).hide();
 
                         var html='<h6>RFQ ID <span>'+response.rfq.id+'</span></h6>';
+                            html+='<div class="titleBox">';
                             html+='<h5>'+response.rfq.title+'</h5>';
-                            html+='<span class="posted_time">'+response.rfq.created_at+'</span>';
+                            // html+='<span class="posted_time">'+response.rfq.created_at+'</span>';
                             if(pageTitle=="My Queries"){
                                 if(response.quotationOffer) {
                                     html+='<span class="quotation_html"><span class="quotation_label">Your submitted quotation on this RFQ:</span> $ '+response.quotationOffer+' / '+response.quotationOfferunit+'</span>';
@@ -598,6 +599,7 @@
                             html+='<a class="accountrfq_btn" href="javascript:void(0);" onclick="">Show More</a>';
                             html+='</div>';
                             html+='<div id="accountRfqDetailesInfo" class="account_rfqDetailes_infoWrap" style="display: none;">';
+                            
                             if(pageTitle=="My Queries")
                             {
                                 html+='<div class="row">';
@@ -626,7 +628,6 @@
                                 html+='</div>';
                             }
 
-
                             html+='<div class="row">';
                             html+='<div class="col s12 m12 l12">';
                             html+='<p>Description <br/> <b>'+response.rfq.full_specification+'</b></p>';
@@ -640,6 +641,7 @@
                             html+='</div>';
                             html+='</div>';
                             $('.new_profile_myrfq_details_topbox').empty().append(html);
+                            html+='</div>';
 
                         var authUserId = '{{auth()->user()->sso_reference_id}}';
                         for(var i=0;i<response.chats.length;i++){
