@@ -1365,7 +1365,7 @@ class HomeController extends Controller
         return response()->json(["status" => 1, "message" => "Success", "data" => $userObj]);
     }
 
-    public function productTypeMapping(Request $request,$type, $child)
+    public function productTypeMapping(Request $request, $type, $child)
     {
         switch($type) {
             case('studio'):

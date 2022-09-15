@@ -65,12 +65,16 @@
                         </div>
                         <div class="product_design_wrapper">
                             <div class="product_wrapper">
+                                @if($mapping_type_child == "textile" || $mapping_type_child == "yarn" || $mapping_type_child == "trims and accessories")
                                 <h1>Raw Materials</h1>
                                 <ul>
                                     <li><a href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">Textile</a></li>
                                     <li><a href="{{route('product.type.mapping',['raw_materials', 'yarn'])}}">Yarn</a></li>
                                     <li><a href="{{route('product.type.mapping',['raw_materials', 'trims and accessories'])}}">Accessories</a></li>
                                 </ul>
+                                @else
+                                <h1>Design Studio</h1>
+                                @endif
                                 @include('product._all_product_data')
                             </div>
                         </div>
