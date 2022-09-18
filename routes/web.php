@@ -216,6 +216,9 @@ Route::get('/faqs', [HomeController::class, 'faqLandingPage'])->name('front.faq'
 
 Route::get('/suppliers', [HomeController::class, 'suppliers'])->name('suppliers');
 Route::get('/supplier/location/data',[HomeController::class,'getSupplierLocationData'])->name('get.supplier.location.data');
+
+Route::get('/designers', [HomeController::class, 'designers'])->name('designers');
+
 // Route::get('/suppliers', [HomeController::class, 'vendorList'])->name('vendors');
 Route::get('product/{value}/details',[HomeController::class, 'productDetails'])->name('productdetails');
 
