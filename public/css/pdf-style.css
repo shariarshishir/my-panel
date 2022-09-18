@@ -63,11 +63,15 @@ td span {
 }
 
 .buyer_shipping_details {
-    padding-top: 30px;
+    padding-top: 10px;
 }
-
 .shipping_details  {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+    padding-top: 0;
+}
+.shipping_details legend {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 .invoice_top_button_wrap {
     display: none;
