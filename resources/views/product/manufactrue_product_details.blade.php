@@ -39,195 +39,198 @@
         </div>
     </section>
 
-    <section class="ic-single-product-details manufactrue_product_details_wrap">
+    <section class="ic-single-product-details manufactrue_product_details_wrap product_details_wrapper">
         <div class="manufactrue_product_details_inner">
             <div class="ic-pg-container">
                 <div class="s12 product_preview_info_wrap">
-                    <div class="row">
-                        <div class="col s12 m5 product_preview_wrap">
-                            @if(isset($product->product_video->video))
-                                <div class="simpleLens-gallery-container" id="ic-gallery">
-                                    <div class="video_content">
-                                        <div class="details_video_box">
-                                            <video controls height="245" width="300">
-                                                <source src="{{Storage::disk('s3')->url('public/'.$product->product_video->video)}}" type="video/mp4" />
-                                            </video>
-                                        </div>
-                                    </div>
-                                    <div class="simpleLens-thumbnails-container">
-                                        @foreach($product->product_images as $product_image)
-                                            <a href="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}" data-fancybox="gallery" class="simpleLens-thumbnail-wrapper"
-                                                data-lens-image="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}"
-                                                data-big-image="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}">
-                                                <img src="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}" style="width:80px !important; height:80px !important; margin-top:4px;" id="smallImages[]" />
-                                            </a>
-                                        @endforeach
-                                        @if($product->overlay_image)
-                                            <a href="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}" data-fancybox="gallery" class="simpleLens-thumbnail-wrapper"
-                                                data-lens-image="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}"
-                                                data-big-image="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}">
-                                                <img src="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}" style="width:80px !important; height:80px !important; margin-top:4px;" id="smallImages[]" />
-                                            </a>
-                                        @endif
-                                        @php $productImage = (!empty($product->product_images[0]->product_image))? Storage::disk('s3')->url('public/'.$product_image['product_image']):Storage::disk('s3')->url('images/supplier.png'); @endphp
-                                    </div>
-                                </div>
-                            @else
-                                <div class="simpleLens-gallery-container" id="ic-gallery">
-                                    @if(isset($product->product_images[0]['product_image']) && !is_null($product->product_images[0]['product_image']))
-                                        <div class="simpleLens-container">
-                                            <div class="simpleLens-big-image-container">
-                                                <div class="details_gallery_box">
-                                                    <a class="simpleLens-lens-image" data-lens-image="{{Storage::disk('s3')->url('public/'.$product->product_images[0]['product_image'])}}">
-                                                        <img id="largeImage" src="{{Storage::disk('s3')->url('public/'.$product->product_images[0]['product_image'])}}" class="simpleLens-big-image" width="380px" height="320px">
-                                                    </a>
+                    <div class="single_product_preview_inner_info">
+                        <div class="row">
+                                <div class="col s12 m5 product_preview_wrap">
+                                    @if(isset($product->product_video->video))
+                                        <div class="simpleLens-gallery-container" id="ic-gallery">
+                                            <div class="video_content">
+                                                <div class="details_video_box">
+                                                    <video controls height="245" width="300">
+                                                        <source src="{{Storage::disk('s3')->url('public/'.$product->product_video->video)}}" type="video/mp4" />
+                                                    </video>
                                                 </div>
+                                            </div>
+                                            <div class="simpleLens-thumbnails-container">
+                                                @foreach($product->product_images as $product_image)
+                                                    <a href="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}" data-fancybox="gallery" class="simpleLens-thumbnail-wrapper"
+                                                        data-lens-image="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}"
+                                                        data-big-image="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}" style="width:80px !important; height:80px !important; margin-top:4px;" id="smallImages[]" />
+                                                    </a>
+                                                @endforeach
+                                                @if($product->overlay_image)
+                                                    <a href="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}" data-fancybox="gallery" class="simpleLens-thumbnail-wrapper"
+                                                        data-lens-image="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}"
+                                                        data-big-image="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}" style="width:80px !important; height:80px !important; margin-top:4px;" id="smallImages[]" />
+                                                    </a>
+                                                @endif
+                                                @php $productImage = (!empty($product->product_images[0]->product_image))? Storage::disk('s3')->url('public/'.$product_image['product_image']):Storage::disk('s3')->url('images/supplier.png'); @endphp
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="simpleLens-gallery-container" id="ic-gallery">
+                                            @if(isset($product->product_images[0]['product_image']) && !is_null($product->product_images[0]['product_image']))
+                                                <div class="simpleLens-container">
+                                                    <div class="simpleLens-big-image-container">
+                                                        <div class="details_gallery_box">
+                                                            <a class="simpleLens-lens-image" data-lens-image="{{Storage::disk('s3')->url('public/'.$product->product_images[0]['product_image'])}}">
+                                                                <img id="largeImage" src="{{Storage::disk('s3')->url('public/'.$product->product_images[0]['product_image'])}}" class="simpleLens-big-image" width="380px" height="320px">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            <div class="simpleLens-thumbnails-container">
+                                                @foreach($product->product_images as $product_image)
+                                                    <a href="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}" data-fancybox="gallery" class="simpleLens-thumbnail-wrapper"
+                                                        data-lens-image="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}"
+                                                        data-big-image="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}" style="width:80px !important; height:80px !important; margin-top:4px;" id="smallImages[]" />
+                                                    </a>
+                                                @endforeach
+                                                @if($product->overlay_image)
+                                                    <a href="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}" data-fancybox="gallery" class="simpleLens-thumbnail-wrapper"
+                                                        data-lens-image="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}"
+                                                        data-big-image="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}" style="width:80px !important; height:80px !important; margin-top:4px;" id="smallImages[]" />
+                                                    </a>
+                                                @endif
+                                                @php $productImage = (!empty($product->product_images[0]->product_image))? Storage::disk('s3')->url('public/'.$product->product_images[0]->product_image) : Storage::disk('s3')->url('images/supplier.png'); @endphp
                                             </div>
                                         </div>
                                     @endif
-                                    <div class="simpleLens-thumbnails-container">
-                                        @foreach($product->product_images as $product_image)
-                                            <a href="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}" data-fancybox="gallery" class="simpleLens-thumbnail-wrapper"
-                                                data-lens-image="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}"
-                                                data-big-image="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}">
-                                                <img src="{{Storage::disk('s3')->url('public/'.$product_image['product_image'])}}" style="width:80px !important; height:80px !important; margin-top:4px;" id="smallImages[]" />
-                                            </a>
-                                        @endforeach
-                                        @if($product->overlay_image)
-                                            <a href="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}" data-fancybox="gallery" class="simpleLens-thumbnail-wrapper"
-                                                data-lens-image="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}"
-                                                data-big-image="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}">
-                                                <img src="{{Storage::disk('s3')->url('public/'.$product->overlay_image)}}" style="width:80px !important; height:80px !important; margin-top:4px;" id="smallImages[]" />
-                                            </a>
-                                        @endif
-                                        @php $productImage = (!empty($product->product_images[0]->product_image))? Storage::disk('s3')->url('public/'.$product->product_images[0]->product_image) : Storage::disk('s3')->url('images/supplier.png'); @endphp
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-
-                        <div class="col s12 m7 product_details_info_wrap">
-
-                            <div class="row">
-                                <div class="col s12">
-                                    <div class="seller-store">
-                                        <h3><a href="#">{{ $product->product_tag ? ucwords(implode(',',$product->product_tag)) : ''}}</a></h3>
-                                    </div>
                                 </div>
 
-                                <!-- <div class="product_stock col s12 m6 l6 right-align">
-                                    <div class="single-product-availability">Availability: <span>instock</span></div>
-                                </div> -->
-                            </div>
+                                <div class="col s12 m7 product_details_info_wrap">
 
-                            <div class="ic-pg-container">
-                                <div class="col-md-5 col-sm-12 ic-product-infobox product_details_wrapper">
-                                    <div class="ic-product-details">
-                                        {{-- <form id="productOrderForm" action="{{ route('orders.placeing', $product->id) }}" method="POST" style="padding:10px 15px"> --}}
-                                            <h1 class="ic-product-title">{{ $product->title }}</h1>
-                                            <table class="table table-bordered-less">
-                                                <tbody>
-                                                    <tr>
-                                                        <th>Product Code</th>
-                                                        <th>:</th>
-                                                        <td>mb-{{ $product->id }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Price per Unit</th>
-                                                        <th>:</th>
-                                                        <td>{{$product->price_unit}} {{$product->price_per_unit}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Lead Time</th>
-                                                        <th>:</th>
-                                                        <td>{{ $product->lead_time }} days</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Min Quantity</th>
-                                                        <th>:</th>
-                                                        <td>{{ $product->moq }} {{ $product->qty_unit }}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="seller-store">
+                                                <h3><a href="#">{{ $product->product_tag ? ucwords(implode(',',$product->product_tag)) : ''}}</a></h3>
+                                            </div>
+                                        </div>
 
-                                            <div class="customizationText">
-                                                **Any kind of customization is possible.
+                                        <!-- <div class="product_stock col s12 m6 l6 right-align">
+                                            <div class="single-product-availability">Availability: <span>instock</span></div>
+                                        </div> -->
+                                    </div>
+
+                                    <div class="ic-pg-container">
+                                        <div class="col-md-5 col-sm-12 ic-product-infobox">
+                                            <div class="ic-product-details">
+                                                {{-- <form id="productOrderForm" action="{{ route('orders.placeing', $product->id) }}" method="POST" style="padding:10px 15px"> --}}
+                                                    <h1 class="ic-product-title">{{ $product->title }}</h1>
+                                                    <table class="table table-bordered-less">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Product Code</th>
+                                                                <th>:</th>
+                                                                <td>mb-{{ $product->id }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Price per Unit</th>
+                                                                <th>:</th>
+                                                                <td>{{$product->price_unit}} {{$product->price_per_unit}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Lead Time</th>
+                                                                <th>:</th>
+                                                                <td>{{ $product->lead_time }} days</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Min Quantity</th>
+                                                                <th>:</th>
+                                                                <td>{{ $product->moq }} {{ $product->qty_unit }}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                    <div class="customizationText">
+                                                        **Any kind of customization is possible.
+                                                    </div>
+
+                                                    @php
+                                                        $colors = $product->colors ?? [];
+                                                        $sizes = $product->sizes ?? [];
+                                                    @endphp
+
+                                                    @if( !empty($colors) && is_array($colors) )
+                                                        <div class="mycolorwrapper">
+                                                            <h3>Colors: <span id="mycolorboxColor">&nbsp;</span></h3>
+                                                            <div class="mycolorboxs">
+                                                                @foreach($colors as $color)
+                                                                <label class="mycolorbox">
+                                                                    <span class="mycolorbox-color">{{ strtolower($color) }}</span>
+                                                                    <!-- <span class="mycolorbox-color" style="background-color:{{ strtolower($color) }}; border: 1px solid {{ strtolower($color) }}">{{ strtolower($color) }}</span> -->
+                                                                </label>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    @endif
+
+                                                    @if( !empty($sizes) && is_array($sizes) )
+                                                        <div class="mysizewrapper">
+                                                            <h3>Sizes</h3>
+                                                            <div class="mysizeboxs">
+
+                                                                <div id="mysizeboxPanel" class="mysizebox-panel">
+                                                                    @foreach($sizes as $size)
+                                                                        <div class="mysizebox" data-size="{{ $size }}">
+                                                                            <span>{{ strtoupper($size) }}</span>
+                                                                        </div>
+                                                                    @endforeach
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    @endif
+
+
+                                                {{-- </form> --}}
+
+                                                {{-- contactSupplierModal --}}
+                                                <div id="contactSupplierModal" class="modal">
+                                                    <form class="contact-supplier-form" id="contactSupplierForm" action="" method="POST">
+                                                        @csrf
+                                                        <div class="modal-content">
+                                                            <h2>Send Query</h2>
+                                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="name" placeholder="Name*" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="email" class="form-control" name="email" placeholder="Email Address*" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="address" placeholder="Address*" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" name="description" rows="3" placeholder="Description"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                                            <button type="submit" class="btn btn-success">SEND</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
 
-                                            @php
-                                                $colors = $product->colors ?? [];
-                                                $sizes = $product->sizes ?? [];
-                                            @endphp
 
-                                            @if( !empty($colors) && is_array($colors) )
-                                                <div class="mycolorwrapper">
-                                                    <h3>Colors: <span id="mycolorboxColor">&nbsp;</span></h3>
-                                                    <div class="mycolorboxs">
-                                                        @foreach($colors as $color)
-                                                        <label class="mycolorbox">
-                                                            <span class="mycolorbox-color">{{ strtolower($color) }}</span>
-                                                            <!-- <span class="mycolorbox-color" style="background-color:{{ strtolower($color) }}; border: 1px solid {{ strtolower($color) }}">{{ strtolower($color) }}</span> -->
-                                                        </label>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            @endif
-
-                                            @if( !empty($sizes) && is_array($sizes) )
-                                                <div class="mysizewrapper">
-                                                    <h3>Sizes</h3>
-                                                    <div class="mysizeboxs">
-
-                                                        <div id="mysizeboxPanel" class="mysizebox-panel">
-                                                            @foreach($sizes as $size)
-                                                                <div class="mysizebox" data-size="{{ $size }}">
-                                                                    <span>{{ strtoupper($size) }}</span>
-                                                                </div>
-                                                            @endforeach
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            @endif
-
-
-                                        {{-- </form> --}}
-
-                                        {{-- contactSupplierModal --}}
-                                        <div id="contactSupplierModal" class="modal">
-                                            <form class="contact-supplier-form" id="contactSupplierForm" action="" method="POST">
-                                                @csrf
-                                                <div class="modal-content">
-                                                    <h2>Send Query</h2>
-                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="name" placeholder="Name*" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="email" class="form-control" name="email" placeholder="Email Address*" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="address" placeholder="Address*" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" name="description" rows="3" placeholder="Description"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                                                    <button type="submit" class="btn btn-success">SEND</button>
-                                                </div>
-                                            </form>
+                                            {{-- <button type="button" class="ic-btn btn_green" onClick="contactSupplierFromProduct({{ $product->businessProfile->user->id}}); updateUserLastActivity('{{Auth::id()}}', '{{$product->businessProfile->user->id}}'); sendmessage('{{$product->id}}','{{$product->title}}','{{preg_replace('/[^A-Za-z0-9\-]/','',$product->category['name'])}}','{{$product->moq}}','{{$product->qty_unit}}','{{$product->price_per_unit}}','{{$product->price_unit}}','@if(!empty(@$product->product_images[0]->product_image)){{ asset('storage/' .$product->product_images[0]->product_image) }} @else{{ asset('images/supplier.png') }} @endif','{{$product->businessProfile->user->id}}')">Send Query</button> --}}
+                                            <a type="button" class="btn waves-effect waves-light green btn_grBorder request_quotation" href="{{route('rfq.create',[$product->flag, $product->id])}}">Request for Quotation</a>
                                         </div>
                                     </div>
-
-
-                                    {{-- <button type="button" class="ic-btn btn_green" onClick="contactSupplierFromProduct({{ $product->businessProfile->user->id}}); updateUserLastActivity('{{Auth::id()}}', '{{$product->businessProfile->user->id}}'); sendmessage('{{$product->id}}','{{$product->title}}','{{preg_replace('/[^A-Za-z0-9\-]/','',$product->category['name'])}}','{{$product->moq}}','{{$product->qty_unit}}','{{$product->price_per_unit}}','{{$product->price_unit}}','@if(!empty(@$product->product_images[0]->product_image)){{ asset('storage/' .$product->product_images[0]->product_image) }} @else{{ asset('images/supplier.png') }} @endif','{{$product->businessProfile->user->id}}')">Send Query</button> --}}
-                                    <a type="button" class="btn waves-effect waves-light green btn_grBorder request_quotation" href="{{route('rfq.create',[$product->flag, $product->id])}}">Request for Quotation</a>
                                 </div>
                             </div>
-                        </div>
                     </div>
+         
 
                     <section class="single-product-description-block-wrapper product_details_tab_wrap">
                         <div class="row">

@@ -34,9 +34,9 @@
                         <td data-title="Status">
                             @if($po->status == 0)
                                 <div class="status-btn center-align">
-                                    <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-warning ">
+                                    <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-warning  pi_pending">
                                         PI Pending<br />
-                                        <i class="fa fa-eye" aria-hidden="true"></i> &nbsp; View Invoice
+                                        <span><i class="fa fa-eye" aria-hidden="true"></i> &nbsp; View Invoice</span>
                                     </a>
                                 </div>
                             @endif
@@ -44,16 +44,15 @@
                                 <div class="status-btn center-align">
                                     <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-success" target="_blank" >
                                         PO Generated<br />
-                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View
+                                        <span><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View</span>
                                     </a>
                                 </div>
                             @endif
                             @if($po->status == -1)
                                 <div class="status-btn center-align">
-
-                                    <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-danger" target="_blank">
+                                    <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-danger pi_rejected" target="_blank">
                                         PI Rejected<br />
-                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View
+                                        <span><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View</span>
                                     </a>
                                     <!-- <div class="revice_order_btn" style="display: inline-block;padding: 6px 12px;margin-bottom: 0;font-size: 14px;font-weight: 400;line-height: 1.42857143;text-align: center;white-space: nowrap;vertical-align: middle;cursor: pointer;background-color: transparent;border: 1px solid #dae0e5;border-radius: 4px;color: #212529;"></div> -->
                                     <div class="revice_order_btn">
@@ -70,20 +69,19 @@
                                             PO rejection Causes
                                         </a>
                                     </div>
-
                                 </div>
 
                                 <div class="modal" id="rejectPoDetailsModal">
                                     <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
-                                            <div class="modal-header modal-hdr-custum" style="background: rgb(85, 168, 96) none repeat scroll 0% 0%; border-radius: 4px 4px 0px 0px;">
-                                                <h4 class="modal-title">
-                                                    Why your PO have been rejected.
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body modal-bdy-bdr">
-                                                {{ $po->reject_message }}
-                                            </div>
+                                        <div class="modal-header modal-hdr-custum" style="background: rgb(85, 168, 96) none repeat scroll 0% 0%; border-radius: 4px 4px 0px 0px;">
+                                            <h4 class="modal-title">
+                                                Why your PO have been rejected.
+                                            </h4>
+                                        </div>
+                                        <div class="modal-body modal-bdy-bdr">
+                                            {{ $po->reject_message }}
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <a href="#!" class="modal-close waves-effect waves-green btn-flat">close</a>

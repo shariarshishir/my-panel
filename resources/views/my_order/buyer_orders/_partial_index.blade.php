@@ -31,11 +31,11 @@
                         <td data-title="Status">
                             @if($po->status == 0)
                                 <div class="status-btn center-align">
-                                    <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-warning ">
+                                    <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-warning pi_pending">
                                         PI Pending
                                     </a>
                                     <br />
-                                    <i class="fa fa-eye" aria-hidden="true"></i> &nbsp; View Invoice
+                                    <span><i class="fa fa-eye" aria-hidden="true"></i> &nbsp; View Invoice</span>
                                 </div>
                             @endif
                             @if($po->status == 1)
@@ -44,12 +44,12 @@
                                         PO Generated
                                     </a>
                                     <br />
-                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View
+                                    <span><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View</span>
                                 </div>
                             @endif
                             @if($po->status == -1)
                                 <div class="status-btn center-align">
-                                    <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-danger" target="_blank">
+                                    <a href="{{route('open.proforma.single.html', $po->id)}}" class="btn_green btn-danger pi_rejected" target="_blank">
                                         PI Rejected
                                     </a>
                                     <br/>
@@ -69,7 +69,6 @@
                                             PO rejection Causes
                                         </a>
                                     </div>
-
                                 </div>
 
                                 <div class="modal" id="rejectPoDetailsModal">

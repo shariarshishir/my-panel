@@ -34,46 +34,58 @@
             <div class="products_filter_wrapper">
                 <div class="row">
                     <div class="col s12 content-column">
-                        <div class="show-product-results-wrapper products_filter_search_wrap">
-                            <div class="filter_search">
-                                <form action="{{route('product.type.mapping',[$mapping_type, $mapping_type_child])}}" method="get">
-                                    @if($product_type || $location || $product_name || $lead_minimum_range || $lead_maximum_range || $select_product_category || $factory_category || $price_minimum_range || $price_maximum_range || $gender || $sample_availability)
-                                    <div class="filter_by">
-                                        <a href="{{route('product.type.mapping',[$mapping_type, $mapping_type_child])}}" class="reset_product_filter_trigger btn-product-sidenav"><i class="material-icons">restart_alt</i></a>
-                                        <span>Reset All</span>
-                                    </div>
+                        <div class="row">
+                            <div class="col s12 m4">
+                                <div class="productsTitle">
+                                    @if($mapping_type_child == "textile" || $mapping_type_child == "yarn" || $mapping_type_child == "trims and accessories")
+                                    <h1>Raw Materials</h1>
+                                    @else
+                                    <h1>Design Studio</h1>
                                     @endif
-                                    <div class="filter_by">
-                                        <a onclick="openProductNav()" href="javascript:void(0);" class="btn-product-sidenav"><i class="material-icons">filter_alt</i></a>
-                                        <span>Filter By</span>
-                                    </div>
-                                    <div class="search_inputbox_wrap">
-                                        <div class="filter_search_inputbox">
-                                            <i class="material-icons">search</i>
-                                            <input class="filter_search_input " type="text" name="product_name" placeholder="Type product name" value="{{$product_name}}">
-                                            <input class="btn_green btn_search" type="submit" value="search" onclick="this.form.submit();">
-                                        </div>
-                                        <div class="show-product-results-inside-wrapper">
-                                            <div class="show-total-results">
-                                                Showing {{($products->currentpage()-1)*$products->perpage()+1}} to {{$products->currentpage()*$products->perpage()}} of  {{$products->total()}} results
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
-
+                            <div class="col s12 m8">
+                                <div class="show-product-results-wrapper products_filter_search_wrap">
+                                    <div class="filter_search">
+                                        <form action="{{route('product.type.mapping',[$mapping_type, $mapping_type_child])}}" method="get">
+                                            @if($product_type || $location || $product_name || $lead_minimum_range || $lead_maximum_range || $select_product_category || $factory_category || $price_minimum_range || $price_maximum_range || $gender || $sample_availability)
+                                            <div class="filter_by">
+                                                <a href="{{route('product.type.mapping',[$mapping_type, $mapping_type_child])}}" class="reset_product_filter_trigger btn-product-sidenav"><i class="material-icons">restart_alt</i></a>
+                                                <span>Reset All</span>
+                                            </div>
+                                            @endif
+                                            <div class="filter_by">
+                                                <a onclick="openProductNav()" href="javascript:void(0);" class="btn-product-sidenav"><i class="material-icons">filter_alt</i></a>
+                                                <span>Filter By</span>
+                                            </div>
+                                            <div class="search_inputbox_wrap">
+                                                <div class="filter_search_inputbox">
+                                                    <i class="material-icons">search</i>
+                                                    <input class="filter_search_input " type="text" name="product_name" placeholder="Type product name" value="{{$product_name}}">
+                                                    <input class="btn_green btn_search" type="submit" value="search" onclick="this.form.submit();">
+                                                </div>
+                                                <div class="show-product-results-inside-wrapper">
+                                                    <div class="show-total-results">
+                                                        Showing {{($products->currentpage()-1)*$products->perpage()+1}} to {{$products->currentpage()*$products->perpage()}} of  {{$products->total()}} results
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="product_design_wrapper">
                             <div class="product_wrapper">
                                 @if($mapping_type_child == "textile" || $mapping_type_child == "yarn" || $mapping_type_child == "trims and accessories")
-                                <h1>Raw Materials</h1>
-                                <ul>
-                                    <li><a href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">Textile</a></li>
-                                    <li><a href="{{route('product.type.mapping',['raw_materials', 'yarn'])}}">Yarn</a></li>
-                                    <li><a href="{{route('product.type.mapping',['raw_materials', 'trims and accessories'])}}">Accessories</a></li>
-                                </ul>
-                                @else
-                                <h1>Design Studio</h1>
+                                <div class="product_design_tabNab">
+                                    <ul>
+                                        <li class="active"><a href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">Textile</a></li>
+                                        <li><a href="{{route('product.type.mapping',['raw_materials', 'yarn'])}}">Yarn</a></li>
+                                        <li><a href="{{route('product.type.mapping',['raw_materials', 'trims and accessories'])}}">Accessories</a></li>
+                                    </ul>
+                                </div>
                                 @endif
                                 @include('product._all_product_data')
                             </div>
