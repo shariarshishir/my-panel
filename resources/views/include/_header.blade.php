@@ -498,8 +498,8 @@
                 <span>Design Studio</span>
             </a>
 		</li>
-        <li class="designers">
-			<a class="tooltipped" data-position="right" data-tooltip="Designers" href="javascript:void(0);">
+        <li class="designers{{ Route::is('designers') ? ' active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="Designers" href="{{route('designers')}}">
                 <span>Designers</span>
             </a>
 		</li>

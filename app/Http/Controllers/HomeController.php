@@ -1517,5 +1517,10 @@ class HomeController extends Controller
         return view('sitemap.index');
     }
 
+    public function designers(Request $request)
+    {
+        return view('designers.index');
+    }
+
 
 }
