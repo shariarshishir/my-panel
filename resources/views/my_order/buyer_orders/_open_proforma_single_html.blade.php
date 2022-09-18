@@ -10,7 +10,7 @@
             <a class="waves-effect waves-light btn_green modal-trigger"  href="#acceptOrderDetailsModal">Accept</a>
             <a class="waves-effect waves-light btn_green modal-trigger"  href="#rejectOrderDetailsModal">Reject</a>
             @endif
-            {{-- <button onclick="printDiv('purchase_order_wrap');" id="printPageButtonTrigger" class="btn_green printPageButton">Print</button> --}}
+            <button onclick="printDiv('purchase_order_wrap');" id="printPageButtonTrigger" class="btn_green printPageButton">Print</button>
         </div>
 
         <div class="invoice_page_header">

@@ -20,13 +20,15 @@
                     @endforeach
                     <tr>
                         <td>{{$po->created_at}}</td>
-                        <td data-title="Invoice Id">{{ $po->proforma_id }}<br>
-                            @if($po->status == 1)
-                                PO ID: {{$po->po_no}}
-                            @endif
-                        </td>
+                        <td data-title="Invoice Id">{{ $po->proforma_id }}</td>
                         <td data-title="Date">{{ $po->shipping_date }}</td>
-                        <td>Accepted</td>  <!-- if po_no has value then show accepted or pending -->
+                        <td>
+                            @if($po->status == 1)
+                            <span class="btn_green btn-success">Accepted</span>
+                            @else
+                            <span class="btn_green btn-warning pi_pending">Pending</span>
+                            @endif
+                        </td>  <!-- if po_no has value then show accepted or pending -->
                         <td>{{ $po->PaymentTerm->name }}</td>
                         <td data-title="Status">
                             @if($po->status == 0)

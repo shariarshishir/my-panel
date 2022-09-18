@@ -41,61 +41,58 @@ class PoController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
-        $user_business_id=[];
-        if($user->businessProfile()->exists()){
-            foreach($user->businessProfile as $profile){
-                array_push($user_business_id, $profile->id);
-            }
-        }
-        if($user->businessProfileForRepresentative()->exists()){
-            array_push($user_business_id, $user->businessProfileForRepresentative->id);
-        }
+        $proforma = Proforma::with('performa_items', 'PaymentTerm')->where('buyer_id', $user->id)->latest()->get();
+        // $user_business_id=[];
+        // if($user->businessProfile()->exists()){
+        //     foreach($user->businessProfile as $profile){
+        //         array_push($user_business_id, $profile->id);
+        //     }
+        // }
+        // if($user->businessProfileForRepresentative()->exists()){
+        //     array_push($user_business_id, $user->businessProfileForRepresentative->id);
+        // }
 
-        // $giving =  Proforma::with('performa_items')->whereHas('performa_items', function($q){
-        //             $q->where('supplier_id', Auth::id());
+        // $giving=Proforma::with('performa_items')->whereIn('business_profile_id', $user_business_id)->latest()->get();
+        // foreach($giving as $g){
+        //     $g['proforma_type'] = 'giving';
+        // }
+        // $received=Proforma::with('performa_items')->where('buyer_id', auth()->id())->latest()->get();
+        // foreach($received as $r){
+        //     $r['proforma_type'] = 'received';
+        // }
+
+        // $proforma=$giving->merge($received);
+        // if(isset($request->business_id)){
+        //     $proforma = $proforma->where('business_profile_id' , $request->business_id)->where('proforma_type', 'giving');
+        //     $proforma->all();
+        // }
+
+        return view('my_order.buyer_orders.index',compact('proforma'));
+
+        // if($user->is_group == 1)
+        // {
+        //     $allusers = User::with('profile','badges','tour_photos')->where(['group_id' => Auth::id(), 'is_active' => 1])->get();
+        //     $users = [];
+        //     foreach($allusers as $u)
+        //     {
+        //         $users[] = $u->id;
+        //     }
+        //     //echo '<pre>';print_r($users);exit;
+        //     if(count($users) > 0)
+        //     {
+        //         $pos =  Proforma::with('performa_items')->whereHas('performa_items', function($q) use ($users){
+        //             $q->whereIn('supplier_id', $users);
         //         })
-        //         ->get();
-        $giving=Proforma::with('performa_items')->whereIn('business_profile_id', $user_business_id)->latest()->get();
-        foreach($giving as $g){
-            $g['proforma_type'] = 'giving';
-        }
-        $received=Proforma::with('performa_items')->where('buyer_id', auth()->id())->latest()->get();
-        foreach($received as $r){
-            $r['proforma_type'] = 'received';
-        }
-
-        $proforma=$giving->merge($received);
-        if(isset($request->business_id)){
-            $proforma = $proforma->where('business_profile_id' , $request->business_id)->where('proforma_type', 'giving');
-            $proforma->all();
-        }
-
-        return view('my_order.inquiries.index',compact('proforma'));
-
-        if($user->is_group == 1)
-        {
-            $allusers = User::with('profile','badges','tour_photos')->where(['group_id' => Auth::id(), 'is_active' => 1])->get();
-            $users = [];
-            foreach($allusers as $u)
-            {
-                $users[] = $u->id;
-            }
-            //echo '<pre>';print_r($users);exit;
-            if(count($users) > 0)
-            {
-                $pos =  Proforma::with('performa_items')->whereHas('performa_items', function($q) use ($users){
-                    $q->whereIn('supplier_id', $users);
-                })
-                //->where('status', 1)
-                ->orderBy('id', 'desc')
-                ->paginate(10);
-           }
-           else
-           {
-                $pos = [];
-           }
-        }
-        return view('rfq.supplierproforma',compact('pos'));
+        //         //->where('status', 1)
+        //         ->orderBy('id', 'desc')
+        //         ->paginate(10);
+        //    }
+        //    else
+        //    {
+        //         $pos = [];
+        //    }
+        // }
+        // return view('rfq.supplierproforma',compact('pos'));
     }
 
     public function myOrders(Request $request)
@@ -361,7 +358,7 @@ class PoController extends Controller
         $conditionArray = [];
         $totalInvoice = ProformaProduct::where('performa_id',$id)->sum('tax_total_price');
         $supplierInfo = User::where('id', $po->created_by)->first();
-        return view('my_order.inquiries._open_proforma_single_html',compact('po','users','supplierInfo','totalInvoice','merchantAssistances','alias'));
+        return view('my_order.buyer_orders._open_proforma_single_html',compact('po','users','supplierInfo','totalInvoice','merchantAssistances','alias'));
     }
 
     public function acceptProformaInvoice(Request $request)
@@ -383,7 +380,9 @@ class PoController extends Controller
 
         event(new ProfromaInvoiceHasAcceptedEvent($proformaOrder, $rfqInfo));
 
-        return redirect()->route('new.profile.profoma_orders.ongoing',$alias);
+        // return redirect()->route('new.profile.profoma_orders.ongoing',$alias);
+        return redirect()->route('my_order.buyer_orders.index');
+
 
         // Proforma::where(['proforma_id' => $request->proforma_id, 'id' => $request->po_id ])->update(['po_no' => $request->po_id,'total_invoice_amount_with_merchant_assistant'=>$request->total_invoice_amount_with_merchant_assistant,'status' => 1]);
         // if($request->merchant_assistances){
@@ -449,7 +448,8 @@ class PoController extends Controller
 
         event(new ProfromaInvoiceHasRejectedEvent($proformaOrder, $rfqInfo));
 
-        return redirect()->route('new.profile.profoma_orders.pending',$alias);
+        // return redirect()->route('new.profile.profoma_orders.pending',$alias);
+        return redirect()->route('my_order.buyer_orders.index');
 
          //session()->flash('success_message', 'Pro-Forma Invoice accepted successfully.');
          //return redirect()->action('RFQController@proformainvoices');
