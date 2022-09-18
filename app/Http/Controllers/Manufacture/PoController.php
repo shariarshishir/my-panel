@@ -378,6 +378,10 @@ class PoController extends Controller
         $rfqdata = $response->json();
         $rfqInfo = $rfqdata['data']['data'];
 
+        $rfqStatusResponse = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$proformaOrder->generated_po_from_rfq, [
+            'pi_status' => 1,
+        ]);
+
         event(new ProfromaInvoiceHasAcceptedEvent($proformaOrder, $rfqInfo));
 
         // return redirect()->route('new.profile.profoma_orders.ongoing',$alias);
@@ -445,6 +449,10 @@ class PoController extends Controller
         $response = Http::get(env('RFQ_APP_URL').'/api/quotation/'.$proformaOrder->generated_po_from_rfq);
         $rfqdata = $response->json();
         $rfqInfo = $rfqdata['data']['data'];
+
+        $rfqStatusResponse = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$proformaOrder->generated_po_from_rfq, [
+            'pi_status' => -1,
+        ]);
 
         event(new ProfromaInvoiceHasRejectedEvent($proformaOrder, $rfqInfo));
 

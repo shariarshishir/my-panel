@@ -53,7 +53,8 @@ class ProformaOrderController extends Controller
 
         event(new ProfromaInvoiceHasAcceptedEvent($proformaOrder, $rfqInfo));
 
-        return redirect()->route('new.profile.profoma_orders.ongoing',$alias);
+        // return redirect()->route('new.profile.profoma_orders.ongoing',$alias);
+        return redirect()->route('po.myorders');
     }
 
     public function rejectProformaOrder(Request $request,$alias,$proformaId)
@@ -73,7 +74,8 @@ class ProformaOrderController extends Controller
 
         event(new ProfromaInvoiceHasRejectedEvent($proformaOrder, $rfqInfo));
 
-        return redirect()->route('new.profile.profoma_orders.pending',$alias);
+        // return redirect()->route('new.profile.profoma_orders.pending',$alias);
+        return redirect()->route('po.myorders');
     }
 
     public function proformaSearchByTitle(Request $request, $alias)

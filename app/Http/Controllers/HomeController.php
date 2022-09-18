@@ -50,7 +50,7 @@ class HomeController extends Controller
             $token = Cookie::get('sso_token');
             //get all rfqs of auth user
             $response = Http::withToken($token)
-            ->get(env('RFQ_APP_URL').'/api/quotation/user/'.$user->sso_reference_id.'/filter/null/page/'.$page.'/limit/10');
+            ->get(env('RFQ_APP_URL').'/api/quotation/user/'.$user->sso_reference_id.'/filter/null/page/'.$page.'/limit/9');
             $data = $response->json();
             //dd($data);
             $rfqLists = $data['data'] ?? [];
