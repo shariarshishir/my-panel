@@ -119,71 +119,73 @@ foreach($selectedproduct as $item)
                                 </div>
                                 <div class="line_item_wrap">
                                     <legend>Line Items</legend>
-                                    <table class="table" style="border-bottom:1px solid #ccc; margin-bottom:15px;">
-                                        <thead>
-                                            <tr>
-                                                <th style="width:5%;">Sl. No.</th>
-                                                <th style="width:15%;">Item / Description</th>
-                                                <th style="width:15%;">Quantity</th>
-                                                <th style="width:15%;">Unit Price</th>
-                                                <th style="width:15%;">Sub Total</th>
-                                                <!-- <th style="width:15%;">Tax</th> -->
-                                                <th style="width:15%;">Total Price</th>
-                                                <th style="width:5%; text-align:center;"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="lineitems" class="input-field">
-                                            @foreach($editProductArray['productitem'] as $key =>  $selectedProInfo)
+                                    <div class="no_more_tables line_item_table_wrap">
+                                        <table class="table" style="border-bottom:1px solid #ccc; margin-bottom:15px;">
+                                            <thead>
                                                 <tr>
-                                                    <td data-title="">1</td>
-                                                    <td>
-                                                        <select class="select2" onchange="changecat(this)">
-                                                            <option value="">Select Products</option>
-
-                                                            @foreach($products as $product)
-                                                                @php $productTitle = explode('_', $product) @endphp
-                                                                <option {{ ($selectedProInfo['product_id'] == $productTitle[0] ? 'selected="selected"' : '') }} value="{{ $productTitle[0] }}">
-                                                                {{ $productTitle[1] }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                        <input type="hidden" name="supplier[]" value="{{ $selectedProInfo['supplier_id'] }}" required/>
-                                                        <input type="hidden" name="product[]" value="{{ $selectedProInfo['product_id'] }}" required/>
-                                                        <input type="hidden" name="price_unit[]" value="{{ $selectedProInfo['unit_price'] }}" required/>
-                                                        <span class="supplier_details" style="color: #50AA5B;"></span>
-                                                    </td>
-                                                    <td style="position: relative;"> <span class="required_star" style="position: absolute; top:10; right:11px;">*</span>
-                                                        <!-- <div style="height: 25px;width: 0px;border-left: 5px solid rgb(255, 0, 0);position: absolute;top:8px;"></div> -->
-                                                        <input type="number" class="form-control unit" style="border:1px solid #ccc; margin-bottom:0;" name="unit[]" value="{{$selectedProInfo['unit']}}" onkeyup="changeunit(this)" required/>
-                                                    </td>
-                                                    <td style="position: relative;"> <span class="required_star" style="position: absolute; top:10; right:11px;">*</span>
-                                                        <!-- <div style="height: 25px;width: 0px;border-left: 5px solid rgb(255, 0, 0);position: absolute;top:8px;"></div> -->
-                                                        <input type="text" class="form-control unit_price" style="border:1px solid #ccc; margin-bottom:0;" name="unit_price[]" value="{{$selectedProInfo['unit_price']}}"  onkeyup="changeunitprice(this)" required/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control total_price" style="border:1px solid #ccc; margin-bottom:0;" name="total_price[]" value="{{$selectedProInfo['total_price']}}"  readonly/>
-                                                        <input type="hidden" class="taxprice" name="tax[]" value="0" />
-                                                    </td>
-                                                    <td><input type="text" class="form-control tax_total_price" style="border:1px solid #ccc; margin-bottom:0;" name="tax_total_price[]"  value="{{$selectedProInfo['tax_total_price']}}" readonly/></td>
-                                                    @if($key == 0)
-                                                        <td><a href="javascript:void(0);" class="ic-btn4" onclick="addlineitem()"><i aria-hidden="true" class="fa fa-plus fa-lg"></i></a></td>
-                                                    @else
-                                                        <td><a href="javascript:void(0);" class="ic-btn4red" onclick="removelineitem(this)"><i aria-hidden="true" class="fa fa-minus fa-lg"></i></a></td>
-                                                    @endif
+                                                    <th style="width:5%;">Sl. No.</th>
+                                                    <th style="width:15%;">Item / Description</th>
+                                                    <th style="width:15%;">Quantity</th>
+                                                    <th style="width:15%;">Unit Price</th>
+                                                    <th style="width:15%;">Sub Total</th>
+                                                    <!-- <th style="width:15%;">Tax</th> -->
+                                                    <th style="width:15%;">Total Price</th>
+                                                    <th style="width:5%; text-align:center;"></th>
                                                 </tr>
-                                            @endforeach
-                                        </tbody>
-                                        <tfoot>
-                                            <!--tr>
-                                                <td colspan="6" align="right"><b>Total Tax</b></td>
-                                                <td colspan="2" align="left" id="total_tax_price_amount">0.00</td>
-                                            </tr-->
-                                            <tr>
-                                                <td colspan="5"class="right-align"><b>Total Invoice Amount</b></td>
-                                                <td colspan="2" align="left" id="total_price_amount">0.00</td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                            </thead>
+                                            <tbody id="lineitems" class="input-field">
+                                                @foreach($editProductArray['productitem'] as $key =>  $selectedProInfo)
+                                                    <tr>
+                                                        <td data-title="">1</td>
+                                                        <td>
+                                                            <select class="select2" onchange="changecat(this)">
+                                                                <option value="">Select Products</option>
+
+                                                                @foreach($products as $product)
+                                                                    @php $productTitle = explode('_', $product) @endphp
+                                                                    <option {{ ($selectedProInfo['product_id'] == $productTitle[0] ? 'selected="selected"' : '') }} value="{{ $productTitle[0] }}">
+                                                                    {{ $productTitle[1] }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                            <input type="hidden" name="supplier[]" value="{{ $selectedProInfo['supplier_id'] }}" required/>
+                                                            <input type="hidden" name="product[]" value="{{ $selectedProInfo['product_id'] }}" required/>
+                                                            <input type="hidden" name="price_unit[]" value="{{ $selectedProInfo['unit_price'] }}" required/>
+                                                            <span class="supplier_details" style="color: #50AA5B;"></span>
+                                                        </td>
+                                                        <td style="position: relative;"> <span class="required_star" style="position: absolute; top:10; right:11px;">*</span>
+                                                            <!-- <div style="height: 25px;width: 0px;border-left: 5px solid rgb(255, 0, 0);position: absolute;top:8px;"></div> -->
+                                                            <input type="number" class="form-control unit" style="border:1px solid #ccc; margin-bottom:0;" name="unit[]" value="{{$selectedProInfo['unit']}}" onkeyup="changeunit(this)" required/>
+                                                        </td>
+                                                        <td style="position: relative;"> <span class="required_star" style="position: absolute; top:10; right:11px;">*</span>
+                                                            <!-- <div style="height: 25px;width: 0px;border-left: 5px solid rgb(255, 0, 0);position: absolute;top:8px;"></div> -->
+                                                            <input type="text" class="form-control unit_price" style="border:1px solid #ccc; margin-bottom:0;" name="unit_price[]" value="{{$selectedProInfo['unit_price']}}"  onkeyup="changeunitprice(this)" required/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control total_price" style="border:1px solid #ccc; margin-bottom:0;" name="total_price[]" value="{{$selectedProInfo['total_price']}}"  readonly/>
+                                                            <input type="hidden" class="taxprice" name="tax[]" value="0" />
+                                                        </td>
+                                                        <td><input type="text" class="form-control tax_total_price" style="border:1px solid #ccc; margin-bottom:0;" name="tax_total_price[]"  value="{{$selectedProInfo['tax_total_price']}}" readonly/></td>
+                                                        @if($key == 0)
+                                                            <td><a href="javascript:void(0);" class="ic-btn4" onclick="addlineitem()"><i aria-hidden="true" class="fa fa-plus fa-lg"></i></a></td>
+                                                        @else
+                                                            <td><a href="javascript:void(0);" class="ic-btn4red" onclick="removelineitem(this)"><i aria-hidden="true" class="fa fa-minus fa-lg"></i></a></td>
+                                                        @endif
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                            <tfoot>
+                                                <!--tr>
+                                                    <td colspan="6" align="right"><b>Total Tax</b></td>
+                                                    <td colspan="2" align="left" id="total_tax_price_amount">0.00</td>
+                                                </tr-->
+                                                <tr>
+                                                    <td colspan="5"class="right-align"><b>Total Invoice Amount</b></td>
+                                                    <td colspan="2" align="left" id="total_price_amount">0.00</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
                                 </div>
 
                                 <div class="invoice_terms_conditions">

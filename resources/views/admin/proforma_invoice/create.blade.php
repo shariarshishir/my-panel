@@ -265,7 +265,7 @@
 
                                 <div class="line_item_wrap">
                                     <legend>Line Items</legend>
-                                    <div class="no_more_tables">
+                                    <div class="no_more_tables line_item_table_wrap">
                                         <table class="table" style="border-bottom:1px solid #ccc; margin-bottom:15px;">
                                             <thead class="cf">
                                                 <tr>
