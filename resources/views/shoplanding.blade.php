@@ -88,9 +88,13 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                 <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}">
                                                     <div class="rfq_status_wrap">
                                                         <div class="row">
-                                                            <span class="status {{($rfq['status'] == "pending") ? "pending_rfq" : "accepted_rfq"}}">
-                                                                {{($rfq['status'] == "pending") ? "Pending" : "Accepted"}}
-                                                            </span>
+                                                            @if(isset($rfq['pi_status']) && $rfq['pi_status'] == 0)
+                                                                <span class="status pending_rfq">Pending</span>
+                                                            @elseif(isset($rfq['pi_status']) && $rfq['pi_status'] == -1)
+                                                                <span class="status rejected_rfq">Rejected</span>
+                                                            @elseif(isset($rfq['pi_status']) && $rfq['pi_status'] == 1)
+                                                                <span class="status accepted_rfq">Accepted</span>
+                                                            @endif
                                                             {{-- <span class="status pending_rfq">RFQ Status 1</span> --}}
                                                             <span class="more_vert">
                                                                 <a class="dropdown-trigger" href="javascript:void(0);" data-target="rfqStatusDropdown"><i class="material-icons">more_vert</i></a>
