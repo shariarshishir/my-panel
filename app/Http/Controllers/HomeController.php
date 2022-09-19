@@ -1522,5 +1522,13 @@ class HomeController extends Controller
         return view('designers.index');
     }
 
+    public function singleDesignerDetails(Request $request)
+    {
+        $user = User::where("id", $request->id)->first();
+
+        return view('designer.index', compact('user'));
+        //return view('designers.index');
+    }
+
 
 }
