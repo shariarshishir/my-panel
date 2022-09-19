@@ -15385,6 +15385,316 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .input-field .select2-container--default .select2-selection--single {
     text-align: left;
 }
+
+
+
+
+/* ******************************* */
+#buyerDesignerView .buyer_designer_inner_infobox {
+  border-radius: 10px;
+  border: 1px solid #bcbcbc;
+  height: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+#buyerDesignerView .buyer_designer_inner_infobox:hover {
+  -webkit-box-shadow: 0px 4px 5px -1px rgba(153,153,153,1);
+  -moz-box-shadow: 0px 4px 5px -1px rgba(153,153,153,1);
+  box-shadow: 0px 4px 5px -1px rgba(153,153,153,1);
+}
+.buyer_designer_inner_box_wrap h2 {
+  font-size: 20px;
+  margin: 0 0 20px 10px;
+}
+#buyerDesignerView .buyer_designer_inner_infobox .cover_img {
+  border-radius: 10px 10px 0 0;
+}
+#buyerDesignerView .buyer_designer_inner_infobox .cover_img img {
+  height: 130px;
+  width: 100%;
+}
+#buyerDesignerView .buyer_designer_inner_infobox .profile_img {
+  margin-top: -55px;
+}
+#buyerDesignerView .buyer_designer_inner_infobox .profile_img img {
+  width: 70px;
+  height: 70px;
+  margin-left: 15px;
+  border-radius: 10px;
+}
+#buyerDesignerView .buyer_designer_inner_infobox .designer_info {
+  padding: 10px 15px;
+}
+.buyer_designer_inner_infobox .designer_info h4 {
+  font-family: 'nexabold';
+  font-size: 16px;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 0;
+}
+.buyer_designer_inner_infobox .designer_info h6 {
+  font-family: 'nexaregular';
+  font-size: 14px;
+  display: block;
+  height: 38px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 5px 0;
+}
+.buyer_designer_inner_infobox .buyer_price {
+  font-size: 14px;
+  line-height: 22px;
+  text-align: right;
+}
+.buyer_designer_inner_infobox .buyer_price span {
+  font-family: 'nexabold';
+  font-size: 28px;
+}
+
+.buyer_designer_inner_infobox .designer_bottom_box {
+  padding: 10px 0;
+}
+.buyer_designer_inner_infobox .designer_bottom_box .btn_light_green {
+  background: #d7df23;
+  border: none;
+  color: #000000;
+  padding: 5px 15px;
+  width: auto;
+  min-width: inherit;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+}
+.buyer_designer_inner_infobox .designer_bottom_box .talk_to_me {
+  text-align: right;
+}
+.buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:link,
+.buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:active,
+.buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:visited {
+  color: #54a958;
+  border-bottom: 2px solid #54a958;
+  display: inline-block;
+  text-align: right;
+}
+.buyer_designer_inner_infobox .rating_level {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #d7df23;
+  padding: 5px;
+  border-radius: 0 0 0 3px;
+}
+.buyer_designer_inner_infobox .buyer_rating {
+    font-size: 16px;
+    text-align: right;
+    height: 15px;
+    margin-bottom: 5px;
+}
+.buyer_designer_inner_infobox .material-icons {
+  font-size: 20px;
+  color: #54a958;
+  width: 16px;
+  line-height: 14px;
+}
+
+.designer_address_box {
+  padding: 10px 0;
+}
+.buyer_designer_inner_infobox .buyer_completed {
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+  font-family: 'nexabold'; 
+  font-size: 10px;
+}
+.buyer_designer_inner_infobox .buyer_completed .completed_number {
+    font-size: 12px;
+    line-height: 12px;
+}
+/* .buyer_designer_inner_infobox .buyer_completed .material-icons {
+  float: right;
+  font-size: 25px;
+  margin-left: 5px;
+} */
+/* ********************************** */
+
+.buyer_designer_details_wrap .back_to {
+  padding: 0 0 20px 15px;
+}
+.buyer_designer_details_wrap .back_to img {
+  width: 35px;
+}
+.designer_details_left_profile,
+.buyer_designer_details_protfolio,
+.buyer_designer_details_aboutMe,
+.buyer_designer_details_certification,
+.buyer_designer_details_skill {
+  border: 1px solid #707070;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.buyer_designer_details_certification,
+.buyer_designer_details_skill {
+  padding: 15px;
+}
+.buyer_designer_details_protfolio,
+.buyer_designer_details_aboutMe {
+  padding: 20px 25px 5px;
+}
+.buyer_designer_details_certification img {
+  border: 1px solid #54a958;
+  border-radius: 5px;
+}
+.buyer_designer_details_protfolio img {
+  border: 1px solid #707070;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.designer_top_box h4 {
+  font-family: 'nexablack';
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.buyer_designer_details_left .profile_img {
+  height: 200px;
+}
+.buyer_designer_details_left .profile_img img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+.buyer_designer_details_left .designer_info {
+  padding: 15px;
+}
+.buyer_designer_details_left .designer_info h6 {
+  font-size: 12px;
+  color: #545353;
+}
+.buyer_designer_details_left .designer_info .buyer_price {
+  font-size: 14px;
+  line-height: 22px;
+  padding: 10px 0 20px;
+}
+.buyer_designer_details_left .designer_info .buyer_price span {
+    font-family: 'nexabold';
+    font-size: 28px;
+}
+.buyer_designer_details_left .designer_info .btn_green {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: 30px;
+  margin: 0 0 15px;
+}
+.buyer_designer_details_left .designer_info .talk_to_me {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  margin: 0;
+}
+.buyer_designer_details_certification h4,
+.buyer_designer_details_skill h4 {
+  font-family: 'nexabold';
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-align: left;
+} 
+.buyer_designer_details_skill ul {
+  text-align: left;
+}
+.buyer_designer_details_skill ul li {
+  display: inline-block;
+  border: 1px solid #54a958;
+  border-radius: 5px;
+  padding: 3px 5px;
+  font-size: 12px;
+  color: #54a958;
+  margin: 0 5px 5px 0;
+}
+.buyer_designer_details_aboutMe .details_aboutme_topbar {
+  border-bottom: 1px solid #707070;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.buyer_designer_details_aboutMe .details_aboutme_topbar h6 {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.buyer_designer_details_aboutMe .details_aboutme_topbar h5 {
+  margin-bottom: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.details_aboutme_topbar .buyer_about_me h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.edit_icon_box {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #54a958 !important;
+  color: #fff;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 3px;
+  height: 28px;
+  text-align: center;
+}
+.edit_icon_box .material-icons {
+    font-size: 16px;
+    line-height: 20px;
+}
+.designer_details_edit_modal .modal-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.design_profile_edit_section .selection,
+.design_profile_edit_section .select2-container--default {
+  height: 48px !important;
+}
+.design_profile_edit_section .select2-container--default .select2-selection--multiple {
+  height: 100%;
+}
+.design_profile_edit_section .select2-search {
+  height: 10px;
+}
+.design_profile_edit_section .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+  float: left;
+  width: auto;
+}
+.design_profile_edit_section .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  right: 0px;
+  top: -6px;
+  border: none;
+  background: none;
+}
+.design_profile_edit_section .input-field textarea {
+   border: 1px solid #9e9e9e !important;
+   line-height: 20px !important;
+}
+.design_profile_edit_section .input-field textarea:focus {
+  border: 1px solid #54a958 !important;
+}
+.design_profile_edit_section .btn_green {
+  height: 35px;
+}
+
+/* ******************************* */
+
+
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {
     .container.howWeWorkContainer .manufacture_container {

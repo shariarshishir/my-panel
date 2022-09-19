@@ -15,14 +15,77 @@
 @section('content')
 @include('sweet::alert')
 
-    <div class="suppliers_container suppliers_filter_wrapper row" itemscope>
-        <div class="col s12 m12 l12" itemscope>
-            <h1>Designers</h1>
-            @foreach ($users as $user)
-                {{$user->name}}
-            @endforeach
+    <div id="buyerDesignerView">
+        <div class="buyer_designer_inner_box_wrap">
+            <h2>Designers</h2>
+            <div class="row">
+                <div class="col s12 m6 l4 xl3">
+                    <div class="buyer_designer_inner_infobox">
+                        <div class="rating_level">
+                            Level 1
+                        </div>
+                        <div class="cover_img">
+                            <img src="./images/landing-spotlight-bg.jpg" alt="" >
+                        </div>
+                        <div class="profile_img">
+                            <img src="./images/profile-img.jpg" alt="" >
+                        </div>
+                        <div class="designer_info">
+                            <div class="designer_info_wrap">
+                                <div class="designer_top_box">
+                                    <div class="row">
+                                        <div class="col s6 m7">
+                                            <h4>Designer's Name </h4>
+                                        </div>
+                                        <div class="col s6 m5">
+                                            <div class="buyer_price">
+                                                <span>$25</span> /hr
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="designer_address_box">
+                                <div class="row">
+                                    <div class="col s6 m6">
+                                        <h6>Leeds, United Kingdom</h6>
+                                    </div>
+                                    <div class="col s6 m6">
+                                        <div class="buyer_rating">
+                                            <i class="material-icons">star</i>
+                                            <i class="material-icons">star</i>
+                                            <i class="material-icons">star</i>
+                                            <i class="material-icons">star_half</i>
+                                            <i class="material-icons">star_border</i>
+                                        </div>
+                                        <div class="buyer_completed">
+                                            <!-- <i class="material-icons">task</i> -->
+                                            <span class="completed_number">100+ </span> Task Done
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="designer_bottom_box">
+                                <div class="row">
+                                    <div class="col s6 m7">
+                                        <a href="buyer-design-details.html" class="btn_light_green">View Profile</a>
+                                    </div>
+                                    <div class="col s6 m5">
+                                        <div class="talk_to_me">
+                                            <a href="!#">Talk to Me</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
 
 @endsection
 
