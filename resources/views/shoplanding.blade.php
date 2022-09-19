@@ -42,7 +42,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12 m12 l7">
+                        <div class="col @php echo (count($rfqLists) > 0) ? "s12 m12 l7" : "s12 m12 l12"; @endphp">
                             <div class="product_design_wrapper">
                                 {{-- <div class="profile_account_searchBar">
                                     <div class="row">
@@ -143,9 +143,12 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             </div>
                                             @endforeach
                                         @else
-                                        <div class="card-alert card cyan">
-                                            <div class="card-content white-text">
-                                                <p>No Queries are available.</p>
+                                        <div class="clearfix"></div>
+                                        <div class="row">
+                                            <div class="card-alert card cyan">
+                                                <div class="card-content white-text">
+                                                    <p>No Queries are available.</p>
+                                                </div>
                                             </div>
                                         </div>
                                         @endif

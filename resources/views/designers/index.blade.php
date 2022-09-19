@@ -18,7 +18,9 @@
     <div class="suppliers_container suppliers_filter_wrapper row" itemscope>
         <div class="col s12 m12 l12" itemscope>
             <h1>Designers</h1>
-            Coming Soon...
+            @foreach ($users as $user)
+                {{$user->name}}
+            @endforeach
         </div>
     </div>
 

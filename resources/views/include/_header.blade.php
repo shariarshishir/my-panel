@@ -42,9 +42,15 @@
 									</span>
 								</a>
 								<ul id="profile-dropdown" class="dropdown-content" itemscope itemtype="https://schema.org/ListItem">
+                                    @if(auth()->user()->user_type == "designer")
 									<li tabindex="0" itemprop="itemListElement">
+										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('single.designer.details', auth()->user()->id) }}"><i class="material-icons">person_outline</i> Profile</a>
+									</li>
+                                    @else
+                                    <li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> Profile</a>
 									</li>
+                                    @endif
 									<li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Settings" href="{{env('SSO_URL').'/profile'}}"><i class="material-icons">settings</i> Settings</a>
 									</li>
@@ -69,9 +75,15 @@
 									</span>
 								</a>
 								<ul id="profile-dropdown" class="dropdown-content card" itemscope itemtype="https://schema.org/ListItem">
+                                    @if(auth()->user()->user_type == "designer")
 									<li tabindex="0" itemprop="itemListElement">
+										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('single.designer.details', auth()->user()->id) }}"><i class="material-icons">person_outline</i> Profile</a>
+									</li>
+                                    @else
+                                    <li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> Profile</a>
 									</li>
+                                    @endif
 									<li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Settings" href="{{env('SSO_URL').'/profile'}}"><i class="material-icons">settings</i> Settings</a>
 									</li>

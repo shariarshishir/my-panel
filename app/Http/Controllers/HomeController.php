@@ -1519,7 +1519,9 @@ class HomeController extends Controller
 
     public function designers(Request $request)
     {
-        return view('designers.index');
+        $users = User::where("user_type", "designer")->get();
+
+        return view('designers.index', compact('users'));
     }
 
     public function singleDesignerDetails(Request $request)
@@ -1527,6 +1529,12 @@ class HomeController extends Controller
         $user = User::where("id", $request->id)->first();
 
         return view('designer.index', compact('user'));
+        //return view('designers.index');
+    }
+
+    public function singleDesignerDetailsUpdate(Request $request)
+    {
+        dd($request->all());
         //return view('designers.index');
     }
 

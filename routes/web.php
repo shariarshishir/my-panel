@@ -219,6 +219,7 @@ Route::get('/supplier/location/data',[HomeController::class,'getSupplierLocation
 
 Route::get('/designers', [HomeController::class, 'designers'])->name('designers');
 Route::get('/designer/{id}', [HomeController::class, 'singleDesignerDetails'])->name('single.designer.details');
+Route::get('/designer/infoupdate', [HomeController::class, 'singleDesignerDetailsUpdate'])->name('single.designer.details.update');
 
 // Route::get('/suppliers', [HomeController::class, 'vendorList'])->name('vendors');
 Route::get('product/{value}/details',[HomeController::class, 'productDetails'])->name('productdetails');
