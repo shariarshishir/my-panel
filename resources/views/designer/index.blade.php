@@ -124,7 +124,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -132,42 +132,43 @@
     <div id="designerDetailsAboutMe" class="modal designer_details_edit_modal">
         <a href="javascript:void(0);" class="modal-action modal-close"><i class="material-icons">close</i></a>
         <div class="modal-content">
-            <form method="post" enctype="multipart/form-data" action="" class="designer_data_form">
+            <form method="post" enctype="multipart/form-data" action="{{route('single.designer.details.update')}}" class="designer_data_form">
+                @csrf
                 <div class="design_profile_edit_section">
                     <div class="row">
                         <div class="col s6 input-field">
                             <label>Name</label>
-                            <input type="text" class="" value=""  />
+                            <input type="text" name="designer_name" class="" value=""  />
                         </div>
                         <div class="col s6 input-field">
                             <label>Address</label>
-                            <input type="text" class="" value=""  />
+                            <input type="text" name="designer_location" class="" value=""  />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6 input-field">
                             <label>Nationality</label>
-                            <input type="text" class="" value="" />
+                            <input type="text" name="designer_nationality" class="" value="" />
                         </div>
                         <div class="col s6 input-field">
                             <label>Experience</label>
-                            <input type="text" class="" value="" />
+                            <input type="text" name="designer_experience" class="" value="" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6 input-field">
                             <label>Worked With</label>
-                            <input type="text" class="" value="" />
+                            <input type="text" name="designer_worked_with" class="" value="" />
                         </div>
                         <div class="col s6 input-field">
                             <label>Completed</label>
-                            <input type="text" class="" value="" />
+                            <input type="text" name="designer_completed_task" class="" value="" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
                             <label>Skills</label>
-                            <select class="select2" multiple="multiple">
+                            <select class="select2" name="designer_skills[]" multiple="multiple">
                                 <option value="Fashion Design">Fashion Design</option>
                                 <option value="Print & Layout Design">Print & Layout Design</option>
                                 <option value="Technical Drawing">Technical Drawing</option>
@@ -176,20 +177,20 @@
                             </select>
                         </div>
                         <div class="col s6 input-field">
-                            <label>Response Time</label>
-                            <input type="text" class="" value="" />
-                        </div>                    
-                    </div>    
+                            <label>Asking Price</label>
+                            <input type="text" name="designer_asking_price" class="" value="" />
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="fileBox col s12 input-field">
                             <label>Certifications</label>
-                            <input type="file" />
+                            <input type="file" name="designer_certifications[]" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12 input-field">
                             <label>About Me</label>
-                            <textarea name="about_me"></textarea>
+                            <textarea name="designer_about_me"></textarea>
                         </div>
                     </div>
                     <div class="right-align">
@@ -219,4 +220,4 @@
 
 @endsection
 
-@include('designers._scripts')
+@include('designer._scripts')

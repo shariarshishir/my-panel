@@ -75,6 +75,7 @@ use App\Http\Controllers\Wholesaler\ProductController as WholesalerProductContro
 use App\Http\Controllers\Wholesaler\ProfileInfoController;
 use App\Http\Controllers\RfqBidController;
 use App\Http\Controllers\BusinessProfile\QuerybidController;
+use App\Http\Controllers\DesignersController;
 
 
 use App\Models\BusinessProfile;
@@ -217,9 +218,9 @@ Route::get('/faqs', [HomeController::class, 'faqLandingPage'])->name('front.faq'
 Route::get('/suppliers', [HomeController::class, 'suppliers'])->name('suppliers');
 Route::get('/supplier/location/data',[HomeController::class,'getSupplierLocationData'])->name('get.supplier.location.data');
 
-Route::get('/designers', [HomeController::class, 'designers'])->name('designers');
-Route::get('/designer/{id}', [HomeController::class, 'singleDesignerDetails'])->name('single.designer.details');
-Route::get('/designer/infoupdate', [HomeController::class, 'singleDesignerDetailsUpdate'])->name('single.designer.details.update');
+Route::get('/designers', [DesignersController::class, 'designers'])->name('designers');
+Route::get('/designer/{id}', [DesignersController::class, 'singleDesignerDetails'])->name('single.designer.details');
+Route::post('/designer/infoupdate', [DesignersController::class, 'singleDesignerDetailsUpdate'])->name('single.designer.details.update');
 
 // Route::get('/suppliers', [HomeController::class, 'vendorList'])->name('vendors');
 Route::get('product/{value}/details',[HomeController::class, 'productDetails'])->name('productdetails');

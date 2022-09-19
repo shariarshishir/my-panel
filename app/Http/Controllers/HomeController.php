@@ -1516,27 +1516,4 @@ class HomeController extends Controller
     {
         return view('sitemap.index');
     }
-
-    public function designers(Request $request)
-    {
-        $users = User::where("user_type", "designer")->get();
-
-        return view('designers.index', compact('users'));
-    }
-
-    public function singleDesignerDetails(Request $request)
-    {
-        $user = User::where("id", $request->id)->first();
-
-        return view('designer.index', compact('user'));
-        //return view('designers.index');
-    }
-
-    public function singleDesignerDetailsUpdate(Request $request)
-    {
-        dd($request->all());
-        //return view('designers.index');
-    }
-
-
 }
