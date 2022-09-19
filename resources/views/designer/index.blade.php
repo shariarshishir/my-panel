@@ -29,9 +29,9 @@
                         <div class="designer_info">
                             <div class="designer_top_box">
                                 <h4>{{$user->name}}</h4>
-                                <h6>Leeds, United Kingdom</h6>
+                                <h6>{{$designer->designer_location ?? "---"}}</h6>
                                 <div class="buyer_price">
-                                    <span>$25</span> /hr
+                                    <span>${{$designer->designer_asking_price ?? "---"}}</span> /hr
                                 </div>
                             </div>
                             <div class="designer_bottom_box">
@@ -75,31 +75,29 @@
                             <div class="row">
                                 <div class="col s6 m4 l2">
                                     <h6>Nationality</h6>
-                                    <h5>British</h5>
+                                    <h5>{{$designer->designer_location ?? "---"}}</h5>
                                 </div>
                                 <div class="col s6 m4 l2">
                                     <h6>Experience</h6>
-                                    <h5>12+ Years</h5>
+                                    <h5>{{$designer->designer_nationality ?? "---"}} Years</h5>
                                 </div>
                                 <div class="col s6 m4 l3">
                                     <h6>Worked With</h6>
-                                    <h5>250+ Brands</h5>
+                                    <h5>{{$designer->designer_worked_with ?? "---"}} Brands</h5>
                                 </div>
                                 <div class="col s6 m4 l3">
                                     <h6>Completed</h6>
-                                    <h5>436 Projects</h5>
+                                    <h5>{{$designer->designer_completed_task ?? "---"}} Projects</h5>
                                 </div>
                                 <div class="col s6 m4 l2">
                                     <h6>Response Time</h6>
-                                    <h5>40 Minutes</h5>
+                                    <h5>{{$designer->designer_response_time ?? "---"}}  Minutes</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="buyer_about_me">
                             <h4>About Me</h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            <p>Experience: <b>Womenswear</b>, <b>menwear</b>, <b>babywear</b>, <b>swimwear</b></p>
+                            {{$designer->designer_about_me ?? "---"}}
                         </div>
                     </div>
                     <div class="buyer_designer_details_protfolio">
@@ -138,31 +136,36 @@
                     <div class="row">
                         <div class="col s6 input-field">
                             <label>Name</label>
-                            <input type="text" name="designer_name" class="" value=""  />
+                            <input type="text" name="designer_name" class="" value="{{$user->name ?? ""}}" />
                         </div>
                         <div class="col s6 input-field">
                             <label>Address</label>
-                            <input type="text" name="designer_location" class="" value=""  />
+                            <input type="text" name="designer_location" class="" value="{{$designer->designer_location ?? ""}}" />
+                            <div class="small-info" style="color: #afafaf;"><i>your current location</i></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6 input-field">
                             <label>Nationality</label>
-                            <input type="text" name="designer_nationality" class="" value="" />
+                            <input type="text" name="designer_nationality" class="" value="{{$designer->designer_nationality ?? ""}}" />
+                            <div class="small-info" style="color: #afafaf;"><i>your nationality</i></div>
                         </div>
                         <div class="col s6 input-field">
                             <label>Experience</label>
-                            <input type="text" name="designer_experience" class="" value="" />
+                            <input type="text" name="designer_experience" class="" value="{{$designer->designer_experience ?? ""}}" />
+                            <div class="small-info" style="color: #afafaf;"><i>your year of experience</i></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6 input-field">
                             <label>Worked With</label>
-                            <input type="text" name="designer_worked_with" class="" value="" />
+                            <input type="text" name="designer_worked_with" class="" value="{{$designer->designer_worked_with ?? ""}}" />
+                            <div class="small-info" style="color: #afafaf;"><i>how many brands</i></div>
                         </div>
                         <div class="col s6 input-field">
                             <label>Completed</label>
-                            <input type="text" name="designer_completed_task" class="" value="" />
+                            <input type="text" name="designer_completed_task" class="" value="{{$designer->designer_completed_task ?? ""}}" />
+                            <div class="small-info" style="color: #afafaf;"><i>how many completed tasks</i></div>
                         </div>
                     </div>
                     <div class="row">
@@ -175,26 +178,29 @@
                                 <option value="Techpack Building">Techpack Building</option>
                                 <option value="Lookbook Design">Lookbook Design</option>
                             </select>
+                            <div class="small-info" style="color: #afafaf;"><i>select your skills</i></div>
                         </div>
                         <div class="col s6 input-field">
                             <label>Asking Price</label>
-                            <input type="text" name="designer_asking_price" class="" value="" />
+                            <input type="text" name="designer_asking_price" class="" value="{{$designer->designer_asking_price ?? ""}}" />
+                            <div class="small-info" style="color: #afafaf;"><i>your hourly price in USD</i></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="fileBox col s12 input-field">
                             <label>Certifications</label>
-                            <input type="file" name="designer_certifications[]" />
+                            <div class="designer-certificates"></div>
+                            <div class="small-info" style="color: #afafaf;"><i>upload your certificates</i></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12 input-field">
                             <label>About Me</label>
-                            <textarea name="designer_about_me"></textarea>
+                            <textarea name="designer_about_me" class="editor">{{$designer->designer_about_me ?? ""}}</textarea>
                         </div>
                     </div>
                     <div class="right-align">
-                        <button type="submit" class="btn_green" >Submit</button>
+                        <button type="submit" class="btn_green designer-profile-data-submit-trigger">Submit</button>
                     </div>
                 </div>
             </form>

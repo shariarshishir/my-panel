@@ -24,9 +24,9 @@ class DesignersController extends Controller
     public function singleDesignerDetails(Request $request)
     {
         $user = User::where("id", $request->id)->first();
+        $designer = Designers::where("user_id", $request->id)->first();
 
-        return view('designer.index', compact('user'));
-        //return view('designers.index');
+        return view('designer.index', compact('user', 'designer'));
     }
 
     public function singleDesignerDetailsUpdate(Request $request)
@@ -34,6 +34,7 @@ class DesignersController extends Controller
         //dd($request->all());
 
         $designerData = new Designers();
+        $designerData->user_id = auth()->user()->id;
         $designerData->designer_location = $request->designer_location;
         $designerData->designer_nationality = $request->designer_nationality;
         $designerData->designer_experience = $request->designer_experience;
@@ -46,7 +47,7 @@ class DesignersController extends Controller
         $designerData->created_by = auth()->user()->id;
         $designerData->save();
 
-        return redirect()->route('single.designer.details');
+        return redirect()->route('single.designer.details', auth()->user()->id);
 
     }
 }

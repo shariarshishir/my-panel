@@ -1,5 +1,14 @@
 @push('js')
     <script type="text/javascript">
+        $(document).ready(function(){
+            $('.designer-certificates').imageUploader({
+                extensions: ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG', '.gif', '.GIF', '.svg', '.SVG', '.doc', '.DOC', '.docx', '.DOCX', '.xls', '.XLS', '.xlsx', '.XLSX', '.pdf', '.PDF'],
+                mimes : ['image/jpg', 'image/jpeg', 'image/JPG', 'image/JPEG', 'image/png', 'image/PNG', 'image/gif', 'image/GIF', 'image/svg+xml', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/pdf', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+                imagesInputName: 'designer_certifications',
+                label : 'Drag and Drop / click here to upload your certificates. Size not more than 25 MB.'
+            });
+        })
+
         // $('.designer_data_form').on('submit',function(e){
         //     e.preventDefault();
         //     var formData = new FormData(this);
