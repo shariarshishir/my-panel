@@ -12,6 +12,17 @@
 
 @section('robots', 'index, nofollow')
 
+@php
+    if($page_mode == 1)
+    {
+        $preloaded_image = $preloaded_image;
+    }
+    else
+    {
+        $preloaded_image = [];
+    }
+@endphp
+
 @section('content')
 @include('sweet::alert')
 
@@ -24,7 +35,7 @@
                 <div class="buyer_designer_details_left center-align">
                     <div class="designer_details_left_profile">
                         <div class="profile_img">
-                            <img src="./images/profile-img.jpg" alt="" >
+                            <img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/no-image.png" alt="" >
                         </div>
                         <div class="designer_info">
                             <div class="designer_top_box">
@@ -37,31 +48,36 @@
                             <div class="designer_bottom_box">
                                 <button class="btn_green">Hire Me</button>
                                 <div class="talk_to_me btn_white">
-                                    <a href="!#">Talk to Me</a>
+                                    <a href="javascript:void(0);">Talk to Me</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="buyer_designer_details_skill">
                         <h4>Skills</h4>
+                        @if(isset($designer->designer_skills))
                         <ul>
-                            <li>Fashion Design</li>
-                            <li>Print & Layout Design</li>
-                            <li>Technical Drawing</li>
-                            <li>Techpack Building</li>
-                            <li>Lookbook Design</li>
+                            @foreach (json_decode($designer->designer_skills) as $skill)
+                            <li>{{$skill}}</li>
+                            @endforeach
                         </ul>
+                        @else
+                            No Data.
+                        @endif
                     </div>
                     <div class="buyer_designer_details_certification">
                         <h4>Certicications</h4>
+                        @if(isset($designer->designer_certifications))
                         <div class="row">
+                            @foreach (json_decode($designer->designer_certifications) as $certificate)
                             <div class="col s12 m6">
-                                <img src="./images/certification.jpg" alt="" />
+                                <img src="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/certificates/'.$certificate)}}" alt="" />
                             </div>
-                            <div class="col s12 m6">
-                                <img src="./images/certification.jpg" alt="" />
-                            </div>
+                            @endforeach
                         </div>
+                        @else
+                            No Data.
+                        @endif
                     </div>
                 </div>
             </div>
@@ -75,11 +91,11 @@
                             <div class="row">
                                 <div class="col s6 m4 l2">
                                     <h6>Nationality</h6>
-                                    <h5>{{$designer->designer_location ?? "---"}}</h5>
+                                    <h5>{{$designer->designer_nationality ?? "---"}}</h5>
                                 </div>
                                 <div class="col s6 m4 l2">
                                     <h6>Experience</h6>
-                                    <h5>{{$designer->designer_nationality ?? "---"}} Years</h5>
+                                    <h5>{{$designer->designer_experience ?? "---"}} Years</h5>
                                 </div>
                                 <div class="col s6 m4 l3">
                                     <h6>Worked With</h6>
@@ -130,13 +146,14 @@
     <div id="designerDetailsAboutMe" class="modal designer_details_edit_modal">
         <a href="javascript:void(0);" class="modal-action modal-close"><i class="material-icons">close</i></a>
         <div class="modal-content">
-            <form method="post" enctype="multipart/form-data" action="{{route('single.designer.details.update')}}" class="designer_data_form">
-                @csrf
+            <form method="post" enctype="multipart/form-data" action="" class="designer_data_form">
+                <input type="hidden" name="page_mode" value="{{$page_mode}}" />
+                <input type="hidden" name="designer_id" value="{{$designer->user_id ?? 0}}" />
                 <div class="design_profile_edit_section">
                     <div class="row">
                         <div class="col s6 input-field">
                             <label>Name</label>
-                            <input type="text" name="designer_name" class="" value="{{$user->name ?? ""}}" />
+                            <input type="text" name="designer_name" class="" value="{{$user->name ?? ""}}" disabled="disabled" />
                         </div>
                         <div class="col s6 input-field">
                             <label>Address</label>
@@ -152,37 +169,40 @@
                         </div>
                         <div class="col s6 input-field">
                             <label>Experience</label>
-                            <input type="text" name="designer_experience" class="" value="{{$designer->designer_experience ?? ""}}" />
+                            <input type="number" name="designer_experience" class="" value="{{$designer->designer_experience ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>your year of experience</i></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s6 input-field">
                             <label>Worked With</label>
-                            <input type="text" name="designer_worked_with" class="" value="{{$designer->designer_worked_with ?? ""}}" />
+                            <input type="number" name="designer_worked_with" class="" value="{{$designer->designer_worked_with ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>how many brands</i></div>
                         </div>
                         <div class="col s6 input-field">
                             <label>Completed</label>
-                            <input type="text" name="designer_completed_task" class="" value="{{$designer->designer_completed_task ?? ""}}" />
+                            <input type="number" name="designer_completed_task" class="" value="{{$designer->designer_completed_task ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>how many completed tasks</i></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
                             <label>Skills</label>
+                            @php
+                                $designerSkills = json_decode($designer->designer_skills);
+                            @endphp
                             <select class="select2" name="designer_skills[]" multiple="multiple">
-                                <option value="Fashion Design">Fashion Design</option>
-                                <option value="Print & Layout Design">Print & Layout Design</option>
-                                <option value="Technical Drawing">Technical Drawing</option>
-                                <option value="Techpack Building">Techpack Building</option>
-                                <option value="Lookbook Design">Lookbook Design</option>
+                                <option value="Fashion Design" @php echo (in_array("Fashion Design", $designerSkills)) ? "selected":""; @endphp>Fashion Design</option>
+                                <option value="Print & Layout Design" @php echo (in_array("Print & Layout Design", $designerSkills)) ? "selected":""; @endphp>Print & Layout Design</option>
+                                <option value="Technical Drawing" @php echo (in_array("Technical Drawing", $designerSkills)) ? "selected":""; @endphp>Technical Drawing</option>
+                                <option value="Techpack Building" @php echo (in_array("Techpack Building", $designerSkills)) ? "selected":""; @endphp>Techpack Building</option>
+                                <option value="Lookbook Design" @php echo (in_array("Lookbook Design", $designerSkills)) ? "selected":""; @endphp>Lookbook Design</option>
                             </select>
                             <div class="small-info" style="color: #afafaf;"><i>select your skills</i></div>
                         </div>
                         <div class="col s6 input-field">
                             <label>Asking Price</label>
-                            <input type="text" name="designer_asking_price" class="" value="{{$designer->designer_asking_price ?? ""}}" />
+                            <input type="number" name="designer_asking_price" class="" value="{{$designer->designer_asking_price ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>your hourly price in USD</i></div>
                         </div>
                     </div>
@@ -196,7 +216,7 @@
                     <div class="row">
                         <div class="col s12 input-field">
                             <label>About Me</label>
-                            <textarea name="designer_about_me" class="editor">{{$designer->designer_about_me ?? ""}}</textarea>
+                            <textarea name="designer_about_me">{{$designer->designer_about_me ?? ""}}</textarea>
                         </div>
                     </div>
                     <div class="right-align">

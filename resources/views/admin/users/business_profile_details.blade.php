@@ -756,9 +756,9 @@
                             //alert("Successfull.");
                         }
                     });
-                }                
+                }
             }
-            
+
         });
 
         $('.verification_trigger_from_backend').on('click',function(){
