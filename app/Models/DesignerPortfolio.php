@@ -9,7 +9,7 @@ class DesignerPortfolio extends Model
 {
     use HasFactory;
 
-    protected $fillable=['designer_id', 'image'];
+    protected $fillable=['user_id', 'image'];
 
     protected $table = "designer_portfolio";
 

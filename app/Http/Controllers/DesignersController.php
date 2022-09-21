@@ -26,7 +26,7 @@ class DesignersController extends Controller
     {
         $user = User::where("id", $request->id)->first();
         $designer = Designers::where("user_id", $request->id)->first();
-        $designerPortfolio = DesignerPortfolio::where("designer_id", $request->id)->get();
+        $designerPortfolio = DesignerPortfolio::where("user_id", $request->id)->get();
         $preloaded_image = [];
         $portfolio_preloader_image = [];
 
@@ -96,7 +96,7 @@ class DesignersController extends Controller
         }
         else
         {
-            $designerData = Designers::where('user_id', $request->designer_id)->first();
+            $designerData = Designers::where('user_id', $request->user_id)->first();
 
             // delete certificate images from s3
             if(isset($designerData->designer_certifications))
@@ -158,7 +158,7 @@ class DesignersController extends Controller
                 array_push($portfolioImg, $portfolio_images_file_name);
 
                 $portfolio_image = DesignerPortfolio::create([
-                    'designer_id' => auth()->user()->id,
+                    'user_id' => auth()->user()->id,
                     'image' => $portfolio_images_file_name,
                     'created_by' => auth()->user()->id,
                 ]);

@@ -179,7 +179,7 @@
         <div class="modal-content">
             <form method="post" enctype="multipart/form-data" action="" class="designer_data_form">
                 <input type="hidden" name="page_mode" value="{{$page_mode}}" />
-                <input type="hidden" name="designer_id" value="{{$designer->user_id ?? 0}}" />
+                <input type="hidden" name="user_id" value="{{$designer->user_id ?? 0}}" />
                 <div class="design_profile_edit_section">
                     <div class="row">
                         <div class="col s6 input-field">
@@ -266,7 +266,7 @@
         <div class="modal-content">
             <form method="post" enctype="multipart/form-data" action="" class="designer_portfolio_data_form">
                 <input type="hidden" name="page_mode" value="{{$page_mode}}" />
-                <input type="hidden" name="designer_id" value="{{$designer->user_id ?? 0}}" />
+                <input type="hidden" name="user_id" value="{{$designer->user_id ?? 0}}" />
                 <div class="protfolio-upload-wrapper">
                     <div class="designer-protfolio-images"></div>
                     <div class="or"><span>OR</span></div>
