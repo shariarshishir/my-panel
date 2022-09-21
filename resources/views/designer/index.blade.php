@@ -57,7 +57,7 @@
                                         <input type="file" name="image" class="form-control designer-profile-image-upload-trigger-alias" id="designer-image-input">
                                         <span class="text-danger" id="designer-image-input-error"></span>
                                     </div>
-                                    <input type="hidden" name="user_id" value="{{$designer->user_id}}">
+                                    <input type="hidden" name="user_id" value="{{$designer->user_id ?? 0}}">
                                     <button type="submit" class="btn waves-effect waves-light green designer-profile-image-upload-button" style="display: none">Upload</button>
                                 </form>
                             </div>
@@ -112,11 +112,9 @@
             <div class="col s12 m8 l9">
                 <div class="buyer_designer_details_right">
                     <div class="buyer_designer_details_aboutMe">
-                        @if(auth()->user()->id == $designer->user_id)
                         <button class="edit_icon_box modal-trigger" href="#designerDetailsAboutMe">
                             <i class="material-icons">edit</i>
                         </button>
-                        @endif
                         <div class="details_aboutme_topbar">
                             <div class="row">
                                 <div class="col s6 m4 l2">
@@ -147,11 +145,9 @@
                         </div>
                     </div>
                     <div class="buyer_designer_details_protfolio">
-                        @if(auth()->user()->id == $designer->user_id)
                         <button class="edit_icon_box modal-trigger" href="#designerDetailsPortfolio">
                             <i class="material-icons">edit</i>
                         </button>
-                        @endif
                         <h4>Portfolio</h4>
                         <div class="row">
                             @if(count($designerPortfolio) > 0)
@@ -179,7 +175,7 @@
         <div class="modal-content">
             <form method="post" enctype="multipart/form-data" action="" class="designer_data_form">
                 <input type="hidden" name="page_mode" value="{{$page_mode}}" />
-                <input type="hidden" name="user_id" value="{{$designer->user_id ?? 0}}" />
+                <input type="hidden" name="user_id" value="{{$user->id}}" />
                 <div class="design_profile_edit_section">
                     <div class="row">
                         <div class="col s6 input-field">
@@ -220,7 +216,11 @@
                         <div class="input-field col s6">
                             <label>Skills</label>
                             @php
-                                $designerSkills = json_decode($designer->designer_skills);
+                                if(isset($designerSkills)) {
+                                    $designerSkills = json_decode($designer->designer_skills);
+                                } else {
+                                    $designerSkills = [];
+                                }
                             @endphp
                             <select class="select2" name="designer_skills[]" multiple="multiple">
                                 <option value="Fashion Design" @php echo (in_array("Fashion Design", $designerSkills)) ? "selected":""; @endphp>Fashion Design</option>
@@ -266,7 +266,7 @@
         <div class="modal-content">
             <form method="post" enctype="multipart/form-data" action="" class="designer_portfolio_data_form">
                 <input type="hidden" name="page_mode" value="{{$page_mode}}" />
-                <input type="hidden" name="user_id" value="{{$designer->user_id ?? 0}}" />
+                <input type="hidden" name="user_id" value="{{$user->id}}" />
                 <div class="protfolio-upload-wrapper">
                     <div class="designer-protfolio-images"></div>
                     <div class="or"><span>OR</span></div>
