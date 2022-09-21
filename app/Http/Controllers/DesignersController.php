@@ -24,18 +24,17 @@ class DesignersController extends Controller
 
     public function singleDesignerDetails(Request $request)
     {
-        $user = User::where("id", $request->id)->first();
-        $designer = Designers::where("user_id", $request->id)->first();
-        $designerPortfolio = DesignerPortfolio::where("user_id", $request->id)->get();
+        $user = User::with(['designers', 'designerPortfolio'])->where("id", $request->id)->first();
         $preloaded_image = [];
         $portfolio_preloader_image = [];
-
-        if($designer) {
+        //dd($user);
+        if($user->designers)
+        {
             $page_mode = 1;
-            if(isset($designer->designer_certifications))
+            if(isset($user->designers->designer_certifications))
             {
                 $i = 0;
-                foreach(json_decode($designer->designer_certifications) as $key =>  $image) {
+                foreach(json_decode($user->designers->designer_certifications) as $key =>  $image) {
                     $obj[$key] = new stdClass;
                     $obj[$key]->id = $i;
                     $obj[$key]->src = Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/certificates/'.$image);
@@ -43,9 +42,10 @@ class DesignersController extends Controller
                     $i++;
                 }
             }
-            if(isset($designerPortfolio))
+
+            if(isset($user->designerPortfolio))
             {
-                foreach($designerPortfolio as $key => $item)
+                foreach($user->designerPortfolio as $key => $item)
                 {
                     $obj[$key] = new stdClass;
                     $obj[$key]->id = $item['id'];
@@ -53,11 +53,14 @@ class DesignersController extends Controller
                     $portfolio_preloader_image[] = $obj[$key];
                 }
             }
-        } else {
+
+        }
+        else
+        {
             $page_mode = 0;
         }
 
-        return view('designer.index', compact('user', 'designer', 'page_mode', 'preloaded_image', 'portfolio_preloader_image', 'designerPortfolio'));
+        return view('designer.index', compact('user', 'page_mode', 'preloaded_image', 'portfolio_preloader_image'));
     }
 
     public function singleDesignerDetailsUpdate(Request $request)
@@ -146,22 +149,56 @@ class DesignersController extends Controller
     public function singleDesignerPortfolioDetailsUpdate(Request $request)
     {
         // dd($request->all());
+        if($request->page_mode == 0)
+        {
+            $portfolioImg = [];
+            if(isset($request->designer_portfolio)) {
+                foreach ($request->designer_portfolio as $designer_portfolio) {
+                    $s3 = \Storage::disk('s3');
+                    $uniqueString = generateUniqueString();
+                    $portfolio_images_file_name = uniqid().$uniqueString.'.'. $designer_portfolio->getClientOriginalExtension();
+                    $s3filePath = '/public/designers'.'/'. auth()->user()->id .'/portfolio'. '/' .$portfolio_images_file_name;
+                    $s3->put($s3filePath, file_get_contents($designer_portfolio));
+                    array_push($portfolioImg, $portfolio_images_file_name);
 
-        $portfolioImg = [];
-        if(isset($request->designer_portfolio)) {
-            foreach ($request->designer_portfolio as $designer_portfolio) {
-                $s3 = \Storage::disk('s3');
-                $uniqueString = generateUniqueString();
-                $portfolio_images_file_name = uniqid().$uniqueString.'.'. $designer_portfolio->getClientOriginalExtension();
-                $s3filePath = '/public/designers'.'/'. auth()->user()->id .'/portfolio'. '/' .$portfolio_images_file_name;
-                $s3->put($s3filePath, file_get_contents($designer_portfolio));
-                array_push($portfolioImg, $portfolio_images_file_name);
+                    $portfolio_image = DesignerPortfolio::create([
+                        'user_id' => auth()->user()->id,
+                        'image' => $portfolio_images_file_name,
+                        'created_by' => auth()->user()->id,
+                    ]);
+                }
+            }
+        }
+        else
+        {
+            $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->get();
 
-                $portfolio_image = DesignerPortfolio::create([
-                    'user_id' => auth()->user()->id,
-                    'image' => $portfolio_images_file_name,
-                    'created_by' => auth()->user()->id,
-                ]);
+            // delete certificate images from s3
+            if(count($designerPortfolio) > 0)
+            {
+                foreach($designerPortfolio as $portfolioImg)
+                {
+                    Storage::disk('s3')->delete('/public/designers/'.auth()->user()->id.'/portfolio'.'/'. $portfolioImg['image']);
+                }
+                $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->delete();
+            }
+
+            $portfolioImg = [];
+            if(isset($request->designer_portfolio)) {
+                foreach ($request->designer_portfolio as $designer_portfolio) {
+                    $s3 = \Storage::disk('s3');
+                    $uniqueString = generateUniqueString();
+                    $portfolio_images_file_name = uniqid().$uniqueString.'.'. $designer_portfolio->getClientOriginalExtension();
+                    $s3filePath = '/public/designers'.'/'. auth()->user()->id .'/portfolio'. '/' .$portfolio_images_file_name;
+                    $s3->put($s3filePath, file_get_contents($designer_portfolio));
+                    array_push($portfolioImg, $portfolio_images_file_name);
+
+                    $portfolio_image = DesignerPortfolio::create([
+                        'user_id' => auth()->user()->id,
+                        'image' => $portfolio_images_file_name,
+                        'created_by' => auth()->user()->id,
+                    ]);
+                }
             }
         }
 
