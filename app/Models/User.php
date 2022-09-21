@@ -83,6 +83,11 @@ class User extends Authenticatable
         return $this->hasMany(BusinessProfile::class)->withTrashed();
     }
 
+    public function designers()
+    {
+        return $this->hasOne(Designers::class);
+    }
+
 
 
 

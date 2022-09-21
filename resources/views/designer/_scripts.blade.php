@@ -10,6 +10,10 @@
                 imagesInputName: 'designer_certifications',
                 label : 'Drag and Drop / click here to upload your certificates. Size not more than 25 MB.'
             });
+            $(".browse_certificate_trigger").click(function(e){
+                e.preventDefault();
+                $('.image-uploader input[type="file"]').trigger("click");
+            });
 
             $('.designer-protfolio-images').imageUploader({
                 preloaded: portfolio_preloader_image,
@@ -17,6 +21,10 @@
                 mimes : ['image/jpg', 'image/jpeg', 'image/JPG', 'image/JPEG', 'image/png', 'image/PNG', 'image/gif', 'image/GIF', 'image/svg+xml', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/pdf', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
                 imagesInputName: 'designer_portfolio',
                 label : 'Drag and Drop / click here to upload your portfolio images.'
+            });
+            $(".browse_portfolio_trigger").click(function(e){
+                e.preventDefault();
+                $('.image-uploader input[type="file"]').trigger("click");
             });
         })
 

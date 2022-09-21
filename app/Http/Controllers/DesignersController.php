@@ -18,7 +18,7 @@ class DesignersController extends Controller
 {
     public function designers(Request $request)
     {
-        $users = User::where("user_type", "designer")->get();
+        $users = User::with('designers')->where("user_type", "designer")->get();
 
         return view('designers.index', compact('users'));
     }

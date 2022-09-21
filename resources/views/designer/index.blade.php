@@ -75,7 +75,9 @@
                         <div class="row">
                             @foreach (json_decode($designer->designer_certifications) as $certificate)
                             <div class="col s12 m6">
-                                <img src="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/certificates/'.$certificate)}}" alt="" />
+                                <a href="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/certificates/'.$certificate)}}" data-fancybox="certificate-gallery">
+                                    <img src="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/certificates/'.$certificate)}}" alt="" />
+                                </a>
                             </div>
                             @endforeach
                         </div>
@@ -129,7 +131,9 @@
                             @if(count($designerPortfolio) > 0)
                                 @foreach ($designerPortfolio as $item)
                                     <div class="col s12 m6 l4">
-                                        <img src="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/portfolio/'.$item['image'])}}" alt="" />
+                                        <a href="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/portfolio/'.$item['image'])}}" data-fancybox="portfolio-gallery">
+                                            <img src="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/portfolio/'.$item['image'])}}" alt="" />
+                                        </a>
                                     </div>
                                 @endforeach
                             @else
@@ -210,7 +214,11 @@
                     <div class="row">
                         <div class="fileBox col s12 input-field">
                             <label>Certifications</label>
-                            <div class="designer-certificates"></div>
+                            <div class="certificate-upload-wrapper">
+                                <div class="designer-certificates"></div>
+                                <div class="or"><span>OR</span></div>
+                                <a href="javascript:void(0);" class="btn_green browse_certificate_trigger">Browse files</a>
+                            </div>
                             <div class="small-info" style="color: #afafaf;"><i>upload your certificates</i></div>
                         </div>
                     </div>
@@ -233,7 +241,11 @@
             <form method="post" enctype="multipart/form-data" action="" class="designer_portfolio_data_form">
                 <input type="hidden" name="page_mode" value="{{$page_mode}}" />
                 <input type="hidden" name="designer_id" value="{{$designer->user_id ?? 0}}" />
-                <div class="designer-protfolio-images"></div>
+                <div class="protfolio-upload-wrapper">
+                    <div class="designer-protfolio-images"></div>
+                    <div class="or"><span>OR</span></div>
+                    <a href="javascript:void(0);" class="btn_green browse_portfolio_trigger">Browse files</a>
+                </div>
                 <div class="right-align">
                     <button type="submit" class="btn_green designer-portfolio-submit-trigger">Submit</button>
                 </div>

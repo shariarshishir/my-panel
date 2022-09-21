@@ -19,67 +19,73 @@
         <div class="buyer_designer_inner_box_wrap">
             <h2>Designers</h2>
             <div class="row">
-                <div class="col s12 m6 l4 xl3">
-                    <div class="buyer_designer_inner_infobox">
-                        <div class="rating_level">
-                            Level 1
-                        </div>
-                        <div class="cover_img">
-                            <img src="./images/landing-spotlight-bg.jpg" alt="" >
-                        </div>
-                        <div class="profile_img">
-                            <img src="./images/profile-img.jpg" alt="" >
-                        </div>
-                        <div class="designer_info">
-                            <div class="designer_info_wrap">
-                                <div class="designer_top_box">
-                                    <div class="row">
-                                        <div class="col s6 m7">
-                                            <h4>Designer's Name </h4>
-                                        </div>
-                                        <div class="col s6 m5">
-                                            <div class="buyer_price">
-                                                <span>$25</span> /hr
+                @if(count($users) > 0)
+                    @foreach ($users as $user)
+                    <div class="col s12 m6 l4 xl3">
+                        <div class="buyer_designer_inner_infobox">
+                            <div class="rating_level">
+                                Level 1
+                            </div>
+                            <div class="cover_img">
+                                <img src="./images/landing-spotlight-bg.jpg" alt="" >
+                            </div>
+                            <div class="profile_img">
+                                <img src="./images/profile-img.jpg" alt="" >
+                            </div>
+                            <div class="designer_info">
+                                <div class="designer_info_wrap">
+                                    <div class="designer_top_box">
+                                        <div class="row">
+                                            <div class="col s6 m7">
+                                                <h4>{{$user->name ?? ""}}</h4>
+                                            </div>
+                                            <div class="col s6 m5">
+                                                <div class="buyer_price">
+                                                    <span>$ {{$user['designers']['designer_asking_price'] ?? ""}}</span> /hr
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="designer_address_box">
-                                <div class="row">
-                                    <div class="col s6 m6">
-                                        <h6>Leeds, United Kingdom</h6>
-                                    </div>
-                                    <div class="col s6 m6">
-                                        <div class="buyer_rating">
-                                            <i class="material-icons">star</i>
-                                            <i class="material-icons">star</i>
-                                            <i class="material-icons">star</i>
-                                            <i class="material-icons">star_half</i>
-                                            <i class="material-icons">star_border</i>
+                                <div class="designer_address_box">
+                                    <div class="row">
+                                        <div class="col s6 m6">
+                                            <h6>{{$user['designers']['designer_location'] ?? ""}}</h6>
                                         </div>
-                                        <div class="buyer_completed">
-                                            <!-- <i class="material-icons">task</i> -->
-                                            <span class="completed_number">100+ </span> Task Done
+                                        <div class="col s6 m6">
+                                            <div class="buyer_rating">
+                                                <i class="material-icons">star</i>
+                                                <i class="material-icons">star</i>
+                                                <i class="material-icons">star</i>
+                                                <i class="material-icons">star_half</i>
+                                                <i class="material-icons">star_border</i>
+                                            </div>
+                                            <div class="buyer_completed">
+                                                <!-- <i class="material-icons">task</i> -->
+                                                <span class="completed_number">{{$user['designers']['designer_completed_task'] ?? ""}} </span> Task Done
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="designer_bottom_box">
-                                <div class="row">
-                                    <div class="col s6 m7">
-                                        <a href="buyer-design-details.html" class="btn_light_green">View Profile</a>
-                                    </div>
-                                    <div class="col s6 m5">
-                                        <div class="talk_to_me">
-                                            <a href="!#">Talk to Me</a>
+                                <div class="designer_bottom_box">
+                                    <div class="row">
+                                        <div class="col s6 m7">
+                                            <a href="{{route('single.designer.details',$user->id)}}" class="btn_light_green">View Profile</a>
+                                        </div>
+                                        <div class="col s6 m5">
+                                            <div class="talk_to_me">
+                                                <a href="javascript:void(0);">Talk to Me</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    @endforeach
+                @else
+                    No Data.
+                @endif
             </div>
         </div>
     </div>
