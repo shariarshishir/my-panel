@@ -32,7 +32,7 @@
 
     <div class="buyer_designer_details_wrap">
         <div class="back_to">
-            <a href="buyer-design.html"> <img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/back-arrow.png" alt="" width="10px"></a>
+            <a href="{{route('designers')}}"> <img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/back-arrow.png" alt="" width="10px"></a>
         </div>
         <div class="suppliers_container suppliers_filter_wrapper row">
             <div class="col s12 m4 l3">
@@ -75,8 +75,8 @@
                         <div class="row">
                             @foreach (json_decode($designer->designer_certifications) as $certificate)
                             <div class="col s12 m6">
-                                <a href="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/certificates/'.$certificate)}}" data-fancybox="certificate-gallery">
-                                    <img src="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/certificates/'.$certificate)}}" alt="" />
+                                <a href="{{Storage::disk('s3')->url('public/designers/'.$designer->user_id.'/certificates/'.$certificate)}}" data-fancybox="certificate-gallery">
+                                    <img src="{{Storage::disk('s3')->url('public/designers/'.$designer->user_id.'/certificates/'.$certificate)}}" alt="" />
                                 </a>
                             </div>
                             @endforeach
@@ -90,9 +90,11 @@
             <div class="col s12 m8 l9">
                 <div class="buyer_designer_details_right">
                     <div class="buyer_designer_details_aboutMe">
+                        @if(auth()->user()->id == $designer->user_id)
                         <button class="edit_icon_box modal-trigger" href="#designerDetailsAboutMe">
                             <i class="material-icons">edit</i>
                         </button>
+                        @endif
                         <div class="details_aboutme_topbar">
                             <div class="row">
                                 <div class="col s6 m4 l2">
@@ -123,16 +125,18 @@
                         </div>
                     </div>
                     <div class="buyer_designer_details_protfolio">
+                        @if(auth()->user()->id == $designer->user_id)
                         <button class="edit_icon_box modal-trigger" href="#designerDetailsPortfolio">
                             <i class="material-icons">edit</i>
                         </button>
+                        @endif
                         <h4>Portfolio</h4>
                         <div class="row">
                             @if(count($designerPortfolio) > 0)
                                 @foreach ($designerPortfolio as $item)
                                     <div class="col s12 m6 l4">
-                                        <a href="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/portfolio/'.$item['image'])}}" data-fancybox="portfolio-gallery">
-                                            <img src="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/portfolio/'.$item['image'])}}" alt="" />
+                                        <a href="{{Storage::disk('s3')->url('public/designers/'.$designer->user_id.'/portfolio/'.$item['image'])}}" data-fancybox="portfolio-gallery">
+                                            <img src="{{Storage::disk('s3')->url('public/designers/'.$designer->user_id.'/portfolio/'.$item['image'])}}" alt="" />
                                         </a>
                                     </div>
                                 @endforeach
