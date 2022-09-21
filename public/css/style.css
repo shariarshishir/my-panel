@@ -5372,6 +5372,9 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     border-radius: 20px;
     width: 60%;
 }
+.modal_lg {
+    width: 80%;
+}
 #certification-upload-form-modal {
     width: 72%;
 }
@@ -15688,10 +15691,56 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .design_profile_edit_section .input-field textarea:focus {
   border: 1px solid #54a958 !important;
 }
+.designer_portfolio_data_form .btn_green,
 .design_profile_edit_section .btn_green {
   height: 35px;
 }
 
+.designer_profile_img_wrapper {
+    position: relative;
+}
+.designer_profile_img_wrapper .change_photo {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+.designer_profile_img_wrapper .change_photo .btn_green {
+    /* background: #d7df23; */
+    min-width: inherit;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 5px;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 3px;
+}
+.designer_profile_img_wrapper .change_photo .btn_green .material-icons {
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.design_profile_browse .or {
+    border-bottom: 2px solid #8a8a8a;
+    max-width: 235px;
+    margin: 40px auto;
+    position: relative;
+}
+.design_profile_browse .or span {
+    background: #ffffff;
+    padding: 5px 20px;
+    position: absolute;
+    left: 38%;
+    top: -18px;
+}
+.no_data {
+    background: #e0f7fa;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #00bcd4;
+}
+.buyer_designer_details_protfolio .no_data {
+    margin: 20px 0;
+}
 /* ******************************* */
 
 

@@ -50,15 +50,16 @@
                             <div class="change_photo">
                                 <form method="post" id="designer-upload-image-form" enctype="multipart/form-data">
                                     @csrf
-                                    <a href="javascript:void(0)" class="btn designer-profile-image-upload-trigger waves-effect waves-light btn_white">
-                                        <i class="material-icons">create</i> Change Photo
+                                    <a href="javascript:void(0)" class="btn designer-profile-image-upload-trigger waves-effect waves-light btn_green">
+                                        <i class="material-icons">create</i>
                                     </a>
                                     <div class="form-group" style="display: none;">
                                         <input type="file" name="image" class="form-control designer-profile-image-upload-trigger-alias" id="designer-image-input">
                                         <span class="text-danger" id="designer-image-input-error"></span>
                                     </div>
                                     <input type="hidden" name="user_id" value="{{$designer->user_id ?? 0}}">
-                                    <button type="submit" class="btn waves-effect waves-light green designer-profile-image-upload-button" style="display: none">Upload</button>
+                                    <button type="submit" class="btn waves-effect waves-light btn_green designer-profile-image-upload-button" style="display: none">
+                                        <i class="material-icons">check</i></button>
                                 </form>
                             </div>
 
@@ -88,7 +89,9 @@
                             @endforeach
                         </ul>
                         @else
-                            No Data.
+                            <div class="no_data">
+                                No Data.
+                            </div>
                         @endif
                     </div>
                     <div class="buyer_designer_details_certification">
@@ -104,7 +107,9 @@
                             @endforeach
                         </div>
                         @else
-                            No Data.
+                            <div class="no_data">
+                                No Data.
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -159,7 +164,11 @@
                                     </div>
                                 @endforeach
                             @else
-                                No Data.
+                                <div class="col s12">
+                                    <div class="no_data">
+                                        No Data.
+                                    </div>
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -170,7 +179,7 @@
     </div>
 
     <!-- Designer section start -->
-    <div id="designerDetailsAboutMe" class="modal designer_details_edit_modal">
+    <div id="designerDetailsAboutMe" class="modal designer_details_edit_modal modal_lg">
         <a href="javascript:void(0);" class="modal-action modal-close"><i class="material-icons">close</i></a>
         <div class="modal-content">
             <form method="post" enctype="multipart/form-data" action="" class="designer_data_form">
@@ -242,10 +251,12 @@
                             <label>Certifications</label>
                             <div class="certificate-upload-wrapper">
                                 <div class="designer-certificates"></div>
-                                <div class="or"><span>OR</span></div>
-                                <a href="javascript:void(0);" class="btn_green browse_certificate_trigger">Browse files</a>
+                                <div class="design_profile_browse center-align">
+                                    <div class="or"><span>OR</span></div>
+                                    <a href="javascript:void(0);" class="btn_green browse_certificate_trigger">Browse files</a>
+                                    <div class="small-info" style="color: #afafaf; margin-top:10px"><i>Upload your certificates</i></div>
+                                </div>
                             </div>
-                            <div class="small-info" style="color: #afafaf;"><i>upload your certificates</i></div>
                         </div>
                     </div>
                     <div class="row">
@@ -261,7 +272,7 @@
             </form>
         </div>
     </div>
-    <div id="designerDetailsPortfolio" class="modal designer_details_edit_modal">
+    <div id="designerDetailsPortfolio" class="modal designer_details_edit_modal modal_lg">
         <a href="javascript:void(0);" class="modal-action modal-close"><i class="material-icons">close</i></a>
         <div class="modal-content">
             <form method="post" enctype="multipart/form-data" action="" class="designer_portfolio_data_form">
@@ -269,8 +280,10 @@
                 <input type="hidden" name="user_id" value="{{$user->id}}" />
                 <div class="protfolio-upload-wrapper">
                     <div class="designer-protfolio-images"></div>
-                    <div class="or"><span>OR</span></div>
-                    <a href="javascript:void(0);" class="btn_green browse_portfolio_trigger">Browse files</a>
+                    <div class="design_profile_browse center-align">
+                        <div class="or"><span>OR</span></div>
+                        <a href="javascript:void(0);" class="btn_green browse_portfolio_trigger">Browse files</a>
+                    </div>
                 </div>
                 <div class="right-align">
                     <button type="submit" class="btn_green designer-portfolio-submit-trigger">Submit</button>
