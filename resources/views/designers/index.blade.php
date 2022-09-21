@@ -26,11 +26,21 @@
                             <div class="rating_level">
                                 Level 1
                             </div>
-                            <div class="cover_img">
-                                <img src="./images/landing-spotlight-bg.jpg" alt="" >
-                            </div>
+                            @if(count($user->designerPortfolio) > 0)
+                                <div class="cover_img">
+                                    <img src="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$user->designerPortfolio[0]->image)}}" alt="" />
+                                </div>
+                            @else
+                                <div class="cover_img">
+                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="" />
+                                </div>
+                            @endif`
                             <div class="profile_img">
-                                <img src="./images/profile-img.jpg" alt="" >
+                                @if($user->image)
+                                    <img itemprop="image" src="{{ Storage::disk('s3')->url('public/'.$user->image) }}" id="designer_profile_image" alt="avatar" width="300px">
+                                @else
+                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" width="300px">
+                                @endif
                             </div>
                             <div class="designer_info">
                                 <div class="designer_info_wrap">

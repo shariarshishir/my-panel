@@ -88,6 +88,11 @@ class User extends Authenticatable
         return $this->hasOne(Designers::class);
     }
 
+    public function designerPortfolio()
+    {
+        return $this->hasMany(DesignerPortfolio::class);
+    }
+
 
 
 
