@@ -38,8 +38,30 @@
             <div class="col s12 m4 l3">
                 <div class="buyer_designer_details_left center-align">
                     <div class="designer_details_left_profile">
-                        <div class="profile_img">
-                            <img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/no-image.png" alt="" >
+                        <div class="designer_profile_img_wrapper">
+
+                            <div class="profile_image">
+                                @if($user->image)
+                                    <img itemprop="image" src="{{ Storage::disk('s3')->url('public/'.$user->image) }}" id="designer_profile_image" alt="avatar" width="300px">
+                                @else
+                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" width="300px">
+                                @endif
+                            </div>
+                            <div class="change_photo">
+                                <form method="post" id="designer-upload-image-form" enctype="multipart/form-data">
+                                    @csrf
+                                    <a href="javascript:void(0)" class="btn designer-profile-image-upload-trigger waves-effect waves-light btn_white">
+                                        <i class="material-icons">create</i> Change Photo
+                                    </a>
+                                    <div class="form-group" style="display: none;">
+                                        <input type="file" name="image" class="form-control designer-profile-image-upload-trigger-alias" id="designer-image-input">
+                                        <span class="text-danger" id="designer-image-input-error"></span>
+                                    </div>
+                                    <input type="hidden" name="user_id" value="{{$designer->user_id}}">
+                                    <button type="submit" class="btn waves-effect waves-light green designer-profile-image-upload-button" style="display: none">Upload</button>
+                                </form>
+                            </div>
+
                         </div>
                         <div class="designer_info">
                             <div class="designer_top_box">

@@ -26,6 +26,11 @@
                 e.preventDefault();
                 $('.image-uploader input[type="file"]').trigger("click");
             });
+
+            $('.designer-profile-image-upload-trigger').click(function(){
+                $(this).next().children(".designer-profile-image-upload-trigger-alias").click();
+            })
+
         })
 
         $('.designer_data_form').on('submit',function(e){
@@ -87,5 +92,66 @@
                 }
             });
         });
+
+        var previousImageSrc = "@php echo auth()->user()->image; @endphp";
+
+        $('#designer-upload-image-form').submit(function(e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+            $('#designer-image-input-error').text('');
+
+            swal({
+                title: "Want to update profile picture ?",
+                text: "Please ensure and then confirm!",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Yes",
+                cancelButtonText: "No",
+                reverseButtons: !0
+            }).then(function (e) {
+                if (e.value === true) {
+                    $.ajax({
+                        type:'POST',
+                        url: "{{route('image.update')}}",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: (response) => {
+                            if (response) {
+                                swal(response.message);
+                                $('.change_photo .designer-profile-image-upload-button').hide();
+                                this.reset();
+                                var image="{{asset('storage/')}}"+'/'+response.user.image;
+                                $(".designer-profile-image-block  #designer_profile_image").attr('src', image);
+                                //$(".user-block .avatar-online img").attr('src', image);
+                            }
+                        },
+                        error: function(response){
+                            $('#designer-image-input-error').text(response.responseJSON.errors.file);
+                        }
+                    });
+                }
+                else {
+                    var image="{{asset('storage/')}}"+'/'+previousImageSrc;
+                    $(". designer-profile-image-block  #designer_profile_image").attr('src', image);
+                    e.dismiss;
+                }
+            }, function (dismiss) {
+                return false;
+            })
+        });
+
+        $(document).ready(function (e) {
+            $('#designer-image-input').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    $('#designer_profile_image').attr('src', e.target.result);
+                    //$('.user-block .avatar-status img').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+                $('.designer-profile-image-upload-button').show();
+            });
+        });
+
     </script>
 @endpush
