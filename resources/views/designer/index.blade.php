@@ -57,7 +57,7 @@
                                         <input type="file" name="image" class="form-control designer-profile-image-upload-trigger-alias" id="designer-image-input">
                                         <span class="text-danger" id="designer-image-input-error"></span>
                                     </div>
-                                    <input type="hidden" name="user_id" value="{{$user->designer->user_id ?? 0}}">
+                                    <input type="hidden" name="user_id" value="{{$user->id ?? 0}}">
                                     <button type="submit" class="btn waves-effect waves-light btn_green designer-profile-image-upload-button" style="display: none">
                                         <i class="material-icons">check</i></button>
                                 </form>
