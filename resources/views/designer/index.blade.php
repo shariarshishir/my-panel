@@ -16,10 +16,14 @@
     if($page_mode == 1)
     {
         $preloaded_image = $preloaded_image;
+        $portfolio_preloader_image = $portfolio_preloader_image;
+        // echo "<pre>"; print_r($preloaded_image); echo "</pre>";
+        // echo "<pre>"; print_r($portfolio_preloader_image); echo "</pre>";
     }
     else
     {
         $preloaded_image = [];
+        $portfolio_preloader_image = [];
     }
 @endphp
 
@@ -122,18 +126,15 @@
                         </button>
                         <h4>Portfolio</h4>
                         <div class="row">
-                            <div class="col s12 m6 l4">
-                                <img src="./images/certification.jpg" alt="" />
-                            </div>
-                            <div class="col s12 m6 l4">
-                                <img src="./images/certification.jpg" alt="" />
-                            </div>
-                            <div class="col s12 m6 l4">
-                                <img src="./images/certification.jpg" alt="" />
-                            </div>
-                            <div class="col s12 m6 l4">
-                                <img src="./images/certification.jpg" alt="" />
-                            </div>
+                            @if(count($designerPortfolio) > 0)
+                                @foreach ($designerPortfolio as $item)
+                                    <div class="col s12 m6 l4">
+                                        <img src="{{Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/portfolio/'.$item['image'])}}" alt="" />
+                                    </div>
+                                @endforeach
+                            @else
+                                No Data.
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -229,16 +230,14 @@
     <div id="designerDetailsPortfolio" class="modal designer_details_edit_modal">
         <a href="javascript:void(0);" class="modal-action modal-close"><i class="material-icons">close</i></a>
         <div class="modal-content">
-            <form>
-                <div class="row">
-                    <div class="fileBox col s12 input-field">
-                        <label>Portfolio</label>
-                        <input type="file" />
-                    </div>
-                    <button class="add_more">Add More</button>
+            <form method="post" enctype="multipart/form-data" action="" class="designer_portfolio_data_form">
+                <input type="hidden" name="page_mode" value="{{$page_mode}}" />
+                <input type="hidden" name="designer_id" value="{{$designer->user_id ?? 0}}" />
+                <div class="designer-protfolio-images"></div>
+                <div class="right-align">
+                    <button type="submit" class="btn_green designer-portfolio-submit-trigger">Submit</button>
                 </div>
             </form>
-
         </div>
     </div>
     <!-- Designer section end -->

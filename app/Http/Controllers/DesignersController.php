@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Designers;
+use App\Models\DesignerPortfolio;
 use stdClass;
 
 class DesignersController extends Controller
@@ -26,7 +27,9 @@ class DesignersController extends Controller
     {
         $user = User::where("id", $request->id)->first();
         $designer = Designers::where("user_id", $request->id)->first();
+        $designerPortfolio = DesignerPortfolio::where("designer_id", $request->id)->get();
         $preloaded_image = [];
+        $portfolio_preloader_image = [];
 
         if($designer) {
             $page_mode = 1;
@@ -41,11 +44,21 @@ class DesignersController extends Controller
                     $i++;
                 }
             }
+            if(isset($designerPortfolio))
+            {
+                foreach($designerPortfolio as $key => $item)
+                {
+                    $obj[$key] = new stdClass;
+                    $obj[$key]->id = $item['id'];
+                    $obj[$key]->src = Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/portfolio/'.$item['image']);
+                    $portfolio_preloader_image[] = $obj[$key];
+                }
+            }
         } else {
             $page_mode = 0;
         }
 
-        return view('designer.index', compact('user', 'designer', 'page_mode', 'preloaded_image'));
+        return view('designer.index', compact('user', 'designer', 'page_mode', 'preloaded_image', 'portfolio_preloader_image', 'designerPortfolio'));
     }
 
     public function singleDesignerDetailsUpdate(Request $request)
@@ -128,6 +141,32 @@ class DesignersController extends Controller
         return response()->json(["status" => 1, "message" => "Data updated successfully."]);
 
         // return redirect()->route('single.designer.details', auth()->user()->id);
+
+    }
+
+    public function singleDesignerPortfolioDetailsUpdate(Request $request)
+    {
+        // dd($request->all());
+
+        $portfolioImg = [];
+        if(isset($request->designer_portfolio)) {
+            foreach ($request->designer_portfolio as $designer_portfolio) {
+                $s3 = \Storage::disk('s3');
+                $uniqueString = generateUniqueString();
+                $portfolio_images_file_name = uniqid().$uniqueString.'.'. $designer_portfolio->getClientOriginalExtension();
+                $s3filePath = '/public/designers'.'/'. auth()->user()->id .'/portfolio'. '/' .$portfolio_images_file_name;
+                $s3->put($s3filePath, file_get_contents($designer_portfolio));
+                array_push($portfolioImg, $portfolio_images_file_name);
+
+                $portfolio_image = DesignerPortfolio::create([
+                    'designer_id' => auth()->user()->id,
+                    'image' => $portfolio_images_file_name,
+                    'created_by' => auth()->user()->id,
+                ]);
+            }
+        }
+
+        return response()->json(["status" => 1, "message" => "Data updated successfully."]);
 
     }
 }

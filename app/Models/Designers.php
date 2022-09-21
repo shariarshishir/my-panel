@@ -10,4 +10,9 @@ class Designers extends Model
     use HasFactory;
     protected $guarded=[];
     protected $table = 'designers_info';
+
+    public function portfolioImages()
+    {
+        return $this->hasMany(DesignerPortfolio::class);
+    }
 }

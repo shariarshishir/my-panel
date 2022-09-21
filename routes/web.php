@@ -221,6 +221,7 @@ Route::get('/supplier/location/data',[HomeController::class,'getSupplierLocation
 Route::get('/designers', [DesignersController::class, 'designers'])->name('designers');
 Route::get('/designer/{id}', [DesignersController::class, 'singleDesignerDetails'])->name('single.designer.details');
 Route::post('/designer/infoupdate', [DesignersController::class, 'singleDesignerDetailsUpdate'])->name('single.designer.details.update');
+Route::post('/designer/portfolioinfoupdate', [DesignersController::class, 'singleDesignerPortfolioDetailsUpdate'])->name('single.designer.portfolio.details.update');
 
 // Route::get('/suppliers', [HomeController::class, 'vendorList'])->name('vendors');
 Route::get('product/{value}/details',[HomeController::class, 'productDetails'])->name('productdetails');
