@@ -3,6 +3,7 @@
         $(document).ready(function(){
             let preloaded = {!! json_encode($preloaded_image) !!};
             let portfolio_preloader_image = {!! json_encode($portfolio_preloader_image) !!};
+            // certificates image upload block start
             $('.designer-certificates').imageUploader({
                 preloaded: preloaded,
                 extensions: ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG', '.gif', '.GIF', '.svg', '.SVG', '.doc', '.DOC', '.docx', '.DOCX', '.xls', '.XLS', '.xlsx', '.XLSX', '.pdf', '.PDF'],
@@ -14,7 +15,9 @@
                 e.preventDefault();
                 $('.image-uploader input[type="file"]').trigger("click");
             });
+            // certificates image upload block end
 
+            // portfolio image upload block start
             $('.designer-protfolio-images').imageUploader({
                 preloaded: portfolio_preloader_image,
                 extensions: ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG', '.gif', '.GIF', '.svg', '.SVG', '.doc', '.DOC', '.docx', '.DOCX', '.xls', '.XLS', '.xlsx', '.XLSX', '.pdf', '.PDF'],
@@ -26,6 +29,7 @@
                 e.preventDefault();
                 $('.image-uploader input[type="file"]').trigger("click");
             });
+            // portfolio image upload block end
 
             $('.designer-profile-image-upload-trigger').click(function(){
                 $(this).next().children(".designer-profile-image-upload-trigger-alias").click();
@@ -33,6 +37,7 @@
 
         })
 
+        // profile data upload ajax block start
         $('.designer_data_form').on('submit',function(e){
             e.preventDefault();
             var formData = new FormData(this);
@@ -62,7 +67,9 @@
                 }
             });
         });
+        // profile data upload ajax block end
 
+        // profile portfolio data upload ajax block start
         $('.designer_portfolio_data_form').on('submit',function(e){
             e.preventDefault();
             var formData = new FormData(this);
@@ -92,9 +99,10 @@
                 }
             });
         });
+        // profile portfolio data upload ajax block end
 
+        // profile photo data upload ajax block start
         var previousImageSrc = "@php echo auth()->user()->image; @endphp";
-
         $('#designer-upload-image-form').submit(function(e) {
             e.preventDefault();
             let formData = new FormData(this);
@@ -140,7 +148,6 @@
                 return false;
             })
         });
-
         $(document).ready(function (e) {
             $('#designer-image-input').change(function(){
                 let reader = new FileReader();
@@ -152,6 +159,7 @@
                 $('.designer-profile-image-upload-button').show();
             });
         });
+        // profile photo data upload ajax block end
 
     </script>
 @endpush

@@ -42,11 +42,12 @@
 
                             <div class="profile_image">
                                 @if($user->image)
-                                    <img itemprop="image" src="{{ Storage::disk('s3')->url('public/'.$user->image) }}" id="designer_profile_image" alt="avatar" width="300px">
+                                    <img itemprop="image" src="{{ Storage::disk('s3')->url('public/'.$user->image) }}" id="designer_profile_image" alt="avatar" width="300px" />
                                 @else
-                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" width="300px">
+                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-designer-profile-image-large.png')}}" alt="avatar" />
                                 @endif
                             </div>
+                            @if(auth()->user()->id == $user->id)
                             <div class="change_photo">
                                 <form method="post" id="designer-upload-image-form" enctype="multipart/form-data">
                                     @csrf
@@ -62,7 +63,7 @@
                                         <i class="material-icons">check</i></button>
                                 </form>
                             </div>
-
+                            @endif
                         </div>
                         <div class="designer_info">
                             <div class="designer_top_box">
@@ -117,9 +118,11 @@
             <div class="col s12 m8 l9">
                 <div class="buyer_designer_details_right">
                     <div class="buyer_designer_details_aboutMe">
+                        @if(auth()->user()->id == $user->id)
                         <button class="edit_icon_box modal-trigger" href="#designerDetailsAboutMe">
                             <i class="material-icons">edit</i>
                         </button>
+                        @endif
                         <div class="details_aboutme_topbar">
                             <div class="row">
                                 <div class="col s6 m4 l2">
@@ -150,9 +153,11 @@
                         </div>
                     </div>
                     <div class="buyer_designer_details_protfolio">
+                        @if(auth()->user()->id == $user->id)
                         <button class="edit_icon_box modal-trigger" href="#designerDetailsPortfolio">
                             <i class="material-icons">edit</i>
                         </button>
+                        @endif
                         <h4>Portfolio</h4>
                         <div class="row">
                             @if(count($user->designerPortfolio) > 0)
