@@ -15555,8 +15555,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
   padding: 20px 25px 5px;
 }
 .buyer_designer_details_certification img {
-  border: 1px solid #54a958;
-  border-radius: 5px;
+    border: 1px solid #54a958;
+    border-radius: 5px;
+    height: 140px;
+    width: auto;
+    object-fit: contain;
 }
 .buyer_designer_details_protfolio img {
   border: 1px solid #707070;
