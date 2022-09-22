@@ -8204,7 +8204,7 @@ nav .pagination li.active .page-link {
     font-size: 16px;
     line-height: 25px;
     text-transform: capitalize;
-    padding: 58px 18px 20px;
+    padding: 58px 0px 20px;
     word-break: inherit;
     transition: 0.5s;
     -webkit-box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
@@ -8222,7 +8222,7 @@ nav .pagination li.active .page-link {
     min-height: inherit;
 }
 
-.mainNav_mobile_wrap .mySidenav ul li a:link,
+/* .mainNav_mobile_wrap .mySidenav ul li a:link,
 .mainNav_mobile_wrap .mySidenav ul li a:active,
 .mainNav_mobile_wrap .mySidenav ul li a:visited,
 .mainNav_mobile_wrap .mySidenav ul li span.mobile-parent-li-item,
@@ -8286,7 +8286,7 @@ nav .pagination li.active .page-link {
 .mainNav_mobile_wrap .mySidenav ul li ul.dropdown-content li:focus {
     background: none !important;
     background-color: transparent !important;
-}
+} */
 
 .mainNav_mobile_wrap .mySidenav .closebtn {
     position: absolute;
@@ -15565,6 +15565,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 140px;
     width: auto;
     object-fit: contain;
+    margin-bottom: 5px;
 }
 .buyer_designer_details_protfolio img {
     border: 1px solid #707070;
@@ -15608,7 +15609,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
   width: -webkit-fill-available;
   width: -moz-available;
   height: 30px;
-  margin: 0 0 15px;
+  margin: 0 0 15px !important;
 }
 .buyer_designer_details_left .designer_info .talk_to_me {
   width: -webkit-fill-available;
@@ -18439,6 +18440,35 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         height: 200px;
         max-height: 200px !important;
     }
+
+
+    /* *************************** */
+    #mainSidenav  {
+        display: none;
+    }
+    #orders .order_inquiries_table {
+        padding-left: 0 !important;
+    }
+    .product_details_wrapper {
+        padding: 0px 0px 50px 0px;
+    }
+    .products_filter_wrapper {
+        padding: 0;
+    }
+
+    .buyer_designer_details_certification img {
+        height: 76px;
+    }
+    .buyer_designer_details_protfolio img {
+        height: 145px;
+    }
+    .buyer_designer_details_aboutMe .details_aboutme_topbar h5 {
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+    .buyer_designer_details_aboutMe .details_aboutme_topbar h6 {
+        text-transform: capitalize;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -20701,6 +20731,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .verification_email_wrap .verification_email .email_send {
         padding: 0 10px;
     }
+    .suppliers_filter_content .industry_info_inner_box .row {
+        display: inherit;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -21115,6 +21148,19 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .mainNav_mobile_wrap_inner {
         width: 100%;
     }
+
+
+    /* ********************************** */
+    .buyer_designer_inner_infobox .designer_bottom_box .btn_light_green {
+        font-size: 12px;
+    }
+    #buyerDesignerView .buyer_designer_inner_infobox .profile_img {
+        height: 60px;
+        margin-top: -35px;
+    }
+    #buyerDesignerView .buyer_designer_inner_infobox .profile_img img {
+        width: 60px;
+    }
 }
 
 @media only screen and (max-width: 380px) {
@@ -21359,6 +21405,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .pro_porma_invoice .buyerdata_info_top #buyerdata {
         padding-bottom: 20px;
+    }
+
+    .buyer_designer_details_protfolio img {
+        height: 80px;
     }
 }
 

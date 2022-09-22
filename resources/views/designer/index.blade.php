@@ -100,7 +100,7 @@
                         @if(isset($user->designers->designer_certifications))
                         <div class="row">
                             @foreach (json_decode($user->designers->designer_certifications) as $certificate)
-                            <div class="col s12 m6">
+                            <div class="col s6 m6">
                                 <a href="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/certificates/'.$certificate)}}" data-fancybox="certificate-gallery">
                                     <img src="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/certificates/'.$certificate)}}" alt="" />
                                 </a>
@@ -162,7 +162,7 @@
                         <div class="row">
                             @if(count($user->designerPortfolio) > 0)
                                 @foreach ($user->designerPortfolio as $item)
-                                    <div class="col s12 m6 l4">
+                                    <div class="col s6 m6 l4">
                                         <a href="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image'])}}" data-fancybox="portfolio-gallery">
                                             <img src="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image'])}}" alt="" />
                                         </a>
@@ -192,42 +192,42 @@
                 <input type="hidden" name="user_id" value="{{$user->id}}" />
                 <div class="design_profile_edit_section">
                     <div class="row">
-                        <div class="col s6 input-field">
+                        <div class="col s12 m6 input-field">
                             <label>Name</label>
                             <input type="text" name="designer_name" class="" value="{{$user->name ?? ""}}" disabled="disabled" />
                         </div>
-                        <div class="col s6 input-field">
+                        <div class="col s12 m6 input-field">
                             <label>Address</label>
                             <input type="text" name="designer_location" class="" value="{{$user->designers->designer_location ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>your current location</i></div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s6 input-field">
+                        <div class="col s12 m6 input-field">
                             <label>Nationality</label>
                             <input type="text" name="designer_nationality" class="" value="{{$user->designers->designer_nationality ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>your nationality</i></div>
                         </div>
-                        <div class="col s6 input-field">
+                        <div class="col s12 m6 input-field">
                             <label>Experience</label>
                             <input type="number" name="designer_experience" class="" value="{{$user->designers->designer_experience ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>your year of experience</i></div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s6 input-field">
+                        <div class="col s12 m6 input-field">
                             <label>Worked With</label>
                             <input type="number" name="designer_worked_with" class="" value="{{$user->designers->designer_worked_with ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>how many brands</i></div>
                         </div>
-                        <div class="col s6 input-field">
+                        <div class="col s12 m6 input-field">
                             <label>Completed</label>
                             <input type="number" name="designer_completed_task" class="" value="{{$user->designers->designer_completed_task ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>how many completed tasks</i></div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <label>Skills</label>
                             @php
                                 if(isset($user->designers->designer_skills)) {
@@ -245,7 +245,7 @@
                             </select>
                             <div class="small-info" style="color: #afafaf;"><i>select your skills</i></div>
                         </div>
-                        <div class="col s6 input-field">
+                        <div class="col s12 m6 input-field">
                             <label>Asking Price</label>
                             <input type="number" name="designer_asking_price" class="" value="{{$user->designers->designer_asking_price ?? ""}}" />
                             <div class="small-info" style="color: #afafaf;"><i>your hourly price in USD</i></div>

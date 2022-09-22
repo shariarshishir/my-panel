@@ -116,11 +116,65 @@
 			<div class="row" itemscope>
 				<div class="col s2 mainNav_mobile_wrap" itemscope>
 					<span onclick="openNav()" itemprop="Menu Trigger" class="btn-sidenav-left"><i class="material-icons">menu</i></span>
-					<div id="mySidenav" class="mySidenav" itemscope>
+					<div id="mySidenav" class="mySidenav mainSidenav" itemscope>
 						<div class="mainNav_mobile_wrap_overlay" onclick="closeNav()" >&nbsp;</div>
 						<div class="mainNav_mobile_wrap_inner">
 							<span class="closebtn" itemprop="Close Nav" onclick="closeNav()"><i class="material-icons right">keyboard_backspace</i></span>
-							<ul itemscope itemtype="https://schema.org/ListItem">
+							
+							<ul>
+								<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
+										<span>My RFQs</span>
+									</a>
+								</li>
+								<li class="myOrders{{ Route::is('po.myorders') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="{{route('po.myorders')}}">
+										<span>My Orders</span>
+									</a>
+								</li>
+								<li class="mySupplyChain">
+									<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="javascript:void(0);">
+										<span>My Supply Chain</span>
+									</a>
+								</li>
+								<li class="designStudio">
+									<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="{{route('product.type.mapping',['studio', 'design'])}}">
+										<span>Design Studio</span>
+									</a>
+								</li>
+								<li class="designers{{ Route::is('designers') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="Designers" href="{{route('designers')}}">
+										<span>Designers</span>
+									</a>
+								</li>
+								<li class="rawMaterials">
+									<a class="tooltipped" data-position="right" data-tooltip="Raw Materials" href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">
+										<span>Raw Materials</span>
+									</a>
+								</li>
+								<li class="suppliers{{ Route::is('suppliers') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="{{route('suppliers')}}">
+										<span>Suppliers</span>
+									</a>
+								</li>
+								<li class="messages{{ Route::is('message.center') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="Messages" href="{{route('message.center')}}">
+										<span>Messages</span>
+									</a>
+								</li>
+								<li class="samples">
+									<a class="tooltipped" data-position="right" data-tooltip="Samples" href="javascript:void(0);">
+										<span>Samples</span>
+									</a>
+								</li>
+								<li class="oms">
+									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
+										<span>OMS</span>
+									</a>
+								</li>
+							</ul>
+							
+							{{-- <ul itemscope itemtype="https://schema.org/ListItem">
 								<li>
 									<span class="mobile-parent-li-item" itemprop="Explore" onclick="mobileNavExplore()">Explore <span class="subnev_arrow"><i class="material-icons right">keyboard_arrow_down</i></span></span>
 									<ul id="explore-products-mobile" class="subNav" itemscope itemtype="https://schema.org/ListItem" style="display: none">
@@ -156,7 +210,9 @@
 										<li itemprop="itemListElement"><a href="{{route('industry.blogs')}}" itemprop="Blog" class="{{ Route::is('industry.blogs') ? 'active' : ''}}">Blogs</a></li>
 									</ul>
 								</li>
-							</ul>
+							</ul> --}}
+
+
 						</div>
 					</div>
 				</div>
