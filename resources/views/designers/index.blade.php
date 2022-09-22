@@ -32,14 +32,14 @@
                                 </div>
                             @else
                                 <div class="cover_img">
-                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="" />
+                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-portfolio.png')}}" alt="" />
                                 </div>
-                            @endif`
+                            @endif
                             <div class="profile_img">
                                 @if($user->image)
                                     <img itemprop="image" src="{{ Storage::disk('s3')->url('public/'.$user->image) }}" id="designer_profile_image" alt="avatar" width="300px">
                                 @else
-                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" width="300px">
+                                    <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-designer-profile-image.png')}}" alt="" />
                                 @endif
                             </div>
                             <div class="designer_info">
