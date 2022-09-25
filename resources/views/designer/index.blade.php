@@ -47,7 +47,7 @@
                                     <img itemprop="image" src="{{Storage::disk('s3')->url('public/frontendimages/no-designer-profile-image-large.png')}}" alt="avatar" />
                                 @endif
                             </div>
-                            @if(auth()->user()->id == $user->id)
+                            @if(auth()->user() && auth()->user()->id == $user->id)
                             <div class="change_photo">
                                 <form method="post" id="designer-upload-image-form" enctype="multipart/form-data">
                                     @csrf
@@ -118,7 +118,7 @@
             <div class="col s12 m8 l9">
                 <div class="buyer_designer_details_right">
                     <div class="buyer_designer_details_aboutMe">
-                        @if(auth()->user()->id == $user->id)
+                        @if(auth()->user() && auth()->user()->id == $user->id)
                         <button class="edit_icon_box modal-trigger" href="#designerDetailsAboutMe">
                             <i class="material-icons">edit</i>
                         </button>
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                     <div class="buyer_designer_details_protfolio">
-                        @if(auth()->user()->id == $user->id)
+                        @if(auth()->user() && auth()->user()->id == $user->id)
                         <button class="edit_icon_box modal-trigger" href="#designerDetailsPortfolio">
                             <i class="material-icons">edit</i>
                         </button>
