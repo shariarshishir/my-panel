@@ -37,7 +37,7 @@ class DesignersController extends Controller
                 foreach(json_decode($user->designers->designer_certifications) as $key =>  $image) {
                     $obj[$key] = new stdClass;
                     $obj[$key]->id = $i;
-                    $obj[$key]->src = Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/certificates/'.$image);
+                    $obj[$key]->src = Storage::disk('s3')->url('public/designers/'.$user->id.'/certificates/'.$image);
                     $preloaded_image[] = $obj[$key];
                     $i++;
                 }
@@ -49,7 +49,7 @@ class DesignersController extends Controller
                 {
                     $obj[$key] = new stdClass;
                     $obj[$key]->id = $item['id'];
-                    $obj[$key]->src = Storage::disk('s3')->url('public/designers/'.auth()->user()->id.'/portfolio/'.$item['image']);
+                    $obj[$key]->src = Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image']);
                     $portfolio_preloader_image[] = $obj[$key];
                 }
             }
@@ -67,6 +67,8 @@ class DesignersController extends Controller
     {
         //dd($request->all());
 
+        $user = User::with(['designers', 'designerPortfolio'])->where("id", $request->user_id)->first();
+
         if($request->page_mode == 0)
         {
             // upload certificate images to s3
@@ -76,7 +78,7 @@ class DesignersController extends Controller
                     $s3 = \Storage::disk('s3');
                     $uniqueString = generateUniqueString();
                     $certificate_images_file_name = uniqid().$uniqueString.'.'. $designer_certificate->getClientOriginalExtension();
-                    $s3filePath = '/public/designers'.'/'. auth()->user()->id .'/certificates'. '/' .$certificate_images_file_name;
+                    $s3filePath = '/public/designers'.'/'. $user->id .'/certificates'. '/' .$certificate_images_file_name;
                     $s3->put($s3filePath, file_get_contents($designer_certificate));
                     array_push($certificateImg, $certificate_images_file_name);
                 }
@@ -106,7 +108,7 @@ class DesignersController extends Controller
             {
                 foreach(json_decode($designerData->designer_certifications) as $certificateImg)
                 {
-                    Storage::disk('s3')->delete('/public/designers/'.auth()->user()->id.'/certificates'.'/'. $certificateImg);
+                    Storage::disk('s3')->delete('/public/designers/'.$user->id.'/certificates'.'/'. $certificateImg);
                 }
                 $designerData->update([ 'designer_certifications'=> [] ]);
             }
@@ -121,7 +123,7 @@ class DesignersController extends Controller
                     $s3 = \Storage::disk('s3');
                     $uniqueString = generateUniqueString();
                     $certificate_images_file_name = uniqid().$uniqueString.'.'. $designer_certificate->getClientOriginalExtension();
-                    $s3filePath = '/public/designers'.'/'. auth()->user()->id .'/certificates'. '/' .$certificate_images_file_name;
+                    $s3filePath = '/public/designers'.'/'. $user->id .'/certificates'. '/' .$certificate_images_file_name;
                     $s3->put($s3filePath, file_get_contents($designer_certificate));
                     array_push($certificateImg, $certificate_images_file_name);
                 }
@@ -149,6 +151,7 @@ class DesignersController extends Controller
     public function singleDesignerPortfolioDetailsUpdate(Request $request)
     {
         // dd($request->all());
+        $user = User::with(['designers', 'designerPortfolio'])->where("id", $request->user_id)->first();
         if($request->page_mode == 0)
         {
             $portfolioImg = [];
@@ -157,7 +160,7 @@ class DesignersController extends Controller
                     $s3 = \Storage::disk('s3');
                     $uniqueString = generateUniqueString();
                     $portfolio_images_file_name = uniqid().$uniqueString.'.'. $designer_portfolio->getClientOriginalExtension();
-                    $s3filePath = '/public/designers'.'/'. auth()->user()->id .'/portfolio'. '/' .$portfolio_images_file_name;
+                    $s3filePath = '/public/designers'.'/'. $user->id .'/portfolio'. '/' .$portfolio_images_file_name;
                     $s3->put($s3filePath, file_get_contents($designer_portfolio));
                     array_push($portfolioImg, $portfolio_images_file_name);
 
@@ -178,7 +181,7 @@ class DesignersController extends Controller
             {
                 foreach($designerPortfolio as $portfolioImg)
                 {
-                    Storage::disk('s3')->delete('/public/designers/'.auth()->user()->id.'/portfolio'.'/'. $portfolioImg['image']);
+                    Storage::disk('s3')->delete('/public/designers/'.$user->id.'/portfolio'.'/'. $portfolioImg['image']);
                 }
                 $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->delete();
             }
@@ -189,7 +192,7 @@ class DesignersController extends Controller
                     $s3 = \Storage::disk('s3');
                     $uniqueString = generateUniqueString();
                     $portfolio_images_file_name = uniqid().$uniqueString.'.'. $designer_portfolio->getClientOriginalExtension();
-                    $s3filePath = '/public/designers'.'/'. auth()->user()->id .'/portfolio'. '/' .$portfolio_images_file_name;
+                    $s3filePath = '/public/designers'.'/'. $user->id .'/portfolio'. '/' .$portfolio_images_file_name;
                     $s3->put($s3filePath, file_get_contents($designer_portfolio));
                     array_push($portfolioImg, $portfolio_images_file_name);
 

@@ -128,7 +128,7 @@
         // profile portfolio data upload ajax block end
 
         // profile photo data upload ajax block start
-        var previousImageSrc = "@php echo auth()->user()->image; @endphp";
+        var previousImageSrc = "@php echo (auth()->user()) ? auth()->user()->image : ""; @endphp";
         $('#designer-upload-image-form').submit(function(e) {
             e.preventDefault();
             let formData = new FormData(this);
