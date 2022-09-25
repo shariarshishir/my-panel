@@ -18,7 +18,7 @@
 <!-- /.Header -->
 
 <!-- Content Wrapper. Contains page content -->
-<div id="main" itemprop="mainEntity">
+<div id="main" itemprop="mainEntity" class="{{ Route::is('users.showLoginForm') ? '' : 'login-view'}}">
   <div class="row">
     <div class="container">
       @yield('content')
@@ -44,12 +44,12 @@ b.type = “text/javascript”;b.async = true;
 b.src = “https://snap.licdn.com/li.lms-analytics/insight.min.js”;
 s.parentNode.insertBefore(b, s);})(window.lintrk);
 </script>
- 
+
 <noscript>
 <img height=“1" width=“1” style=“display:none;” alt=“” src=“https://px.ads.linkedin.com/collect/?pid=3577772&fmt=gif” />
 </noscript>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/20602192.js"></script>
-<!-- End of HubSpot Embed Code --> 
+<!-- End of HubSpot Embed Code -->
 </body>
 </html>
