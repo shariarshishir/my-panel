@@ -820,6 +820,7 @@ legend {
 #main {
     padding: 40px 0;
     transition: margin-left 0.5s;
+    margin-left: 220px;
 }
 .account_profile_wrapper {
     margin-top: -30px;
@@ -15137,7 +15138,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .mainSidenav {
     height: 100%;
-    width: 50px;
+    width: 220px;
     position: fixed;
     z-index: 2;
     top: 0;

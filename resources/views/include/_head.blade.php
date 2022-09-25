@@ -155,21 +155,20 @@
 
     function openClose() {
         var x = document.getElementById("mainSidenav");
-        if (x.style.width === "220px") {
-            document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">arrow_forward</i>';
-            $(".mainSidenav").removeClass("mainSidenavLg");
-            $(".mainSidenav").addClass("mainSidenavSm");
-            x.style.width = "50px";
-            document.getElementById("mainSidenav").style.width = "50px";
-            document.getElementById("main").style.marginLeft= "50px";
-
-        } else {
+        if (x.style.width === "50px") {
             document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">arrow_back</i>';
             x.style.width = "220px";
             document.getElementById("mainSidenav").style.width = "220px";
             document.getElementById("main").style.marginLeft = "220px";
             $(".mainSidenav").removeClass("mainSidenavSm");
             $(".mainSidenav").addClass("mainSidenavLg");
+        } else {
+            document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">arrow_forward</i>';
+            $(".mainSidenav").removeClass("mainSidenavLg");
+            $(".mainSidenav").addClass("mainSidenavSm");
+            x.style.width = "50px";
+            document.getElementById("mainSidenav").style.width = "50px";
+            document.getElementById("main").style.marginLeft= "0px";
         }
     }
 </script>

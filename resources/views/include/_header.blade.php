@@ -120,7 +120,7 @@
 						<div class="mainNav_mobile_wrap_overlay" onclick="closeNav()" >&nbsp;</div>
 						<div class="mainNav_mobile_wrap_inner">
 							<span class="closebtn" itemprop="Close Nav" onclick="closeNav()"><i class="material-icons right">keyboard_backspace</i></span>
-							
+
 							<ul>
 								<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 									<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
@@ -173,7 +173,7 @@
 									</a>
 								</li>
 							</ul>
-							
+
 							{{-- <ul itemscope itemtype="https://schema.org/ListItem">
 								<li>
 									<span class="mobile-parent-li-item" itemprop="Explore" onclick="mobileNavExplore()">Explore <span class="subnev_arrow"><i class="material-icons right">keyboard_arrow_down</i></span></span>
@@ -544,7 +544,7 @@
 
 @if(auth()->user())
 <div id="mainSidenav" class="mainSidenav">
-	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">arrow_forward</i></span>
+	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">arrow_back</i></span>
 	<ul>
 		<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">

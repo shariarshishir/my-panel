@@ -28,7 +28,7 @@
     $mapping_type= Request::segment(1);
     $mapping_type_child= Request::segment(2);
 @endphp
-<div id="main" class="mainContainer">
+<div id="mainProductContainer" class="mainContainer">
     <div class="main-content-area">
         <div class="container">
             <div class="products_filter_wrapper">
