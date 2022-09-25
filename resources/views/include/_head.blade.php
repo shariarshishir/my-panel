@@ -152,7 +152,7 @@
             e.style.display = 'block';
         }
     }
-
+    //alert(screen.width);
     function openClose() {
         var x = document.getElementById("mainSidenav");
         if (x.style.width === "50px") {

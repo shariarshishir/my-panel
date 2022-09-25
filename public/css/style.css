@@ -14050,6 +14050,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background: none;
     border: 1px solid #d9d9d9 !important;
 }
+.designer_data_form .input-field.invalid .select2-container--default .select2-selection--multiple {
+    border: 1px solid red !important;
+}
 
 .profile_form_modal .select2-container--default .select2-selection--multiple,
 .product_add_wrap_modal
@@ -14057,9 +14060,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .select2-selection--multiple {
     min-height: 46px;
 }
-.select2-container--default.select2-container--focus
-    .select2-selection--multiple {
+.select2-container--default.select2-container--focus .select2-selection--multiple {
     border: 1px solid #54a958 !important;
+}
+.designer_data_form .input-field.invalid .select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid red !important;
+}
+.designer_data_form .input-field.invalid input[type="search"] {
+    border: none !important;
 }
 #company-overview-update-form
     .select2-container--default
@@ -15788,6 +15796,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-top: 0 !important;
 }
 /* ******************************* */
+
+.material-tooltip {
+    background: #d2d2d2;
+    min-height: auto;
+    line-height: normal;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #000;
+}
 
 
 /* ******************** Media css style start *********************** */
