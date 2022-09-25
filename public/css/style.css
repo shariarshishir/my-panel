@@ -819,6 +819,7 @@ legend {
 /* ************** Main Container css start ************** */
 #main {
     padding: 40px 0;
+    transition: margin-left 0.5s;
 }
 .account_profile_wrapper {
     margin-top: -30px;
@@ -15174,7 +15175,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 16px;
     display: block;
     cursor: pointer;
-    padding: 8px 8px 8px 62px;
+    padding: 8px 8px 8px 55px;
 }
 .mainSidenav ul li.active a,
 .mainSidenav ul li:hover a {
@@ -15311,10 +15312,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 36px;
     margin-left: 50px;
 }
-#buyerLayoutView {
-    transition: margin-left 0.5s;
-    padding: 16px;
-}
 #mainSidenavCover {
     position: absolute;
     top: 0;
@@ -15374,7 +15371,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 /* Fixed side nav end */
 
 .products_filter_wrapper {
-    padding: 0 10px 0 20px;
+    /* padding: 0 10px 0 20px; */
 }
 .product_wrapper .product_design_tabNab {
     margin: 30px 0;
