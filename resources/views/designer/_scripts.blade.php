@@ -37,6 +37,20 @@
 
         })
 
+        var errCount = 0;
+        function errorCheckValidation(fieldName)
+        {
+            if ($(fieldName).val()=="")
+            {
+                errCount++;
+                $(fieldName).closest('.input-field').addClass('invalid');
+            }
+            else
+            {
+                $(fieldName).closest('.input-field').removeClass('invalid');
+            }
+        }
+
         // profile data upload ajax block start
         $('.designer_data_form').on('submit',function(e){
             e.preventDefault();
@@ -44,28 +58,40 @@
             formData.append('_token', "{{ csrf_token() }}");
             //console.log(formData);
             const designer_profile_update_url = "{{route('single.designer.details.update')}}";
-            $.ajax({
-                method: 'post',
-                processData: false,
-                contentType: false,
-                cache: false,
-                data: formData,
-                url: designer_profile_update_url,
-                beforeSend: function() {
-                    $('.loading-message').html("Please Wait.");
-                    $('#loadingProgressContainer').show();
-                },
-                success:function(response) {
-                    //console.log(response);
-                    location.reload();
-                },
-                error: function(xhr, status, error)
-                {
-                    $('.loading-message').html("");
-                    $('#loadingProgressContainer').hide();
-                    swal("Error!", error,"error");
-                }
-            });
+
+            errorCheckValidation('input[name="designer_location"]');
+            errorCheckValidation('input[name="designer_nationality"]');
+            errorCheckValidation('input[name="designer_experience"]');
+            errorCheckValidation('input[name="designer_worked_with"]');
+            errorCheckValidation('input[name="designer_completed_task"]');
+            errorCheckValidation('select[name="designer_skills[]"]');
+            errorCheckValidation('input[name="designer_asking_price"]');
+
+            if(errCount==0)
+            {
+                $.ajax({
+                    method: 'post',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: formData,
+                    url: designer_profile_update_url,
+                    beforeSend: function() {
+                        $('.loading-message').html("Please Wait.");
+                        $('#loadingProgressContainer').show();
+                    },
+                    success:function(response) {
+                        //console.log(response);
+                        location.reload();
+                    },
+                    error: function(xhr, status, error)
+                    {
+                        $('.loading-message').html("");
+                        $('#loadingProgressContainer').hide();
+                        swal("Error!", error,"error");
+                    }
+                });
+            }
         });
         // profile data upload ajax block end
 

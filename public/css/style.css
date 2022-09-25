@@ -5461,6 +5461,24 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     color: #000000;
     opacity: 0.5;
 }
+.input-field.invalid input:not([type]),
+.input-field.invalid input[type="text"]:not(.browser-default),
+.input-field.invalid input[type="password"]:not(.browser-default),
+.input-field.invalid input[type="email"]:not(.browser-default),
+.input-field.invalid input[type="url"]:not(.browser-default),
+.input-field.invalid input[type="time"]:not(.browser-default),
+.input-field.invalid input[type="date"]:not(.browser-default),
+.input-field.invalid input[type="datetime"]:not(.browser-default),
+.input-field.invalid input[type="datetime-local"]:not(.browser-default),
+.input-field.invalid input[type="tel"]:not(.browser-default),
+.input-field.invalid input[type="number"]:not(.browser-default),
+.input-field.invalid input[type="search"]:not(.browser-default),
+.input-field.invalid input[type="search"],
+.input-field.invalid select,
+.input-field.invalid .select2-container--default .select2-selection--single,
+.input-field.invalid input {
+    border: 1px solid red !important;
+}
 .select2.product-colors {
     height: 230px;
     padding-top: 10px !important;
@@ -15520,7 +15538,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
   text-align: right;
   display: inline-block;
   width: 100%;
-  font-family: 'nexabold'; 
+  font-family: 'nexabold';
   font-size: 10px;
 }
 .buyer_designer_inner_infobox .buyer_completed .completed_number {
@@ -15623,7 +15641,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
   text-transform: uppercase;
   margin-bottom: 15px;
   text-align: left;
-} 
+}
 .buyer_designer_details_skill ul {
   text-align: left;
 }
