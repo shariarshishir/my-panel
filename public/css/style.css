@@ -822,9 +822,9 @@ legend {
     transition: margin-left 0.5s;
     margin-left: 220px;
 }
-#main.login-view {
+/* #main.login-view {
     margin-left: 0px;
-}
+} */
 .account_profile_wrapper {
     margin-top: -30px;
 }
@@ -3402,7 +3402,7 @@ div.dataTables_wrapper table.mdc-data-table__table {
     border-bottom: 2px solid #54a958;
 }
 .suppliers_filter_content {
-    padding-left: 50px;
+    padding-left: 20px;
 }
 .suppliers_filter_wrapper .filter_search {
     padding-bottom: 30px;
@@ -3497,10 +3497,13 @@ div.dataTables_wrapper table.mdc-data-table__table {
     cursor: pointer;
 }
 .suppliers_filter_content .industry_info_inner_box {
-    border: 1px solid #606060;
     padding: 10px;
     margin-bottom: 45px;
     border-radius: 15px;
+    -webkit-box-shadow: 0px 2px 12px 0px rgb(0 0 0 / 18%);
+    -moz-box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.18);
+    box-shadow: 0px 2px 12px 0px rgb(0 0 0 / 18%);
+    border: 1px solid #cecece;
 }
 .suppliers_filter_content .industry_info_inner_box .row {
     display: flex;
@@ -9594,6 +9597,7 @@ nav .pagination li.active .page-link {
 .filter_search_inputbox .typeahead li a {
     color: #484848;
 }
+.samples_from_mb_collection .productBox,
 .product_design_wrapper .productBox {
     border-radius: 0px;
     position: relative;
@@ -9604,6 +9608,7 @@ nav .pagination li.active .page-link {
     box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.4);
     border: 1px solid #cecece;
 }
+.samples_from_mb_collection .productBox .imgBox,
 .product_design_wrapper .productBox .imgBox {
     min-height: 175px;
     background: #ffffff;
@@ -9619,6 +9624,10 @@ nav .pagination li.active .page-link {
     -moz-box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.18);
     box-shadow: 0px 2px 12px 0px rgb(0 0 0 / 18%); */
 }
+.samples_from_mb_collection .productBox .imgBox {
+    height: 240px;
+}
+.samples_from_mb_collection .productBox .imgBox img,
 .product_design_wrapper .productBox .imgBox img {
     border-radius: 0;
     width: 100%;
@@ -9638,6 +9647,7 @@ nav .pagination li.active .page-link {
     .rfqFileImage {
     padding: 10px;
 }
+.samples_from_mb_collection .productBox .imgBox img:hover,
 .product_design_wrapper .productBox .imgBox img:hover {
     transform: scale(1.1);
 }
@@ -9646,6 +9656,7 @@ nav .pagination li.active .page-link {
     border-bottom: 1px solid #cecece;
     border-top: none;
 }
+.samples_from_mb_collection .productBox h4,
 .product_design_wrapper .productBox h4 {
     font-size: 13px;
     line-height: 16px;
@@ -9668,6 +9679,7 @@ nav .pagination li.active .page-link {
     margin-top: 0;
     height: 35px;
 }
+.samples_from_mb_collection .productBox h4 span,
 .product_design_wrapper .productBox h4 span {
     overflow: hidden;
     position: absolute;
@@ -9703,11 +9715,17 @@ nav .pagination li.active .page-link {
     font-family: "nexalight";
     margin-left: -2px;
 }
+.samples_from_mb_collection .products_inner_textbox .row,
 .product_design_wrapper .products_inner_textbox .row {
     margin: 0;
     padding-top: 10px;
     border-top: 1px solid #b5b5b5;
 }
+.samples_from_mb_collection .products_inner_textbox .row{
+    padding-bottom: 5px;
+}
+.samples_from_mb_collection .product_moq,
+.samples_from_mb_collection .product_item_box .pro_price,
 .product_design_wrapper .product_moq,
 .product_design_wrapper .product_item_box .pro_price {
     font-family: "nexabold";
@@ -9718,18 +9736,23 @@ nav .pagination li.active .page-link {
     overflow: hidden;
     white-space: nowrap;
 }
+.samples_from_mb_collection .product_item_box .pro_price .days,
 .product_design_wrapper .product_item_box .pro_price .days {
     font-size: 11px;
     opacity: 0.7;
     color: #484848;
 }
+.samples_from_mb_collection .product_design_wrapper .product_moq,
 .profile_tabNav_wrap .product_design_wrapper .product_moq {
     text-align: right;
     font-size: 14px;
 }
+.samples_from_mb_collection .product_item_box .pro_price,
 .product_design_wrapper .product_item_box .pro_price {
     text-align: right;
 }
+.samples_from_mb_collection .product_item_box .pro_price .price,
+.samples_from_mb_collection .product_moq .moq,
 .product_design_wrapper .product_item_box .pro_price .price,
 .product_design_wrapper .product_moq .moq {
     display: block;
@@ -9738,6 +9761,8 @@ nav .pagination li.active .page-link {
     color: #484848;
     line-height: 12px;
 }
+.samples_from_mb_collection .product_item_box .pro_price .price-unit,
+.samples_from_mb_collection .product_moq .moq-unit,
 .product_design_wrapper .product_item_box .pro_price .price-unit,
 .product_design_wrapper .product_moq .moq-unit {
     font-size: 10px;
@@ -15130,6 +15155,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     min-height: 305px;
     color: #9e9e9e;
 }
+.profile_account_myrfq_addPost .profile_account_myrfq_innerbox .post_new {
+
+}
 .profile_account_myrfq_addPost .material-icons {
     display: block;
     margin-bottom: 5px;
@@ -15501,12 +15529,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
   background: #d7df23;
   border: none;
   color: #000000;
-  padding: 5px 15px;
+  padding: 5px 10px;
   width: auto;
   min-width: inherit;
   border-radius: 5px;
   font-size: 16px;
   border: none;
+  display: block;
+  text-align: center;
 }
 .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me {
   text-align: right;
@@ -15810,13 +15840,16 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 /* *************** sample css style start **************** */
-.buyer_layout_contant_wrapper {
+/* .buyer_layout_contant_wrapper {
     padding-left: 20px;
-  }
+  } */
   .buyer_layout_contant_wrapper h4 {
     font-size: 18px;
     margin-bottom: 20px;
     padding-left: 15px;
+  }
+  .buyer_layout_contant_wrapper .buyer_layout_modal h4 {
+    padding-left: 0;
   }
   #hireDesigner .modal-close {
       right: 15px;
@@ -16309,18 +16342,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     object-fit: contain;
   }
-  .buyer_product_design_tabNab ul.tabs {
-      margin: 30px 0;
-      border-bottom: 1px solid #dadada;
+  .buyer_product_design_tabNab ul {
+    margin: 30px 0;
+    border-bottom: 1px solid #dadada;
+    display: inline-block;
+    width: 100%;
   }
-  .buyer_product_design_tabNab ul.tabs li.tab {
+  .buyer_product_design_tabNab ul li {
       padding-right: 10px;
       min-width: 200px;
       text-align: left;
   }
-  .buyer_product_design_tabNab ul.tabs li.tab a:link,
-  .buyer_product_design_tabNab ul.tabs li.tab a:active,
-  .buyer_product_design_tabNab ul.tabs li.tab a:visited {
+
+  .buyer_product_design_tabNab ul li a:link,
+  .buyer_product_design_tabNab ul li a:active,
+  .buyer_product_design_tabNab ul li a:visited {
       color: #3b3b3b;
       font-size: 16px;
       line-height: 24px;
@@ -16329,15 +16365,23 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
       background: none !important;
       text-transform: capitalize;
       text-align: left;
-      padding: 0;
+      padding: 0 0 20px;
       width: auto;
   }
-  .buyer_product_design_tabNab ul.tabs li.tab a:focus,
-  .buyer_product_design_tabNab ul.tabs li.tab a.active {
+  .buyer_product_design_tabNab ul li a:focus,
+  .buyer_product_design_tabNab ul li a.active {
       border-bottom: 2px solid #707070;
       background: none;
       font-family: 'nexabold';
   }
+
+.buyer_product_design_tabNab .pagination-block-wrapper ul {
+    border: none;
+}
+.buyer_product_design_tabNab .pagination-block-wrapper ul li {
+    min-width: inherit;
+}
+
   .buyer_layout_modal .buyer_sample_upload_wrap .input-field input {
     float: none;
   }
@@ -16369,6 +16413,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
   .buyer_modal_footer .btn_white {
     position: inherit;
   }
+
+
   /* *************** sample css style end **************** */
 
 
@@ -19067,6 +19113,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .buyer_designer_details_aboutMe .details_aboutme_topbar h6 {
         text-transform: capitalize;
     }
+    #main {
+        margin-left: 0 !important;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -21331,6 +21380,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .suppliers_filter_content .industry_info_inner_box .row {
         display: inherit;
+    }
+    .samples_from_mb_collection .productBox .imgBox {
+        height: 200px;
+    }
+    .samples_from_mb_collection .productBox .imgBox img, 
+    .product_design_wrapper .productBox .imgBox img {
+        object-fit: contain;
     }
 }
 
