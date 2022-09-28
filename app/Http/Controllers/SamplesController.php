@@ -21,6 +21,7 @@ class SamplesController extends Controller
     public function samples(Request $request)
     {
         $samples = Samples::where("created_by", auth()->user()->id)->get();
+
         $page_param = "mycollection";
         return view('samples.index', compact('samples', 'page_param'));
     }
@@ -83,6 +84,44 @@ class SamplesController extends Controller
         $sampleData->details = $request->details;
         $sampleData->created_by = auth()->user()->id;
         $sampleData->save();
+
+        return response()->json(["status" => 1, "message" => "Data updated successfully."]);
+    }
+
+    public function edit(Request $request)
+    {
+        $sampleData = Samples::where("id", $$request->product_id)->first();
+
+        if(isset($sampleData->product_images))
+        {
+            foreach(json_decode($sampleData->product_images) as $item)
+            {
+                Storage::disk('s3')->delete('/public/sample_images/'.$user->id.'/'. $item);
+            }
+            $sampleData->update([ 'product_images'=> [] ]);
+        }
+
+        $sampleImgs = [];
+        if(isset($request->product_images)) {
+            foreach ($request->product_images as $sample_image) {
+                $s3 = \Storage::disk('s3');
+                $uniqueString = generateUniqueString();
+                $sample_image_file_name = uniqid().$uniqueString.'.'. $sample_image->getClientOriginalExtension();
+                $s3filePath = '/public/sample_images'.'/'. $user->id . '/' .$sample_image_file_name;
+                $s3->put($s3filePath, file_get_contents($sample_image));
+                array_push($sampleImgs, $sample_image_file_name);
+            }
+        }
+
+        $sampleData->update([
+            'supplier_name'=> $request->supplier_name,
+            'supplier_email'=> $request->supplier_email,
+            'product_title'=> $request->product_title,
+            'product_tags'=> json_encode($request->product_tags),
+            'product_images'=> json_encode($sampleImgs),
+            'details'=> $request->details,
+            'updated_by'=> auth()->user()->id,
+        ]);
 
         return response()->json(["status" => 1, "message" => "Data updated successfully."]);
     }

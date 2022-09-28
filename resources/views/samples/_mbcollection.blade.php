@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="col s12 m6">
                                     <div class="pro_price">
-                                        <span class="price">Lead Time</span> {{getLeadTime($product)}}
+                                        <span class="price">Lead Time</span> <span class="days">{{getLeadTime($product)}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -32,10 +32,9 @@
             </div>
         </div>
     @endforeach
-
-    <div class="pagination-block-wrapper">
-        <div class="col s12 center">
-            {!! $design_products->appends(request()->query())->links() !!}
-        </div>
+</div>
+<div class="pagination-block-wrapper">
+    <div class="col s12 center">
+        {!! $design_products->appends(request()->query())->links() !!}
     </div>
 </div>
