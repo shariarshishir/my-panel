@@ -90,13 +90,13 @@ class SamplesController extends Controller
 
     public function edit(Request $request)
     {
-        $sampleData = Samples::where("id", $$request->product_id)->first();
+        $sampleData = Samples::where("id", $request->product_id)->first();
 
         if(isset($sampleData->product_images))
         {
             foreach(json_decode($sampleData->product_images) as $item)
             {
-                Storage::disk('s3')->delete('/public/sample_images/'.$user->id.'/'. $item);
+                Storage::disk('s3')->delete('/public/sample_images/'.auth()->user()->id.'/'. $item);
             }
             $sampleData->update([ 'product_images'=> [] ]);
         }
