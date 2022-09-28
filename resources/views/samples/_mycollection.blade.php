@@ -8,7 +8,11 @@
         <div class="buyer_simple_imgbox">
             <div class="imgBox">
                 <a class="modal-trigger" href="#buyerSampleEdit-{{$item->id}}">
-                <img src="{{Storage::disk('s3')->url('public/sample_images/'.auth()->user()->id.'/'.$productImg[0])}}" alt="" />
+                @if(count($productImg) > 0)
+                    <img src="{{Storage::disk('s3')->url('public/sample_images/'.auth()->user()->id.'/'.$productImg[0])}}" alt="" />
+                @else
+                    <img src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="" />
+                @endif
                 </a>
             </div>
 

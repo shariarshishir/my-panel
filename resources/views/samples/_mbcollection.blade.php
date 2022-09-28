@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="col s12 m6">
                                     <div class="pro_price">
-                                        <span class="price">Lead Time</span> <span class="days">{{getLeadTime($product)}}</span>
+                                        <span class="price">Lead Time</span> {{getLeadTime($product)}}
                                     </div>
                                 </div>
                             </div>
