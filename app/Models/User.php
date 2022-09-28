@@ -93,9 +93,9 @@ class User extends Authenticatable
         return $this->hasMany(DesignerPortfolio::class);
     }
 
-
-
-
-
+    public function samples()
+    {
+        return $this->hasOne(Samples::class);
+    }
 
 }

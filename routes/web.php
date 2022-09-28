@@ -76,6 +76,7 @@ use App\Http\Controllers\Wholesaler\ProfileInfoController;
 use App\Http\Controllers\RfqBidController;
 use App\Http\Controllers\BusinessProfile\QuerybidController;
 use App\Http\Controllers\DesignersController;
+use App\Http\Controllers\SamplesController;
 
 
 use App\Models\BusinessProfile;
@@ -222,6 +223,10 @@ Route::get('/designers', [DesignersController::class, 'designers'])->name('desig
 Route::get('/designer/{id}', [DesignersController::class, 'singleDesignerDetails'])->name('single.designer.details');
 Route::post('/designer/infoupdate', [DesignersController::class, 'singleDesignerDetailsUpdate'])->name('single.designer.details.update');
 Route::post('/designer/portfolioinfoupdate', [DesignersController::class, 'singleDesignerPortfolioDetailsUpdate'])->name('single.designer.portfolio.details.update');
+
+Route::get('/samples/my-collection', [SamplesController::class, 'samples'])->name('samples');
+Route::get('/samples/mb-collection', [SamplesController::class, 'mbCollection'])->name('sample.mb.collection');
+Route::post('/samples/my-collection/store', [SamplesController::class, 'store'])->name('sample.store');
 
 // Route::get('/suppliers', [HomeController::class, 'vendorList'])->name('vendors');
 Route::get('product/{value}/details',[HomeController::class, 'productDetails'])->name('productdetails');

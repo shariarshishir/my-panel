@@ -586,8 +586,8 @@
                 <span>Messages</span>
             </a>
 		</li>
-        <li class="samples">
-			<a class="tooltipped" data-position="right" data-tooltip="Samples" href="javascript:void(0);">
+        <li class="samples{{ Route::is('samples') ? ' active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="Samples" href="{{route('samples')}}">
                 <span>Samples</span>
             </a>
 		</li>
