@@ -95,9 +95,9 @@
     <div class="buyer_product_design_tabNab">
         <div class="row">
             <div class="col s12">
-                <ul>
-                    <li class="col m3"><a href="{{route('samples')}}">From My Collection</a></li>
-                    <li class="col m3"><a href="{{route('sample.mb.collection')}}">From MB Collection</a></li>
+                <ul class="sample-sub-menu">
+                    <li class="col m3"><a href="{{route('samples')}}" class="{{ Route::is('samples') ? 'active' : ''}}">From My Collection</a></li>
+                    <li class="col m3"><a href="{{route('sample.mb.collection')}}" class="{{ Route::is('sample.mb.collection') ? 'active' : ''}}">From MB Collection</a></li>
                 </ul>
             </div>
             <div id="buyerMyCollection" class="col s12">
