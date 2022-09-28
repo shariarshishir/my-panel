@@ -16342,21 +16342,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     object-fit: contain;
   }
-  .buyer_product_design_tabNab ul {
+  .buyer_product_design_tabNab ul.sample-sub-menu {
     margin: 30px 0;
     border-bottom: 1px solid #dadada;
     display: inline-block;
     width: 100%;
   }
-  .buyer_product_design_tabNab ul li {
+  .buyer_product_design_tabNab ul.sample-sub-menu li {
       padding-right: 10px;
       min-width: 200px;
       text-align: left;
   }
-
-  .buyer_product_design_tabNab ul li a:link,
-  .buyer_product_design_tabNab ul li a:active,
-  .buyer_product_design_tabNab ul li a:visited {
+  .buyer_product_design_tabNab ul.sample-sub-menu li a:link,
+  .buyer_product_design_tabNab ul.sample-sub-menu li a:active,
+  .buyer_product_design_tabNab ul.sample-sub-menu li a:visited {
       color: #3b3b3b;
       font-size: 16px;
       line-height: 24px;
@@ -16368,19 +16367,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
       padding: 0 0 20px;
       width: auto;
   }
-  .buyer_product_design_tabNab ul li a:focus,
-  .buyer_product_design_tabNab ul li a.active {
+  .buyer_product_design_tabNab ul.sample-sub-menu li a:focus,
+  .buyer_product_design_tabNab ul.sample-sub-menu li a.active {
       border-bottom: 2px solid #707070;
       background: none;
       font-family: 'nexabold';
   }
-
-.buyer_product_design_tabNab .pagination-block-wrapper ul {
-    border: none;
-}
-.buyer_product_design_tabNab .pagination-block-wrapper ul li {
-    min-width: inherit;
-}
 
   .buyer_layout_modal .buyer_sample_upload_wrap .input-field input {
     float: none;
@@ -16414,7 +16406,43 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     position: inherit;
   }
 
-
+.buyer_simple_img_upload_box .or,
+#updateRfqsigninModal .or,
+.rfq_upload_filebox .or {
+  border-bottom: 2px solid #8a8a8a;
+  max-width: 235px;
+  margin: 40px auto;
+  position: relative;
+}
+.buyer_simple_img_upload_box .or {
+  width: 235px;
+  margin: 20px auto;
+}
+#updateRfqsigninModal .or {
+  max-width: 100%;
+}
+.buyer_simple_img_upload_box .or span,
+#updateRfqsigninModal .or span,
+.rfq_upload_filebox .or span {
+  background: #ffffff;
+  padding: 5px 20px;
+  position: absolute;
+  left: 38%;
+  top: -18px;
+}
+#updateRfqsigninModal .or span {
+  left: 45%;
+  background: #fafafa;
+}
+#buyerSampleUpload .image-uploader {
+    height: 200px;
+}
+#buyerSampleUpload .image-uploader .upload-text span {
+    padding: 20px;
+}
+#buyerSampleUpload .buyer_sample_upload_wrap .or {
+    margin: 60px auto 50px; 
+}
   /* *************** sample css style end **************** */
 
 
