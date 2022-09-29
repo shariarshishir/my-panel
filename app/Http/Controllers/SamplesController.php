@@ -90,7 +90,31 @@ class SamplesController extends Controller
 
     public function update(Request $request)
     {
+        // dd($request->all());
+
         $sampleData = Samples::where("id", $request->product_id)->first();
+
+        // if(isset($request->preloaded)){
+        //     $productImages = ProductImage::where('product_id',$product->id)->whereNotIn('id',$request->preloaded)->get();
+        // }
+        // else{
+        //     $productImages = ProductImage::where('product_id',$product->id)->get();
+        // }
+        // if($productImages->isNotEmpty()){
+        //     foreach($productImages as $productImage){
+        //         if(Storage::disk('s3')->exists('public/'.$productImage->image) && Storage::disk('s3')->exists('public/'.$productImage->original)){
+        //             Storage::disk('s3')->delete('public/'.$productImage->image);
+        //             Storage::disk('s3')->delete('public/'.$productImage->original);
+        //         }
+        //         $productImage->delete();
+        //     }
+        // }
+
+
+        // if(isset($request->preloaded))
+        // {
+        //     $existingImgArr = json_decode($sampleData->product_images);
+        // }
 
         if(isset($sampleData->product_images))
         {

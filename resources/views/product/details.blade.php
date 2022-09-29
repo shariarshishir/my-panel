@@ -159,7 +159,7 @@ $reviewsCount = count($productReviews);
                                     @if($product->availability==0 && ($product->product_type==2 || $product->product_type== 3))
                                         <span class="new badge red sold_out" data-badge-caption="Sold Out" style="height: auto; line-height: normal; font-size: 16px; padding: 5px 10px;"></span>
                                     @endif
-                                    
+
                                     @if($product->full_stock== 1)
                                         <span class="badge badge pill blue accent-2 mr-2 ready-to-ship-label btn_grBorder full_stock" style="display: none;">Full Stock only</span>
                                     @else
@@ -200,7 +200,7 @@ $reviewsCount = count($productReviews);
                                                 </div>
                                             </div>
                                         </div>
-       
+
                                         <div class="single-product-price">
                                             {{-- <div class="label">Price:</div> --}}
                                             <div class="single-product-price-value">
@@ -1111,7 +1111,7 @@ $reviewsCount = count($productReviews);
 
 
 
-    <div class="row single-product-related-products">
+    <div class="row single-product-related-products" style="display: none;">
         <div class="related-products col s12">
             <div class="card-with-padding">
                 <legend>Recommended products for you</legend>
