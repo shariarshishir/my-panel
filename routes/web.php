@@ -227,7 +227,8 @@ Route::post('/designer/portfolioinfoupdate', [DesignersController::class, 'singl
 Route::get('/samples/my-collection', [SamplesController::class, 'samples'])->name('samples');
 Route::get('/samples/mb-collection', [SamplesController::class, 'mbCollection'])->name('sample.mb.collection');
 Route::post('/samples/my-collection/store', [SamplesController::class, 'store'])->name('sample.store');
-Route::post('/samples/my-collection/edit', [SamplesController::class, 'edit'])->name('sample.edit');
+Route::get('/samples/my-collection/edit/{id}', [SamplesController::class, 'edit'])->name('sample.edit');
+Route::post('/samples/my-collection/update', [SamplesController::class, 'update'])->name('sample.update');
 
 // Route::get('/suppliers', [HomeController::class, 'vendorList'])->name('vendors');
 Route::get('product/{value}/details',[HomeController::class, 'productDetails'])->name('productdetails');

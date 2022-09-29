@@ -88,7 +88,7 @@ class SamplesController extends Controller
         return response()->json(["status" => 1, "message" => "Data updated successfully."]);
     }
 
-    public function edit(Request $request)
+    public function update(Request $request)
     {
         $sampleData = Samples::where("id", $request->product_id)->first();
 
@@ -107,7 +107,7 @@ class SamplesController extends Controller
                 $s3 = \Storage::disk('s3');
                 $uniqueString = generateUniqueString();
                 $sample_image_file_name = uniqid().$uniqueString.'.'. $sample_image->getClientOriginalExtension();
-                $s3filePath = '/public/sample_images'.'/'. $user->id . '/' .$sample_image_file_name;
+                $s3filePath = '/public/sample_images'.'/'. auth()->user()->id . '/' .$sample_image_file_name;
                 $s3->put($s3filePath, file_get_contents($sample_image));
                 array_push($sampleImgs, $sample_image_file_name);
             }
@@ -124,5 +124,37 @@ class SamplesController extends Controller
         ]);
 
         return response()->json(["status" => 1, "message" => "Data updated successfully."]);
+    }
+
+    public function edit($product_id)
+    {
+        try
+        {
+            $sampleData = Samples::where("id", $product_id)->first();
+            $preloaded_images = array();
+            if(isset($sampleData->product_images)){
+                $i = 0;
+                foreach(json_decode($sampleData->product_images) as $key =>  $image) {
+                    $obj[$key] = new stdClass;
+                    $obj[$key]->id = $i;
+                    $obj[$key]->src = Storage::disk('s3')->url('public/sample_images/'.auth()->user()->id.'/'.$image);
+                    $preloaded_images[] = $obj[$key];
+                    $i++;
+                }
+            }
+
+            return response()->json(array(
+                'success' => true,
+                'product' => $sampleData,
+                'product_images'  => $preloaded_images,
+            ), 200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(array(
+                'success' => false,
+                'error' => $e->getMessage(),),
+                500);
+       }
     }
 }
