@@ -16441,7 +16441,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 20px;
 }
 #buyerSampleUpload .buyer_sample_upload_wrap .or {
-    margin: 60px auto 50px; 
+    margin: 60px auto 50px;
+}
+.buyer_designer_details_wrap {
+    padding-bottom: 50px;
 }
   /* *************** sample css style end **************** */
 
@@ -21412,7 +21415,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .samples_from_mb_collection .productBox .imgBox {
         height: 200px;
     }
-    .samples_from_mb_collection .productBox .imgBox img, 
+    .samples_from_mb_collection .productBox .imgBox img,
     .product_design_wrapper .productBox .imgBox img {
         object-fit: contain;
     }
