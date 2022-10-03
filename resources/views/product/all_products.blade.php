@@ -81,9 +81,9 @@
                                 @if($mapping_type_child == "textile" || $mapping_type_child == "yarn" || $mapping_type_child == "trims and accessories")
                                 <div class="product_design_tabNab">
                                     <ul>
-                                        <li class="active"><a href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">Textile</a></li>
-                                        <li><a href="{{route('product.type.mapping',['raw_materials', 'yarn'])}}">Yarn</a></li>
-                                        <li><a href="{{route('product.type.mapping',['raw_materials', 'trims and accessories'])}}">Accessories</a></li>
+                                        <li class="@php echo ($mapping_type_child=="textile") ? "active":""; @endphp"><a href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">Textile</a></li>
+                                        <li class="@php echo ($mapping_type_child=="yarn") ? "active":""; @endphp"><a href="{{route('product.type.mapping',['raw_materials', 'yarn'])}}">Yarn</a></li>
+                                        <li class="@php echo ($mapping_type_child=="trims and accessories") ? "active":""; @endphp"><a href="{{route('product.type.mapping',['raw_materials', 'trims and accessories'])}}">Accessories</a></li>
                                     </ul>
                                 </div>
                                 @endif

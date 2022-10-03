@@ -18,7 +18,7 @@
 <!-- /.Header -->
 
 <!-- Content Wrapper. Contains page content -->
-<div id="main" itemprop="mainEntity" class="{{ Route::is('users.showLoginForm') ? '' : 'login-view'}}">
+<div id="main" itemprop="mainEntity" class="{{ Route::is('login') ? 'login-view' : ''}}">
   <div class="row">
     <div class="container">
       @yield('content')
