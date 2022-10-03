@@ -822,6 +822,9 @@ legend {
     transition: margin-left 0.5s;
     margin-left: 220px;
 }
+#main.login-view {
+    margin-left: 0px;
+}
 /* #main.login-view {
     margin-left: 0px;
 } */
