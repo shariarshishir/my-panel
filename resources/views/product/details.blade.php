@@ -1159,7 +1159,7 @@ $reviewsCount = count($productReviews);
                             <div class="product_short_details">
                                 <div class="product-title">
                                     <a href="{{ route("mix.product.details", [$product->flag, $product->id]) }}">
-                                        {{ \Illuminate\Support\Str::limit($product->name, 35, '...') }}
+                                        {{ $product->name }}
                                     </a>
                                 </div>
                                 <div class="product_price">

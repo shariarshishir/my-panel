@@ -12,7 +12,7 @@
                         </div>
                         <div class="products_inner_textbox">
                             <h4>
-                                <span>{{ \Illuminate\Support\Str::limit($product->name, 35, '...') }}</span>
+                                <span>{{ $product->name }}</span>
                             </h4>
                             <div class="row">
                                 <div class="col s12 m6">
