@@ -113,6 +113,7 @@ class HomeController extends Controller
         } else {
             //die("User not Authenticated");
             return redirect('/login');
+            //return redirect()->route('users.login');
         }
 
     }
