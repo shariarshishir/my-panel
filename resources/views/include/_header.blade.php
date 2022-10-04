@@ -27,7 +27,6 @@
 					</nav>
 				</div>
 
-
 				<div class="col m4 top_right " itemscope>
 					<div class="user-block" itemscope>
 						@if(env('APP_ENV') == 'production')
@@ -170,6 +169,11 @@
 								<li class="oms">
 									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
 										<span>OMS</span>
+									</a>
+								</li>
+								<li class="liveMarket">
+									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
+										<span>Live Market</span>
 									</a>
 								</li>
 							</ul>
@@ -544,7 +548,7 @@
 
 @if(auth()->user())
 <div id="mainSidenav" class="mainSidenav">
-	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">arrow_back</i></span>
+	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">chevron_right</i></span>
 	<ul>
 		<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
@@ -595,6 +599,11 @@
 			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
                 <span>OMS</span>
             </a>
+		</li>
+		<li class="liveMarket">
+			<a class="tooltipped" data-position="right" data-tooltip="Live Market" target="_blank" href="https://live.merchantbay.com/">
+				<span>Live Market</span>
+			</a>
 		</li>
 	</ul>
 </div>

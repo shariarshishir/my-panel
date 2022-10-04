@@ -386,7 +386,7 @@ legend {
 
 /* ****************** Header css start r********************* */
 .header_wrap {
-    padding: 20px 0;
+    padding: 10px 0;
     position: relative;
     z-index: 3;
     background: #fff;
@@ -818,10 +818,11 @@ legend {
 
 /* ************** Main Container css start ************** */
 #main {
-    padding: 40px 0;
+    padding: 40px 75px;
     transition: margin-left 0.5s;
     margin-left: 220px;
 }
+
 #main.login-view {
     margin-left: 0px;
 }
@@ -15176,7 +15177,24 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 22px;
     cursor: pointer;
     color: #000;
-    margin-left: 12px;
+    position: absolute;
+    right: -25px;
+    top: calc(50% - 24px);
+
+    background: #fff;
+    border: 0;
+    width: 23px;
+    height: 48px;
+    cursor: pointer;
+    border: 1px solid rgb(218,220,224);
+    border-left: 0;
+    border-radius: 0 8px 8px 0;
+    background: #fff 7px center/7px 10px no-repeat;
+}
+.mainSidenav .btn_mainSidenav .material-icons {
+    font-size: 18px;
+    line-height: 13px;
+    margin-top: 18px;
 }
 .mainSidenav {
     height: 100%;
@@ -15185,13 +15203,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     z-index: 2;
     top: 0;
     left: 0;
-    overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 100px;
+    padding-top: 90px;
     white-space: nowrap;
     word-break: normal;
     box-shadow: 3px 3px 6px -3px rgb(0 0 0 / 16%);
     background: #fff;
+}
+.mainSidenav ul {
+    overflow-x: hidden;
 }
 .mainSidenav ul li {
     text-decoration: none;
@@ -15347,6 +15367,18 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         no-repeat 15px center;
     background-size: 20px;
 }
+.mainSidenav ul li.liveMarket a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/live-market.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.liveMarket.active a,
+.mainSidenav ul li.liveMarket:hover a {
+    background: #defcdf
+        url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/live-market-active.png")
+        no-repeat 15px center;
+    background-size: 20px;
+}
 
 .mainSidenav .closebtn {
     position: absolute;
@@ -15471,22 +15503,23 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 #buyerDesignerView .buyer_designer_inner_infobox .cover_img {
     border-radius: 10px 10px 0 0;
     border-bottom: 1px solid #eee;
+  height: 130px;
 }
 #buyerDesignerView .buyer_designer_inner_infobox .cover_img img {
-  height: 130px;
+  height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 #buyerDesignerView .buyer_designer_inner_infobox .profile_img {
-  margin-top: -55px;
+  margin-top: -40px;
   height: 70px;
 }
 #buyerDesignerView .buyer_designer_inner_infobox .profile_img img {
   width: 70px;
   height: 100%;
   margin-left: 15px;
-  border-radius: 10px;
-  object-fit: contain;
+  border-radius: 5px;
+  object-fit: cover;
   border: 1px solid #eeeeee;
 }
 #buyerDesignerView .buyer_designer_inner_infobox .designer_info {
@@ -15526,7 +15559,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .buyer_designer_inner_infobox .designer_bottom_box {
-  padding: 10px 0;
+  padding: 10px 0 5px;
 }
 .buyer_designer_inner_infobox .designer_bottom_box .btn_light_green {
   background: #d7df23;
@@ -15543,6 +15576,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me {
   text-align: right;
+  margin-top: 5px;
 }
 .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:link,
 .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:active,
@@ -15561,10 +15595,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
   border-radius: 0 0 0 3px;
 }
 .buyer_designer_inner_infobox .buyer_rating {
-    font-size: 16px;
+    font-size: 13px;
     text-align: right;
     height: 15px;
     margin-bottom: 5px;
+    white-space: nowrap;
 }
 .buyer_designer_inner_infobox .material-icons {
   font-size: 20px;
@@ -16440,14 +16475,23 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 #buyerSampleUpload .image-uploader {
     height: 200px;
 }
+.image-uploader .upload-text span {
+    padding: 0 10px;
+}
 #buyerSampleUpload .image-uploader .upload-text span {
     padding: 20px;
 }
+
 #buyerSampleUpload .buyer_sample_upload_wrap .or {
     margin: 60px auto 50px;
 }
 .buyer_designer_details_wrap {
     padding-bottom: 50px;
+}
+
+.mainNav_mobile_wrap_inner {
+    box-shadow: none;
+    width: 100%;
 }
   /* *************** sample css style end **************** */
 
@@ -16702,7 +16746,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 @media only screen and (max-width: 1499px) {
     .container {
-        width: 92%;
+        /* width: 92%; */
+        width: 100%;
     }
     .footer_topWrap {
         font-size: 30px;
@@ -17070,6 +17115,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 @media only screen and (max-width: 1299px) {
+    /* #main {
+        padding-left: 35px;
+    } */
     .container {
         width: 95% !important;
         max-width: inherit !important;
@@ -17477,6 +17525,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     #mb_about .we_believe {
         padding-bottom: 20px;
     }
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -19149,6 +19198,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     #main {
         margin-left: 0 !important;
+        padding-left: 0;
     }
 }
 

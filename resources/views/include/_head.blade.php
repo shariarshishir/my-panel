@@ -156,14 +156,14 @@
     function openClose() {
         var x = document.getElementById("mainSidenav");
         if (x.style.width === "50px") {
-            document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">arrow_back</i>';
+            document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">chevron_left</i>';
             x.style.width = "220px";
             document.getElementById("mainSidenav").style.width = "220px";
             document.getElementById("main").style.marginLeft = "220px";
             $(".mainSidenav").removeClass("mainSidenavSm");
             $(".mainSidenav").addClass("mainSidenavLg");
         } else {
-            document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">arrow_forward</i>';
+            document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">chevron_right</i>';
             $(".mainSidenav").removeClass("mainSidenavLg");
             $(".mainSidenav").addClass("mainSidenavSm");
             x.style.width = "50px";
