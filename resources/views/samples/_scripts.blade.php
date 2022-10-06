@@ -30,8 +30,8 @@
             //console.log(formData);
             const sample_store = "{{route('sample.store')}}";
 
-            errorCheckValidation('input[name="supplier_name"]');
-            errorCheckValidation('input[name="supplier_email"]');
+            //errorCheckValidation('input[name="supplier_name"]');
+            //errorCheckValidation('input[name="supplier_email"]');
             errorCheckValidation('select[name="product_tags[]"]');
             errorCheckValidation('input[name="product_title"]');
 

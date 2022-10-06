@@ -5550,6 +5550,9 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     border: none !important;
     line-height: 25px !important;
 }
+.buyer_sample_upload_wrap .input-field textarea {
+    border: 1px solid #d9d9d9 !important;
+}
 .input-field .select2-container--default .select2-selection--single {
     padding: 0;
     width: 100% !important;
@@ -16742,8 +16745,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         width: 400px;
     }
     .buyer_designer_inner_infobox .designer_bottom_box .btn_light_green,
-    .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:link, 
-    .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:active, 
+    .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:link,
+    .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:active,
     .buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:visited {
         font-size: 12px;
         white-space: nowrap;
@@ -17542,7 +17545,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .mobile_header {
         display: block;
     }
-    
+
     .profile_container .profile_leftCol,
     body {
         font-size: 14px;
@@ -21328,6 +21331,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         bottom: -45px;
         right: 10px;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
     .products_filter_search_wrap .btn-product-sidenav .material-icons {
         font-size: 25px;
         line-height: 20px;
@@ -21438,8 +21445,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         width: auto;
         padding: 0 5px;
     }
-    .buyer_product_design_tabNab ul.sample-sub-menu li a:link, 
-    .buyer_product_design_tabNab ul.sample-sub-menu li a:active, 
+    .buyer_product_design_tabNab ul.sample-sub-menu li a:link,
+    .buyer_product_design_tabNab ul.sample-sub-menu li a:active,
     .buyer_product_design_tabNab ul.sample-sub-menu li a:visited {
         font-size: 13px;
         padding: 0 0 10px;

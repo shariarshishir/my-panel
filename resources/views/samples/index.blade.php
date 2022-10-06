@@ -41,7 +41,7 @@
                                             <label>Images</label>
                                             <div class="sample-upload-wrapper">
                                                 <div class="sample-images"></div>
-                                                <div class="sample_image_browse center-align">
+                                                <div class="sample_image_browse center-align" style="display: none;">
                                                     <div class="or"><span>OR</span></div>
                                                     <a href="javascript:void(0);" class="btn_green browse_certificate_trigger">Browse files</a>
                                                     <div class="small-info" style="color: #afafaf; margin-top:10px"><i>Upload your Sample Images</i></div>
@@ -50,11 +50,11 @@
                                         </div>
                                     </div>
                                     <div class="col s12 m6">
-                                        <div class="input-field">
+                                        <div class="input-field" style="display: none;">
                                             <label>Supplier's Name <span>*</span></label>
                                             <input type="text" name="supplier_name" class="" value="" />
                                         </div>
-                                        <div class="input-field">
+                                        <div class="input-field" style="display: none;">
                                             <label>Supplier's Email Address <span>*</span></label>
                                             <input type="text" name="supplier_email" class="" value="" />
                                         </div>
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="input-field">
                                             <label>Short Description <span>*</span></label>
-                                            <input type="text" name="details" class="" value="" />
+                                            <textarea name="details"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
             <div class="col s12">
                 <ul class="sample-sub-menu">
                     <li class="col m3"><a href="{{route('samples')}}" class="{{ Route::is('samples') ? 'active' : ''}}">From My Collection</a></li>
-                    <li class="col m3"><a href="{{route('sample.mb.collection')}}" class="{{ Route::is('sample.mb.collection') ? 'active' : ''}}">From MB Collection</a></li>
+                    <li class="col m3" style="display: none;"><a href="{{route('sample.mb.collection')}}" class="{{ Route::is('sample.mb.collection') ? 'active' : ''}}">From MB Collection</a></li>
                 </ul>
             </div>
             <div id="buyerMyCollection" class="col s12">

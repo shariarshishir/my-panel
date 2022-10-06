@@ -563,8 +563,8 @@
                 <span>My Orders</span>
             </a>
 		</li>
-		<li class="mySupplyChain">
-			<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="javascript:void(0);">
+		<li class="mySupplyChain{{ Route::is('front.supplychain') ? ' active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="{{route('front.supplychain')}}">
                 <span>My Supply Chain</span>
             </a>
 		</li>
@@ -598,15 +598,15 @@
                 <span>Samples</span>
             </a>
 		</li>
-        <li class="oms">
-			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
-                <span>OMS</span>
-            </a>
-		</li>
-		<li class="liveMarket">
-			<a class="tooltipped" data-position="right" data-tooltip="Live Market" target="_blank" href="https://live.merchantbay.com/">
+        <li class="liveMarket">
+			<a class="tooltipped" data-position="right" data-tooltip="Live Market" href="https://live.merchantbay.com/" target="_blank">
 				<span>Live Market</span>
 			</a>
+		</li>
+        <li class="oms">
+			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="https://app.merchantbay.com/console/" target="_blank">
+                <span>OMS</span>
+            </a>
 		</li>
 	</ul>
 </div>

@@ -1517,4 +1517,9 @@ class HomeController extends Controller
     {
         return view('sitemap.index');
     }
+
+    public function supplyChainLandingPage()
+    {
+        return view('supply_chain.index');
+    }
 }

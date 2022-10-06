@@ -42,7 +42,7 @@
                                 <label>Images</label>
                                 <div class="sample-upload-wrapper">
                                     <div class="sample-images-edit"></div>
-                                    <div class="sample_image_browse center-align">
+                                    <div class="sample_image_browse center-align" style="display: none;">
                                         <div class="or"><span>OR</span></div>
                                         <a href="javascript:void(0);" class="btn_green browse_certificate_trigger">Browse files</a>
                                         <div class="small-info" style="color: #afafaf; margin-top:10px"><i>Upload your Sample Images</i></div>
@@ -51,11 +51,11 @@
                             </div>
                         </div>
                         <div class="col s12 m6">
-                            <div class="input-field">
+                            <div class="input-field" style="display: none;">
                                 <label>Supplier's Name <span>*</span></label>
                                 <input type="text" name="supplier_name" class="product_edit_supplier_name" value="" />
                             </div>
-                            <div class="input-field">
+                            <div class="input-field" style="display: none;">
                                 <label>Supplier's Email Address <span>*</span></label>
                                 <input type="text" name="supplier_email" class="product_edit_supplier_email" value="" />
                             </div>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="input-field">
                                 <label>Short Description <span>*</span></label>
-                                <input type="text" name="details" class="product_edit_details" value="" />
+                                <textarea name="details" class="product_edit_details"></textarea>
                             </div>
                         </div>
                     </div>
