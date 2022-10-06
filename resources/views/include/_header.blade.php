@@ -288,6 +288,9 @@
 
 						@endif
 					</div>
+					<a href="javascript:void(0);" itemprop="Subscribe" type="button" class="btn_profile btn_green">
+					    Subscribe
+					</a>
 
 					<!-- @if(auth()->user())
 						<div class="notifications_icon_wrap mobile_top_icon_box">
@@ -374,7 +377,7 @@
 
 
 
-					<div class="mobile_notification_wrap" itemscope>
+					{{-- <div class="mobile_notification_wrap" itemscope>
 						@if(auth()->user())
 							<div class="notifications_icon_wrap mobile_top_icon_box mobile_notifications_icon_wrap" itemscope>
 								<a href="javascript:void(0);" class="dropdown-trigger" data-target="countdown-dropdown-mobile" itemprop="User Notification">
@@ -491,20 +494,20 @@
 							</div>
 
 						@endif
-					</div>
+					</div> --}}
 
-					<div class="mobile_top_icon_box" itemscope>
+					{{-- <div class="mobile_top_icon_box" itemscope>
 						<a href="{{route('business.profile.create')}}" itemprop="Join MB Pool" type="button" class="btn_joinpool_mobile">
 							<span class="material-icons"> add </span>
-						</a>
+						</a> --}}
 						<!-- <a href="{{route('business.profile.create')}}" itemprop="My Profile" type="button" class="btn_profile_mobile">
 							<span class="material-icons"> add </span>
 						</a> -->
-					</div>
+					{{-- </div> --}}
 
-					<button class="header_search_bar">
+					{{-- <button class="header_search_bar">
 						<i class="material-icons dp48">search</i>
-					</button>
+					</button> --}}
 
 				</div>
 			</div>

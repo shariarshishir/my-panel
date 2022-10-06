@@ -16,7 +16,7 @@
 @include('sweet::alert')
 
 <div class="buyer_layout_contant_wrapper">
-    <h4>Suppliers</h4>
+    <h4>Samples</h4>
     <div class="row">
         <div class="col s12">
             <div class="buyer_simple_img_upload_box">

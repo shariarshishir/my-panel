@@ -67,12 +67,12 @@ $(function(){
                     html+= '<div class="products_inner_textbox">';
                     html+='<h4><span>'+data.data.title+'</span></h4>';
                     html+='<div class="row">';
-                    html+='<div class="col s12 m6">';
+                    html+='<div class="col s6">';
                     html+='<div class="product_moq">';
                     html+='MOQ: <br> <span>'+data.data.moq+'</span>';
                     html+='</div>';
                     html+='</div>';
-                    html+='<div class="col s12 m6">';
+                    html+='<div class="col s6">';
                     html+='<div class="pro_leadtime">';
                     html+='Lead Time <br> <span>'+data.data.lead_time+'</span> days';
                     html+='</div>';

@@ -235,12 +235,12 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             <span class="posted_time">{{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
                                                             @if($pageTitle == "My Queries")
                                                             <div class="row">
-                                                                <div class="col s6 m6 l5">
+                                                                <div class="col s6 m6">
                                                                     <p>Quantity <br/> <b>{{$rfq['quantity']}} pcs</b></p>
                                                                     <p>Deliver to <br/> <b>{{$rfq['destination']}}</b></p>
                                                                 </div>
-                                                                <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
-                                                                <div class="col s6 m6 l5">
+                                                                {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
+                                                                <div class="col s6 m6">
                                                                     <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</b></p>
                                                                 </div>
                                                             </div>

@@ -184,12 +184,12 @@
                                                                 <div class="products_inner_textbox">
                                                                     <h4><span>Rugby Top-MB-2130</span></h4>
                                                                     <div class="row">
-                                                                        <div class="col s12 m6">
+                                                                        <div class="col s6">
                                                                             <div class="product_moq">
                                                                                 MOQ: <br> <span>1000</span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col s12 m6">
+                                                                        <div class="col s6">
                                                                             <div class="pro_leadtime">
                                                                                 Lead Time <br> <span>30-45</span> days
                                                                             </div>
@@ -210,12 +210,12 @@
                                                                 <div class="products_inner_textbox">
                                                                     <h4><span>Rugby Top-MB-2130</span></h4>
                                                                     <div class="row">
-                                                                        <div class="col s12 m6">
+                                                                        <div class="col s6">
                                                                             <div class="product_moq">
                                                                                 MOQ: <br> <span>1000</span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col s12 m6">
+                                                                        <div class="col s6">
                                                                             <div class="pro_leadtime">
                                                                                 Lead Time <br> <span>30-45</span> days
                                                                             </div>
@@ -236,12 +236,12 @@
                                                                 <div class="products_inner_textbox">
                                                                     <h4><span>Rugby Top-MB-2130</span></h4>
                                                                     <div class="row">
-                                                                        <div class="col s12 m6">
+                                                                        <div class="col s6">
                                                                             <div class="product_moq">
                                                                                 MOQ: <br> <span>1000</span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col s12 m6">
+                                                                        <div class="col s6">
                                                                             <div class="pro_leadtime">
                                                                                 Lead Time <br> <span>30-45</span> days
                                                                             </div>
@@ -262,12 +262,12 @@
                                                                 <div class="products_inner_textbox">
                                                                     <h4><span>Rugby Top-MB-2130</span></h4>
                                                                     <div class="row">
-                                                                        <div class="col s12 m6">
+                                                                        <div class="col s6">
                                                                             <div class="product_moq">
                                                                                 MOQ: <br> <span>1000</span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col s12 m6">
+                                                                        <div class="col s6">
                                                                             <div class="pro_leadtime">
                                                                                 Lead Time <br> <span>30-45</span> days
                                                                             </div>

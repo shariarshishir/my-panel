@@ -168,7 +168,7 @@
             $(".mainSidenav").addClass("mainSidenavSm");
             x.style.width = "50px";
             document.getElementById("mainSidenav").style.width = "50px";
-            document.getElementById("main").style.marginLeft= "0px";
+            document.getElementById("main").style.marginLeft= "20px";
         }
     }
 </script>
