@@ -551,7 +551,7 @@
 
 @if(auth()->user())
 <div id="mainSidenav" class="mainSidenav">
-	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">chevron_right</i></span>
+	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose()"><i class="material-icons">chevron_left</i></span>
 	<ul>
 		<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
