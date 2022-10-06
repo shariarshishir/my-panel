@@ -177,13 +177,31 @@ class DesignersController extends Controller
             $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->get();
 
             // delete certificate images from s3
-            if(count($designerPortfolio) > 0)
+            // if(count($designerPortfolio) > 0)
+            // {
+            //     foreach($designerPortfolio as $portfolioImg)
+            //     {
+            //         Storage::disk('s3')->delete('/public/designers/'.$user->id.'/portfolio'.'/'. $portfolioImg['image']);
+            //     }
+            //     $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->delete();
+            // }
+
+            // check preloader and delete portfolio images from s3
+            if(isset($request->preloaded))
             {
-                foreach($designerPortfolio as $portfolioImg)
-                {
-                    Storage::disk('s3')->delete('/public/designers/'.$user->id.'/portfolio'.'/'. $portfolioImg['image']);
+                $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->whereNotIn('id', $request->preloaded)->get();
+            }
+            else
+            {
+                $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->get();
+            }
+
+            if($designerPortfolio->isNotEmpty())
+            {
+                foreach($designerPortfolio as $item){
+                    Storage::disk('s3')->delete('/public/designers/'.$user->id.'/portfolio'.'/'. $item['image']);
+                    $item->delete();
                 }
-                $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->delete();
             }
 
             $portfolioImg = [];
