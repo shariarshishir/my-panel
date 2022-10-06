@@ -210,6 +210,7 @@ Route::get('/3d-studio', [HomeController::class, 'studio3dPage'])->name('front.3
 Route::get('/tools', [HomeController::class, 'toolsLandingPage'])->name('front.tools');
 Route::get('/policy', [HomeController::class, 'policyLandingPage'])->name('front.policy');
 Route::get('/aboutus', [HomeController::class, 'aboutusLandingPage'])->name('front.aboutus');
+Route::get('/supply-chain', [HomeController::class, 'supplyChainLandingPage'])->name('front.supplychain');
 Route::get('/how-we-work', [HomeController::class, 'howweworkLandingPage'])->name('front.howwework');
 Route::get('/contactus', [HomeController::class, 'contactusLandingPage'])->name('front.contactus');
 Route::get('/welcomepage', [HomeController::class, 'rfqPostSuccessfulByAnonymous'])->name('front.rfqpostsuccessfulbyanonymous');

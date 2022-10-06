@@ -50,11 +50,11 @@
                                         </div>
                                     </div>
                                     <div class="col s12 m6">
-                                        <div class="input-field">
+                                        <div class="input-field" style="display: none;">
                                             <label>Supplier's Name <span>*</span></label>
                                             <input type="text" name="supplier_name" class="" value="" />
                                         </div>
-                                        <div class="input-field">
+                                        <div class="input-field" style="display: none;">
                                             <label>Supplier's Email Address <span>*</span></label>
                                             <input type="text" name="supplier_email" class="" value="" />
                                         </div>
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="input-field">
                                             <label>Short Description <span>*</span></label>
-                                            <input type="text" name="details" class="" value="" />
+                                            <input type="text" name="details" class="" value="" style="height: 250px;" />
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
             <div class="col s12">
                 <ul class="sample-sub-menu">
                     <li class="col m3"><a href="{{route('samples')}}" class="{{ Route::is('samples') ? 'active' : ''}}">From My Collection</a></li>
-                    <li class="col m3"><a href="{{route('sample.mb.collection')}}" class="{{ Route::is('sample.mb.collection') ? 'active' : ''}}">From MB Collection</a></li>
+                    <li class="col m3" style="display: none;"><a href="{{route('sample.mb.collection')}}" class="{{ Route::is('sample.mb.collection') ? 'active' : ''}}">From MB Collection</a></li>
                 </ul>
             </div>
             <div id="buyerMyCollection" class="col s12">
