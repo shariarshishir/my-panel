@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="input-field">
                                             <label>Short Description <span>*</span></label>
-                                            <input type="text" name="details" class="" value="" style="height: 250px;" />
+                                            <textarea name="details"></textarea>
                                         </div>
                                     </div>
                                 </div>
