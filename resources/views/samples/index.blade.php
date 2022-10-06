@@ -22,7 +22,7 @@
             <div class="buyer_simple_img_upload_box">
                 <a class="add_new modal-trigger" href="#buyerSampleUpload">
                     <i class="material-icons">file_upload</i>
-                    <h6>Upload Images/PDf?mp4 </h6>
+                    <h6>Upload Images/PDf</h6>
                     <div class="or"><span>OR</span></div>
                     <p>Drag and drop from below</p>
                 </a>
@@ -96,7 +96,7 @@
         <div class="row">
             <div class="col s12">
                 <ul class="sample-sub-menu">
-                    <li class="col m3"><a href="{{route('samples')}}" class="{{ Route::is('samples') ? 'active' : ''}}">From My Collection</a></li>
+                    <li class="col m3"><a href="{{route('samples')}}" class="{{ Route::is('samples') ? 'active' : ''}}">Sample Request</a></li>
                     <li class="col m3" style="display: none;"><a href="{{route('sample.mb.collection')}}" class="{{ Route::is('sample.mb.collection') ? 'active' : ''}}">From MB Collection</a></li>
                 </ul>
             </div>

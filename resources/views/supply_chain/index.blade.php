@@ -19,6 +19,12 @@
 @endsection
 
 @section('content')
-<h3>Supply Chain</h3>
-Coming Soon...
+
+<div class="coming_soon_wrap ">
+    <div class="img_box">
+        <img src="{{Storage::disk('s3')->url('public/frontendimages/coming-soon.jpg')}}" alt="" />
+    </div>
+    <a href="{{route('product.type.mapping',['studio', 'design'])}}" class="btn_design_studio">Go to Design Studio</a>
+</div>
+
 @endsection

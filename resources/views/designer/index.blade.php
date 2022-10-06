@@ -96,7 +96,7 @@
                         @endif
                     </div>
                     <div class="buyer_designer_details_certification">
-                        <h4>Certicications</h4>
+                        <h4>Certifications</h4>
                         @if(isset($user->designers->designer_certifications))
                         <div class="row">
                             @foreach (json_decode($user->designers->designer_certifications) as $certificate)
@@ -162,11 +162,22 @@
                         <div class="row">
                             @if(count($user->designerPortfolio) > 0)
                                 @foreach ($user->designerPortfolio as $item)
-                                    <div class="col s6 m6 l4">
-                                        <a href="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image'])}}" data-fancybox="portfolio-gallery">
-                                            <img src="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image'])}}" alt="" />
-                                        </a>
-                                    </div>
+
+                                    @if(pathinfo($item['image'], PATHINFO_EXTENSION) == 'pdf' || pathinfo($item['image'], PATHINFO_EXTENSION) == 'PDF')
+                                        <div class="col s6 m6 l4">
+                                            <a href="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image'])}}" class="pdf_icon" target="_blank">&nbsp; PDF</a>
+                                        </div>
+                                    @elseif(pathinfo($item['image'], PATHINFO_EXTENSION) == 'doc' || pathinfo($item['image'], PATHINFO_EXTENSION) == 'docx')
+                                        <div class="col s6 m6 l4">
+                                            <a href="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image'])}}" class="doc_icon" >&nbsp; DOC</a>
+                                        </div>
+                                    @else
+                                        <div class="col s6 m6 l4">
+                                            <a href="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image'])}}" data-fancybox="portfolio-gallery">
+                                                <img src="{{Storage::disk('s3')->url('public/designers/'.$user->id.'/portfolio/'.$item['image'])}}" alt="" />
+                                            </a>
+                                        </div>
+                                    @endif
                                 @endforeach
                             @else
                                 <div class="col s12">
