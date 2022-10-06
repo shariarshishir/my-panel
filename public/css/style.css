@@ -16503,6 +16503,28 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
   /* *************** sample css style end **************** */
 
+.coming_soon_wrap {
+max-width: 350px;
+margin: 50px auto;
+text-align: center;
+}
+.coming_soon_wrap .img_box {
+    margin-bottom: 30px;
+}
+
+.coming_soon_wrap .btn_design_studio {
+    background: #ffffff;
+    border: 1px solid #54a958;
+    color: #54a958;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0px 10px;
+    padding: 10px 15px;
+    min-width: 120px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
 
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {
