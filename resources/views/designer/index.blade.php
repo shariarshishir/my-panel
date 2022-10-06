@@ -96,7 +96,7 @@
                         @endif
                     </div>
                     <div class="buyer_designer_details_certification">
-                        <h4>Certicications</h4>
+                        <h4>Certifications</h4>
                         @if(isset($user->designers->designer_certifications))
                         <div class="row">
                             @foreach (json_decode($user->designers->designer_certifications) as $certificate)
