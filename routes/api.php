@@ -60,6 +60,8 @@ Route::get('product/details/{flag}/{id}', [ProductController::class,'productDeta
 Route::post('user/signup',[UserController::class, 'signUp']);
 Route::get('importbusinessprofiles',[UserController::class, 'importBusinessProfiles']);
 
+// App Merchantbay user login
+Route::post('auth/token/',[UserController::class, 'appMerchantBayUserLogin']);
 
 //Auth api
 //sso registration from app
