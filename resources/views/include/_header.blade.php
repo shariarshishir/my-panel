@@ -598,15 +598,15 @@
                 <span>Samples</span>
             </a>
 		</li>
+        <li class="liveMarket">
+			<a class="tooltipped" data-position="right" data-tooltip="Live Market" href="https://live.merchantbay.com/" target="_blank">
+				<span>Live Market</span>
+			</a>
+		</li>
         <li class="oms">
 			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="https://app.merchantbay.com/console/" target="_blank">
                 <span>OMS</span>
             </a>
-		</li>
-		<li class="liveMarket">
-			<a class="tooltipped" data-position="right" data-tooltip="Live Market" href="https://live.merchantbay.com/" target="_blank">
-				<span>Live Market</span>
-			</a>
 		</li>
 	</ul>
 </div>

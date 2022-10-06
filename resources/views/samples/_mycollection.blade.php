@@ -42,7 +42,7 @@
                                 <label>Images</label>
                                 <div class="sample-upload-wrapper">
                                     <div class="sample-images-edit"></div>
-                                    <div class="sample_image_browse center-align">
+                                    <div class="sample_image_browse center-align" style="display: none;">
                                         <div class="or"><span>OR</span></div>
                                         <a href="javascript:void(0);" class="btn_green browse_certificate_trigger">Browse files</a>
                                         <div class="small-info" style="color: #afafaf; margin-top:10px"><i>Upload your Sample Images</i></div>
