@@ -96,7 +96,7 @@
         <div class="row">
             <div class="col s12">
                 <ul class="sample-sub-menu">
-                    <li class="col m3"><a href="{{route('samples')}}" class="{{ Route::is('samples') ? 'active' : ''}}">From My Collection</a></li>
+                    <li class="col m3"><a href="{{route('samples')}}" class="{{ Route::is('samples') ? 'active' : ''}}">Sample Request</a></li>
                     <li class="col m3" style="display: none;"><a href="{{route('sample.mb.collection')}}" class="{{ Route::is('sample.mb.collection') ? 'active' : ''}}">From MB Collection</a></li>
                 </ul>
             </div>
