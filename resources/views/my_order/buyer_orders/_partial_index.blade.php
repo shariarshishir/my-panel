@@ -4,10 +4,10 @@
             <thead class="cf">
                 <tr >
                     <th>created_at</th>
-                    <th>Order Id</th>
-                    <th>Delivery Date</th>
-                    <th>Delivery Status</th>
-                    <th>Payment Status</th>
+                    <th class="center-align">Order Id</th>
+                    <th class="center-align">Delivery Date</th>
+                    <th class="center-align">Delivery Status</th>
+                    <th class="center-align">Payment Status</th>
                     <th class="center-align">Action</th>
                 </tr>
             </thead>
@@ -46,7 +46,7 @@
                                         PO Generated
                                     </a>
                                     <br />
-                                    <span><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View</span>
+                                    <span style="display: none;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View</span>
                                 </div>
                             @endif
                             @if($po->status == -1)
@@ -55,7 +55,7 @@
                                         PI Rejected
                                     </a>
                                     <br/>
-                                    <span><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View</span>
+                                    <span style="display: none;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; View</span>
                                     <!-- <div class="revice_order_btn" style="display: inline-block;padding: 6px 12px;margin-bottom: 0;font-size: 14px;font-weight: 400;line-height: 1.42857143;text-align: center;white-space: nowrap;vertical-align: middle;cursor: pointer;background-color: transparent;border: 1px solid #dae0e5;border-radius: 4px;color: #212529;"></div> -->
                                     <div class="revice_order_btn">
                                         @if(auth()->id() == $po->created_by)
