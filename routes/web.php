@@ -495,7 +495,7 @@ Route::get('rfq/create/{flag?}/{productid?}',[RfqController::class, 'create'])->
 //rfq show with shareable link
 Route::get('rfq/{link}',[RfqController::class, 'showRfqUsingLink'])->name('show.rfq.using.link');
 Route::get('sitemap',[HomeController::class, 'showSiteMap'])->name('show.site.map');
-
+Route::get('login/{mbtoken}',[UserController::class, 'loginFromAppMerchantbay'])->name('login.from.app.merchantbay');
 //user API's endpoint start
 Route::group(['prefix'=>'/user'],function (){
     Route::get('/register/{type}', [UserController::class, 'showRegistrationForm'])->name('user.register');

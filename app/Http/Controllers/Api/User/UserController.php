@@ -423,36 +423,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function appMerchantBayUserLogin(Request $request)
-    {
-        //dd($request->all());
-
-        $validator = Validator::make($request->all(), [
-            'password' => 'required',
-            'email' => 'required|email',
-        ]);
-
-        if ($validator->passes())
-        {
-            $credentials = [
-                'email' => $request->email,
-                'password' => $request->password,
-            ];
-            $remember_me = $request->remember == 'true' ? true : false;
-
-            if(Auth::attempt($credentials, $remember_me))
-            {
-                $userId = auth()->user()->id;
-                $user = User::whereId($userId)->first();
-                $user->update(['last_activity' => Carbon::now(), 'fcm_token' => $request->fcm_token]);
-                return response()->json(['user_id' => $user->user_id, 'userObj' => $user]);
-            }
-            return response()->json(['msg' => 'Wrong email or password']);
-        }
-
-        return response()->json(['error'=>$validator->errors()]);
-    }
-
     public function login(Request $request){
 
         request()->validate([

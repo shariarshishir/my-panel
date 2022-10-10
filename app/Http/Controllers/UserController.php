@@ -420,6 +420,73 @@ class UserController extends Controller
     {
         return view('auth.login');
     }
+
+    public function loginFromAppMerchantbay(Request $request, $mbtoken)
+    {
+        //dd($mbtoken);
+        $mbtoken = base64_decode($mbtoken);
+        $mbtoken = json_decode($mbtoken);
+        $userEmail = $mbtoken->user->email;
+        $userPassword = base64_decode($mbtoken->user->password);
+
+        // sso checking authentication
+        if(env('APP_ENV') == 'production')
+        {
+            $sso=Http::post(env('SSO_URL').'/api/auth/token/',[
+                'email' => $userEmail,
+                'password' => $userPassword,
+            ]);
+            if($sso->successful()){
+                $access_token = $sso['access'];
+                $explode = explode(".",$access_token);
+                $time = base64_decode($explode[1]);
+                $decode_time = json_decode($time);
+                $get_time = $decode_time->exp;
+                $get_time = strtotime(date('d.m.Y H:i:s')) + strtotime(date('d.m.Y H:i:s'));
+                $current = strtotime(date('d.m.Y H:i:s'));
+                $totalSecondsDiff = abs($get_time-$current);
+                $totalMinutesDiff = $totalSecondsDiff/60;
+                // $totalHoursDiff   = $totalSecondsDiff/60/60;
+                // $totalDaysDiff    = $totalSecondsDiff/60/60/24;
+                // $totalMonthsDiff  = $totalSecondsDiff/60/60/24/30;
+                // $totalYearsDiff   = $totalSecondsDiff/60/60/24/365;
+
+                // if($request->hasCookie('sso_token') !== null){
+                //     Cookie::forget('sso_token');
+                // }
+                if(Cookie::has('sso_token')){
+                    Cookie::queue(Cookie::forget('sso_token'));
+                }
+                // $set_cookie=Cookie::make('sso_token', $access_token, $totalMinutesDiff);
+                Cookie::queue(Cookie::make('sso_token', $access_token, $totalMinutesDiff));
+
+                if($request->session()->has('sso_password')){
+                    $request->session()->forget('sso_password');
+                }
+                $request->session()->put('sso_password', $userPassword);
+            }
+            else{
+                return response()->json(['msg' => 'No active account found with the given credentials or maybe you have provided wrong email or password.']);
+            }
+        }
+
+
+        $credentials = [
+            'email' => $userEmail,
+            'password' => $userPassword,
+        ];
+        $remember_me = false;
+        if(Auth::attempt($credentials, $remember_me))
+        {
+            $userId = auth()->user()->id;
+            $user = User::whereId($userId)->first();
+            $user->update(['last_activity' => Carbon::now(),'fcm_token'=>$request->fcm_token]);
+            //return response()->json(['user_id'=>$user->user_id,'userObj'=>$user]);
+            return redirect()->route("home");
+        }
+        return response()->json(['msg' => 'Wrong email or password']);
+
+    }
     //user login from sso
     public function loginFromSso(Request $request)
     {

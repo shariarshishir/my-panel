@@ -189,16 +189,17 @@ class DesignersController extends Controller
             // check preloader and delete portfolio images from s3
             if(isset($request->preloaded))
             {
-                $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->whereNotIn('id', $request->preloaded)->get();
+                $designerPortfolioItems = DesignerPortfolio::where('user_id', $request->user_id)->whereNotIn('id', $request->preloaded)->get();
             }
             else
             {
-                $designerPortfolio = DesignerPortfolio::where('user_id', $request->user_id)->get();
+                $designerPortfolioItems = DesignerPortfolio::where('user_id', $request->user_id)->get();
             }
 
-            if($designerPortfolio->isNotEmpty())
+            if($designerPortfolioItems->isNotEmpty())
             {
-                foreach($designerPortfolio as $item){
+                foreach($designerPortfolioItems as $item)
+                {
                     Storage::disk('s3')->delete('/public/designers/'.$user->id.'/portfolio'.'/'. $item['image']);
                     $item->delete();
                 }
