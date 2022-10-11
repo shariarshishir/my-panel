@@ -101,45 +101,105 @@ class DesignersController extends Controller
         }
         else
         {
+            //dd($request->all());
+
             $designerData = Designers::where('user_id', $request->user_id)->first();
 
-            // delete certificate images from s3
-            if(isset($designerData->designer_certifications))
+            if(isset($request->preloaded))
             {
-                foreach(json_decode($designerData->designer_certifications) as $certificateImg)
-                {
-                    Storage::disk('s3')->delete('/public/designers/'.$user->id.'/certificates'.'/'. $certificateImg);
+                //dd($request->preloaded);
+                $existingCertificates = json_decode($designerData->designer_certifications);
+                $removedCertificates = [];
+                $i = 0;
+                foreach($request->preloaded as $item) {
+                    if (array_key_exists($item, $existingCertificates)) {
+                        array_push($removedCertificates, $existingCertificates[$i]);
+                        unset($existingCertificates[$i]);
+                    }
+                    $i++;
                 }
-                $designerData->update([ 'designer_certifications'=> [] ]);
-            }
+                // delete removed item from s3
+                if(isset($removedCertificates))
+                {
+                    foreach($removedCertificates as $item)
+                    {
+                        Storage::disk('s3')->delete('/public/designers/'.$user->id.'/certificates'.'/'. $item);
+                    }
+                }
+                //dd($existingCertificates);
+                //dd($removedCertificates);
 
-            // upload certificate images to s3
-            $certificateImg = [];
-            if(isset($request->designer_certifications))
-            {
-                $designerData->update([ 'designer_certifications'=> [] ]);
-                foreach ($request->designer_certifications as $designer_certificate)
+                // upload certificate images to s3
+                $certificateImg = [];
+                if(isset($request->designer_certifications))
                 {
-                    $s3 = \Storage::disk('s3');
-                    $uniqueString = generateUniqueString();
-                    $certificate_images_file_name = uniqid().$uniqueString.'.'. $designer_certificate->getClientOriginalExtension();
-                    $s3filePath = '/public/designers'.'/'. $user->id .'/certificates'. '/' .$certificate_images_file_name;
-                    $s3->put($s3filePath, file_get_contents($designer_certificate));
-                    array_push($certificateImg, $certificate_images_file_name);
+                    $designerData->update([ 'designer_certifications'=> [] ]);
+                    foreach ($request->designer_certifications as $designer_certificate)
+                    {
+                        $s3 = \Storage::disk('s3');
+                        $uniqueString = generateUniqueString();
+                        $certificate_images_file_name = uniqid().$uniqueString.'.'. $designer_certificate->getClientOriginalExtension();
+                        $s3filePath = '/public/designers'.'/'. $user->id .'/certificates'. '/' .$certificate_images_file_name;
+                        $s3->put($s3filePath, file_get_contents($designer_certificate));
+                        array_push($certificateImg, $certificate_images_file_name);
+                    }
                 }
+
+                $updatedCertificates = array_merge($existingCertificates, $certificateImg);
+                $designerData->update([
+                    'designer_location'=> $request->designer_location,
+                    'designer_nationality'=> $request->designer_nationality,
+                    'designer_experience'=> $request->designer_experience,
+                    'designer_worked_with'=> $request->designer_worked_with,
+                    'designer_completed_task'=> $request->designer_completed_task,
+                    'designer_skills'=> json_encode($request->designer_skills) ?? NULL,
+                    'designer_asking_price'=> $request->designer_asking_price,
+                    'designer_certifications'=> json_encode($updatedCertificates),
+                    'designer_about_me'=> $request->designer_about_me,
+                    'updated_by'=> auth()->user()->id,
+                ]);
+
             }
-            $designerData->update([
-                'designer_location'=> $request->designer_location,
-                'designer_nationality'=> $request->designer_nationality,
-                'designer_experience'=> $request->designer_experience,
-                'designer_worked_with'=> $request->designer_worked_with,
-                'designer_completed_task'=> $request->designer_completed_task,
-                'designer_skills'=> json_encode($request->designer_skills) ?? NULL,
-                'designer_asking_price'=> $request->designer_asking_price,
-                'designer_certifications'=> json_encode($certificateImg),
-                'designer_about_me'=> $request->designer_about_me,
-                'updated_by'=> auth()->user()->id,
-            ]);
+            else
+            {
+                // delete certificate images from s3
+                if(isset($designerData->designer_certifications))
+                {
+                    foreach(json_decode($designerData->designer_certifications) as $certificateImg)
+                    {
+                        Storage::disk('s3')->delete('/public/designers/'.$user->id.'/certificates'.'/'. $certificateImg);
+                    }
+                    $designerData->update([ 'designer_certifications'=> [] ]);
+                }
+
+                // upload certificate images to s3
+                $certificateImg = [];
+                if(isset($request->designer_certifications))
+                {
+                    $designerData->update([ 'designer_certifications'=> [] ]);
+                    foreach ($request->designer_certifications as $designer_certificate)
+                    {
+                        $s3 = \Storage::disk('s3');
+                        $uniqueString = generateUniqueString();
+                        $certificate_images_file_name = uniqid().$uniqueString.'.'. $designer_certificate->getClientOriginalExtension();
+                        $s3filePath = '/public/designers'.'/'. $user->id .'/certificates'. '/' .$certificate_images_file_name;
+                        $s3->put($s3filePath, file_get_contents($designer_certificate));
+                        array_push($certificateImg, $certificate_images_file_name);
+                    }
+                }
+                $designerData->update([
+                    'designer_location'=> $request->designer_location,
+                    'designer_nationality'=> $request->designer_nationality,
+                    'designer_experience'=> $request->designer_experience,
+                    'designer_worked_with'=> $request->designer_worked_with,
+                    'designer_completed_task'=> $request->designer_completed_task,
+                    'designer_skills'=> json_encode($request->designer_skills) ?? NULL,
+                    'designer_asking_price'=> $request->designer_asking_price,
+                    'designer_certifications'=> json_encode($certificateImg),
+                    'designer_about_me'=> $request->designer_about_me,
+                    'updated_by'=> auth()->user()->id,
+                ]);
+            }
         }
 
         return response()->json(["status" => 1, "message" => "Data updated successfully."]);
