@@ -8,6 +8,7 @@ use App\Models\CompanyFactoryTour;
 use App\Models\Admin\Certification;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use App\Models\BusinessMappingTree;
 
 class UserProfileController extends Controller
 {
@@ -91,7 +92,7 @@ class UserProfileController extends Controller
             $profileIncompleteValueCount = 0;
             $profileProgressValue = 0;
         }
-        
+
         return view('new_business_profile.profile_insights',compact('alias', 'profileProgressValue', 'business_profile', 'profileIncompleteValueCount'));
     }
 
@@ -112,13 +113,27 @@ class UserProfileController extends Controller
     public function profileEdit($alias)
     {
         $business_profile = BusinessProfile::withTrashed()->with('companyOverview','machineriesDetails','categoriesProduceds','productionCapacities','productionFlowAndManpowers','certifications','mainbuyers','exportDestinations','associationMemberships','pressHighlights','businessTerms','samplings','specialCustomizations','sustainabilityCommitments','walfare','security')->where('alias',$alias)->firstOrFail();
+        //dd($business_profile);
         $companyFactoryTour = CompanyFactoryTour::with('companyFactoryTourImages','companyFactoryTourLargeImages')->where('business_profile_id',$business_profile->id)->first();
         $default_certification = Certification::get();
         $country = Country::pluck('name','id');
 
+        if($business_profile->business_type == "manufacturer")
+        {
+            $businessMappingElements = BusinessMappingTree::where('parent_id', 1)->get(['id','name']);
+        }
+        elseif($business_profile->business_type == "wholesaler")
+        {
+            $businessMappingElements = BusinessMappingTree::where('parent_id', 2)->get(['id','name']);
+        }
+        else
+        {
+            $businessMappingElements = BusinessMappingTree::where('parent_id', 3)->get(['id','name']);
+        }
+
         if((auth()->id() == $business_profile->user_id) || (auth()->id() == $business_profile->representative_user_id))
         {
-            return view('new_business_profile.profile_edit', compact('business_profile', 'companyFactoryTour', 'alias', 'default_certification', 'country'));
+            return view('new_business_profile.profile_edit', compact('business_profile', 'companyFactoryTour', 'alias', 'default_certification', 'country', 'businessMappingElements'));
         }
         abort(401);
     }

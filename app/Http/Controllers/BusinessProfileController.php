@@ -314,6 +314,10 @@ class BusinessProfileController extends Controller
 
             }
 
+            $business_profile = BusinessProfile::where('id', $request->business_profile_id)->update([
+                'industry_type' => $request->industry_type,
+                'factory_type' => $request->factory_type
+            ]);
 
             return response()->json([
                 'success' => false,

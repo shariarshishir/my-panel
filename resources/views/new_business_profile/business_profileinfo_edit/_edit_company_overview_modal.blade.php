@@ -53,6 +53,23 @@
                         </div>
                         @endif
                     @endforeach
+                    <div class="input-field col s12 m12 l6">
+                        <label>Industry Type</label>
+                        <select id="industry_type" class="select2 browser-default select-industry-type"  name="industry_type" onchange="changecategory(this,'industry');">
+                            <option value="" disabled selected>Choose your industry type</option>
+                            @foreach ($businessMappingElements as $industryItem)
+                                <option value="{{$industryItem->name}}" data-id="{{$industryItem->id}}" @php echo ($industryItem->name == $business_profile->industry_type) ? "selected='selected'": ""; @endphp>{{strtoupper($industryItem->name)}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l6">
+                        <label>Factory Type</label>
+                        <select class="select2 browser-default" name="factory_type" id="factory_type">
+                            <option value="{{$business_profile->factory_type}}">{{$business_profile->factory_type}}</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col s12 input-field">
@@ -84,6 +101,7 @@
                         </td>
                     </div>
                 </div>
+                <input type="hidden" name="business_profile_id" value="{{$business_profile->id}}" />
 
                 <div class="submit_btn_wrap">
                     <div class="row">
@@ -212,6 +230,42 @@
                 return false;
             })
     });
+
+    function changecategory(obj,type){
+
+        var id = $('#'+obj.id).children(":selected").attr("data-id");
+        var url = '{{ route("business.mapping.child", ":slug") }}';
+            url = url.replace(':slug', id);
+        $.ajax({
+            method: 'get',
+            url: url,
+            beforeSend: function() {
+                $('.loading-message').html("Please Wait.");
+                $('#loadingProgressContainer').show();
+            },
+            success:function(data)
+            {
+                $('.loading-message').html("");
+                $('#loadingProgressContainer').hide();
+                if(data){
+                    $("#factory_type").empty();
+                    $("#factory_type").append('<option value="" disabled selected >Choose your factory type</option>');
+                    $.each(data,function(key,value){
+                        $("#factory_type").append('<option value="'+value.name+'" data-id="'+value.id+'">'+value.name.toUpperCase()+'</option>');
+                    });
+
+                }else{
+                    $("#factory_type").empty();
+                }
+            },
+            error: function(xhr, status, error)
+            {
+                $('.loading-message').html("");
+                $('#loadingProgressContainer').hide();
+                swal("Error!", error,"error");
+            }
+        });
+    }
 
 </script>
 
