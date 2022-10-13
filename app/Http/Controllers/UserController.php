@@ -423,6 +423,7 @@ class UserController extends Controller
 
     public function loginFromAppMerchantbay(Request $request, $mbtoken)
     {
+        /*
         //dd($mbtoken);
         $mbtoken = base64_decode($mbtoken);
         $mbtoken = json_decode($mbtoken);
@@ -485,6 +486,56 @@ class UserController extends Controller
             return redirect()->route("home");
         }
         return response()->json(['msg' => 'Wrong email or password']);
+        */
+
+        $token = $mbtoken;
+        $decode_token = base64_decode($token);
+        $json_decode_token = json_decode($decode_token);
+        $access_token = $json_decode_token->access;
+        $user_obj = $json_decode_token->user;
+        //user loging credential
+        $email = $user_obj->email;
+        $password = base64_decode($user_obj->password);
+        //access token
+        $explode = explode(".",$access_token);
+        $time = base64_decode($explode[1]);
+        $decode_time = json_decode($time);
+        $get_time = $decode_time->exp;
+        $get_time = strtotime(date('d.m.Y H:i:s')) + strtotime(date('d.m.Y H:i:s'));
+        $current = strtotime(date('d.m.Y H:i:s'));
+        $totalSecondsDiff = abs($get_time-$current);
+        $totalMinutesDiff = $totalSecondsDiff/60;
+        //check user exists
+        $user=User::where('email', $email)->first();
+        if(!$user){
+            $data = new stdClass();
+            $data->name= $user_obj->name;
+            $data->email=$email;
+            $data->password=$password;
+            $data->phone=$user_obj->phone;
+            $data->user_type=$user_obj->user_type;
+            $data->company_name=$user_obj->name;
+            $data->sso_reference_id=$user_obj->id;
+            $this->userRegFromSsoIfNOtExists($data);
+        }
+
+        if(Auth::attempt(['email' => $email, 'password' => $password]))
+        {
+            //set cookie
+            if(Cookie::has('sso_token')){
+                Cookie::queue(Cookie::forget('sso_token'));
+            }
+            Cookie::queue(Cookie::make('sso_token', $access_token, $totalMinutesDiff));
+            //set password to session
+            if($request->session()->has('sso_password')){
+                $request->session()->forget('sso_password');
+            }
+            $request->session()->put('sso_password', $password);
+
+            return redirect()->route("home");
+        }
+
+        return abort(405);
 
     }
     //user login from sso
