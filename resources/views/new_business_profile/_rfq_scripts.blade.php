@@ -549,7 +549,7 @@
                 });
             });
 
-            $('.message-button').on('click',function(event){
+            $('.message-button, .profile_account_myrfq_box').on('click',function(event){
                 event.preventDefault();
                 let rfqId = $(this).attr("data-rfq_id");
                 let pageTitle = "{{$pageTitle}}";
@@ -584,8 +584,8 @@
                         $(unseenMessageCountClass).text('');
                         $(unseenMessageCountClass).hide();
 
-                        var html='<h6>RFQ ID <span>'+response.rfq.id+'</span></h6>';
-                            html+='<div class="titleBox">';
+                        var html='<div class="titleBox">';
+                            // html+='<h6>RFQ ID <span>'+response.rfq.id+'</span></h6>';
                             html+='<h5>'+response.rfq.title+'</h5>';
                             // html+='<span class="posted_time">'+response.rfq.created_at+'</span>';
                             if(pageTitle=="My Queries"){
@@ -752,7 +752,7 @@
                 });
             });
 
-            $('.quotation-button').on('click',function(event){
+            $('.quotation-button, .profile_account_myrfq_box').on('click',function(event){
                 event.preventDefault();
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");
@@ -807,7 +807,7 @@
 
                     }
                 });
-            });
+            });            
 
         });
 

@@ -12308,13 +12308,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	border-radius: 10px;
 	margin-bottom: 30px;
 	border: 1px solid #eee;
-	max-height: 310px;
-	min-height: 310px;
+	max-height: 290px;
+	min-height: 290px;
 	position: relative;
+	cursor: pointer;
 }
 
 .profile_account_myrfq_innerbox .profile_account_myrfq_box.active {
-	border: 1px solid #707070;
+	/* border: 1px solid #707070; */
+	background: #f0fff0;
 }
 
 .new_profile_myrfq_details_topbox h5,
@@ -12329,6 +12331,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-transform: capitalize;
+	padding-right: 15px;
 }
 
 .new_profile_myrfq_details_topbox .posted_time,
@@ -12355,10 +12358,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap {
 	text-align: right;
 	display: inline-block;
-	width: 100%;
-	position: absolute;
-	right: 15px;
-	bottom: 10px;
+	/* width: 100%; */
+    position: absolute;
+    right: 25px;
+    bottom: 38px;
+    left: 25px;
+    z-index: 99;
 }
 
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box {
@@ -16773,12 +16778,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	vertical-align: middle;
 	justify-content: center;
 	flex-flow: column wrap;
-	max-height: 305px;
-	min-height: 305px;
+	max-height: 285px;
+	min-height: 285px;
 	color: #9e9e9e;
 }
-
-.profile_account_myrfq_addPost .profile_account_myrfq_innerbox .post_new {}
 
 .profile_account_myrfq_addPost .material-icons {
 	display: block;
@@ -17014,13 +17017,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .rfq_status_wrap {
-	padding: 0 10px 15px;
+	padding: 0 10px 10px;
 }
 
 .rfq_status_wrap .status {
 	float: left;
 	border-radius: 5px;
-	border: 1px solid #000000;
+	/* border: 1px solid #000000; */
 	padding: 3px 10px 2px;
 	font-size: 12px;
 	line-height: 20px;
@@ -17030,36 +17033,46 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	background: #54a958;
 	color: #ffffff;
 }
+.rfq_status_wrap .rejected_rfq {
+	background: #f13e3e;
+	color: #ffffff;
+}
 
 .rfq_status_wrap .pending_rfq {
 	background: #d7df23;
 	color: #000000;
 }
-
-.rfq_status_wrap .more_vert {
-	float: right;
+.account_myrfq_infoBox {
+	position: relative;
 }
-
-.rfq_status_wrap .rfq_status_dropdown {
+.account_myrfq_infoBox .more_vert {
+	position: absolute;
+	right: 18px;
+	top: 14px;
+	z-index: 99;
+	height: 25px;
+}
+.account_myrfq_infoBox .rfq_status_dropdown {
 	background: #ffffff;
 	border-radius: 10px;
 	border: 1px solid #54a958;
 	max-width: 200px;
 	padding: 10px 0;
+	right: 0;
+	left: inherit !important;
 }
-
-.rfq_status_wrap .more_vert .dropdown-content li {
+.account_myrfq_infoBox .more_vert .dropdown-content li {
 	min-height: inherit;
 	line-height: normal;
 }
 
-.rfq_status_wrap .more_vert .dropdown-content li>a,
+.account_myrfq_infoBox .more_vert .dropdown-content li>a,
 .rfq_status_wrap .more_vert .dropdown-content li>span {
-	padding: 5px 20px;
+	padding: 5px 10px;
 	color: #54a958;
 }
 
-.rfq_status_wrap .more_vert .dropdown-content li>a:hover {
+.account_myrfq_infoBox .more_vert .dropdown-content li>a:hover {
 	background: #54a958;
 	color: #ffffff;
 }
@@ -17067,11 +17080,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .select_rfq_status {
 	width: 150px;
 	float: right;
-}
-
-/* Fixed side nav end */
-.products_filter_wrapper {
-	/* padding: 0 10px 0 20px; */
 }
 
 .product_wrapper .product_design_tabNab {
@@ -23434,16 +23442,16 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 		-webkit-box-pack: start;
 		-ms-flex-pack: start;
 	}
-	.profile_account_myrfq_innerbox .profile_account_myrfq_box {
+	/* .profile_account_myrfq_innerbox .profile_account_myrfq_box {
 		text-align: center;
 		min-height: auto;
 		padding-bottom: 15px;
-	}
-	.profile_account_myrfq_innerbox .account_rfq_btn_wrap {
+	} */
+	/* .profile_account_myrfq_innerbox .account_rfq_btn_wrap {
 		position: inherit;
 		bottom: inherit;
 		padding-top: 20px;
-	}
+	} */
 	.account_rfqDetailes_infoWrap p,
 	.profile_account_myrfq_box p,
 	.profile_account_poinfo_box p {

@@ -36,7 +36,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                         @if($rfqLists)
                         <div class="new_profile_account_myrfq_details">
                             <div class="new_profile_myrfq_details_topbox">
-                                <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6>
+                                {{-- <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6> --}}
                                 <h5>{{$rfqLists[0]['title']}}</h5>
                                 <span class="posted_time">{{date('Y-m-d', strtotime($rfqLists[0]['created_at']))}}</span>
                                 @if($pageTitle == "My Queries")

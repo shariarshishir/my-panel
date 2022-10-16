@@ -84,8 +84,16 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                         </div>
                                         @if($rfqLists)
                                             @foreach($rfqLists as $key => $rfq)
-                                            <div class="col s12 m6">
-                                                <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}">
+                                            <div class="col s12 m6 account_myrfq_infoBox">
+                                                 <span class="more_vert">
+                                                    <a class="dropdown-trigger" href="javascript:void(0);" data-target="rfqStatusDropdown"><i class="material-icons">more_vert</i></a>
+                                                    <ul id="rfqStatusDropdown" class="dropdown-content rfq_status_dropdown">
+                                                        <li><a href="javascript:void(0);">Remove</a></li>
+                                                        <li><a href="javascript:void(0);">Archive</a></li>
+                                                        <li><a href="javascript:void(0);">Option</a></li>
+                                                    </ul>
+                                                </span>
+                                                <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}" data-rfq_id="{{$rfq['id']}}">
                                                     <div class="rfq_status_wrap">
                                                         <div class="row">
                                                             @if(isset($rfq['pi_status']) && $rfq['pi_status'] == 0)
@@ -96,14 +104,6 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                                 <span class="status accepted_rfq">Accepted</span>
                                                             @endif
                                                             {{-- <span class="status pending_rfq">RFQ Status 1</span> --}}
-                                                            <span class="more_vert">
-                                                                <a class="dropdown-trigger" href="javascript:void(0);" data-target="rfqStatusDropdown"><i class="material-icons">more_vert</i></a>
-                                                                <ul id="rfqStatusDropdown" class="dropdown-content rfq_status_dropdown">
-                                                                    <li><a href="javascript:void(0);">Remove</a></li>
-                                                                    <li><a href="javascript:void(0);">Archive</a></li>
-                                                                    <li><a href="javascript:void(0);">Option</a></li>
-                                                                </ul>
-                                                            </span>
                                                         </div>
                                                     </div>
                                                     <h5>{{$rfq['title']}}</h5>
@@ -120,25 +120,24 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             <p>Deliver to <br/> <b>{{$rfq['destination']}}</b></p>
                                                         </div>
                                                     </div>
-                                                    <div class="account_rfq_btn_wrap" >
-                                                        <div class="rfq_btn_box">
-                                                            <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
-                                                            @if($rfq['unseen_quotation_count'] >0)
-                                                                <span class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
-                                                            @else
-                                                                <span style="display:none" class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
-                                                            @endif
-                                                        </div>
-                                                        <div class="rfq_btn_box">
-                                                            <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}">Messages</button>
-                                                            @if(($rfq['unseen_count'] - $rfq['unseen_quotation_count']) >0)
-                                                                <span  class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
-                                                            @else
-                                                                <span style="display:none" class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
-                                                            @endif
-                                                        </div>
+                                                </div>
+                                                <div class="account_rfq_btn_wrap" >
+                                                    <div class="rfq_btn_box">
+                                                        <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
+                                                        @if($rfq['unseen_quotation_count'] >0)
+                                                            <span class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                        @else
+                                                            <span style="display:none" class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                        @endif
                                                     </div>
-
+                                                    <div class="rfq_btn_box">
+                                                        <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}">Messages</button>
+                                                        @if(($rfq['unseen_count'] - $rfq['unseen_quotation_count']) >0)
+                                                            <span  class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                        @else
+                                                            <span style="display:none" class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -187,7 +186,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                         <div class="col s12 m12 l5 new_profile_account_rightsidebar_desktop">
                             <div class="new_profile_account_myrfq_details fixed-rfq-message-bar">
                                 <div class="new_profile_myrfq_details_topbox">
-                                    <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6>
+                                    {{-- <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6> --}}
                                     <div class="titleBox">
                                         <h5>{{$rfqLists[0]['title']}} </h5>
                                         {{-- <span class="posted_time">{{date('Y-m-d', strtotime($rfqLists[0]['created_at']))}}</span> --}}
