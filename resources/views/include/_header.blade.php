@@ -81,6 +81,13 @@
                                     @else
                                     <li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> Profile</a>
+                                        @if(isset($userBusinessProfiles))
+										<ul>
+                                            @foreach ($userBusinessProfiles as $userBusinessProfile)
+                                            <li><a class="@php echo($userBusinessProfile->alias == $alias) ? "active" : ""; @endphp" href="{{route('new.profile.index', $userBusinessProfile->alias)}}">{{$userBusinessProfile->business_name}}</a></li>
+                                            @endforeach
+										</ul>
+                                        @endif
 									</li>
                                     @endif
 									<li tabindex="0" itemprop="itemListElement">
