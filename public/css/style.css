@@ -12572,7 +12572,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .rfq_review_message_box {
 	display: inline-block;
 	width: 100%;
-	max-height: 250px;
+	/* max-height: 250px; */
 	overflow-y: scroll;
 }
 
@@ -18367,79 +18367,62 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.container {
 		max-width: 1440px;
 	}
-
 	.container.howWeWorkContainer .manufacture_container .container .row {
 		margin-left: 0px;
 	}
-
 	.landing_intro_wrapper {
 		padding: 100px 0 150px;
 	}
-
 	.landing_intro_wrapper h1 {
 		margin-bottom: 50px;
 		font-size: 48px;
 		line-height: 68px;
 	}
-
 	.home_intro_left .quotation_request {
 		margin-top: 60px;
 	}
-
 	.product_design_wrapper .productBox .imgBox img {
 		width: auto;
 	}
-
 	.landing_spotlight_top .spotlight_box {
 		bottom: -33px;
 	}
-
 	.landing_spotlight_infoWrap {
 		font-size: 20px;
 		line-height: 35px;
 	}
-
 	.simpleLens-thumbnails-container,
 	.details_gallery_box {
 		text-align: center;
 	}
-
 	.landing_tools_infobox {
 		padding-top: 50px;
 	}
-
 	.header_dasktop .mainNav ul li {
 		padding-left: 35px;
 	}
-
 	.mainNav ul li .material-icons {
 		padding-left: 5px;
 		margin-top: 2px;
 	}
-
 	.home_intro_video_box {
 		padding-top: 0;
 	}
-
 	.home_intro_video_box .embed-responsive-item {
 		width: 700px;
 		height: 410px;
 	}
-
 	.account_profile_box .profile_account_dev_design .product_cards .modal {
 		width: 70%;
 	}
-
 	.account_rfqDetailes_infoWrap p b,
 	.profile_account_myrfq_box p b,
 	.profile_account_poinfo_box p b {
 		font-size: 13px;
 	}
-
 	.order_management_inner_left ul {
 		padding: 0 30px 20px;
 	}
-
 	#lineitems_video,
 	.overlay-image-preview-block,
 	.edit-video-show-div video,
@@ -18462,41 +18445,32 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.container {
 		width: 1440px;
 	}
-
 	.container.howWeWorkContainer .manufacture_container .container .row {
 		margin-left: -50px;
 	}
-
 	.profile_container .container {
 		padding-left: 15px;
 	}
-
 	.header_dasktop .mainNav ul li {
 		padding-left: 30px;
 	}
-
 	.suppliers_content_wrap .industries_boxWrap {
 		justify-content: left;
 	}
-
 	.rfg_share_boxwrap .rfg_share_left {
 		width: 10% !important;
 	}
-
 	.invoice_container_wrap .shipping_details_wrap table thead tr th,
 	.invoice_container_wrap .shipping_details_wrap table tr td {
 		width: 20%;
 	}
-
 	.product_preview_wrap .product_details_imgwrap .details_gallery_box {
 		height: 535px;
 	}
-
 	.product_preview_wrap .product_details_imgwrap .details_gallery_box img {
 		height: 100%;
 		margin: 0 auto;
 	}
-
 	.product_details_wrapper .product-images a {
 		height: 100%;
 	}
@@ -18505,65 +18479,50 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.product_video_box {
 		padding-right: 100px;
 	}
-
 	.product_3d_info_box {
 		padding-top: 30px;
 	}
-
 	.mvc_produce_design_wrap .visit_studio {
 		padding-top: 50px;
 	}
-
 	.landing_tools_infobox {
 		padding-left: 85px;
 	}
-
 	.footer_bottomWrap .footer_newsletter_bar {
 		width: 665px !important;
 		float: right;
 	}
-
 	.footer_newsletter_bar .footer_buttonWrap .industry_textbox {
 		width: 465px;
 	}
-
 	.landing_request_wrap img {
 		max-width: 800px;
 	}
-
 	.landing_provide_wrap h3 {
 		max-width: 300px;
 	}
-
 	.landing_provide_wrap .provide_items_box:last-child {
 		padding-left: 100px;
 	}
-
 	.landing_page_wrapper .home_intro_right {
 		text-align: right;
 	}
-
 	.invoice_container_wrap #shipping-details-table-body .select2-container,
 	.invoice_container_wrap table #shipping-details-table-body input {
 		width: 178px !important;
 	}
-
 	.user-profile-info-block .user_my_order_btnwrap {
 		top: -94px;
 	}
-
 	.sourcing_img_box img {
 		max-width: 580px;
 	}
-
 	.home_intro_video_box .embed-responsive-item {
 		width: 600px;
 	}
-
 	.rfq_content_box .rfq_profile_detail .responses_box_wrap .row {
 		margin: 0 -10px;
 	}
-
 	.faq_contentinfo_wrapper {
 		padding: 0 10px;
 	}
@@ -18579,22 +18538,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.why_us.manufacture .manufacture_container .row .col {
 		margin: 0;
 	}
-
 	.why_us.manufacture .manufacture_container .row .col.animate_why_us_box_3 {
 		margin-top: 20px;
 	}
-
 	.why_us.manufacture .manufacture_container .middle_text_card {
 		margin-left: 40px;
 	}
-
 	/* ************* How We Work css end ************* */
 	.blog_detail_info_wrap {
 		padding-right: 30px;
 	}
-
 	#mb_about .ending {
 		max-width: 650px;
+	}
+	.rfq_review_message_box {
+		height: 420px;
 	}
 }
 
@@ -18968,6 +18926,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.buyer_designer_inner_infobox .designer_bottom_box .talk_to_me a:visited {
 		font-size: 12px;
 		white-space: nowrap;
+	}
+	  .rfq_review_message_box {
+		height: 250px;
 	}
 }
 
@@ -19537,7 +19498,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.mainnav_wrap {
 		padding-top: 20px !important;
 	}
-
 	.header_search_bar {
 		margin-top: 3px;
 		margin-right: 10px;
@@ -19712,6 +19672,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 		height: 170px;
 		min-height: 170px;
 	}
+
+	.profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box .rfq_btn {
+		padding: 8px 5px 6px;
+	}
 }
 
 @media only screen and (max-width: 1024px) {
@@ -19772,51 +19736,37 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.search_results_wrap .search_results_itembox .search_results_right {
 		padding-top: 20px;
 	}
-
-	/* .search_results_wrap .search_results_itembox h4 {
-        font-size: 20px;
-        line-height: 29px;
-    } */
 	.home_intro_left {
 		padding-right: 0;
 		line-height: 24px;
 		font-size: 16px;
 	}
-
 	.home_intro_right {
 		padding-top: 20px;
 	}
-
 	.product_upload_innerBox .uom_box {
 		width: 150px;
 	}
-
 	.product_design_wrapper .price_negotiable {
 		font-size: 11px;
 	}
-
 	.landing_page_wrapper {
 		font-size: 14px;
 		line-height: 22px;
 	}
-
 	.home_intro_video_box {
 		padding-top: 0;
 	}
-
 	.home_intro_video_box .embed-responsive-item {
 		height: 260px;
 	}
-
 	/* ************* About us page css start ************* */
 	#mb_about .about_us .section_title h1 {
 		font-size: 30px;
 	}
-
 	#mb_about .work_process .py-50 {
 		padding-bottom: 20px;
 	}
-
 	/* ************* About us page css end ************* */
 }
 
@@ -19824,42 +19774,33 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.header_wrap.fixed {
 		padding: 15px 0 10px;
 	}
-
 	.logo {
 		padding: 0 20px;
 	}
-
 	.logo img {
 		margin-top: 0;
 		width: 100%;
 	}
-
 	.header_dasktop {
 		display: none;
 	}
-
 	.mobile_header {
 		display: block;
 	}
-
 	.profile_container .profile_leftCol,
 	body {
 		font-size: 14px;
 		line-height: 22px;
 	}
-
 	.account_profile_wrapper .tabcontent .quantity {
 		font-size: 16px;
 	}
-
 	.mainNav_mobile_wrap {
 		padding-left: 0 !important;
 	}
-
 	.mobile_top_right {
 		padding-right: 0 !important;
 	}
-
 	.login_button_wrap .signin,
 	.login_button_wrap .btn-forgot-password,
 	.login_button_wrap .btn_green {
@@ -19869,88 +19810,70 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 		font-size: 14px;
 		padding: 0px 10px;
 	}
-
 	.registration-content {
 		padding-bottom: 30px;
 	}
-
 	.modal {
 		width: 90%;
 	}
-
 	.banner_search .search-btn {
 		width: 60px;
 		height: 53px;
 		line-height: 54px;
 	}
-
 	.landing_intro_wrapper {
 		padding: 0px 0 60px;
 	}
-
 	.landing_sourcing_wrap .sourcing_info_box {
 		padding: 20px 0;
 	}
-
 	.banner_search .material-icons {
 		margin-top: 2px;
 	}
-
 	.slick-initialized .productBox .imgBox {
 		min-height: 190px;
 	}
-
 	.suppliers_content_wrap .industry_infoBox {
 		width: 50%;
 	}
-
 	.slick-initialized .productBox .imgBox {
 		text-align: center;
 	}
-
 	.productBox .imgBox img {
 		display: inline-block;
 		box-shadow: none;
 	}
-
 	.product_wrapper .imgBox .favorite {
 		top: 0;
 		right: 0;
 	}
-
 	.profile_bannerwrap .banner_overlay {
 		padding-bottom: 65px;
 	}
-
 	.profile_bannerwrap h1 {
 		margin: 10px 0;
 		font-size: 30px;
 		line-height: 35px;
 	}
-
 	.profile_bannerwrap h2 {
 		font-size: 16px;
 		display: none;
 	}
-
 	.profile_leftCol .left_top .btn_supplier,
 	.leftCol_wrap .left_top .btn_supplier {
 		margin-top: 10px !important;
 	}
-
 	.profile-block .profile-image-block,
 	.profile-block .profile-info-block,
 	.account_profile_wrapper,
 	.profile_leftCol {
 		width: 100% !important;
 	}
-
 	.profile_container .profile_leftCol {
 		margin-bottom: 50px;
 		border-radius: 10px;
 		margin-top: 50px;
 	}
-
 	.profile_bannerwrap .erified {
 		background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/mark_icon.png") no-repeat left 14px;
 		background-size: 40px;
@@ -19958,82 +19881,66 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 		font-size: 16px;
 		right: 10px;
 	}
-
 	.profile_bannerwrap .edit_profile_option {
 		top: 48px;
 		right: 20px;
 	}
-
 	.user-profile-basic-info-block .my_businesses_wrap .col.m4 {
 		width: 50% !important;
 	}
-
 	.account_profile_wrapper .tabcontent {
 		padding: 30px 0 0;
 	}
-
 	.user-profile-info-block,
 	.profile-image-block .change_photo,
 	.user-profile-basic-info-block .profile_image {
 		text-align: center;
 	}
-
 	.user-profile-basic-info-block .profile_image img {
 		height: 180px;
 		display: inline-block;
 		width: auto;
 	}
-
 	.account_profile_wrapper .tabcontent .top_titleWrap h3 {
 		text-align: left;
 	}
-
 	.rfq_content_box .rfq_info_wrap {
 		text-align: center;
 		padding-top: 0;
 	}
-
 	.rfq_top_navbar ul li {
 		margin: 5px;
 	}
-
 	.rfq_content_box {
 		padding: 0;
 		box-shadow: none;
 		margin-left: 0;
 		margin-right: 0;
 	}
-
 	.blog_container {
 		margin: 0;
 	}
-
 	.rfq_content_box .rfq_profile_detail {
 		padding: 15px;
 	}
-
 	#homepage .tbm {
 		margin-bottom: 50px;
 	}
-
 	#homepage .htbcont-lft {
 		margin: 0 -20px;
 		border-right: none;
 		line-height: 25px;
 	}
-
 	#homepage .htbcont {
 		margin-bottom: 50px;
 		padding-bottom: 30px;
 	}
-
 	#homepage .tbm li a:hover,
 	#homepage .tbm li a.active,
 	#homepage .tbm li a:first-child:hover {
 		border-radius: 6px 6px 0 0;
 		font-size: 18px;
 	}
-
 	#homepage .delivaryTime .guarantee p,
 	#homepage .homebHd-sm,
 	#homepage .section-heading h3,
@@ -20041,96 +19948,76 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 		font-size: 20px;
 		line-height: 28px;
 	}
-
 	#homepage .perform-header h1,
 	#homepage .delivaryTime .ontimeDescription .description h2,
 	#homepage .banner .description h2 {
 		font-size: 30px !important;
 		line-height: 40px !important;
 	}
-
 	#homepage .delivaryTime .guarantee h3 {
 		font-size: 25px;
 	}
-
 	#homepage .homepgp {
 		font-size: 18px;
 		line-height: 28px;
 	}
-
 	#homepage .tbm li a {
 		font-size: 16px;
 		padding: 15px 20px;
 	}
-
 	#homepage .demoButton .content p {
 		font-size: 22px;
 		line-height: 35px;
 	}
-
 	.profile_tab_menu ul,
 	.profile-menu-list ul {
 		text-align: center;
 	}
-
 	.profile_wholesaler_tab_menu ul li,
 	.account_profile_wrapper .profile_tab_menu .tabs .tab {
 		margin: 3px;
 	}
-
 	.home_intro_left {
 		padding-top: 0;
 	}
-
 	.profile_container {
 		padding: 0;
 	}
-
 	.account_profile_wrapper {
 		padding: 0 !important;
 	}
-
 	.mdc-layout-grid.dt-table .mdc-layout-grid__inner .mdc-cell.mdc-layout-grid__cell--span-12 {
 		overflow: auto;
 		width: 100%;
 	}
-
 	.profile_wholesaler_inner {
 		padding: 30px 0 0;
 	}
-
 	.account_profile_wrapper .order-list-block {
 		margin: 30px 0 0;
 	}
-
 	.seller-product-list .mdc-layout-grid__inner .mdc-layout-grid__cell--span-8,
 	.seller-product-list .mdc-layout-grid__inner .mdc-layout-grid__cell--span-4 {
 		float: none;
 	}
-
 	div.dataTables_wrapper div.dataTables_info {
 		text-align: center;
 	}
-
 	div.dataTables_wrapper div.dataTables_paginate {
 		text-align: center !important;
 		padding-top: 10px;
 	}
-
 	.account_profile_wrapper .editBox .btn_green_White .btn_edit_white {
 		display: none;
 	}
-
 	.account_profile_wrapper .editBox .btn_green_White {
 		min-width: inherit;
 	}
-
 	.account_profile_wrapper .editBox .btn_green_White .btn_icon {
 		border-radius: 8px;
 		width: 35px;
 		line-height: 38px;
 	}
-
 	.account_profile_wrapper .editBox .btn_green_White .material-icons {
 		font-size: 16px;
 		line-height: 38px;
