@@ -82,9 +82,9 @@
                                     <li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> Profile</a>
                                         @if(isset($userBusinessProfiles))
-										<ul>
+										<ul class="profile_sub_menu">
                                             @foreach ($userBusinessProfiles as $userBusinessProfile)
-                                            <li><a class="@php echo($userBusinessProfile->alias == $alias) ? "active" : ""; @endphp" href="{{route('new.profile.index', $userBusinessProfile->alias)}}">{{$userBusinessProfile->business_name}}</a></li>
+                                            <li><a class="@php echo($userBusinessProfile->alias == $alias) ? "active" : ""; @endphp" href="{{route('new.profile.index', $userBusinessProfile->alias)}}"><i class="material-icons">check</i>  {{$userBusinessProfile->business_name}}</a></li>
                                             @endforeach
 										</ul>
                                         @endif
@@ -274,9 +274,27 @@
 									</span>
 								</a>
 								<ul id="profile-dropdown-mobile" class="dropdown-content card" itemscope itemtype="https://schema.org/ListItem">
-									<li tabindex="0" itemprop="itemListElement">
+									{{-- <li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> Profile</a>
+									</li> --}}
+
+									@if(auth()->user()->user_type == "designer")
+									<li tabindex="0" itemprop="itemListElement">
+										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('single.designer.details', auth()->user()->id) }}"><i class="material-icons">person_outline</i> Profile</a>
 									</li>
+                                    @else
+                                    <li tabindex="0" itemprop="itemListElement">
+										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> Profile</a>
+                                        @if(isset($userBusinessProfiles))
+										<ul class="profile_sub_menu">
+                                            @foreach ($userBusinessProfiles as $userBusinessProfile)
+                                            <li><a class="@php echo($userBusinessProfile->alias == $alias) ? "active" : ""; @endphp" href="{{route('new.profile.index', $userBusinessProfile->alias)}}"><i class="material-icons">check</i>  {{$userBusinessProfile->business_name}}</a></li>
+                                            @endforeach
+										</ul>
+                                        @endif
+									</li>
+                                    @endif
+
 									<li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Settings" href="{{env('SSO_URL').'/profile'}}"><i class="material-icons">settings</i> Settings</a>
 									</li>
