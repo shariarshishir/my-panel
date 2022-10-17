@@ -7202,6 +7202,8 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     width: 300px !important;
     border-radius: 10px;
     padding: 0 !important;
+    right: 0px !important;
+    left: inherit !important;
 }
 
 .user-block-mobile {
@@ -19288,19 +19290,23 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .header_wrap .user-block .profile_sub_menu li {
     min-height: inherit;
-    margin: 3px 0;
+    margin: 0px;
     display: inline-block;
     width: 100%;
 }
 .header_wrap .user-block .profile_sub_menu a {
-    padding: 4px 10px 4px 35px;
+    padding: 10px 10px 10px 16px;
     color: #757575;
 }
-.header_wrap .user-block .profile_sub_menu a:hover,
 .header_wrap .user-block .profile_sub_menu a.active {
     background: #eee !important;
     color: #26a69a;
 }
+.header_wrap .user-block .profile_sub_menu a:hover {
+    background: #eee !important;
+    color: #757575;
+}
+
 .header_wrap .user-block .profile_sub_menu a .material-icons {
     float: left;
     width: 20px;
@@ -25581,7 +25587,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .user-block-mobile ul.dropdown-content {
         width: 200px !important;
     }
-    .dropdown-content li>a, 
+    .dropdown-content li>a,
     .dropdown-content li>span {
         font-size: 14px;
     }

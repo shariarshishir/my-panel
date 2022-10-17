@@ -20,12 +20,13 @@ class NewRFQHasPostedListener implements ShouldQueue
     public function handle($event)
     {
         $admin=Admin::find(1);
+
         //send push notification to admin for new user registration
-        $fcmToken = $admin->fcm_token;
-        $title = "New RFQ have been posted";
-        $message = "A new RFQ is awating for review. Please review the RFQ and give feedback as soon as possible";
-        $action_url=route('admin.rfq.index',$event->user->id);
-        $this->pushNotificationSend($fcmToken,$title,$message,$action_url);
+        // $fcmToken = $admin->fcm_token;
+        // $title = "New RFQ have been posted";
+        // $message = "A new RFQ is awating for review. Please review the RFQ and give feedback as soon as possible";
+        // $action_url=route('admin.rfq.index',$event->user->id);
+        // $this->pushNotificationSend($fcmToken,$title,$message,$action_url);
 
         //mail to admin
         Mail::to('success@merchantbay.com')->send(new NewRFQPostMailToAdmin($event->user));

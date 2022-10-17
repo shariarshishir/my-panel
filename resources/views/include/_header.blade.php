@@ -84,7 +84,17 @@
                                         @if(isset($userBusinessProfiles))
 										<ul class="profile_sub_menu">
                                             @foreach ($userBusinessProfiles as $userBusinessProfile)
-                                            <li><a class="@php echo($userBusinessProfile->alias == $alias) ? "active" : ""; @endphp" href="{{route('new.profile.index', $userBusinessProfile->alias)}}"><i class="material-icons">check</i>  {{$userBusinessProfile->business_name}}</a></li>
+                                            @php
+                                                $menuActiveClass = "";
+                                                $menuActiveIcon = false;
+                                                if(isset($alias)) {
+                                                    if($userBusinessProfile->alias == $alias) {
+                                                        $menuActiveClass = "active";
+                                                        $menuActiveIcon = true;
+                                                    }
+                                                }
+                                            @endphp
+                                            <li><a class="{{$menuActiveClass}}" href="{{route('new.profile.index', $userBusinessProfile->alias)}}"><i class="material-icons">{{ $menuActiveIcon ? 'check' : '' }}</i> {{$userBusinessProfile->business_name}}</a></li>
                                             @endforeach
 										</ul>
                                         @endif
@@ -288,7 +298,17 @@
                                         @if(isset($userBusinessProfiles))
 										<ul class="profile_sub_menu">
                                             @foreach ($userBusinessProfiles as $userBusinessProfile)
-                                            <li><a class="@php echo($userBusinessProfile->alias == $alias) ? "active" : ""; @endphp" href="{{route('new.profile.index', $userBusinessProfile->alias)}}"><i class="material-icons">check</i>  {{$userBusinessProfile->business_name}}</a></li>
+                                            @php
+                                                $menuActiveClass = "";
+                                                $menuActiveIcon = false;
+                                                if(isset($alias)) {
+                                                    if($userBusinessProfile->alias == $alias) {
+                                                        $menuActiveClass = "active";
+                                                        $menuActiveIcon = true;
+                                                    }
+                                                }
+                                            @endphp
+                                            <li><a class="{{$menuActiveClass}}" href="{{route('new.profile.index', $userBusinessProfile->alias)}}"><i class="material-icons">{{ $menuActiveIcon ? 'check' : '' }}</i> {{$userBusinessProfile->business_name}}</a></li>
                                             @endforeach
 										</ul>
                                         @endif
