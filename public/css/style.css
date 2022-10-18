@@ -12766,17 +12766,30 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 15px;
     color: #1e1e1e;
 }
-
+.profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_top_content {
+    position: relative;
+    height: 255px;
+    box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
+}
+.profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_top_content .rfq_img_content .rfq_img_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
 .profile_account_myrfq_innerbox .profile_account_myrfq_box {
-    padding: 20px 20px 60px;
+    /* padding: 20px 20px 60px; */
     -webkit-box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
     -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.16);
     box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
-    border-radius: 10px;
-    margin-bottom: 30px;
+    border-radius: 2px;
     border: 1px solid #eee;
-    max-height: 290px;
-    min-height: 290px;
+    /* margin-bottom: 30px;
+    max-height: 445px;
+    min-height: 445px; */
     position: relative;
     cursor: pointer;
 }
@@ -12800,6 +12813,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     text-transform: capitalize;
     padding-right: 15px;
 }
+.profile_account_myrfq_innerbox .profile_account_myrfq_box h5 {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    color: #fff;
+}
 
 .new_profile_myrfq_details_topbox .posted_time,
 .profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time {
@@ -12808,7 +12827,30 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time {
-    margin-bottom: 10px;
+    padding-bottom: 15px;
+    padding-top: 25px;
+    padding-left: 15px;
+}
+.profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time i {
+    font-size: 12px;
+    vertical-align: middle;
+}
+.profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time .posted_time_content {
+    vertical-align: middle;
+}
+.profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details {
+    margin: 0px;
+    padding: 0px 7px 25px;
+}
+.profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details p {
+    margin-bottom: 0px;
+}
+.profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details .details_label {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details .details_value b {
+    font-size: 12px;
 }
 
 .btn_accountrfq_info .material-icons {
@@ -12824,30 +12866,46 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap {
     text-align: right;
-    display: inline-block;
+    display: flex;
     /* width: 100%; */
     position: absolute;
-    right: 25px;
-    bottom: 38px;
-    left: 25px;
+    right: 23px;
+    bottom: 7px;
+    left: 23px;
     z-index: 99;
+    height: 50px;
 }
 
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box {
     display: inline-block;
-    width: auto;
-    margin-left: 10px;
+    /* width: auto;
+    margin-left: 10px; */
     position: relative;
+    margin: 0px;
+    padding: 0px;
 }
 
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box:first-child {
-    margin-left: 0;
+    /* margin-left: 0; */
 }
 
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box .rfq_btn {
-    padding: 8px 10px 6px;
+    padding: 0px;
     min-width: inherit;
-    margin: 0 0 5px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
+    background: #fff;
+}
+.profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box .rfq_btn:hover {
+    background: #54a958;
+    color: #fff;
 }
 
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box span {
@@ -17648,8 +17706,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 /* New css start */
 .profile_account_myrfq_addPost {
     border: 2px dashed #878787;
-    margin-bottom: 30px;
-    border-radius: 10px;
+    margin-bottom: 28px;
+    border-radius: 2px;
 }
 
 .profile_account_myrfq_addPost .post_new {
@@ -17659,8 +17717,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     vertical-align: middle;
     justify-content: center;
     flex-flow: column wrap;
-    max-height: 285px;
-    min-height: 285px;
+    max-height: 435px;
+    min-height: 435px;
     color: #9e9e9e;
 }
 
@@ -17932,15 +17990,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 .rfq_status_wrap {
     padding: 0 10px 10px;
+    position: absolute;
+    top: 0px;
+    left: 14px;
+    z-index: 9;
 }
 
 .rfq_status_wrap .status {
     float: left;
-    border-radius: 5px;
+    border-radius: 0px;
     /* border: 1px solid #000000; */
-    padding: 3px 10px 2px;
-    font-size: 12px;
-    line-height: 20px;
+    padding: 0px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
 }
 
 .rfq_status_wrap .accepted_rfq {
@@ -17953,11 +18018,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .rfq_status_wrap .pending_rfq {
-    background: #d7df23;
-    color: #000000;
+    background: #de1a1a;
+    color: #fff;
 }
 .account_myrfq_infoBox {
     position: relative;
+    margin-bottom: 30px;
+    height: 445px;
 }
 .account_myrfq_infoBox .more_vert {
     position: absolute;
@@ -17965,6 +18032,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     top: 14px;
     z-index: 99;
     height: 25px;
+}
+.account_myrfq_infoBox .more_vert a:link,
+.account_myrfq_infoBox .more_vert a:visited,
+.account_myrfq_infoBox .more_vert a:active {
+    color: #fff;
 }
 .account_myrfq_infoBox .rfq_status_dropdown {
     background: #ffffff;
