@@ -128,7 +128,19 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                         <div class="rfq_img_content">
                                                             <div class="rfq_img_overlay"></div>
                                                             @if(isset($rfq['images'][0]['image']))
-                                                            <center><img src="{{$rfq['images'][0]['image']}}" alt="RFQ Image" style="height: 255px;" /></center>
+                                                                @php
+                                                                    $imgFullpath = explode('/', $rfq['images'][0]['image']);
+                                                                    $imgExt = end($imgFullpath);
+                                                                @endphp
+                                                                @if(pathinfo($imgExt, PATHINFO_EXTENSION) == 'pdf' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'PDF')
+                                                                    <span class="pdf_icon">&nbsp;</span>
+                                                                @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'doc' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'docx')
+                                                                    <span class="doc_icon">&nbsp;</span>
+                                                                @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'xlsx' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'xls')
+                                                                    <span class="xlsx_icon">&nbsp;</span>
+                                                                @else
+                                                                    <center><img src="{{$rfq['images'][0]['image']}}" alt="RFQ Image" style="height: 255px;" /></center>
+                                                                @endif
                                                             @endif
                                                         </div>
                                                         <h5>{{$rfq['title']}}</h5>
@@ -215,7 +227,10 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
 
 
                         @if($rfqLists)
-                        <div class="col s12 m12 l5 new_profile_account_rightsidebar_desktop" style="display: none;">
+                        <div class="col s12 m12 l5 new_profile_account_rightsidebar_desktop rfq_chat_box_wrapper" style="display: none;">
+                            <div class="close_rfq_chat_box">
+                                <a href="javascript:void(0);" class="rfq_chat_box_close_trigger"><i class="material-icons">close</i></a>
+                            </div>
                             <div class="new_profile_account_myrfq_details fixed-rfq-message-bar">
                                 <div class="new_profile_myrfq_details_topbox">
                                     {{-- <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6> --}}

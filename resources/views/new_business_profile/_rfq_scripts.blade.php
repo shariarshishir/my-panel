@@ -565,6 +565,7 @@
                     success: function (response) {
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
+                        $(".rfq_chat_box_wrapper").show();
 
                         $('.quotation_tab').attr("data-rfq_id",rfqId);
                         $('.my_quotation_tab').attr("data-rfq_id",rfqId);
@@ -599,7 +600,7 @@
                             html+='<a class="accountrfq_btn" href="javascript:void(0);" onclick="">Show More</a>';
                             html+='</div>';
                             html+='<div id="accountRfqDetailesInfo" class="account_rfqDetailes_infoWrap" style="display: none;">';
-                            
+
                             if(pageTitle=="My Queries")
                             {
                                 html+='<div class="row">';
@@ -767,6 +768,7 @@
                     success: function (response) {
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
+                        $(".rfq_chat_box_wrapper").show();
 
                         for(var i=0;i<response.quotations.length;i++){
                             var html ='<div class="row">';
@@ -807,9 +809,13 @@
 
                     }
                 });
-            });            
+            });
 
         });
+
+        $(".rfq_chat_box_close_trigger").click(function(){
+            $(this).closest(".rfq_chat_box_wrapper").hide();
+        })
 
         $('.btn_view_detail').on('click',function(event){
             event.preventDefault();

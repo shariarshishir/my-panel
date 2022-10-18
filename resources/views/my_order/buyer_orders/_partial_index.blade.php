@@ -4,6 +4,7 @@
             <thead class="cf">
                 <tr >
                     <th>created_at</th>
+                    <th class="center-align">Image</th>
                     <th class="center-align">Order Id</th>
                     <th class="center-align">Delivery Date</th>
                     <th class="center-align">Progress</th>
@@ -20,6 +21,23 @@
                     @endforeach
                     <tr>
                         <td>{{$po->created_at}}</td>
+                        <td>
+                            @if(isset($po->rfq_img))
+                                @php
+                                    $imgFullpath = explode('/', $po->rfq_img);
+                                    $imgExt = end($imgFullpath);
+                                @endphp
+                                @if(pathinfo($imgExt, PATHINFO_EXTENSION) == 'pdf' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'PDF')
+                                    <span class="pdf_icon">&nbsp;</span>
+                                @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'doc' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'docx')
+                                    <span class="doc_icon">&nbsp;</span>
+                                @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'xlsx' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'xls')
+                                    <span class="xlsx_icon">&nbsp;</span>
+                                @else
+                                    <img src="{{$po->rfq_img}}" alt="" style="width: 100px;" />
+                                @endif
+                            @endif
+                        </td>
                         <td data-title="Invoice Id">{{ $po->proforma_id }}</td>
                         <td data-title="Date">{{ $po->shipping_date }}</td>
                         <td>
