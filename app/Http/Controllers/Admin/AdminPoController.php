@@ -143,6 +143,7 @@ class AdminPoController extends Controller
             $response = Http::get(env('RFQ_APP_URL').'/api/quotation/'.$request->input('generated_po_from_rfq'));
             $rfqdata = $response->json();
             $rfqInfo = $rfqdata['data']['data'];
+            //dd($rfqInfo['images'][0]['image']);
 
         // try {
             $data = new Proforma;
@@ -150,6 +151,7 @@ class AdminPoController extends Controller
             $data->business_profile_id = $request->input('business_profile_id');
             $data->generated_po_from_rfq = $request->input('generated_po_from_rfq');
             $data->rfq_title = $rfqInfo['title'];
+            $data->rfq_img = $rfqInfo['images'][0]['image'];
             $data->proforma_id = $request->input('po_id');
             $data->proforma_date = $request->input('po_date');
             $data->shipping_date = $request->input('shipping_date');

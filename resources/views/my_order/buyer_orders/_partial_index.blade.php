@@ -6,7 +6,7 @@
                     <th>created_at</th>
                     <th class="center-align">Order Id</th>
                     <th class="center-align">Delivery Date</th>
-                    <th class="center-align">Delivery Status</th>
+                    <th class="center-align">Progress</th>
                     <th class="center-align">Payment Status</th>
                     <th class="center-align">Action</th>
                 </tr>

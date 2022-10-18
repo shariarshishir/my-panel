@@ -35,15 +35,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        //business profile for the auth user
-        view()->composer('include._header', function($view) {
-            if(auth()->check())
-            {
-                $businessProfiles = BusinessProfile::withTrashed()->where('user_id',auth()->id())->get();
-                $view->with(['userBusinessProfiles' => $businessProfiles]);
-            }
-        });
-
         //product tags
         view()->composer(['new_business_profile.manufacturer_products.index','new_business_profile.wholesaler_products.index','new_business_profile.create_rfq_modal','business_profile.show','business_profile._edit_modal_data','wholesaler_profile.products.index','product.details','product.manufactrue_product_details','rfq.create','rfq.create_from_product','rfq._create_rfq_form_modal','rfq._edit_rfq_modal','new_business_profile._product_filter', 'new_business_profile._rfq_filter', 'new_business_profile._rfq_filter_mobile', 'new_business_profile.business_profileinfo_edit._edit_company_overview_modal', 'samples.index'], function($view){
             $product_tags=ProductTag::get(['id','name']);
@@ -74,7 +65,11 @@ class ViewServiceProvider extends ServiceProvider
                 $userNotifications = auth()->user()->unreadNotifications->whereNotIn('type','App\Notifications\BuyerWantToContact')->where('read_at',NULL);
                 $response = Http::get(env('RFQ_APP_URL').'/api/notifications/user/'.auth()->user()->sso_reference_id);
                 $messageCenterNotifications = $response->json();
-                $view->with(['userNotifications' => $userNotifications,'messageCenterNotifications' => $messageCenterNotifications]);
+
+                //business profile for the auth user
+                $businessProfiles = BusinessProfile::withTrashed()->where('user_id',auth()->id())->get();
+
+                $view->with(['userNotifications' => $userNotifications,'messageCenterNotifications' => $messageCenterNotifications, 'userBusinessProfiles' => $businessProfiles]);
             }
 
         });
