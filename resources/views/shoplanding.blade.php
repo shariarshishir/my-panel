@@ -337,6 +337,6 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
     </div>
 
     @include('new_business_profile.create_rfq_modal')
-    @include('new_business_profile._rfq_scripts')
+    @include('new_business_profile._rfq_landing_scripts')
     @include('new_business_profile.share_modal')
 @endsection
