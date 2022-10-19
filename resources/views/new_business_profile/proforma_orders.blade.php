@@ -141,7 +141,7 @@ $searchInput = isset($_REQUEST['poSearchInput']) ? $_REQUEST['poSearchInput'] : 
                                                                 <p>Total Price <br/> <b>{{$item->tax_total_price}}</b></p>
                                                             </div>
                                                             @if($proformaCount > 1)
-                                                            <p style="position:absolute;bottom:28px;right:35px;color:#54a958;">+ has more line item</p>
+                                                            <span class="moreItem">+ has more line item</span>
                                                             @endif
                                                             @php
                                                                 if($i == 0) {

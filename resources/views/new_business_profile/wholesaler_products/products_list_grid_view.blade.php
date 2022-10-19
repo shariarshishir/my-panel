@@ -1,7 +1,7 @@
 <div class="row product-list">
     @if($products->count() > 0)
         @foreach ($products  as $product)
-        <div class="col s6 m4 l3 product_item_box">
+        <div class="col s6 m4 product_item_box">
             <div class="productBox">
                 <div class="inner_productBox">
                     <a href="javascript:void(0);" onclick="editproduct('{{ $product->sku }}')">

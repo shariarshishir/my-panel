@@ -49,23 +49,23 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                 <div id="accountRfqDetailesInfoMobile" class="account_rfqDetailes_infoWrap" style="display: none;">
                                     @if($pageTitle == "My Queries")
                                     <div class="row">
-                                        <div class="col s6 m6 l5">
+                                        <div class="col s6 m6">
                                             <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
                                             <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
                                         </div>
-                                        <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
-                                        <div class="col s6 m6 l5">
+                                        {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
+                                        <div class="col s6 m6">
                                             <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
                                         </div>
                                     </div>
                                     @else
                                     <div class="row">
-                                        <div class="col s6 m6 l5">
+                                        <div class="col s6 m6">
                                             <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
                                             <p>Target Price <br/> <b>{{$rfqLists[0]['unit_price']}} / {{$rfqLists[0]['unit']}}</b></p>
                                         </div>
-                                        <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
-                                        <div class="col s6 m6 l5">
+                                        {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
+                                        <div class="col s6 m6">
                                             <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
                                             <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
                                         </div>
@@ -298,12 +298,12 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             </div>
                                                             @else
                                                             <div class="row">
-                                                                <div class="col s6 m6 l5">
+                                                                <div class="col s6 m6">
                                                                     <p>Quantity <br/> <b>{{$rfq['quantity']}} pcs</b></p>
                                                                     <p>Target Price <br/> <b>{{$rfq['unit_price']}} / {{$rfq['unit']}}</b></p>
                                                                 </div>
-                                                                <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
-                                                                <div class="col s6 m6 l5">
+                                                                {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
+                                                                <div class="col s6 m6">
                                                                     <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</b></p>
                                                                     <p>Deliver to <br/> <b>{{$rfq['destination']}}</b></p>
                                                                 </div>
@@ -408,23 +408,23 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             <div id="accountRfqDetailesInfo" class="account_rfqDetailes_infoWrap" style="display: none;">
                                                 @if($pageTitle == "My Queries")
                                                 <div class="row">
-                                                    <div class="col s6 m6 l5">
+                                                    <div class="col s6 m6">
                                                         <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
                                                         <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
                                                     </div>
-                                                    <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
-                                                    <div class="col s6 m6 l5">
+                                                    {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
+                                                    <div class="col s6 m6">
                                                         <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
                                                     </div>
                                                 </div>
                                                 @else
                                                 <div class="row">
-                                                    <div class="col s6 m6 l5">
+                                                    <div class="col s6 m6">
                                                         <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
                                                         <p>Target Price <br/> <b>{{$rfqLists[0]['unit_price']}} / {{$rfqLists[0]['unit']}}</b></p>
                                                     </div>
-                                                    <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
-                                                    <div class="col s6 m6 l5">
+                                                    {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
+                                                    <div class="col s6 m6">
                                                         <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
                                                         <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
                                                     </div>

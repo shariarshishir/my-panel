@@ -12215,12 +12215,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .profile_account_innerinfo_wrap {
     padding: 50px 0 0;
 }
-
+.account_item_menu ul {
+    text-align: center;
+}
 .account_item_menu ul li {
     border: 1px solid #707070;
     border-radius: 10px;
     margin-bottom: 20px;
-    max-width: 170px;
+    width: 140px;
+    display: inline-block;
 }
 
 .account_item_menu ul li:hover,
@@ -12231,7 +12234,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_item_menu ul li a:link,
 .account_item_menu ul li a:active,
 .account_item_menu ul li a:visited {
-    padding: 20px;
+    padding: 15px;
     display: block;
 }
 
@@ -12292,46 +12295,46 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_item_menu li.profile_insight .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-insights-non-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 38px;
 }
 
 .account_item_menu li.profile_insight.active .icon_img,
 .account_item_menu li.profile_insight:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-insights-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 38px;
 }
 
 .account_item_menu li.profile .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-non-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 38px;
 }
 
 .account_item_menu li.profile.active .icon_img,
 .account_item_menu li.profile:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 38px;
 }
 
 .account_item_menu li.profile_explore .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/explore-non-active.png")
         no-repeat center center;
-    background-size: 55px;
+    background-size: 50px;
 }
 
 .account_item_menu li.profile_explore.active .icon_img,
 .account_item_menu li.profile_explore:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/explore-active.png")
         no-repeat center center;
-    background-size: 55px;
+    background-size: 50px;
 }
 
 .account_item_menu li.profile_my_rfq .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/my-rfq-non-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 40px;
     height: 60px;
 }
 
@@ -12339,20 +12342,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_item_menu li.profile_my_rfq:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/my-rfq-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 40px;
 }
 
 .account_item_menu li.profile_pos_pending .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/pending-non-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 40px;
 }
 
 .account_item_menu li.profile_pos_pending.active .icon_img,
 .account_item_menu li.profile_pos_pending:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/Pending-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 40px;
 }
 
 .account_item_menu li.profile_pos_ongoing .icon_img {
@@ -12371,20 +12374,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_item_menu li.profile_pos_shipped .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/shipped-non-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 40px;
 }
 
 .account_item_menu li.profile_pos_shipped.active .icon_img,
 .account_item_menu li.profile_pos_shipped:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/shipped-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 40px;
 }
 
 .account_item_menu li.profile_dev_designs .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/designs-non-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 40px;
     height: 52px;
 }
 
@@ -12392,13 +12395,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_item_menu li.profile_dev_designs:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/designs-active.png")
         no-repeat center center;
-    background-size: 45px;
+    background-size: 40px;
 }
 
 .account_item_menu li.profile_dev_tech .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/tech-pack-non-active.png")
         no-repeat center center;
-    background-size: 40px;
+    background-size: 35px;
     height: 80px;
 }
 
@@ -12406,13 +12409,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_item_menu li.profile_dev_tech:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/tech-pack-active.png")
         no-repeat center center;
-    background-size: 40px;
+    background-size: 35px;
 }
 
 .account_item_menu li.profile_dev_supplyChain .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/supply-chain-non-active.png")
         no-repeat center center;
-    background-size: 50px;
+    background-size: 40px;
     height: 50px;
 }
 
@@ -12420,13 +12423,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_item_menu li.profile_dev_supplyChain:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/supply-chain-active.png")
         no-repeat center center;
-    background-size: 50px;
+    background-size: 40px;
 }
 
 .account_item_menu li.profile_home .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-home-non-active.png")
         no-repeat center center;
-    background-size: 50px;
+    background-size: 40px;
     height: 50px;
 }
 
@@ -12434,7 +12437,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_item_menu li.profile_home:hover .icon_img {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/account-images/profile-home-active.png")
         no-repeat center center;
-    background-size: 50px;
+    background-size: 40px;
 }
 
 .profile_account_searchBar {
@@ -12453,10 +12456,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .profile_account_searchBar .material-icons {
-    font-size: 45px;
+    font-size: 30px;
     float: left;
-    line-height: 35px;
-    margin-right: 10px;
+    line-height: 27px;
+    margin-bottom: 3px;
+}
+.profile_account_searchBar .post_new .material-icons {
+    margin-right: 8px;
+    margin-top: 8px;
 }
 
 .profile_account_searchBar .post_new a:link,
@@ -12478,12 +12485,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .profile_account_search .material-icons {
     font-size: 32px;
     position: absolute;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .profile_account_search .profile_filter_search {
     width: -webkit-fill-available !important;
-    padding-left: 40px !important;
+    padding-left: 50px !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
@@ -12775,8 +12783,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border-radius: 10px;
     margin-bottom: 30px;
     border: 1px solid #eee;
-    max-height: 290px;
-    min-height: 290px;
+    max-height: 265px;
+    min-height: 265px;
     position: relative;
     cursor: pointer;
 }
@@ -12827,9 +12835,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     display: inline-block;
     /* width: 100%; */
     position: absolute;
-    right: 25px;
-    bottom: 38px;
-    left: 25px;
+    right: 15px;
+    bottom: 10px;
+    left: 15px;
     z-index: 99;
 }
 
@@ -13143,11 +13151,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border: 1px solid #707070;
 }
 
-.profile_account_poinfo_innerbox
-    .po_block.rejected
-    .profile_account_poinfo_box {
+.profile_account_poinfo_innerbox .po_block.rejected .profile_account_poinfo_box {
     border: 1px solid #ffb1b1;
     background: #fff6f6;
+    position: relative;
 }
 
 .profile_account_poinfo_innerbox .profile_account_poinfo_box {
@@ -13158,7 +13165,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border-radius: 10px;
     margin-bottom: 30px;
     border: 1px solid #eee;
-    max-height: 320px;
+    max-height: 250px;
+    min-height: 250px;
     overflow: hidden;
 }
 
@@ -13173,6 +13181,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    padding-right: 10px;
 }
 
 .profile_account_poinfo_innerbox .profile_account_poinfo_box .poinfo {
@@ -13190,19 +13199,19 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 .profile_account_poinfo_box .download_icon {
     position: absolute;
-    right: 50px;
+    right: 42px;
+    top: 18px;
 }
 
 .profile_account_poinfo_box .download_icon img {
-    width: 22px;
-    max-width: 22px;
+    width: 18px;
     margin-top: 2px;
 }
 
 .top_download_bar .reject_message_box {
     position: absolute;
-    top: 24px;
-    right: 20px;
+    top: 18px;
+    right: 12px;
     z-index: 9;
 }
 
@@ -13212,6 +13221,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     right: 22px;
     font-size: 11px;
     color: #ff0000;
+}
+
+.profile_account_poinfo_box .moreItem {
+    position: absolute;
+    color: #54a958;
+    font-size: 14px;
+    line-height: 12px;
+    right: 12px;
+    bottom: 7px;
 }
 
 /* ******************** FAQ css style start *********************** */
@@ -13608,7 +13626,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 /* **************************************/
 .account_profile_box form {
     max-width: 1040px;
-    margin: 0 auto;
+    margin-left: -10px;
 }
 
 .account_profile_box form select,
@@ -15025,6 +15043,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     bottom: 0px;
     width: 100%;
     height: 100%;
+    z-index: 9;
 }
 
 #myList li {
@@ -17112,6 +17131,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 .explore-rfq-products-menu-trigger span {
     font-size: 11px;
+    line-height: 15px;
+    display: block;
+    margin: 0 auto;
+    width: 50px;
 }
 
 .explore-rfq-products-menu .subNav {
@@ -19820,7 +19843,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
 
     .product_design_wrapper .productBox .imgBox {
-        height: 260px;
+        height: 230px;
+    }
+
+    .profile_account_rfqproduct .productBox .imgBox {
+        height: 195px;
     }
 
     .profile_tabNav_wrap .product_design_wrapper .productBox .imgBox {
@@ -22030,10 +22057,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .profile_account_mobile_menu .collapsible ul li {
         display: block;
         padding: 3px 0;
-    }
-
-    .profile_account_searchBar .material-icons {
-        font-size: 30px;
     }
 
     .appearances_wrap a.btn_know {
