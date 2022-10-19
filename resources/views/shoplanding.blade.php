@@ -197,13 +197,13 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                                 <a href="javascript:void(0);" class="rfq_chat_details_close_trigger btn_white">Close <i class="material-icons">close</i></a>
                                                             </div>
                                                             <h3>{{$rfq['title']}}</h3>
-                                                            <p>Description: <span>{{$rfq['short_description']}}</span></p>
-                                                            <p>Quantity: <span>{{$rfq['quantity']}} pcs </span></p>
-                                                            <p>Target Price: <span>{{$rfq['unit_price']}} / {{$rfq['unit']}} </span></p>
-                                                            <p>Deliver in: <span>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</span></p>
-                                                            <p>Deliver to: <span>{{$rfq['destination']}}</span></p>
-                                                            <p>Payment Method: <span>{{$rfq['payment_method']}}</span></p>
-                                                            <p>Category: <span> @foreach ($rfq['category'] as $catItem) {{$catItem['name']}} @endforeach </span></p>
+                                                            <p><b>Description:</b> <span>{{$rfq['short_description']}}</span></p>
+                                                            <p><b>Quantity:</b> <span>{{$rfq['quantity']}} pcs </span></p>
+                                                            <p><b>Target Price:</b> <span>{{$rfq['unit_price']}} / {{$rfq['unit']}} </span></p>
+                                                            <p><b>Deliver in:</b> <span>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</span></p>
+                                                            <p><b>Deliver to:</b> <span>{{$rfq['destination']}}</span></p>
+                                                            <p><b>Payment Method:</b> <span>{{$rfq['payment_method']}}</span></p>
+                                                            <p><b>Category:</b> <span> @foreach ($rfq['category'] as $catItem) {{$catItem['name']}} @endforeach </span></p>
                                                             <div class="rfqImagesBox">
                                                                 @if(isset($rfq['images']))
                                                                     @foreach ($rfq['images'] as $rfqDetailsImg)
