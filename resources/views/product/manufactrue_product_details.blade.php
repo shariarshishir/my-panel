@@ -148,12 +148,13 @@
                                                                 <th>:</th>
                                                                 <td>{{ $product->moq }} {{ $product->qty_unit }}</td>
                                                             </tr>
+                                                            <tr>
+                                                                <th>**Any kind of customization is possible.</th>
+                                                                <th>:</th>
+                                                                <td>Yes</td>
+                                                            </tr>
                                                         </tbody>
                                                     </table>
-
-                                                    <div class="customizationText">
-                                                        **Any kind of customization is possible.
-                                                    </div>
 
                                                     @php
                                                         $colors = $product->colors ?? [];
@@ -230,7 +231,7 @@
                                 </div>
                             </div>
                     </div>
-         
+
 
                     <section class="single-product-description-block-wrapper product_details_tab_wrap">
                         <div class="row">
@@ -238,7 +239,7 @@
                                 <ul class="tabs">
                                     <li class="tab col s4"><a class="active"  href="#product-details">Product Details</a></li>
                                     <li class="tab col s4"><a href="#company-profile">Company Profile</a></li>
-                                    <li class="tab col s4"><a href="#factory-tour">Factory Tour</a></li>
+                                    <li class="tab col s4" style="display: none;"><a href="#factory-tour">Factory Tour</a></li>
                                 </ul>
                             </div>
                             <div id="product-details" class="col s12">

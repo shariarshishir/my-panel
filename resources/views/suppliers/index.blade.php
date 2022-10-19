@@ -150,6 +150,11 @@
                         @endphp
                         <div class="industry_infoBox" itemscope itemtype="https://schema.org/Organization">
                             <div class="industry_info_inner_box" itemscope>
+                                @if(Auth::guard('web')->check())
+                                    <a href="{{route('supplier.profile', $supplier->alias)}}" class="supplier_card_overlay">&nbsp;</a>
+                                @else
+                                    <a href="#supplier-view-auth-check-modal" class="supplier_card_overlay modal-trigger">&nbsp;</a>
+                                @endif
                                 <div class="row" itemscope>
                                     <div class="supplier_profile_image_block col s12 m12 l3" itemscope itemtype="https://schema.org/manufacturer">
                                         @if($supplier->business_profile_logo)
