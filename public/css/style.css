@@ -17979,24 +17979,42 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background: #d7df23;
     color: #000000;
 }
+
 .account_myrfq_infoBox {
     position: relative;
 }
-.account_myrfq_infoBox .more_vert {
+
+.account_myrfq_infoBox .top_rfq_status {
     position: absolute;
-    right: 18px;
-    top: 14px;
-    z-index: 99;
+    top: 1px;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+.account_myrfq_infoBox .more_vert_wrap {
+    text-align: right;
+    padding: 8px 8px 0px 0;
+    position: relative;
+    width: 150px;
+}
+.account_myrfq_infoBox .more_vert {
     height: 25px;
+    text-align: right;
+    display: inline-block;
+}
+.account_myrfq_infoBox .more_vert a {
+    width: 30px;
+    display: inline-block;
 }
 .account_myrfq_infoBox .rfq_status_dropdown {
     background: #ffffff;
     border-radius: 10px;
     border: 1px solid #54a958;
-    max-width: 200px;
+    width: 100px !important;
     padding: 10px 0;
-    right: 0;
     left: inherit !important;
+    right: 5px;
+    top: 30px !important;
 }
 .account_myrfq_infoBox .more_vert .dropdown-content li {
     min-height: inherit;
@@ -18006,12 +18024,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .account_myrfq_infoBox .more_vert .dropdown-content li > a,
 .rfq_status_wrap .more_vert .dropdown-content li > span {
     padding: 5px 10px;
-    color: #54a958;
+    color: #54a958 !important;
+    width: auto;
+    display: block;
 }
 
 .account_myrfq_infoBox .more_vert .dropdown-content li > a:hover {
     background: #54a958;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .select_rfq_status {
@@ -19341,6 +19361,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     position: relative;
     height: 255px;
     box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
+    overflow: hidden;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_top_content .rfq_img_content .rfq_img_overlay {
     background-color: rgba(0, 0, 0, 0.5);
@@ -19350,6 +19371,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     position: absolute;
     top: 0px;
     left: 0px;
+    z-index: 1;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box {
     padding: 0px;
@@ -19368,21 +19390,32 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-bottom: 0px;
     height: 100%;
 }
+
+.my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_img_content {
+    transition: transform 0.5s;
+    height: 100%;
+}
+.my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box:hover .rfq_img_content {
+    transform: scale(1.1);
+    height: 100%;
+}
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box h5 {
     position: absolute;
     bottom: 20px;
     left: 15px;
     color: #fff;
+    z-index: 2;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time {
     padding-bottom: 10px;
-    padding-top: 25px;
+    padding-top: 14px;
     padding-left: 15px;
     margin-bottom: 0px;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time i {
     font-size: 12px;
     vertical-align: middle;
+    margin-right: 5px;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time .posted_time_content {
     vertical-align: middle;
@@ -19390,6 +19423,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details {
     margin: 0px;
     padding: 0px 7px 0px;
+}
+.my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details .col  {
+
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details p {
     margin-bottom: 0px;
@@ -19407,7 +19443,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     /* width: 100%; */
     position: absolute;
     right: 23px;
-    bottom: -5px;
+    bottom: -0;
     left: 23px;
     z-index: 99;
     height: 50px;
@@ -19453,11 +19489,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #9e9e9e;
 }
 .my_rfq_new_layout_wrapper .rfq_status_wrap {
-    padding: 0 10px 10px;
-    position: absolute;
-    top: 0px;
-    left: 14px;
-    z-index: 9;
+    padding: 0;
 }
 .my_rfq_new_layout_wrapper .rfq_status_wrap .status {
     float: left;
@@ -19477,7 +19509,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .my_rfq_new_layout_wrapper .account_myrfq_infoBox {
     position: relative;
     margin-bottom: 50px;
-    height: 445px;
+    height: 490px;
 }
 .my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:link,
 .my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:visited,
@@ -19524,6 +19556,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     z-index: 999;
 }
 /* RFQ new layout for landing page end */
+.new_rfq_details_wrapper_outer {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 500px;
+    background: #fff;
+    z-index: 999;
+    box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
+}
+
+#product-desciprtion table
+#product-additional-desciprtion table {
+    border: 1px solid rgba(0,0,0,0.12)
+}
 
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {
