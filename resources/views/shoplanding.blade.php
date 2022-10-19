@@ -16,6 +16,18 @@
 $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : '';
 @endphp
 @section('content')
+<style>
+.new_rfq_details_wrapper_outer {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 500px;
+    background: #fff;
+    z-index: 999;
+    box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
+}
+</style>
 
     <div class="container">
         <div class="row">
@@ -181,6 +193,54 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                         @else
                                                             <span style="display:none" class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
                                                         @endif
+                                                    </div>
+                                                </div>
+                                                <div class="new_rfq_details_wrapper_outer" style="display: none;">
+                                                    <div class="close_rfq_details_box">
+                                                        <a href="javascript:void(0);" class="rfq_chat_details_close_trigger"><i class="material-icons">close</i></a>
+                                                    </div>
+                                                    <h3>{{$rfq['title']}}</h3>
+                                                    <p>Description: {{$rfq['short_description']}}</p>
+                                                    <p>Quantity: {{$rfq['quantity']}} pcs</p>
+                                                    <p>Target Price: {{$rfq['unit_price']}} / {{$rfq['unit']}}</p>
+                                                    <p>Deliver in: {{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</p>
+                                                    <p>Deliver to: {{$rfq['destination']}}</p>
+                                                    <p>Payment Method: {{$rfq['payment_method']}}</p>
+                                                    <p>Category: @foreach ($rfq['category'] as $catItem) {{$catItem['name']}} @endforeach</p>
+                                                    @if(isset($rfq['images']))
+                                                        @foreach ($rfq['images'] as $rfqDetailsImg)
+                                                            @php
+                                                                $imgFullpath = explode('/', $rfqDetailsImg['image']);
+                                                                $imgExt = end($imgFullpath);
+                                                            @endphp
+                                                            @if(pathinfo($imgExt, PATHINFO_EXTENSION) == 'pdf' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'PDF')
+                                                                <a href="{{$rfqDetailsImg['image']}}"><span class="pdf_icon">&nbsp;</span></a>
+                                                            @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'doc' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'docx')
+                                                                <a href="{{$rfqDetailsImg['image']}}"><span class="doc_icon">&nbsp;</span></a>
+                                                            @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'xlsx' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'xls')
+                                                                <a href="{{$rfqDetailsImg['image']}}"><span class="xlsx_icon">&nbsp;</span></a>
+                                                            @else
+                                                                <a href="{{$rfqDetailsImg['image']}}"><img src="{{$rfqDetailsImg['image']}}" alt="RFQ Image" style="height: 255px;" /></a>
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
+                                                    <div class="account_rfq_btn_wrap row">
+                                                        <div class="rfq_btn_box rfq_quotation_button_wrapper col s6 m6 l6">
+                                                            <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
+                                                            @if($rfq['unseen_quotation_count'] >0)
+                                                                <span class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                            @else
+                                                                <span style="display:none" class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                            @endif
+                                                        </div>
+                                                        <div class="rfq_btn_box rfq_message_button_wrapper col s6 m6 l6">
+                                                            <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}">Messages</button>
+                                                            @if(($rfq['unseen_count'] - $rfq['unseen_quotation_count']) >0)
+                                                                <span  class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                            @else
+                                                                <span style="display:none" class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
