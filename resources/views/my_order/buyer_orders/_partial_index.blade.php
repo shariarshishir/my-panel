@@ -28,14 +28,16 @@
                                     $imgExt = end($imgFullpath);
                                 @endphp
                                 @if(pathinfo($imgExt, PATHINFO_EXTENSION) == 'pdf' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'PDF')
-                                    <span class="pdf_icon">&nbsp;</span>
+                                    <span class="pdf_icon" style="height: 80px;">&nbsp;</span>
                                 @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'doc' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'docx')
-                                    <span class="doc_icon">&nbsp;</span>
+                                    <span class="doc_icon" style="height: 80px;">&nbsp;</span>
                                 @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'xlsx' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'xls')
-                                    <span class="xlsx_icon">&nbsp;</span>
+                                    <span class="xlsx_icon" style="height: 80px;">&nbsp;</span>
                                 @else
                                     <img src="{{$po->rfq_img}}" alt="" style="width: 100px;" />
                                 @endif
+                            @else
+                                <img src="{{Storage::disk('s3')->url('public/frontendimages/no-portfolio.png')}}" alt="" style="width: 100px;" />
                             @endif
                         </td>
                         <td data-title="Invoice Id">{{ $po->proforma_id }}</td>
@@ -55,7 +57,7 @@
                                         PI Pending
                                     </a>
                                     <br />
-                                    <span><i class="fa fa-eye" aria-hidden="true"></i> &nbsp; View Invoice</span>
+                                    <span style="display: none;"><i class="fa fa-eye" aria-hidden="true"></i> &nbsp; View Invoice</span>
                                 </div>
                             @endif
                             @if($po->status == 1)

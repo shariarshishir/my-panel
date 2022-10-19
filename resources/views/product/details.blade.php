@@ -249,10 +249,11 @@ $reviewsCount = count($productReviews);
                                                                     <td data-title="Product Code">Product Code: </td>
                                                                     <td data-title="Shop Id" >shop-{{$product->id}}</td>
                                                                 </tr>
+                                                                <tr>
+                                                                    <td data-title="">**Any kind of customization is possible.</td>
+                                                                    <td data-title="">Yes</td>
+                                                                </tr>
                                                             </table>
-                                                            <div class="customizationText">
-                                                                **Any kind of customization is possible.
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
