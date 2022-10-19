@@ -157,17 +157,17 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             <span class="posted_time_content">Posted {{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
                                                         </span>
                                                         <div class="row rfq_info_details">
-                                                            <div class="col s12 m3 l3">
-                                                                <p><span class="details_label">Quantity</span> <br/> <span class="details_value"><b>{{$rfq['quantity']}} pcs</b></span></p>
+                                                            <div class="col s6 m3">
+                                                                <p><span class="details_label">Quantity</span> <br/> <span class="details_value"><b> {{$rfq['quantity']}} <span>pcs</span></b></span></p>
                                                             </div>
-                                                            <div class="col s12 m3 l3">
-                                                                <p><span class="details_label">Target Price</span> <br/> <span class="details_value"><b>{{$rfq['unit_price']}} / {{$rfq['unit']}}</b></span></p>
+                                                            <div class="col s6 m3">
+                                                                <p><span class="details_label">Target Price</span> <br/> <span class="details_value"><b>{{$rfq['unit_price']}} / <span>{{$rfq['unit']}}</span></b></span></p>
                                                             </div>
                                                             {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
-                                                            <div class="col s12 m3 l3">
+                                                            <div class="col s6 m3">
                                                                 <p><span class="details_label">Deliver in</span> <br/> <span class="details_value"><b>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</b></span></p>
                                                             </div>
-                                                            <div class="col s12 m3 l3">
+                                                            <div class="col s6 m3">
                                                                 <p><span class="details_label">Deliver to</span> <br/> <span class="details_value"><b>{{$rfq['destination']}}</b></span></p>
                                                             </div>
                                                         </div>
@@ -190,51 +190,57 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    <div class="new_rfq_details_wrapper_outer" style="display: none;">
-                                                        <div class="close_rfq_details_box">
-                                                            <a href="javascript:void(0);" class="rfq_chat_details_close_trigger"><i class="material-icons">close</i></a>
-                                                        </div>
-                                                        <h3>{{$rfq['title']}}</h3>
-                                                        <p>Description: {{$rfq['short_description']}}</p>
-                                                        <p>Quantity: {{$rfq['quantity']}} pcs</p>
-                                                        <p>Target Price: {{$rfq['unit_price']}} / {{$rfq['unit']}}</p>
-                                                        <p>Deliver in: {{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</p>
-                                                        <p>Deliver to: {{$rfq['destination']}}</p>
-                                                        <p>Payment Method: {{$rfq['payment_method']}}</p>
-                                                        <p>Category: @foreach ($rfq['category'] as $catItem) {{$catItem['name']}} @endforeach</p>
-                                                        @if(isset($rfq['images']))
-                                                            @foreach ($rfq['images'] as $rfqDetailsImg)
-                                                                @php
-                                                                    $imgFullpath = explode('/', $rfqDetailsImg['image']);
-                                                                    $imgExt = end($imgFullpath);
-                                                                @endphp
-                                                                @if(pathinfo($imgExt, PATHINFO_EXTENSION) == 'pdf' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'PDF')
-                                                                    <a href="{{$rfqDetailsImg['image']}}"><span class="pdf_icon">&nbsp;</span></a>
-                                                                @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'doc' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'docx')
-                                                                    <a href="{{$rfqDetailsImg['image']}}"><span class="doc_icon">&nbsp;</span></a>
-                                                                @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'xlsx' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'xls')
-                                                                    <a href="{{$rfqDetailsImg['image']}}"><span class="xlsx_icon">&nbsp;</span></a>
-                                                                @else
-                                                                    <a href="{{$rfqDetailsImg['image']}}"><img src="{{$rfqDetailsImg['image']}}" alt="RFQ Image" style="height: 255px;" /></a>
-                                                                @endif
-                                                            @endforeach
-                                                        @endif
-                                                        <div class="account_rfq_btn_wrap row">
-                                                            <div class="rfq_btn_box rfq_quotation_button_wrapper col s6 m6 l6">
-                                                                <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
-                                                                @if($rfq['unseen_quotation_count'] >0)
-                                                                    <span class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
-                                                                @else
-                                                                    <span style="display:none" class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                    <div class="new_rfq_details_wrapper_outer" id="rfqDetailsRightSlider" style="display: none;">
+                                                        <div class="new_rfq_details_empty_area"></div>
+                                                        <div class="new_rfq_details_inner">
+                                                            <div class="close_rfq_details_box">
+                                                                <a href="javascript:void(0);" class="rfq_chat_details_close_trigger btn_white">Close <i class="material-icons">close</i></a>
+                                                            </div>
+                                                            <h3>{{$rfq['title']}}</h3>
+                                                            <p>Description: <span>{{$rfq['short_description']}}</span></p>
+                                                            <p>Quantity: <span>{{$rfq['quantity']}} pcs </span></p>
+                                                            <p>Target Price: <span>{{$rfq['unit_price']}} / {{$rfq['unit']}} </span></p>
+                                                            <p>Deliver in: <span>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</span></p>
+                                                            <p>Deliver to: <span>{{$rfq['destination']}}</span></p>
+                                                            <p>Payment Method: <span>{{$rfq['payment_method']}}</span></p>
+                                                            <p>Category: <span> @foreach ($rfq['category'] as $catItem) {{$catItem['name']}} @endforeach </span></p>
+                                                            <div class="rfqImagesBox">
+                                                                @if(isset($rfq['images']))
+                                                                    @foreach ($rfq['images'] as $rfqDetailsImg)
+                                                                        @php
+                                                                            $imgFullpath = explode('/', $rfqDetailsImg['image']);
+                                                                            $imgExt = end($imgFullpath);
+                                                                        @endphp
+                                                                        @if(pathinfo($imgExt, PATHINFO_EXTENSION) == 'pdf' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'PDF')
+                                                                            <a href="{{$rfqDetailsImg['image']}}"><span class="pdf_icon">&nbsp;</span></a>
+                                                                        @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'doc' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'docx')
+                                                                            <a href="{{$rfqDetailsImg['image']}}"><span class="doc_icon">&nbsp;</span></a>
+                                                                        @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'xlsx' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'xls')
+                                                                            <a href="{{$rfqDetailsImg['image']}}"><span class="xlsx_icon">&nbsp;</span></a>
+                                                                        @else
+                                                                            <a href="{{$rfqDetailsImg['image']}}"><img src="{{$rfqDetailsImg['image']}}" alt="RFQ Image" style="height: 255px;" /></a>
+                                                                        @endif
+                                                                    @endforeach
                                                                 @endif
                                                             </div>
-                                                            <div class="rfq_btn_box rfq_message_button_wrapper col s6 m6 l6">
-                                                                <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}">Messages</button>
-                                                                @if(($rfq['unseen_count'] - $rfq['unseen_quotation_count']) >0)
-                                                                    <span  class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
-                                                                @else
-                                                                    <span style="display:none" class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
-                                                                @endif
+                                                            
+                                                            <div class="account_rfq_btn_wrap row">
+                                                                <div class="rfq_btn_box rfq_quotation_button_wrapper col s6 m6 l6">
+                                                                    <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
+                                                                    @if($rfq['unseen_quotation_count'] >0)
+                                                                        <span class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                                    @else
+                                                                        <span style="display:none" class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                                    @endif
+                                                                </div>
+                                                                <div class="rfq_btn_box rfq_message_button_wrapper col s6 m6 l6">
+                                                                    <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}">Messages</button>
+                                                                    @if(($rfq['unseen_count'] - $rfq['unseen_quotation_count']) >0)
+                                                                        <span  class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                                    @else
+                                                                        <span style="display:none" class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -284,99 +290,102 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
 
 
                         @if($rfqLists)
-                        <div class="col s12 m12 l5 new_profile_account_rightsidebar_desktop rfq_chat_box_wrapper" style="display: none;">
-                            <div class="close_rfq_chat_box">
-                                <a href="javascript:void(0);" class="rfq_chat_box_close_trigger"><i class="material-icons">close</i></a>
-                            </div>
-                            <div class="new_profile_account_myrfq_details fixed-rfq-message-bar">
-                                <div class="new_profile_myrfq_details_topbox">
-                                    {{-- <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6> --}}
-                                    <div class="titleBox">
-                                        <h5>{{$rfqLists[0]['title']}} </h5>
-                                        {{-- <span class="posted_time">{{date('Y-m-d', strtotime($rfqLists[0]['created_at']))}}</span> --}}
-                                        <div class="center-align btn_accountrfq_info">
-                                            <a class="accountrfq_btn" href="javascript:void(0);" onclick="">Show More</a>
-                                        </div>
-                                        <div id="accountRfqDetailesInfo" class="account_rfqDetailes_infoWrap" style="display: none;">
-                                            <div class="row">
-                                                <div class="col s6 m6 l5">
-                                                    <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
-                                                    <p>Target Price <br/> <b>{{$rfqLists[0]['unit_price']}} / {{$rfqLists[0]['unit']}}</b></p>
-                                                </div>
-                                                <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
-                                                <div class="col s6 m6 l5">
-                                                    <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
-                                                    <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col s12 m12 l12">
-                                                    <p>Description <br/> <b>{{$rfqLists[0]['full_specification']}}</b></p>
-                                                </div>
-                                            </div>
-                                            <div class="account_rfqDetailes_imgWrap">
-                                                <h6>Attachments</h6>
-                                                @foreach ($rfqLists[0]['images'] as $rfqImg)
-                                                <a href="{{$rfqImg['image']}}" data-fancybox>
-                                                <img src="{{$rfqImg['image']}}" />
-                                                </a>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="new_profile_account_rightsidebar_desktop rfq_chat_box_wrapper" style="display: none;">
+                            <div class="new_rfq_chat_details_empty_area"></div>
+                            <div class="new_rfq_chat_inner">
+                                <div class="close_rfq_chat_box">
+                                    <a href="javascript:void(0);" class="rfq_chat_box_close_trigger btn_white">Close<i class="material-icons">close</i></a>
                                 </div>
-                                <div class="rfq_review_results_wrap">
-                                    <div class="rfq_review_results_nav">
-                                        <ul>
-                                            <li  class="active message_tab_li"><a href="javascript:void(0);" class="message_tab" data-rfq_id="{{$rfqLists[0]['id']}}">Messages</a></li>
-                                            <li class="quotation_tab_li"><a href="javascript:void(0);" class="quotation_tab" data-rfq_id="{{$rfqLists[0]['id']}}">Quotations</a></li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="my_rfq_quotation_box" style="display:none">
-                                        <div class="my_rfq_review_results_box">
-                                            My Quotation will show here.
-                                        </div>
-                                    </div>
-
-                                    <div class="rfq_quotation_box" style="display:none">
-                                        <div class="rfq_review_results_box">
-
-                                        </div>
-                                    </div>
-
-                                    <div class="rfq_message_box" >
-                                        <div class="rfq_review_message_box">
-                                            @if(count($chatdata)>0)
-                                                @foreach($chatdata as $chat)
-                                                    @if( $chat['from_id'] == auth()->user()->sso_reference_id && $chat['rfq_id'] == $rfqLists[0]['id'])
-                                                        <div class="rfq_message_box chat-right right">
-                                                            <div class="chat-text right-align">
-                                                                <p><span> @php echo html_entity_decode($chat['message']); @endphp</span></p>
-                                                            </div>
-                                                        </div>
-                                                    @elseif($chat['to_id'] == auth()->user()->sso_reference_id && $chat['rfq_id'] == $rfqLists[0]['id'])
-                                                        <div class="rfq_message_box chat-left left">
-                                                            <div class="chat-text left-align">
-                                                                <p><span>@php echo html_entity_decode($chat['message']); @endphp</span></p>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                        <form>
-                                            <div class="rfq_message_box_bottom">
-                                                <input class="message_type_box messagebox" type="text" placeholder="Type a message..." />
-
-                                                <div class="message_icon_box">
-                                                    <i class="material-icons">sentiment_satisfied</i>
-                                                    <i class="material-icons">attach_file</i>
-                                                    <i class="material-icons">image</i>
-                                                    <a class="btn_green send messageSendButton">send</a>
+                                <div class="new_profile_account_myrfq_details fixed-rfq-message-bar">
+                                    <div class="new_profile_myrfq_details_topbox">
+                                        {{-- <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6> --}}
+                                        <div class="titleBox">
+                                            <h5>{{$rfqLists[0]['title']}} </h5>
+                                            {{-- <span class="posted_time">{{date('Y-m-d', strtotime($rfqLists[0]['created_at']))}}</span> --}}
+                                            <div class="center-align btn_accountrfq_info">
+                                                <a class="accountrfq_btn" href="javascript:void(0);" onclick="">Show More</a>
+                                            </div>
+                                            <div id="accountRfqDetailesInfo" class="account_rfqDetailes_infoWrap" style="display: none;">
+                                                <div class="row">
+                                                    <div class="col s6 m6 l5">
+                                                        <p>Quantity <br/> <b>{{$rfqLists[0]['quantity']}} pcs</b></p>
+                                                        <p>Target Price <br/> <b>{{$rfqLists[0]['unit_price']}} / {{$rfqLists[0]['unit']}}</b></p>
+                                                    </div>
+                                                    <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>
+                                                    <div class="col s6 m6 l5">
+                                                        <p>Deliver in <br/> <b>{{ date('F j, Y',strtotime($rfqLists[0]['delivery_time'])) }}</b></p>
+                                                        <p>Deliver to <br/> <b>{{$rfqLists[0]['destination']}}</b></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col s12 m12 l12">
+                                                        <p>Description <br/> <b>{{$rfqLists[0]['full_specification']}}</b></p>
+                                                    </div>
+                                                </div>
+                                                <div class="account_rfqDetailes_imgWrap">
+                                                    <h6>Attachments</h6>
+                                                    @foreach ($rfqLists[0]['images'] as $rfqImg)
+                                                    <a href="{{$rfqImg['image']}}" data-fancybox>
+                                                    <img src="{{$rfqImg['image']}}" />
+                                                    </a>
+                                                    @endforeach
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
+                                    </div>
+                                    <div class="rfq_review_results_wrap">
+                                        <div class="rfq_review_results_nav">
+                                            <ul>
+                                                <li  class="active message_tab_li"><a href="javascript:void(0);" class="message_tab" data-rfq_id="{{$rfqLists[0]['id']}}">Messages</a></li>
+                                                <li class="quotation_tab_li"><a href="javascript:void(0);" class="quotation_tab" data-rfq_id="{{$rfqLists[0]['id']}}">Quotations</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="my_rfq_quotation_box" style="display:none">
+                                            <div class="my_rfq_review_results_box">
+                                                My Quotation will show here.
+                                            </div>
+                                        </div>
+
+                                        <div class="rfq_quotation_box" style="display:none">
+                                            <div class="rfq_review_results_box">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="rfq_message_box" >
+                                            <div class="rfq_review_message_box">
+                                                @if(count($chatdata)>0)
+                                                    @foreach($chatdata as $chat)
+                                                        @if( $chat['from_id'] == auth()->user()->sso_reference_id && $chat['rfq_id'] == $rfqLists[0]['id'])
+                                                            <div class="rfq_message_box chat-right right">
+                                                                <div class="chat-text right-align">
+                                                                    <p><span> @php echo html_entity_decode($chat['message']); @endphp</span></p>
+                                                                </div>
+                                                            </div>
+                                                        @elseif($chat['to_id'] == auth()->user()->sso_reference_id && $chat['rfq_id'] == $rfqLists[0]['id'])
+                                                            <div class="rfq_message_box chat-left left">
+                                                                <div class="chat-text left-align">
+                                                                    <p><span>@php echo html_entity_decode($chat['message']); @endphp</span></p>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                            <form>
+                                                <div class="rfq_message_box_bottom">
+                                                    <input class="message_type_box messagebox" type="text" placeholder="Type a message..." />
+
+                                                    <div class="message_icon_box">
+                                                        {{-- <i class="material-icons">sentiment_satisfied</i> --}}
+                                                        <i class="material-icons">attach_file</i>
+                                                        {{-- <i class="material-icons">image</i> --}}
+                                                        <a class="btn_green send messageSendButton">send</a>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

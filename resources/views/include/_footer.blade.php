@@ -211,6 +211,23 @@
     //     }
     // };
 
+    $(document).ready(function(){
+        var screenWidth = $(window).width();
+        var productFilterEmptyArea = screenWidth - 600;
+        $(".new_rfq_details_empty_area").css({"width": productFilterEmptyArea, "height": "100%"});
+        // $(".new_rfq_details_empty_area").click(function(){
+        //     $(this).closest(".new_rfq_details_wrapper_outer").css({"width":"0px"});
+        // });
+    })
+
+    $(document).ready(function(){
+        var screenWidth = $(window).width();
+        var productFilterEmptyArea = screenWidth - 400;
+        $(".new_rfq_chat_details_empty_area").css({"width": productFilterEmptyArea, "height": "100%"});
+        // $(".new_rfq_chat_details_empty_area").click(function(){
+        //     $(this).closest(".rfq_chat_box_wrapper").css({"width":"0px"});
+        // });
+    })
 
 </script>
 
@@ -1363,6 +1380,16 @@ function askForPrice($sku)
     document.getElementById("productSidenav").style.width = "0";
     }
 </script>
+
+{{-- <script>
+    function openRfqDetails() {
+    document.getElementById("rfqDetailsRightSlider").style.width = "100%";
+    }
+
+    function closeRfqDetails() {
+    document.getElementById("rfqDetailsRightSlider").style.width = "0";
+    }
+</script> --}}
 
 <script>
     $('.subnev_arrow').on('click', function() {
