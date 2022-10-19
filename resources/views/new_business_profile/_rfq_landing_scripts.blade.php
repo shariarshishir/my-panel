@@ -549,7 +549,14 @@
                 });
             });
 
-            $('.message-button, .profile_account_myrfq_box').on('click',function(event){
+            $(".profile_account_myrfq_box").click(function(){
+                $(this).closest(".account_myrfq_infoBox").children(".new_rfq_details_wrapper_outer").show();
+            });
+            $(".rfq_chat_details_close_trigger").click(function(){
+                $(this).closest(".new_rfq_details_wrapper_outer").hide();
+            });
+
+            $('.message-button').on('click',function(event){
                 event.preventDefault();
                 let rfqId = $(this).attr("data-rfq_id");
                 let pageTitle = "{{$pageTitle}}";
@@ -566,6 +573,7 @@
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
                         $(".rfq_chat_box_wrapper").show();
+                        $(".new_rfq_details_wrapper_outer").hide();
 
                         $('.quotation_tab').attr("data-rfq_id",rfqId);
                         $('.my_quotation_tab').attr("data-rfq_id",rfqId);
@@ -753,7 +761,7 @@
                 });
             });
 
-            $('.quotation-button, .profile_account_myrfq_box').on('click',function(event){
+            $('.quotation-button').on('click',function(event){
                 event.preventDefault();
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");
@@ -769,6 +777,7 @@
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
                         $(".rfq_chat_box_wrapper").show();
+                        $(".new_rfq_details_wrapper_outer").hide();
 
                         for(var i=0;i<response.quotations.length;i++){
                             var html ='<div class="row">';
