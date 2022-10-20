@@ -297,6 +297,12 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                     <a href="javascript:void(0);" class="rfq_chat_box_close_trigger btn_white">Close<i class="material-icons">close</i></a>
                                 </div>
                                 <div class="new_profile_account_myrfq_details fixed-rfq-message-bar">
+                                    <div id="loadingMessageProgressContainer" style="display: none;">
+                                        <div id="loadingMessageProgressElement">
+                                            <img src="{{Storage::disk('s3')->url('public/frontendimages/ajax-loader-bar.gif')}}" width="150" height="150" alt="Loading">
+                                            <div class="loading-message-progress">Loading...</div>
+                                        </div>
+                                    </div>
                                     <div class="new_profile_myrfq_details_topbox">
                                         {{-- <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6> --}}
                                         <div class="titleBox">
