@@ -215,9 +215,9 @@
         var screenWidth = $(window).width();
         var productFilterEmptyArea = screenWidth - 600;
         $(".new_rfq_details_empty_area").css({"width": productFilterEmptyArea, "height": "100%"});
-        // $(".new_rfq_details_empty_area").click(function(){
-        //     $(this).closest(".new_rfq_details_wrapper_outer").css({"width":"0px"});
-        // });
+        $(".new_rfq_details_empty_area").click(function(){
+            $(this).closest(".new_rfq_details_wrapper_outer").css({"opacity":"0", "width":"0px"});
+        });
     })
 
     $(document).ready(function(){
@@ -1611,7 +1611,6 @@ function addToWishList(flag, id, obj){
             this.value= '';
         }
     });
-
 
 
     $(document).ready(function() {

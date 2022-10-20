@@ -364,6 +364,31 @@ textarea:focus {
     margin-top: -20px;
 }
 
+#loadingMessageProgressContainer {
+    background: rgba(255, 255, 255, 0.9) repeat;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+#loadingMessageProgressElement {
+    left: 50%;
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    transform: translate(-50%, -20%);
+}
+
+.loading-message-progress {
+    font-family: "nexabold";
+    font-size: 16px;
+    margin-top: -20px;
+}
+
 .btn_delete {
     text-align: center;
     color: #dc143c;
@@ -5723,6 +5748,10 @@ n .rfq_content_box .rfq_btn_wrap .btn_detailed_rfq_open {
     height: 84px;
     display: block;
     font-size: 0;
+}
+
+.rfqImagesBox .pdf_icon {
+    width: 75px;
 }
 
 .rfq_thum_img .zip_icon {
@@ -12894,6 +12923,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .rfq_chat_box_wrapper .new_profile_account_myrfq_details {
     padding: 20px 0 0;
     border: none;
+    position: relative;
 }
 .new_profile_account_myrfq_details .accountrfq_btn {
     font-family: "nexabold";
@@ -12911,6 +12941,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .rfq_chat_box_wrapper .new_profile_myrfq_details_topbox {
     border: none;
+    padding-top: 0;
 }
 
 .rfq_chat_box_wrapper .rfq_review_message_box {
@@ -13114,10 +13145,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .new_profile_account_rightsidebar_desktop.rfq_chat_box_wrapper .new_profile_account_myrfq_details .rfq_review_results_wrap form {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
+    position: fixed;
+    bottom: 8px;
+    /* left: 5px; */
+    right: 12px;
+    width: 380px;
 }
 
 .rfq_message_box_bottom .message_type_box {
@@ -19638,18 +19670,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 /* RFQ new layout for landing page end */
 .new_rfq_details_wrapper_outer {
-
-    
-}
-.new_rfq_details_wrapper_outer {
     position: fixed;
     top: 0px;
     right: 0px;
     height: 100%;
     width: 100%;
     z-index: 999;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
+    /* padding: 20px; */
+    background: rgba(255, 255, 255, 0.4);
     transform: translateX(100%);
     -webkit-transform: translateX(100%);    
     /* transition: transform .5s ease; */
@@ -19673,7 +19701,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 100%;
     z-index: 999;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.4);
     transition: 0.9s;
 }
 .new_rfq_chat_inner {
@@ -19693,7 +19721,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     transition: 0.9s;
     box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
 }
-.new_rfq_details_inner {
+.new_rfq_details_wrapper_outer.active .new_rfq_details_inner {
     position: absolute;
     right: 0;
     top: 0;
@@ -19729,6 +19757,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 0px 5px;
     margin: 0;
     min-width: initial;
+    background: #de1a1a;
+    color: #ffffff;
+    border: none;
 }
 .close_rfq_chat_box .btn_white .material-icons,
 .close_rfq_details_box .btn_white .material-icons {
@@ -22895,6 +22926,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .new_rfq_chat_inner, 
     .new_rfq_details_inner {
         width: 100% !important;
+    }
+
+    .new_profile_account_rightsidebar_desktop.rfq_chat_box_wrapper .new_profile_account_myrfq_details .rfq_review_results_wrap form {
+        left: 8px;
+        width: inherit;
     }
 }
 
