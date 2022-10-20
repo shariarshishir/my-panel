@@ -559,6 +559,7 @@
             $('.message-button').on('click',function(event){
                 event.preventDefault();
                 let rfqId = $(this).attr("data-rfq_id");
+                $(".rfq_chat_box_wrapper").show();
                 let pageTitle = "{{$pageTitle}}";
                 console.log(pageTitle);
                 $.ajax({
@@ -566,13 +567,13 @@
                     url: "{{route('auth_user_conversations.by_rfq_id')}}",
                     data:{ rfqId: rfqId},
                     beforeSend: function() {
-                        $('.loading-message').html("Please Wait.");
-                        $('#loadingProgressContainer').show();
+                        $('.loading-message-progress').html("Please Wait.");
+                        $('#loadingMessageProgressContainer').show();
                     },
                     success: function (response) {
-                        $('.loading-message').html("");
-                        $('#loadingProgressContainer').hide();
-                        $(".rfq_chat_box_wrapper").show();
+                        $('.loading-message-progress').html("");
+                        $('#loadingMessageProgressContainer').hide();
+                        //$(".rfq_chat_box_wrapper").show();
                         $(".new_rfq_details_wrapper_outer").removeClass("active");
 
                         $('.quotation_tab').attr("data-rfq_id",rfqId);
