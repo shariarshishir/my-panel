@@ -559,7 +559,7 @@
             $('.message-button').on('click',function(event){
                 event.preventDefault();
                 let rfqId = $(this).attr("data-rfq_id");
-                $(".rfq_chat_box_wrapper").show();
+                $(".rfq_chat_box_wrapper").addClass("active");
                 let pageTitle = "{{$pageTitle}}";
                 console.log(pageTitle);
                 $.ajax({
@@ -824,7 +824,7 @@
         });
 
         $(".rfq_chat_box_close_trigger").click(function(){
-            $(this).closest(".rfq_chat_box_wrapper").hide();
+            $(this).closest(".rfq_chat_box_wrapper").removeClass("active");
         })
 
         $('.btn_view_detail').on('click',function(event){

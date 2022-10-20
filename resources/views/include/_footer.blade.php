@@ -224,9 +224,9 @@
         var screenWidth = $(window).width();
         var productFilterEmptyArea = screenWidth - 400;
         $(".new_rfq_chat_details_empty_area").css({"width": productFilterEmptyArea, "height": "100%"});
-        // $(".new_rfq_chat_details_empty_area").click(function(){
-        //     $(this).closest(".rfq_chat_box_wrapper").css({"width":"0px"});
-        // });
+        $(".new_rfq_chat_details_empty_area").click(function(){
+            $(this).closest(".rfq_chat_box_wrapper").removeClass("active").css({"opacity":"0", "width":"0px"});
+        });
     })
 
 </script>

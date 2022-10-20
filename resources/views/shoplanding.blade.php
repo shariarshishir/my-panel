@@ -224,7 +224,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                                 @endif
                                                             </div>
 
-                                                            <div class="account_rfq_btn_wrap row">
+                                                            <div class="account_rfq_btn_wrap row" style="display: none;">
                                                                 <div class="rfq_btn_box rfq_quotation_button_wrapper col s6 m6 l6">
                                                                     <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
                                                                     @if($rfq['unseen_quotation_count'] >0)
@@ -290,7 +290,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
 
 
                         @if($rfqLists)
-                        <div class="new_profile_account_rightsidebar_desktop rfq_chat_box_wrapper" style="display: none;">
+                        <div class="new_profile_account_rightsidebar_desktop rfq_chat_box_wrapper">
                             <div class="new_rfq_chat_details_empty_area"></div>
                             <div class="new_rfq_chat_inner">
                                 <div class="close_rfq_chat_box">
