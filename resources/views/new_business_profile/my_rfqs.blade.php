@@ -229,10 +229,23 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             <div class="row">
                                                 @if($rfqLists)
                                                     @foreach($rfqLists as $key=>$rfq)
-                                                    <div class="col s12 m6">
+                                                    <div class="col s12 m6 profileAccountMyrfqBoxOuter">
+                                                        <div class="more_vert_wrap">
+                                                            <span class="more_vert">
+                                                                <a class="dropdown-trigger" href="javascript:void(0);" data-target="rfqStatusDropdown-{{$rfq['id']}}"><i class="material-icons">more_vert</i></a>
+                                                            </span>
+                                                            <ul id="rfqStatusDropdown-{{$rfq['id']}}" class="dropdown-content rfq_status_dropdown">
+                                                                <li><a href="javascript:void(0);">Remove</a></li>
+                                                                <li><a href="javascript:void(0);">Archive</a></li>
+                                                                <li><a href="javascript:void(0);">Option</a></li>
+                                                            </ul>
+                                                        </div>
                                                         <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}">
-                                                            <h5>{{$rfq['title']}}</h5>
-                                                            <span class="posted_time">{{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
+                                                            <div class="accountMyrfqBox">
+                                                                <h5>{{$rfq['title']}}</h5>
+                                                                <span class="posted_time">{{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
+                                                            </div>
+                                                                
                                                             @if($pageTitle == "My Queries")
                                                             <div class="row">
                                                                 <div class="col s6 m6">

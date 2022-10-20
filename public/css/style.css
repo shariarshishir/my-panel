@@ -18032,6 +18032,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 30px;
     display: inline-block;
 }
+.profileAccountMyrfqBoxOuter .rfq_status_dropdown,
 .account_myrfq_infoBox .rfq_status_dropdown {
     background: #ffffff;
     border-radius: 10px;
@@ -18042,11 +18043,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     right: 5px;
     top: 30px !important;
 }
+.profileAccountMyrfqBoxOuter .rfq_status_dropdown li,
 .account_myrfq_infoBox .more_vert .dropdown-content li {
     min-height: inherit;
     line-height: normal;
 }
 
+.profileAccountMyrfqBoxOuter .dropdown-content li > a,
+.profileAccountMyrfqBoxOuter .dropdown-content li > span,
 .account_myrfq_infoBox .more_vert .dropdown-content li > a,
 .rfq_status_wrap .more_vert .dropdown-content li > span {
     padding: 5px 10px;
@@ -18054,7 +18058,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: auto;
     display: block;
 }
-
+.profileAccountMyrfqBoxOuter .dropdown-content li > a:hover,
 .account_myrfq_infoBox .more_vert .dropdown-content li > a:hover {
     background: #54a958;
     color: #ffffff !important;
@@ -19723,6 +19727,16 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     float: right;
     font-size: 16px;
     margin: 4px 0 0 5px;
+}
+
+.profileAccountMyrfqBoxOuter {
+    position: relative;
+}
+.profileAccountMyrfqBoxOuter .more_vert_wrap {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    z-index: 99;
 }
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {
