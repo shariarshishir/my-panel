@@ -19540,7 +19540,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border: none;
     border-radius: 0px;
     color: #000;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
     background: #fff;
@@ -19570,7 +19570,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     border-radius: 0px;
     /* border: 1px solid #000000; */
     padding: 0px 25px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     height: 32px;
     line-height: 32px;
@@ -19667,8 +19667,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background: rgba(0, 0, 0, 0.8);
     transition: 0.9s;
 }
-.new_rfq_chat_inner,
-.new_rfq_details_inner {
+.new_rfq_chat_inner {
     position: absolute;
     right: 0;
     top: 0;
@@ -19680,6 +19679,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     word-break: inherit;
     transition: 0.5s;
     width: 600px;
+    height: 100%;
+    overflow: auto;
+}
+.new_rfq_details_inner {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #fff;
+    font-size: 16px;
+    line-height: 25px;
+    text-transform: capitalize;
+    padding: 20px 15px 60px 40px;
+    word-break: inherit;
+    transition: 0.5s;
+    width: 60%;
     height: 100%;
     overflow: auto;
 }

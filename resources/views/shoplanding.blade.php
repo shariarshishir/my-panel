@@ -157,14 +157,14 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             <span class="posted_time_content">Posted - {{date('M j, Y', strtotime($rfq['created_at']))}}</span>
                                                         </span>
                                                         <div class="row rfq_info_details">
-                                                            <div class="col s6 m3">
+                                                            <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Quantity</span> <br/> <span class="details_value"><b> {{$rfq['quantity']}} <span>{{$rfq['unit']}}</span></b></span></p>
                                                             </div>
                                                             <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Target Price</span> <br/> <span class="details_value"><b>{{$rfq['unit_price']}} / <span>{{$rfq['unit']}}</span></b></span></p>
                                                             </div>
                                                             {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
-                                                            <div class="col s6 m3">
+                                                            <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Deliver in</span> <br/> <span class="details_value"><b>{{ date('M j, Y',strtotime($rfq['delivery_time'])) }}</b></span></p>
                                                             </div>
                                                             <div class="col s6 m6 l3">
