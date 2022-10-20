@@ -766,18 +766,19 @@
                 event.preventDefault();
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");
+                $(".rfq_chat_box_wrapper").addClass("active");
                 $.ajax({
                     type:'GET',
                     url: "{{route('auth_user_quotations.by_rfq_id')}}",
                     data:{ rfqId: rfqId},
                     beforeSend: function() {
-                        $('.loading-message').html("Please Wait.");
-                        $('#loadingProgressContainer').show();
+                        $('.loading-message-progress').html("Please Wait.");
+                        $('#loadingMessageProgressContainer').show();
                     },
                     success: function (response) {
-                        $('.loading-message').html("");
-                        $('#loadingProgressContainer').hide();
-                        $(".rfq_chat_box_wrapper").show();
+                        $('.loading-message-progress').html("");
+                        $('#loadingMessageProgressContainer').hide();
+                        //$(".rfq_chat_box_wrapper").show();
                         $(".new_rfq_details_wrapper_outer").removeClass("active");
 
                         for(var i=0;i<response.quotations.length;i++){
