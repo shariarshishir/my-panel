@@ -565,7 +565,6 @@
                     success: function (response) {
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
-                        $(".rfq_chat_box_wrapper").show();
 
                         $('.quotation_tab').attr("data-rfq_id",rfqId);
                         $('.my_quotation_tab').attr("data-rfq_id",rfqId);
@@ -768,7 +767,6 @@
                     success: function (response) {
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
-                        $(".rfq_chat_box_wrapper").show();
 
                         for(var i=0;i<response.quotations.length;i++){
                             var html ='<div class="row">';
@@ -812,10 +810,6 @@
             });
 
         });
-
-        $(".rfq_chat_box_close_trigger").click(function(){
-            $(this).closest(".rfq_chat_box_wrapper").hide();
-        })
 
         $('.btn_view_detail').on('click',function(event){
             event.preventDefault();
