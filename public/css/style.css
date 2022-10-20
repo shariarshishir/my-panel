@@ -19415,6 +19415,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     cursor: pointer;
     margin-bottom: 0px;
     height: 100%;
+    padding-bottom: 65px;
 }
 
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_img_content {
@@ -19459,9 +19460,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 9px;
     line-height: 10px;
     display: inline-block;
+    height: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-inline-box;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details .details_value {
     display: inline-block;
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-inline-box;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details .details_value b {
     font-family: 'nexablack';
@@ -19545,8 +19558,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     vertical-align: middle;
     justify-content: center;
     flex-flow: column wrap;
-    max-height: 432px;
-    min-height: 432px;
+    max-height: 418px;
+    min-height: 418px;
     color: #9e9e9e;
 }
 .my_rfq_new_layout_wrapper .rfq_status_wrap {
@@ -19570,7 +19583,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .my_rfq_new_layout_wrapper .account_myrfq_infoBox {
     position: relative;
     margin-bottom: 50px;
-    height: 435px;
+    height: 420px;
 }
 .my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:link,
 .my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:visited,
@@ -22833,6 +22846,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         height: 150px;
         min-height: 150px;
     }
+
+    .my_rfq_new_layout_wrapper .account_myrfq_infoBox {
+        height: 458px;
+    }
+
+    .my_rfq_new_layout_wrapper .profile_account_myrfq_addPost .post_new {
+        max-height: 454px;
+        min-height: 454px;
+    }
+
+    .new_rfq_chat_inner, 
+    .new_rfq_details_inner {
+        width: 100% !important;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -25887,6 +25914,19 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         font-size: 13px;
         padding: 0 0 10px;
     }
+
+    .my_rfq_new_layout_wrapper .col.newAccountMyrfqAddPost,
+    .my_rfq_new_layout_wrapper .col.newAccountMyrfqBox {
+        width: 100% !important;
+    }
+    .my_rfq_new_layout_wrapper .profile_account_myrfq_addPost .post_new {
+        max-height: inherit;
+        min-height: inherit;
+    }
+    .my_rfq_new_layout_wrapper .account_myrfq_infoBox {
+        height: auto;
+    }
+
 }
 
 @media only screen and (max-width: 380px) {
@@ -25982,6 +26022,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         font-size: 12px;
         line-height: 16px;
     }
+
 }
 
 @media only screen and (max-width: 320px) {

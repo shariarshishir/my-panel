@@ -89,7 +89,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                     </div> --}}
 
                                     <div class="row">
-                                        <div class="col s12 m4 l4">
+                                        <div class="col s6 m6 l4 newAccountMyrfqAddPost">
                                             <div class="profile_account_myrfq_addPost">
                                                 <a class="post_new" href="{{route('rfq.create')}}">
                                                     <i class="material-icons">add_circle_outline</i>
@@ -99,11 +99,11 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                         </div>
                                         @if($rfqLists)
                                             @foreach($rfqLists as $key => $rfq)
-                                            <div class="col s12 m4 l4">
+                                            <div class="col s6 m6 l4 newAccountMyrfqBox">
                                                 <div class="account_myrfq_infoBox">
                                                     <div class="top_rfq_status">
                                                         <div class="row">
-                                                            <div class="col s12 m6">
+                                                            <div class="col s6 m6">
                                                                 <div class="rfq_status_wrap">
                                                                     @if(isset($rfq['pi_status']) && $rfq['pi_status'] == 0)
                                                                         <span class="status pending_rfq">Pending</span>
@@ -115,7 +115,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                                     {{-- <span class="status pending_rfq">RFQ Status 1</span> --}}
                                                                 </div>
                                                             </div>
-                                                            <div class="col s12 m6">
+                                                            <div class="col s6 m6">
                                                                 <div class="more_vert_wrap">
                                                                     <span class="more_vert">
                                                                         <a class="dropdown-trigger" href="javascript:void(0);" data-target="rfqStatusDropdown-{{$rfq['id']}}"><i class="material-icons">more_vert</i></a>
@@ -157,17 +157,17 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             <span class="posted_time_content">Posted {{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
                                                         </span>
                                                         <div class="row rfq_info_details">
-                                                            <div class="col s6 m3">
+                                                            <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Quantity</span> <br/> <span class="details_value"><b> {{$rfq['quantity']}} <span>pcs</span></b></span></p>
                                                             </div>
-                                                            <div class="col s6 m3">
+                                                            <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Target Price</span> <br/> <span class="details_value"><b>{{$rfq['unit_price']}} / <span>{{$rfq['unit']}}</span></b></span></p>
                                                             </div>
                                                             {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
-                                                            <div class="col s6 m3">
+                                                            <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Deliver in</span> <br/> <span class="details_value"><b>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</b></span></p>
                                                             </div>
-                                                            <div class="col s6 m3">
+                                                            <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Deliver to</span> <br/> <span class="details_value"><b>{{$rfq['destination']}}</b></span></p>
                                                             </div>
                                                         </div>
