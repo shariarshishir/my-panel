@@ -19688,10 +19688,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .new_rfq_details_wrapper_outer.active {
     visibility: visible;
-    width: 100%;
-    opacity: 1;
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
+    width: 100% !important;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
 }
 .rfq_chat_box_wrapper {
     position: fixed;

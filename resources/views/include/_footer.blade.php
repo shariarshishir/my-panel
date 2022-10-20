@@ -216,7 +216,7 @@
         var productFilterEmptyArea = screenWidth - 600;
         $(".new_rfq_details_empty_area").css({"width": productFilterEmptyArea, "height": "100%"});
         $(".new_rfq_details_empty_area").click(function(){
-            $(this).closest(".new_rfq_details_wrapper_outer").css({"opacity":"0", "width":"0px"});
+            $(this).closest(".new_rfq_details_wrapper_outer").removeClass("active").css({"opacity":"0", "width":"0px"});
         });
     })
 
