@@ -19676,11 +19676,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     width: 100%;
     z-index: 999;
-    /* padding: 20px; */
     background: rgba(255, 255, 255, 0.4);
     transform: translateX(100%);
     -webkit-transform: translateX(100%);    
-    /* transition: transform .5s ease; */
     transition: 0.9s;
     visibility: hidden;
     width: 0px;
@@ -19700,11 +19698,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     width: 100%;
     z-index: 999;
-    /* padding: 20px; */
     background: rgba(255, 255, 255, 0.4);
-    transform: translateX(100%);
-    -webkit-transform: translateX(100%);    
-    /* transition: transform .5s ease; */
+    /* transform: translateX(100%);
+    -webkit-transform: translateX(100%);     */
     transition: 0.9s;
     visibility: hidden;
     width: 0px;
