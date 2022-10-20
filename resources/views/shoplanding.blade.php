@@ -129,7 +129,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}" data-rfq_id="{{$rfq['id']}}">
                                                         <div class="rfq_top_content">
                                                             <div class="rfq_img_content">
@@ -154,18 +154,18 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                         </div>
                                                         <span class="posted_time">
                                                             <i class="material-icons">access_time</i>
-                                                            <span class="posted_time_content">Posted {{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
+                                                            <span class="posted_time_content">Posted - {{date('M j, Y', strtotime($rfq['created_at']))}}</span>
                                                         </span>
                                                         <div class="row rfq_info_details">
-                                                            <div class="col s6 m6 l3">
-                                                                <p><span class="details_label">Quantity</span> <br/> <span class="details_value"><b> {{$rfq['quantity']}} <span>pcs</span></b></span></p>
+                                                            <div class="col s6 m3">
+                                                                <p><span class="details_label">Quantity</span> <br/> <span class="details_value"><b> {{$rfq['quantity']}} <span>{{$rfq['unit']}}</span></b></span></p>
                                                             </div>
                                                             <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Target Price</span> <br/> <span class="details_value"><b>{{$rfq['unit_price']}} / <span>{{$rfq['unit']}}</span></b></span></p>
                                                             </div>
                                                             {{-- <div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div> --}}
-                                                            <div class="col s6 m6 l3">
-                                                                <p><span class="details_label">Deliver in</span> <br/> <span class="details_value"><b>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</b></span></p>
+                                                            <div class="col s6 m3">
+                                                                <p><span class="details_label">Deliver in</span> <br/> <span class="details_value"><b>{{ date('M j, Y',strtotime($rfq['delivery_time'])) }}</b></span></p>
                                                             </div>
                                                             <div class="col s6 m6 l3">
                                                                 <p><span class="details_label">Deliver to</span> <br/> <span class="details_value"><b>{{$rfq['destination']}}</b></span></p>
@@ -198,7 +198,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             </div>
                                                             <h3>{{$rfq['title']}}</h3>
                                                             <p><b>Description:</b> <span>{{$rfq['short_description']}}</span></p>
-                                                            <p><b>Quantity:</b> <span>{{$rfq['quantity']}} pcs </span></p>
+                                                            <p><b>Quantity:</b> <span>{{$rfq['quantity']}} / {{$rfq['unit']}} </span></p>
                                                             <p><b>Target Price:</b> <span>{{$rfq['unit_price']}} / {{$rfq['unit']}} </span></p>
                                                             <p><b>Deliver in:</b> <span>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</span></p>
                                                             <p><b>Deliver to:</b> <span>{{$rfq['destination']}}</span></p>
@@ -223,7 +223,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                                     @endforeach
                                                                 @endif
                                                             </div>
-                                                            
+
                                                             <div class="account_rfq_btn_wrap row">
                                                                 <div class="rfq_btn_box rfq_quotation_button_wrapper col s6 m6 l6">
                                                                     <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
