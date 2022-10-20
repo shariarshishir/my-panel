@@ -190,7 +190,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    <div class="new_rfq_details_wrapper_outer" id="rfqDetailsRightSlider" style="display: none;">
+                                                    <div class="new_rfq_details_wrapper_outer" id="rfqDetailsRightSlider">
                                                         <div class="new_rfq_details_empty_area"></div>
                                                         <div class="new_rfq_details_inner">
                                                             <div class="close_rfq_details_box">
@@ -212,13 +212,13 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                                             $imgExt = end($imgFullpath);
                                                                         @endphp
                                                                         @if(pathinfo($imgExt, PATHINFO_EXTENSION) == 'pdf' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'PDF')
-                                                                            <a href="{{$rfqDetailsImg['image']}}"><span class="pdf_icon">&nbsp;</span></a>
+                                                                            <a href="{{$rfqDetailsImg['image']}}" target="_blank"><span class="pdf_icon">&nbsp;</span></a>
                                                                         @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'doc' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'docx')
-                                                                            <a href="{{$rfqDetailsImg['image']}}"><span class="doc_icon">&nbsp;</span></a>
+                                                                            <a href="{{$rfqDetailsImg['image']}}" target="_blank"><span class="doc_icon">&nbsp;</span></a>
                                                                         @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'xlsx' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'xls')
-                                                                            <a href="{{$rfqDetailsImg['image']}}"><span class="xlsx_icon">&nbsp;</span></a>
+                                                                            <a href="{{$rfqDetailsImg['image']}}" target="_blank"><span class="xlsx_icon">&nbsp;</span></a>
                                                                         @else
-                                                                            <a href="{{$rfqDetailsImg['image']}}"><img src="{{$rfqDetailsImg['image']}}" alt="RFQ Image" style="height: 255px;" /></a>
+                                                                            <a data-fancybox="rfq-details-product-img-{{$rfq['id']}}" href="{{$rfqDetailsImg['image']}}"><img src="{{$rfqDetailsImg['image']}}" alt="RFQ Image" style="height: 255px;" /></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @endif

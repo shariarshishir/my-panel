@@ -550,10 +550,10 @@
             });
 
             $(".profile_account_myrfq_box").click(function(){
-                $(this).closest(".account_myrfq_infoBox").children(".new_rfq_details_wrapper_outer").show();
+                $(this).closest(".account_myrfq_infoBox").children(".new_rfq_details_wrapper_outer").addClass("active");
             });
             $(".rfq_chat_details_close_trigger").click(function(){
-                $(this).closest(".new_rfq_details_wrapper_outer").hide();
+                $(this).closest(".new_rfq_details_wrapper_outer").removeClass("active");
             });
 
             $('.message-button').on('click',function(event){
@@ -573,7 +573,7 @@
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
                         $(".rfq_chat_box_wrapper").show();
-                        $(".new_rfq_details_wrapper_outer").hide();
+                        $(".new_rfq_details_wrapper_outer").removeClass("active");
 
                         $('.quotation_tab').attr("data-rfq_id",rfqId);
                         $('.my_quotation_tab').attr("data-rfq_id",rfqId);
@@ -777,7 +777,7 @@
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
                         $(".rfq_chat_box_wrapper").show();
-                        $(".new_rfq_details_wrapper_outer").hide();
+                        $(".new_rfq_details_wrapper_outer").removeClass("active");
 
                         for(var i=0;i<response.quotations.length;i++){
                             var html ='<div class="row">';
