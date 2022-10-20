@@ -752,7 +752,7 @@
                 });
             });
 
-            $('.quotation-button, .profile_account_myrfq_box').on('click',function(event){
+            $('.quotation-button').on('click',function(event){
                 event.preventDefault();
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");

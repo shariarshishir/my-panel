@@ -240,12 +240,11 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                                 <li><a href="javascript:void(0);">Option</a></li>
                                                             </ul>
                                                         </div>
-                                                        <div class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}">
+                                                        <div data-rfq_id="{{$rfq['id']}}" class="profile_account_myrfq_box rfq_box_{{$rfq['id']}} {{$key == 0 ? 'active' : ''}}" >
                                                             <div class="accountMyrfqBox">
                                                                 <h5>{{$rfq['title']}}</h5>
                                                                 <span class="posted_time">{{date('Y-m-d', strtotime($rfq['created_at']))}}</span>
                                                             </div>
-                                                                
                                                             @if($pageTitle == "My Queries")
                                                             <div class="row">
                                                                 <div class="col s6 m6">
@@ -301,7 +300,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                                     </div>
                                                                 </div>
                                                                 <div class="rfq_btn_box">
-                                                                    <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}">Messages</button>
+                                                                    <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}" >Messages</button>
                                                                     @if(($rfq['unseen_count'] - $rfq['unseen_quotation_count']) >0)
                                                                         <span  class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
                                                                     @else

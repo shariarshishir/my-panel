@@ -13113,7 +13113,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     position: relative;
 }
 
-.new_profile_account_myrfq_details .rfq_review_results_wrap form {
+.new_profile_account_rightsidebar_desktop.rfq_chat_box_wrapper .new_profile_account_myrfq_details .rfq_review_results_wrap form {
     position: absolute;
     bottom: 5px;
     left: 5px;
@@ -19420,6 +19420,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-bottom: 0px;
     height: 100%;
     padding-bottom: 65px;
+}
+.my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box.active {
+    background: none;
 }
 
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_img_content {
