@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="166.958" height="123.564" viewBox="0 0 166.958 123.564">
+  <defs>
+    <filter id="Path_34" x="0" y="11.204" width="120.625" height="87.125" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="13" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_36" x="110.856" y="67.456" width="56.102" height="56.108" filterUnits="userSpaceOnUse">
+      <feOffset dx="6" dy="9" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_6733" data-name="Group 6733" transform="translate(-279.521 -1725.241)">
+    <g id="manufacturer-svgrepo-com_1_" data-name="manufacturer-svgrepo-com (1)" transform="translate(283.021 1665.07)">
+      <path id="Path_33" data-name="Path 33" d="M1.126,69.236H15.412a1.126,1.126,0,0,0,1.126-1.125V63.8a1.126,1.126,0,0,0-1.126-1.126H1.126A1.126,1.126,0,0,0,0,63.8v4.314A1.125,1.125,0,0,0,1.126,69.236Z" transform="translate(0 -1)" fill="#fff" stroke="#285460" stroke-width="3"/>
+      <g transform="matrix(1, 0, 0, 1, -3.5, 60.17)" filter="url(#Path_34)">
+        <path id="Path_34-2" data-name="Path 34" d="M92.987,125.474a1.406,1.406,0,0,0-1.335-.11l-23.23,10.2v-8.913a1.407,1.407,0,0,0-1.972-1.288l-23.23,10.2v-8.913a1.407,1.407,0,0,0-1.972-1.288l-24.71,10.85v-17.2a1.126,1.126,0,0,0-1.126-1.125H1.126A1.126,1.126,0,0,0,0,119.015v55.331a2.668,2.668,0,0,0,2.668,2.669h89.55a1.407,1.407,0,0,0,1.407-1.407V126.652A1.407,1.407,0,0,0,92.987,125.474Zm-59.27,34.495a1.319,1.319,0,0,1-1.319,1.319H26.025a1.319,1.319,0,0,1-1.319-1.319v-10.55a1.319,1.319,0,0,1,1.319-1.319H32.4a1.319,1.319,0,0,1,1.319,1.319Zm25.2,0a1.319,1.319,0,0,1-1.319,1.319H51.228a1.319,1.319,0,0,1-1.319-1.319v-10.55a1.319,1.319,0,0,1,1.319-1.319H57.6a1.319,1.319,0,0,1,1.319,1.319Zm25.2,0a1.318,1.318,0,0,1-1.318,1.319H76.43a1.319,1.319,0,0,1-1.319-1.319v-10.55A1.319,1.319,0,0,1,76.43,148.1H82.8a1.318,1.318,0,0,1,1.318,1.319Z" transform="translate(3.5 -105.19)" fill="#fff" stroke="#285460" stroke-width="3"/>
+      </g>
+    </g>
+    <path id="Path_38" data-name="Path 38" d="M-54.333,1524.667l-51,3-25.333,11.667-14.667,39.333,89.333,9Z" transform="translate(430.333 217)" fill="#54a958" opacity="0.22"/>
+    <g id="Group_6644" data-name="Group 6644" transform="translate(999 165)">
+      <g id="magnifier-svgrepo-com" transform="translate(-658.188 1575.335)">
+        <g id="Group_6643" data-name="Group 6643">
+          <path id="Path_35" data-name="Path 35" d="M4.016,32.623A32.832,32.832,0,1,1,36.842,65.235,32.725,32.725,0,0,1,4.016,32.623Zm60.632.356a27.889,27.889,0,1,0-27.9,27.807,27.844,27.844,0,0,0,27.9-27.807Z" transform="translate(-4.016)" fill="#285460" fill-rule="evenodd"/>
+          <g transform="matrix(1, 0, 0, 1, -61.29, -15.09)" filter="url(#Path_36)">
+            <path id="Path_36-2" data-name="Path 36" d="M22.119,42.212,32.1,32.229,9.983,10.1a13.179,13.179,0,0,1-3.178,6.833A13.011,13.011,0,0,1,0,20.093L22.119,42.212Z" transform="translate(116.86 60.35)" fill="#285460" fill-rule="evenodd"/>
+          </g>
+        </g>
+      </g>
+      <path id="Path_84" data-name="Path 84" d="M28.5,0A28.5,28.5,0,1,1,0,28.5,28.5,28.5,0,0,1,28.5,0Z" transform="translate(-654 1580)" fill="#54a958" opacity="0.5"/>
+      <path id="Path_37" data-name="Path 37" d="M13.008,18.148c0,3.134-2.411,1.951-2.411-2.405A13.581,13.581,0,0,1,24.18,2.154c4.367,0,5.545,2.405,2.405,2.405A13.58,13.58,0,0,0,13.008,18.148Z" transform="translate(-654.938 1585.302)" fill="#285460" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>
