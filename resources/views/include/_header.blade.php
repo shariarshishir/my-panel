@@ -143,24 +143,9 @@
 										<span>My RFQs</span>
 									</a>
 								</li>
-								<li class="myOrders{{ Route::is('po.myorders') ? ' active' : ''}}">
-									<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="{{route('po.myorders')}}">
-										<span>My Orders</span>
-									</a>
-								</li>
-								<li class="mySupplyChain">
-									<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="javascript:void(0);">
-										<span>My Supply Chain</span>
-									</a>
-								</li>
 								<li class="designStudio">
 									<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="{{route('product.type.mapping',['studio', 'design'])}}">
 										<span>Design Studio</span>
-									</a>
-								</li>
-								<li class="designers{{ Route::is('designers') ? ' active' : ''}}">
-									<a class="tooltipped" data-position="right" data-tooltip="Designers" href="{{route('designers')}}">
-										<span>Designers</span>
 									</a>
 								</li>
 								<li class="rawMaterials">
@@ -173,24 +158,39 @@
 										<span>Suppliers</span>
 									</a>
 								</li>
-								<li class="messages{{ Route::is('message.center') ? ' active' : ''}}">
-									<a class="tooltipped" data-position="right" data-tooltip="Messages" href="{{route('message.center')}}">
-										<span>Messages</span>
-									</a>
-								</li>
 								<li class="samples">
 									<a class="tooltipped" data-position="right" data-tooltip="Samples" href="javascript:void(0);">
 										<span>Samples</span>
 									</a>
 								</li>
-								<li class="oms">
-									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
-										<span>OMS</span>
+								<li class="designers{{ Route::is('designers') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="Designers" href="{{route('designers')}}">
+										<span>Designers</span>
+									</a>
+								</li>
+								<li class="mySupplyChain">
+									<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="javascript:void(0);">
+										<span>My Supply Chain</span>
+									</a>
+								</li>
+                                <li class="messages{{ Route::is('message.center') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="Messages" href="{{route('message.center')}}">
+										<span>Messages</span>
+									</a>
+								</li>
+								<li class="myOrders{{ Route::is('po.myorders') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="{{route('po.myorders')}}">
+										<span>Orders</span>
 									</a>
 								</li>
 								<li class="liveMarket">
 									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
 										<span>Live Market</span>
+									</a>
+								</li>
+								<li class="oms">
+									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
+										<span>OMS</span>
 									</a>
 								</li>
 							</ul>
@@ -603,24 +603,9 @@
                 <span>My RFQs</span>
             </a>
 		</li>
-		<li class="myOrders{{ Route::is('po.myorders') ? ' active' : ''}}">
-			<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="{{route('po.myorders')}}">
-                <span>My Orders</span>
-            </a>
-		</li>
-		<li class="mySupplyChain{{ Route::is('front.supplychain') ? ' active' : ''}}">
-			<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="{{route('front.supplychain')}}">
-                <span>My Supply Chain</span>
-            </a>
-		</li>
 		<li class="designStudio">
 			<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="{{route('product.type.mapping',['studio', 'design'])}}">
                 <span>Design Studio</span>
-            </a>
-		</li>
-        <li class="designers{{ Route::is('designers') ? ' active' : ''}}">
-			<a class="tooltipped" data-position="right" data-tooltip="Designers" href="{{route('designers')}}">
-                <span>Designers</span>
             </a>
 		</li>
         <li class="rawMaterials">
@@ -633,14 +618,29 @@
                 <span>Suppliers</span>
             </a>
 		</li>
+        <li class="samples{{ Route::is('samples') ? ' active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="Samples" href="{{route('samples')}}">
+                <span>Samples</span>
+            </a>
+		</li>
+        <li class="designers{{ Route::is('designers') ? ' active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="Designers" href="{{route('designers')}}">
+                <span>Designers</span>
+            </a>
+		</li>
+		<li class="mySupplyChain{{ Route::is('front.supplychain') ? ' active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="{{route('front.supplychain')}}">
+                <span>My Supply Chain</span>
+            </a>
+		</li>
         <li class="messages{{ Route::is('message.center') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Messages" href="{{route('message.center')}}">
                 <span>Messages</span>
             </a>
 		</li>
-        <li class="samples{{ Route::is('samples') ? ' active' : ''}}">
-			<a class="tooltipped" data-position="right" data-tooltip="Samples" href="{{route('samples')}}">
-                <span>Samples</span>
+		<li class="myOrders{{ Route::is('po.myorders') ? ' active' : ''}}">
+			<a class="tooltipped" data-position="right" data-tooltip="My Orders" href="{{route('po.myorders')}}">
+                <span>Orders</span>
             </a>
 		</li>
         <li class="liveMarket">
