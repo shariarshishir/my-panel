@@ -13145,11 +13145,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .new_profile_account_rightsidebar_desktop.rfq_chat_box_wrapper .new_profile_account_myrfq_details .rfq_review_results_wrap form {
+    /*
     position: fixed;
     bottom: 8px;
-    /* left: 5px; */
     right: 12px;
     width: 380px;
+    */
 }
 
 .rfq_message_box_bottom .message_type_box {
@@ -19678,7 +19679,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     z-index: 999;
     background: rgba(255, 255, 255, 0.4);
     transform: translateX(100%);
-    -webkit-transform: translateX(100%);    
+    -webkit-transform: translateX(100%);
     transition: 0.9s;
     visibility: hidden;
     width: 0px;
@@ -22932,7 +22933,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         min-height: 454px;
     }
 
-    .new_rfq_chat_inner, 
+    .new_rfq_chat_inner,
     .new_rfq_details_inner {
         width: 100% !important;
     }
