@@ -784,8 +784,10 @@
                                         var redirect_url = '{{ route("front.rfqpostsuccessfulbyanonymous") }}';
                                         window.location.href = redirect_url;
                                     } else {
-                                        var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
-                                        redirect_url = redirect_url.replace(':slug', alias);
+                                        // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
+                                        // redirect_url = redirect_url.replace(':slug', alias);
+                                        // window.location.href = redirect_url;
+                                        var redirect_url = '{{ route("home") }}';
                                         window.location.href = redirect_url;
                                     }
                                     //window.location.href = "{{ route('rfq.my')}}";
@@ -903,8 +905,10 @@
                                     swal("Done!", msg,"success");
                                     //window.location.reload;
                                     var alias = "{{$profileAlias??""}}";
-                                    var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
-                                    redirect_url = redirect_url.replace(':slug', alias);
+                                    // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
+                                    // redirect_url = redirect_url.replace(':slug', alias);
+                                    // window.location.href = redirect_url;
+                                    var redirect_url = '{{ route("home") }}';
                                     window.location.href = redirect_url;
                                 }
                             })
