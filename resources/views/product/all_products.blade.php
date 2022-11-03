@@ -87,7 +87,11 @@
                                     </ul>
                                 </div>
                                 @endif
+                                @if($mapping_type_child == "design")
+                                @include('product._all_product_design_studio_data')
+                                @else
                                 @include('product._all_product_data')
+                                @endif
                             </div>
                         </div>
                     </div>
