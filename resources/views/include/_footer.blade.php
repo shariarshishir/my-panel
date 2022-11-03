@@ -1654,3 +1654,14 @@ function addToWishList(flag, id, obj){
     }
 </script>
 
+{{-- masonry script start --}}
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+    $('.design_studio_product_list').masonry({
+        // options
+        itemSelector: '.design_stodio_product_item',
+        columnWidth: 30
+    });
+</script>
+{{-- masonry script end --}}    
+
