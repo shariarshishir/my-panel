@@ -155,6 +155,7 @@
     //alert(screen.width);
     function openClose() {
         var x = document.getElementById("mainSidenav");
+
         if (x.style.width === "50px") {
             document.getElementById("btn_mainSidenav").innerHTML = '<i class="material-icons">chevron_left</i>';
             x.style.width = "220px";
