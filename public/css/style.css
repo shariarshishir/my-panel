@@ -18994,6 +18994,24 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	/* filter: brightness(50%); */
 }
 
+.masonry-preloader {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 999;
+}
+.masonry-preloader-inside {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 @media only screen and (min-width: 993px) {
 	/* Vertical masonry bricks on desktop-sized screen */
 	.design_studio_product_list_wrapper .masonry-brick {

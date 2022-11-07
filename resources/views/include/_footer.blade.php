@@ -1685,9 +1685,12 @@ function addToWishList(flag, id, obj){
         else
         g.style.height = gHeight/mGridCol + gHeight/(gcLength+1) + "px";
     }
+    var loaderHtml = '<div class="masonry-preloader-inside">';
+        loaderHtml += '<img src="{{Storage::disk('s3')->url('public/frontendimages/ajax-loader-bar.gif')}}" width="150" height="150" alt="Loading">';
+        loaderHtml += '</div>';
 
     var masonryGrid = document.querySelector('.masonry');
-    masonryGrid.insertAdjacentHTML("afterend", "<div class='masonry-preloader'>Loading...</div>");
+    masonryGrid.insertAdjacentHTML("afterend", "<div class='masonry-preloader'>"+loaderHtml+"</div>");
     var masonryPreloader = document.querySelector('.masonry-preloader');
 
     ["resize", "load"].forEach(function(event) {
