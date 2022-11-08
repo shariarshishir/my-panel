@@ -732,11 +732,12 @@
                                 headers: { 'Authorization': sso_token },
 
                                 success:function(response){
+                                    var rfq_id = response.data.id;
                                     $('.loading-message').html("");
                                     $('#loadingProgressContainer').hide();
                                     const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
                                     swal("Done!", msg,"success");
-                                    //console.log(response);
+                                    console.log('response: =>',response);
                                     // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
                                     // redirect_url = redirect_url.replace(':slug', alias);
                                     // window.location.href = redirect_url;
@@ -744,13 +745,13 @@
                                         var redirect_url = '{{ route("front.rfqpostsuccessfulbyanonymous") }}';
                                         window.location.href = redirect_url;
                                     } else {
-                                        // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
-                                        // redirect_url = redirect_url.replace(':slug', alias);
-                                        // window.location.href = redirect_url;
-
-                                        var redirect_url = '{{ route("home") }}';
-                                        //redirect_url = redirect_url.replace(':slug', alias);
+                                        var alias = rfq_id;
+                                        var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
+                                        redirect_url = redirect_url.replace(':slug', alias);
                                         window.location.href = redirect_url;
+
+                                        // var redirect_url = '{{ route("rfq.matched-suppleirs") }}';
+                                        // window.location.href = redirect_url;
                                     }
                                     //window.location.href = "{{ route('rfq.my')}}";
                                 },
@@ -833,6 +834,7 @@
                         },
                         success:function(response)
                         {
+                            var rfq_id = response.data.id;
                             var mailTrigger = '{{ route("rfq.mailTriggerForAuthUser") }}';
                             $.ajax({
                                 method: 'post',
@@ -848,14 +850,15 @@
                                     $('#loadingProgressContainer').hide();
                                     const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
                                     swal("Done!", msg,"success");
+                                    console.log('response::',rfq_id);
                                     //window.location.reload;
-                                    // var alias = "{{$profileAlias??""}}";
-                                    // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
-                                    // redirect_url = redirect_url.replace(':slug', alias);
-                                    // window.location.href = redirect_url;
-
-                                    var redirect_url = '{{ route("home") }}';
+                                    var alias = rfq_id;
+                                    var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
+                                    redirect_url = redirect_url.replace(':slug', alias);
                                     window.location.href = redirect_url;
+
+                                    // var redirect_url = '{{ route("rfq.matched-suppleirs") }}';
+                                    // window.location.href = redirect_url;
                                 }
                             })
                         },

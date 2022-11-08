@@ -492,6 +492,7 @@ Route::group(['middleware'=>['sso.verified','auth']],function (){
 });
 Route::post('rfq/store/with/login',[RfqController::class, 'storeWithLogin'])->name('rfq.store.with.login');
 Route::get('rfq/create/{flag?}/{productid?}',[RfqController::class, 'create'])->name('rfq.create');
+Route::get('rfq/matched-suppleirs/{rfqid?}',[RfqController::class, 'matchedSuppleirs'])->name('rfq.matched-suppleirs');
 //rfq show with shareable link
 Route::get('rfq/{link}',[RfqController::class, 'showRfqUsingLink'])->name('show.rfq.using.link');
 Route::get('sitemap',[HomeController::class, 'showSiteMap'])->name('show.site.map');

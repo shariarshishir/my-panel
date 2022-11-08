@@ -25910,3 +25910,239 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 /* ******************** Media css style end *********************** */
+
+/* Arnob Start */
+/* This code is for RFQ_with_mb_library */
+.rfq_new_layout_match_supplier_with_rfq .match_supplier_rfq_single_wrapper {
+    margin-bottom: 30px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .single_wraper_gapping {
+    gap: 20px;
+}
+.single_wraper_gapping .matched_supplier_item {
+    margin-bottom: 15px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content {
+    padding: 35px;
+    border: 1px solid gray;
+    position: relative;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .input-field {
+    margin-bottom: 20px;
+    position: absolute;
+    top: 11px;
+    left: 6px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .input-field
+    label {
+    padding: 0px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .image_width {
+    background: gray;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .image_width
+    img {
+    border-radius: 100%;
+    padding: 10px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .sparkle_part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .sparkle_part
+    .sparkle_knit
+    h3,
+p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .sparkle_part
+    .middle_wrap {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .sparkle_part
+    .middle_wrap
+    i.material-icons {
+    font-size: 28px;
+    color: #48ab48;
+    margin-top: 6px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .sparkle_part
+    .middle_wrap
+    .icon_wrap {
+    background: #48ab48;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    line-height: 23px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .sparkle_part
+    .middle_wrap
+    .icon_wrap
+    p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .middle_part_image_wrapper {
+    margin: 50px 0px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .middle_part_image_wrapper
+    h6 {
+    margin-bottom: 20px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .middle_part_image_wrapper
+    .inner_content_image {
+    display: flex;
+    gap: 25px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .middle_part_image_wrapper
+    .inner_content_image
+    img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .main_product_wrap
+    .main_product_inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .main_product_wrap
+    .main_product_inner
+    i.material-icons {
+    font-size: 30px;
+    color: #48ab48;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .main_product_wrap
+    .main_product_inner
+    .chatbox_wrap {
+    position: relative;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .main_product_wrap
+    .main_product_inner
+    .chatbox_wrap
+    img {
+    width: 30px;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .main_product_wrap
+    .main_product_inner
+    .chatbox_wrap
+    i.fas.fa-comment-medical {
+    font-size: 30px;
+    color: #48ab48;
+}
+
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .main_product_wrap
+    .main_product_inner
+    .chatbox_wrap
+    span {
+    position: absolute;
+    width: 13px;
+    top: -5px;
+    right: 20px;
+    height: 13px;
+    background: red;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 13px;
+    font-size: 8px;
+}
+
+/* Arnob End */
