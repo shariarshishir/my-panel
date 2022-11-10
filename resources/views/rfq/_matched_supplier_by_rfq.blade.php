@@ -32,6 +32,20 @@
                 </div>
             </div>
         </div>
+
+        <a class="waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+        <!-- Modal Structure -->
+        <div id="request-for-quotation-from-rfq" class="modal">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p id="request-for-quotation-from-rfq-profile-count"></p>
+                <a href="javascript:void(0)" class="btn btn_green" onclick='onRequestSubmit()'>Submit</a>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+        </div>
+
         <div class="rfq_new_layout_match_supplier_with_rfq">
             <div class="match_supplier_rfq_single_wrapper">
                 <div class="row single_wraper_gapping">
@@ -42,7 +56,7 @@
                         <div class="match_supplier_rfq_single_content">
                             <div class="input-field">
                                 <label>
-                                    <input type="checkbox" name="remember">
+                                    <input type="checkbox" id={{$businessProfile['id']}} user_id={{$businessProfile['user_id']}} name="remember" onclick='onProfileSelected(this)'>
                                     <span></span>
                                 </label>
                             </div>
@@ -106,5 +120,93 @@
 
                 </div>
             </div>
+            @php
+            var_dump($businessProfiles);
+        @endphp
+            
         </div>
 @endsection
+@push('js')
+    <script type="text/javascript">
+    
+        let business_profile_ids = [];
+        let business_profile_user_ids = [];
+
+        $(document).ready(function(){
+            console.log(business_profile_ids.length)
+            if(business_profile_ids.length == 0) {
+                $(".request-for-quotation-modal-trigger").attr("disabled", true);
+            }
+        });
+
+        const isReadyToSumbit = () =>{
+            return business_profile_ids.length>0;
+        }
+        const showBusinessProfileCount = (len) => {
+            document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = 
+            'Are you sure want to send Quotation to '+ len + 'suppliers';
+        }   
+        const onRequestSubmit = () => {
+            console.log('business_profile_ids',business_profile_ids);
+            console.log('business_profile_user_ids',business_profile_user_ids);
+            var xmlHttp = new XMLHttpRequest();
+            // xmlHttp.open( "GET", "http://127.0.0.1:8000/rfq/submit-matched-suppleirs/"+business_profile_user_ids.join(','), false ); // false for synchronous request
+            // xmlHttp.send( null );
+            var redirect_url = '{{ route("rfq.submit-matched-suppleirs", ":slug") }}';
+            redirect_url = redirect_url.replace(':slug', business_profile_user_ids.join(','));
+            var url = redirect_url;
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                },
+            })
+            .then(response => {
+                if(response.status == 200){
+                    window.location.href = '{{ route("home") }}';
+                }
+            });
+            // console.log()
+        }                 
+
+        const onProfileSelected = (e) => {
+
+            let id = Number(e?.id);
+            let user_id = Number(e?.attributes?.getNamedItem("user_id")?.value);
+            let checked = e.checked;
+            // add business profile id
+            if(checked){
+                business_profile_ids.push(id);
+                if(business_profile_user_ids.indexOf(user_id) == -1){
+                    business_profile_user_ids.push(user_id);
+                }
+            }else{
+                // remove business profile id
+                const index = business_profile_ids.indexOf(id);
+                if (index > -1) {
+                    business_profile_ids.splice(index, 1);
+                }
+                const user_index = business_profile_user_ids.indexOf(user_id);
+                if (user_index > -1) {
+                    business_profile_user_ids.splice(user_index, 1);
+                }
+            }
+            if(business_profile_ids.length == 0) {
+                $(".request-for-quotation-modal-trigger").attr("disabled", true);
+            } else {
+                $(".request-for-quotation-modal-trigger").attr("disabled", false);
+            }
+            if(isReadyToSumbit()){
+                console.log('business_profile_ids.length',business_profile_ids.length)
+                showBusinessProfileCount(business_profile_ids.length);
+                $("#request-for-quotation-from-rfq").modal('show');
+            }else{
+                $("#request-for-quotation-from-rfq").modal('hide');
+                
+            }
+            console.log('business_profile_ids',business_profile_ids);
+            console.log('business_profile_user_ids',business_profile_user_ids);
+            
+        }        
+    </script>   
+@endpush

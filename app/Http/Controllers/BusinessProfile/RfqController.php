@@ -1763,6 +1763,12 @@ class RfqController extends Controller
 
     }
 
+    public function submitMatchedSuppleirs(Request $request, $userIds, $link = false){
+        $userIds = explode(",", $userIds);
+        $users = User::whereIn('id',$userIds)->get();
+        
+        return response()->json(['success' => True], 200);
+    }
     public function matchedSuppleirs(Request $request, $rfqid, $link = false)
     {
         $response = Http::get(env('RFQ_APP_URL').'/api/quotation/'.$rfqid);
