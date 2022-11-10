@@ -24,6 +24,7 @@
         $('.non-clothing-full-stock-price').hide();
         $('.ready-stock-prices-breakdown').show();
         $('#product-add-modal-block .product_unit').val('');
+        $(".product_upload_update_table tbody").html('');
         $('#product-add-modal-block .product_unit').trigger('change');
         $('.error-rm').html('');
         $('.select2').val('');
@@ -253,7 +254,7 @@
                                 isRawMaterial= '';
                             }
                             var html = '<tr>';
-                            html += '<td data-title="Image">';
+                            html += '<td data-title="Image" class="uploadOverlayImage">';
                             html += '<div id="addImage">';
                             html += '<div class="overlay-addImage-preview-block">';
                             html += '<img src="'+asset+'" id="overlayImage" class="overlay-addImage-preview" alt="preview image">';
@@ -267,8 +268,8 @@
                             html += '</div>';
                             html += '</div>';
                             html += '</td>';
-                            html += '<td data-title="Image Label"><input type="text" value="'+label+'" name="productImg[product_image_label][]" /></td>';
-                            html += '<td data-title="Is Accessories">';
+                            html += '<td data-title="Image Label" class="uploadImageLabel"><input type="text" value="'+label+'" name="productImg[product_image_label][]" /></td>';
+                            html += '<td data-title="Is Accessories" class="uploadImageAccessories">';
                             html += '<label>';
                             html += '<input class="is_accessories_checked" type="checkbox" '+isRawMaterial+' />';
                             html += '<span></span>';
@@ -1116,7 +1117,7 @@ $(document).on('click', '.btn-back-to-product-list', function (e) {
     {
         let totalChild = $('.product_upload_update_table tbody').children().length;
         var html = '<tr>';
-        html += '<td data-title="Image">';
+        html += '<td data-title="Image" class="uploadOverlayImage">';
         html += '<div id="addImage">';
         html += '<div class="overlay-addImage-preview-block">';
         html += '<img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png" id="overlayImage" class="overlay-addImage-preview" alt="preview image">';
@@ -1130,8 +1131,8 @@ $(document).on('click', '.btn-back-to-product-list', function (e) {
         html += '</div>';
         html += '</div>';
         html += '</td>';
-        html += '<td data-title="Image Label"><input type="text" name="productImg[product_image_label][]" /></td>';
-        html += '<td data-title="Is Accessories">';
+        html += '<td data-title="Image Label" class="uploadImageLabel"><input type="text" name="productImg[product_image_label][]" /></td>';
+        html += '<td data-title="Is Accessories" class="uploadImageAccessories">';
         html += '<label>';
         html += '<input class="is_accessories_checked" type="checkbox" />';
         html += '<span></span>';

@@ -106,6 +106,7 @@
                             <textarea id="additional_description" class="editor" name="additional_description" >{{old('additional_description')}}</textarea>
                         </div>
                     </div>
+                    
                     <div class="product_upload_update_block">
                         <div class="no_more_tables">
                             <table class="product_upload_update_table"> 

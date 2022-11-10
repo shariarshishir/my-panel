@@ -315,6 +315,7 @@ class ProductController extends Controller
 
            ]);
 
+
            if(isset($productArray)) {
             foreach ($productArray as $image) {
                 $s3 = \Storage::disk('s3');
@@ -734,26 +735,7 @@ class ProductController extends Controller
                     ProductImage::where('id',$image[3])->update($data);
                 }
             }
-/*
-            $product_image_db_ids = [];
-            //  delete if not found
-            $productImages=ProductImage::where('product_id',$product->id)->get();
-            foreach($productImages as $image){
-                array_push($product_image_db_ids,$image->id);
-            }
-            $ids_to_delete = [];
-            foreach($product_image_db_ids as $image_id){
-                if(!in_array($image_id,$product_image_ids)){
-                    array_push($ids_to_delete,$image_id);
-                }
-            }
-            if(count($ids_to_delete)>0){
-                $productImagesDelete=ProductImage::whereIn('id',$ids_to_delete)->get();
-                foreach($productImagesDelete as $pid){
-                    $pid->delete();
-                }
-            }
-*/
+ 
             // [1,2,3,4] [1,3,4] = [2]
             // dd($product_image_db_ids, $product_image_ids, $ids_to_delete);//db array
             // dd($product_image_ids);//frontend array

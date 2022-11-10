@@ -200,10 +200,10 @@
                         </div>
                     </div>{{-- input_field_wrap --}}
 
-                    <label>
+                    {{-- <label>
                         <input name="select-type" id="single-image"  type="checkbox">
                         <span>Single Image?</span>
-                    </label>
+                    </label> --}}
 
                     {{-- @if(isset($_POST['select-type'])) --}}
                     <div class="product_upload_update_block">
@@ -218,7 +218,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td data-title="Image">
+                                        <td data-title="Image" class="uploadOverlayImage">
                                             <div id="addImage">
                                                 <div class="overlay-addImage-preview-block">
                                                     <img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png" id="overlayImage" class="overlay-addImage-preview" alt="preview image">
@@ -231,8 +231,8 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td data-title="Image Label"><input type="text" name="productImg[product_image_label][]" value="" /></td>
-                                        <td data-title="Is Accessories">
+                                        <td data-title="Image Label" class="uploadImageLabel"><input type="text" name="productImg[product_image_label][]" value="" /></td>
+                                        <td data-title="Is Accessories" class="uploadImageAccessories">
                                             <label>
                                                 <input class="is_accessories_checked" type="checkbox" />
                                                 <span></span>

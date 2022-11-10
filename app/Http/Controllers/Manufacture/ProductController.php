@@ -24,6 +24,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validator = Validator::make($request->all(), [
             'product_tag' => 'required',
             'business_profile_id' => 'required',
@@ -42,8 +43,8 @@ class ProductController extends Controller
             // 'product_images' =>'required',
             // 'product_images.*' =>'image|mimes:jpeg,png,jpg,gif,svg,JPEG,PNG,JPG,GIF,SVG|max:25600',
 
-            'images'  => 'required',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,JPEG,PNG,JPG,GIF,SVG|max:25600',
+            // 'images'  => 'required',
+            // 'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,JPEG,PNG,JPG,GIF,SVG|max:25600',
 
             'overlay_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,JPEG,PNG,JPG,GIF,SVG|max:25600',
             'price_per_unit'=> 'required',
@@ -58,6 +59,7 @@ class ProductController extends Controller
             'raw_materials_id.required_if' => 'the raw materials type is required when raw materials selected',
         ]);
 
+        
         if ($validator->fails())
         {
             return response()->json(array(
@@ -69,6 +71,18 @@ class ProductController extends Controller
         DB::beginTransaction();
 
         try{
+
+            // dd($request->all());
+
+            $productArray =[];
+            if(isset($request->productImg['product_add_image'])) {
+                for($i=0; $i < count($request->productImg['product_add_image']); $i++){
+                    array_push($productArray, [$request->productImg['product_add_image'][$i], $request->productImg['product_image_label'][$i],$request->productImg['product_image_is_accessories'][$i]]);
+                }
+            }
+
+
+
             $path=null;
             if ($request->hasFile('overlay_image')){
                 $image = $request->file('overlay_image');
@@ -78,7 +92,12 @@ class ProductController extends Controller
                 $s3filePath = '/public'.'/'.$overlay_image_file_name;
                 $s3->put($s3filePath, file_get_contents($image));
             }
+            
+            // Mostafiz
+            $business_profile=BusinessProfile::withTrashed()->where('id', $request->business_profile_id)->first();
+            $business_profile_name=$business_profile->business_name;
 
+            
             $colorExp = [];
             if(isset($request->colors)) {
                 $colorImp = implode($request->colors);
@@ -108,7 +127,42 @@ class ProductController extends Controller
                 'product_type_mapping_child_id' => $request->product_type_mapping == 1 ? $request->studio_id : $request->raw_materials_id,
 
             ];
+
+
             $product=Product::create($Data);
+
+            if(isset($productArray)) {
+                foreach ($productArray as $image) {
+                $s3 = \Storage::disk('s3');
+                $uniqueStringForSmallImage = generateUniqueString();
+                $small_image_file_unique_name = uniqid().$uniqueStringForSmallImage.'.'.$image[0]->getClientOriginalExtension();
+                $small_image_file_unique_name_with_database_path = 'images/'.$business_profile_name.'/products/small/'.$small_image_file_unique_name;
+                $small_image = Image::make($image[0])->fit(300,300);
+                $s3SmallImageFilePath = '/public/'.$small_image_file_unique_name_with_database_path;
+                $s3->put($s3SmallImageFilePath, file_get_contents($image[0]));
+
+                $uniqueStringForSmallImage = generateUniqueString();
+                $original_image_file_unique_name = uniqid().$uniqueStringForSmallImage.'.'. $image[0]->getClientOriginalExtension();
+                $original_image_file_unique_name_with_database_path = 'images/'.$business_profile_name.'/products/original/'.$original_image_file_unique_name;
+                $s3OriginalImageFilePath = '/public/images/'.$business_profile_name.'/products/original/'.$original_image_file_unique_name;
+                $s3->put($s3OriginalImageFilePath, file_get_contents($image[0]));
+
+                    if($image[2] == "yes") {
+                        $is_raw_material = 1;
+                    } else {
+                        $is_raw_material = 0;
+                    }
+                    $product_image = ProductImage::create([
+                        'product_id' => $product->id,
+                        'image_label' => $image[1],
+                        'is_raw_materials' => $is_raw_material,
+                        'product_image' => $small_image_file_unique_name_with_database_path,
+                        // 'original' => $original_image_file_unique_name_with_database_path,
+                    ]);
+                }
+            }
+
+
 
             // if ($request->hasFile('product_images')){
             //     foreach ($request->file('product_images') as $index=>$product_image){
@@ -122,14 +176,15 @@ class ProductController extends Controller
             //     }
             // }
 
-            foreach ($request->images as $image) {
-                $s3 = \Storage::disk('s3');
-                $uniqueString = generateUniqueString();
-                $product_images_file_name ='images/'.uniqid().$uniqueString.'.'. $image->getClientOriginalExtension();
-                $s3filePath = '/public'.'/'. $product_images_file_name;
-                $s3->put($s3filePath, file_get_contents($image));
-                ProductImage::create(['product_id'=>$product->id, 'product_image'=>$product_images_file_name]);
-            }
+            // Mostafiz
+            // foreach ($request->images as $image) {
+            //     $s3 = \Storage::disk('s3');
+            //     $uniqueString = generateUniqueString();
+            //     $product_images_file_name ='images/'.uniqid().$uniqueString.'.'. $image->getClientOriginalExtension();
+            //     $s3filePath = '/public'.'/'. $product_images_file_name;
+            //     $s3->put($s3filePath, file_get_contents($image));
+            //     ProductImage::create(['product_id'=>$product->id, 'product_image'=>$product_images_file_name]);
+            // }
 
             //upload video
 
@@ -155,6 +210,8 @@ class ProductController extends Controller
             // $products=Product::where('business_profile_id',$product->business_profile_id)->latest()->with(['product_images','category'])->get();
             // $data=view('business_profile._product_table_data', compact('products'))->render();
             $data=$product;
+
+            // Mostafiz
             $image= $product->product_images[0]->product_image;
             $source=Storage::disk('s3')->url('public/'. $image);
             return response()->json([
@@ -210,6 +267,7 @@ public function update(Request $request, $product_id)
 {
     $validator = Validator::make($request->all(), [
         'product_tag' => 'required',
+        'business_profile_id' => 'required',
         'title'=>'required',
         'price_per_unit'=>'required',
         'price_unit' => 'required',
@@ -232,6 +290,22 @@ public function update(Request $request, $product_id)
         'studio_id.required_if' => 'the studio type is required when studio selected',
         'raw_materials_id.required_if' => 'the raw materials type is required when raw materials selected',
     ]);
+
+    // dd($request->all());
+
+    //Image Update 
+    $productArray =[];
+    if(isset($request->productImg['product_image_label'])) {
+        for($i=0; $i < count($request->productImg['product_image_label']); $i++){
+            // if(isset($request->productImg['product_add_image'][$i])){
+                array_push($productArray, [isset($request->productImg['product_add_image'][$i])?$request->productImg['product_add_image'][$i]:null, $request->productImg['product_image_label'][$i],$request->productImg['product_image_is_accessories'][$i],$request->productImg['product_image_id'][$i]]);
+            // }
+        }
+    }
+
+    // Mostafiz
+    $business_profile=BusinessProfile::withTrashed()->where('id', $request->business_profile_id)->first();    
+    $business_profile_name=$business_profile->business_name;
 
     if ($validator->fails())
     {
@@ -304,16 +378,16 @@ public function update(Request $request, $product_id)
     {
         $productImages = ProductImage::where('product_id',$product->id)->get();
     }
-    if($productImages->isNotEmpty())
-    {
-        foreach($productImages as $productImage){
-            if(Storage::disk('s3')->exists('public/'.$productImage->product_image)){
-                Storage::disk('s3')->delete('public/'.$productImage->product_image);
-                //Storage::disk('s3')->delete('public/'.$productImage->original);
-            }
-            $productImage->delete();
-        }
-    }
+    // if($productImages->isNotEmpty())
+    // {
+    //     foreach($productImages as $productImage){
+    //         if(Storage::disk('s3')->exists('public/'.$productImage->product_image)){
+    //             Storage::disk('s3')->delete('public/'.$productImage->product_image);
+    //             //Storage::disk('s3')->delete('public/'.$productImage->original);
+    //         }
+    //         $productImage->delete();
+    //     }
+    // }
     if(isset($request->images))
     {
         foreach ($request->images as $image) {
@@ -326,6 +400,71 @@ public function update(Request $request, $product_id)
         }
     }
 
+
+    
+    $product_image_ids = [];
+    if(isset($productArray))
+    {
+
+    foreach ($productArray as $image) {
+        $small_image_file_unique_name_with_database_path = null;
+        $original_image_file_unique_name_with_database_path = null;
+
+        if(isset($image[0]) && $image[0] != null){
+            $s3 = \Storage::disk('s3');
+            $uniqueStringForSmallImage = generateUniqueString();
+            $small_image_file_unique_name = uniqid().$uniqueStringForSmallImage.'.'.$image[0]->getClientOriginalExtension();
+            $small_image_file_unique_name_with_database_path = 'images/'.$business_profile_name.'/products/small/'.$small_image_file_unique_name;
+            $small_image = Image::make($image[0])->fit(300,300);
+            $s3SmallImageFilePath = '/public/'.$small_image_file_unique_name_with_database_path;
+            $s3->put($s3SmallImageFilePath, file_get_contents($image[0]));
+
+            $uniqueStringForSmallImage = generateUniqueString();
+            $original_image_file_unique_name = uniqid().$uniqueStringForSmallImage.'.'. $image[0]->getClientOriginalExtension();
+            $original_image_file_unique_name_with_database_path = 'images/'.$business_profile_name.'/products/original/'.$original_image_file_unique_name;
+            $s3OriginalImageFilePath = '/public/images/'.$business_profile_name.'/products/original/'.$original_image_file_unique_name;
+            $s3->put($s3OriginalImageFilePath, file_get_contents($image[0]));
+        }
+
+        // dd($small_image_file_unique_name_with_database_path,$original_image_file_unique_name_with_database_path);
+        if($image[2] == "yes") {
+            $is_raw_material = 1;
+        } else {
+            $is_raw_material = 0;
+        }
+
+        // dd('>>>>>>>>>>>>>>', $image[3]);
+        if($image[3] == null){
+            // dd($original_image_file_unique_name_with_database_path!=null);
+            if(isset($small_image_file_unique_name_with_database_path)
+            && $small_image_file_unique_name_with_database_path!=null
+            ){
+
+                $product_image = ProductImage::create([
+                'product_id' => $product->id,
+                'image_label' => $image[1],
+                'is_raw_materials' => $is_raw_material,
+                'product_image' => $small_image_file_unique_name_with_database_path,
+                //'original' => $original_image_file_unique_name_with_database_path,
+                ]);
+            }
+        } else {
+            $data = [];
+            $data['product_id'] = $product->id;
+            $data['image_label'] = $image[1];
+            $data['is_raw_materials'] = $is_raw_material;
+            if(isset($small_image_file_unique_name_with_database_path) && $small_image_file_unique_name_with_database_path!=null){
+                $data['product_image'] = $small_image_file_unique_name_with_database_path;
+            }
+            // if(isset($original_image_file_unique_name_with_database_path) && $original_image_file_unique_name_with_database_path!=null){
+            //     $data['original'] = $original_image_file_unique_name_with_database_path;
+            // }
+
+            array_push($product_image_ids,(int)$image[3]);
+            ProductImage::where('id',$image[3])->update($data);
+        }
+    }
+    }
     //upload video
 
 

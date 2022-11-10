@@ -12,6 +12,7 @@
                 <form action="" method="post" enctype="multipart/form-data" id="manufacture-product-update-form">
                     @csrf
                     <input type="hidden" name="edit_product_id">
+                    <input type="hidden" name="business_profile_id" value="{{$business_profile->id}}">
                     {{-- product type mapping --}}
                     <div class="input_field_wrap">
                         <div class="row product_type_boxwrap">
@@ -209,28 +210,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    {{-- <tr>
                                         <td data-title="Image">
                                             <div id="addImage">
                                                 <div class="overlay-addImage-preview-block">
                                                     <img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png" id="overlayImage" class="overlay-addImage-preview" alt="preview image">
                                                 </div>
+                                                <input type="hidden" name="productImg[product_image_id][]" />
                                                 <div class="file-field uplodad_file_button_wrap">
                                                     <div class="btn">
                                                         <i class="material-icons">file_upload</i>
-                                                        <input class="overlay-add-image" id="productaddImage" type="file" name="product_add_image[]">
+                                                        <input class="overlay-add-image" id="productaddImage" type="file" name="productImg[product_add_image][]" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td data-title="Image Label"><input type="text" name="product_image_label[]" /></td>
+                                        <td data-title="Image Label"><input type="text" name="productImg[product_image_label][]" value="" /></td>
                                         <td data-title="Is Accessories">
                                             <label>
-                                                <input name="product_image_is_accessories[]" type="checkbox">
+                                                <input class="is_accessories_checked" type="checkbox" />
                                                 <span></span>
+                                                <input type="hidden" name="productImg[product_image_is_accessories][]" class="is_accessories_checked_value" value="no" />
                                             </label>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                 </tbody>
                             </table>
                         </div>
@@ -239,7 +242,7 @@
                         </div>
                     </div>
 
-                    <div class="row input-field product-upload-block edit-image-block" style="padding-top: 15px;">
+                    {{-- <div class="row input-field product-upload-block edit-image-block" style="padding-top: 15px;">
                         <div class="col s12">
                             <label class="active">Image <span class="text-danger">*</span></label>
                         </div>
@@ -248,7 +251,7 @@
                             <div class="image-upload-message" style="font-size: 12px; color: #000; margin-top:-10px;">Minimum image size 300 X 300</div>
                             <span class="images_error text-danger error-rm"></span>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="row">
                         <div class="col s12 m6 l4 xl3 input-field">
