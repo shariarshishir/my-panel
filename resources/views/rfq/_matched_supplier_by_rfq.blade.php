@@ -56,12 +56,15 @@
             <!-- Modal Structure -->
             <div id="request-for-quotation-from-rfq" class="modal">
                 <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <p id="request-for-quotation-from-rfq-profile-count"></p>
-                    <a href="javascript:void(0)" class="btn btn_green" onclick='onRequestSubmit()'>Submit</a>
+                    <h4>Request for quotation</h4>
+                    <div class="request-for-quotation-from-rfq-profile-count-message">
+                        <p>Are you sure about requesting for quotation to</p>
+                        <p id="request-for-quotation-from-rfq-profile-count"></p>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="javascript:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                    <a href="javascript:void(0)" class="btn btn_green" onclick='onRequestSubmit()'>Submit</a>
+                    <a href="javascript:void(0)" class="btn btn_green modal-action modal-close waves-effect waves-green btn-flat">Close</a>
                 </div>
             </div>
 
@@ -84,7 +87,7 @@
                                     <!-- First div part -->
                                     <div class="row sparkle_part">
                                         <div class="col s12 m3 image_width_wrap">
-                                            <img class="image_width" src='https://s3.ap-southeast-1.amazonaws.com/service.products/public/{{$businessProfile['business_profile_logo']}}' alt="">
+                                            <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
                                         </div>
                                         <div class="col s12 m5 sparkle_knit">
                                             <h3>{{$businessProfile['business_name']}}</h3>
@@ -99,11 +102,11 @@
                                                 @endif
                                             </div>
                                             <div class="icon_wrap">
-                                                <p>@foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
                                                     @if($data->name == 'year_of_establishment')
-                                                        <h5>{{date("Y")-$data->value}}+</h5>
+                                                        {{date("Y")-$data->value}}+
                                                     @endif
-                                                @endforeach</p>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -111,10 +114,10 @@
                                     <div class="middle_part_image_wrapper">
                                         <h6>Certification:</h6>
                                         <div class="inner_content_image">
-                                        @foreach($businessProfile['certifications'] as $cert)
-                                        <img class="" src='https://s3.ap-southeast-1.amazonaws.com/service.products/public/{{$cert['image']}}' alt="">
-                                        @endforeach
-                                    </div>
+                                            @foreach($businessProfile['certifications'] as $cert)
+                                                <img class="" src='{{Storage::disk('s3')->url('public/'.$cert['image'])}}' alt="">
+                                            @endforeach
+                                        </div>
                                     </div>
                                     <!-- Third div part -->
                                     <div class="main_product_wrap">
@@ -160,8 +163,7 @@
             return business_profile_ids.length>0;
         }
         const showBusinessProfileCount = (len) => {
-            document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML =
-            'Are you sure want to send Quotation to '+ len + 'suppliers';
+            document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = len + ' suppliers?';
         }
         const onRequestSubmit = () => {
             console.log('business_profile_ids',business_profile_ids);
