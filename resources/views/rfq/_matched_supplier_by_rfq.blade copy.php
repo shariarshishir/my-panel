@@ -111,7 +111,6 @@
                                                         @if($data->name == 'year_of_establishment')
                                                             {{date("Y")-$data->value}}+
                                                         @endif
-                                                    @endforeach
                                                 </span>
                                             </div>
                                         </div>
