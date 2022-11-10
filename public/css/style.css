@@ -1910,7 +1910,7 @@ html {
  .product_data_table_wrap .material-icons {
      color: #ffffff;
 }
- .profile_table_design .sustainability-commitment-table-body tr td, 
+ .profile_table_design .sustainability-commitment-table-body tr td,
  .profile_table_design .special-customization-table-body tr td {
      width: 90%;
 }
@@ -1980,7 +1980,7 @@ html {
  .simpleLens-thumbnails-container {
      padding-top: 10px;
 }
- .simpleLens-thumbnails-container a img, 
+ .simpleLens-thumbnails-container a img,
  .product_details_wrapper .product-list-images-block a img {
      border-radius: 5px !important;
      -webkit-box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 20%) !important;
@@ -2417,8 +2417,8 @@ html {
      margin-right: 10px;
      color: #fff;
 }
- .product_category_bar ul li a:link, 
- .product_category_bar ul li a:active, 
+ .product_category_bar ul li a:link,
+ .product_category_bar ul li a:active,
  .product_category_bar ul li a:visited {
      color: #54a958;
 }
@@ -2436,8 +2436,8 @@ html {
      display: block;
      margin-right: 0;
 }
- .category_nav ul li a:link, 
- .category_nav ul li a:active, 
+ .category_nav ul li a:link,
+ .category_nav ul li a:active,
  .category_nav ul li a:visited {
      background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/new_layout_images/path_arrow.png") no-repeat 94% 20px;
      background-size: 10px;
@@ -2474,7 +2474,7 @@ html {
  .product_preview_info_wrap .mysizewrapper {
      padding-bottom: 25px;
 }
- .product_preview_info_wrap .mysizewrapper h3, 
+ .product_preview_info_wrap .mysizewrapper h3,
  .product_preview_info_wrap .mycolorwrapper h3 {
      font-size: 18px;
      margin-bottom: 5px;
@@ -2582,7 +2582,7 @@ html {
  .profile_tabNav_wrap .product_design_wrapper {
      padding-bottom: 20px;
 }
- .product_design_wrapper .favorite, 
+ .product_design_wrapper .favorite,
  .product_details_wrapper .related-products .product_quick_options {
      position: absolute;
      right: 10px;
@@ -2594,7 +2594,7 @@ html {
      right: 11px;
      top: 8px;
 }
- .product_design_wrapper .favorite a, 
+ .product_design_wrapper .favorite a,
  .product_details_wrapper .related-products .product_quick_options a {
      background: none !important;
      box-shadow: none;
@@ -2768,15 +2768,15 @@ html {
  .profile_factory_tourWrap {
      position: relative;
 }
- .profile_factory_tourWrap .factory_tour_edit_modal_trigger, 
+ .profile_factory_tourWrap .factory_tour_edit_modal_trigger,
  .profile_factory_tourWrap .factory_tour_modal_trigger {
      position: absolute;
      top: 0px;
      right: 0px;
      z-index: 2;
 }
- .profile_factory_tourWrap .top_titleWrap a:link, 
- .profile_factory_tourWrap .top_titleWrap a:active, 
+ .profile_factory_tourWrap .top_titleWrap a:link,
+ .profile_factory_tourWrap .top_titleWrap a:active,
  .profile_factory_tourWrap .top_titleWrap a:visited {
      font-family: "nexabold";
      color: #257356;
@@ -3572,7 +3572,7 @@ html {
      max-height: inherit;
      width: 100% !important;
 }
- .blog_single_item_box .blog_info_box_wrap, 
+ .blog_single_item_box .blog_info_box_wrap,
  .blog_info_wrap .blog_info_box_wrap {
      height: 62px;
      position: relative;
@@ -3587,7 +3587,7 @@ html {
      height: 48px;
      border: 1px solid #dee2e6;
 }
- .blog_single_item_box h4, 
+ .blog_single_item_box h4,
  .blog_container .blog_info_box_wrap h3 {
      font-size: 16px;
      line-height: 25px;
@@ -3799,8 +3799,8 @@ html {
      padding: 5px;
      border: none;
 }
- .rfq_detail_from .select2-container--default .select2-selection--single, 
- .rfq_detail_from textarea, 
+ .rfq_detail_from .select2-container--default .select2-selection--single,
+ .rfq_detail_from textarea,
  .rfq_detail_from input {
      border: 1px solid #54a958 !important;
      border-radius: 8px;
@@ -3910,7 +3910,7 @@ html {
      height: 20px;
      border-radius: 50%;
 }
- .rfq_img_upload_box .btn_media .material-icons, 
+ .rfq_img_upload_box .btn_media .material-icons,
  .rfq_img_upload_box .btn_remove .material-icons {
      font-size: 22px;
      display: block;
@@ -15292,7 +15292,7 @@ html {
      padding-left: 20px;
 }
  #product-desciprtion table #product-additional-desciprtion table {
-     border: 1px solid rgba(0, 0, 0, 0.12) 
+     border: 1px solid rgba(0, 0, 0, 0.12)
 }
  .close_rfq_chat_box, .close_rfq_details_box {
      text-align: right;
@@ -15437,6 +15437,173 @@ html {
 	padding-top: 10px;
 }
 /* ******************** design_studio_product_list_wrapper style end *********************** */
+
+/* Arnob style start */
+.new_design_product_detail_wrap .new_design_product_detail {
+    margin-bottom: 70px;
+}
+.new_design_product_detail_wrap .product_btn {
+    display: flex;
+    justify-content: space-between;
+}
+.new_design_product_detail_wrap .image_wrapper {
+    display: flex;
+    gap: 10px;
+}
+.new_design_product_detail_wrap .tab_first_btn {
+    justify-content: center;
+    align-items: center;
+}
+.new_design_product_detail_wrap .arrival_btn {
+    background: none;
+    border: 1px solid green;
+    color: green;
+    border-radius: 4px;
+    padding: 4px 20px;
+}
+.new_design_product_detail_wrap .text_size {
+    width: 80%;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.new_design_product_detail_wrap .image-sizing {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.new_design_product_detail_wrap .margin_left {
+    margin-left: 10px;
+}
+.new_design_product_detail_wrap .image_width {
+    width: 72px;
+    max-height: 70px;
+    float: left;
+    margin: 3px;
+}
+
+.new_design_product_detail_wrap .margin_top {
+    margin-top: 22px;
+}
+.new_design_product_detail_wrap .tab_first_btn {
+    margin-top: 25px;
+}
+.new_design_product_detail_wrap .arrival_btn {
+    min-width: 180px;
+}
+.new_design_product_detail_wrap .btn_contact_supplier {
+    border: none;
+    background: yellow;
+    padding: 8px 10px;
+    min-width: 140px;
+}
+.new_design_product_detail_wrap .btn_bg_yellow {
+    border: none;
+    background: yellow;
+    padding: 8px 10px;
+    min-width: 130px;
+    margin-top: 20px;
+}
+.new_design_product_detail_wrap .font_weight {
+    font-weight: 700;
+}
+.new_design_product_detail_wrap .quotation_btn {
+    background: #54a958;
+    color: white;
+    border: none;
+    padding: 0px 10px;
+    width: 335px;
+    line-height: 43px;
+    height: 40px;
+}
+.new_design_product_detail_wrap .contact_supplier {
+    padding-top: 30px;
+}
+.new_design_product_detail_wrap .visit_profile {
+    padding-top: 7px;
+    display: inline-block;
+}
+.new_design_product_detail_wrap .size_border {
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #8eb58e;
+}
+.new_design_product_detail_wrap .size_wrapper {
+    display: flex;
+    gap: 10px;
+}
+.new_design_product_detail_wrap .second_contant_image_sizing img {
+    min-height: 500px;
+    object-fit: cover;
+}
+.new_design_product_detail_wrap .tabs .tab a {
+    color: rgb(47 179 59 / 70%);
+}
+.new_design_product_detail_wrap .text_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Recommended Product details part */
+.new_design_product_detail_wrap .product_details_parent {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.new_design_product_detail_wrap .row.inner_hover_part {
+    position: absolute;
+    bottom: 25px;
+    left: -999px;
+    background: #f5f5f5d6;
+    padding: 7px 10px;
+    transition: 0.5s ease;
+}
+.new_design_product_detail_wrap .inner_hover_part h6 {
+    padding-left: 11px;
+}
+.new_design_product_detail_wrap .product_details_parent:hover .inner_hover_part {
+    left: 11px;
+}
+.new_design_product_detail_wrap .font_sizing {
+    font-size: 19px;
+    font-weight: 700;
+}
+.new_design_product_detail_wrap .font_sizing span {
+    font-weight: 100;
+    font-size: 13px;
+}
+/* This style is for modals */
+.new_design_product_detail_wrap .modal {
+    padding: 30px;
+    background: #ffffff;
+    width: 60%;
+    border-radius: 0px;
+}
+.new_design_product_detail_wrap .modal .modal-close {
+    text-transform: capitalize;
+    font-size: 18px;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 0px 50px;
+}
+
+/* This is for div collapse Responsiveness */
+@media only screen and (max-width: 767px) {
+    .new_design_product_detail_wrap .for_collapse {
+        display: flex;
+        flex-direction: column;
+    }
+    .new_design_product_detail_wrap .first_header {
+        order: 2;
+    }
+    .new_design_product_detail_wrap .second_header {
+        order: 1;
+    }
+}
+/* Arnob End */
 
 
 /* ******************** Media css style start *********************** */
