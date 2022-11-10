@@ -159,7 +159,7 @@ class ProductController extends Controller
             'error' => $validator->getMessageBag()),
             400);
         }
-        
+
 
         DB::beginTransaction();
 
@@ -343,7 +343,7 @@ class ProductController extends Controller
                     'image' => $small_image_file_unique_name_with_database_path,
                     'original' => $original_image_file_unique_name_with_database_path,
                 ]);
-            }            
+            }
            }
             // foreach ($request->images as $image) {
             //     $s3 = \Storage::disk('s3');
@@ -409,8 +409,8 @@ class ProductController extends Controller
     public function edit($sku)
     {
        try{
-            $product=Product::withTrashed()->with('video', 'images')->where('sku',$sku)->first();
-            // dd($product);
+            $product = Product::withTrashed()->with('video', 'images')->where('sku',$sku)->first();
+            //dd($product);
             $colors_sizes=json_decode($product->colors_sizes);
             $attr=json_decode($product->attribute);
             $preloaded=array();
@@ -502,10 +502,10 @@ class ProductController extends Controller
                     // if(isset($request->productImg['product_add_image'][$i])){
                         array_push($productArray, [isset($request->productImg['product_add_image'][$i])?$request->productImg['product_add_image'][$i]:null, $request->productImg['product_image_label'][$i],$request->productImg['product_image_is_accessories'][$i],$request->productImg['product_image_id'][$i]]);
                     // }
-                    
+
                 }
             }
-            
+
 
                 $full_stock_negotiable=false;
                 $full_stock = false;
@@ -651,7 +651,7 @@ class ProductController extends Controller
                     Storage::disk('s3')->put($s3TinymceFullFilePath, $pdfFile);
                 }
             }
-            
+
 
             // if(isset($request->preloaded)){
             //     $productImages=ProductImage::where('product_id',$product->id)->whereNotIn('id',$request->preloaded)->get();
@@ -674,11 +674,11 @@ class ProductController extends Controller
             $product_image_ids = [];
             if(isset($productArray))
             {
-                
+
             foreach ($productArray as $image) {
                 $small_image_file_unique_name_with_database_path = null;
                 $original_image_file_unique_name_with_database_path = null;
-                
+
                 if(isset($image[0]) && $image[0] != null){
                     $s3 = \Storage::disk('s3');
                     $uniqueStringForSmallImage = generateUniqueString();
@@ -694,22 +694,22 @@ class ProductController extends Controller
                     $s3OriginalImageFilePath = '/public/images/'.$business_profile_name.'/products/original/'.$original_image_file_unique_name;
                     $s3->put($s3OriginalImageFilePath, file_get_contents($image[0]));
                 }
-                
+
                 // dd($small_image_file_unique_name_with_database_path,$original_image_file_unique_name_with_database_path);
                 if($image[2] == "yes") {
                     $is_raw_material = 1;
                 } else {
                     $is_raw_material = 0;
                 }
-                
+
                 if($image[3] == null){
                     // dd($original_image_file_unique_name_with_database_path!=null);
                     if(isset($small_image_file_unique_name_with_database_path)
-                    &&$small_image_file_unique_name_with_database_path!=null
-                    &&isset($original_image_file_unique_name_with_database_path)
-                    &&$original_image_file_unique_name_with_database_path!=null
+                    && $small_image_file_unique_name_with_database_path!=null
+                    && isset($original_image_file_unique_name_with_database_path)
+                    && $original_image_file_unique_name_with_database_path!=null
                     ){
-                    
+
                         $product_image = ProductImage::create([
                         'product_id' => $product->id,
                         'image_label' => $image[1],
@@ -718,23 +718,23 @@ class ProductController extends Controller
                         'original' => $original_image_file_unique_name_with_database_path,
                         ]);
                     }
-                }else{
+                } else {
                     $data = [];
                     $data['product_id'] = $product->id;
                     $data['image_label'] = $image[1];
                     $data['is_raw_materials'] = $is_raw_material;
-                    if(isset($small_image_file_unique_name_with_database_path)&&$small_image_file_unique_name_with_database_path!=null){
+                    if(isset($small_image_file_unique_name_with_database_path) && $small_image_file_unique_name_with_database_path!=null){
                         $data['image'] = $small_image_file_unique_name_with_database_path;
                     }
-                    if(isset($original_image_file_unique_name_with_database_path)&&$original_image_file_unique_name_with_database_path!=null){
+                    if(isset($original_image_file_unique_name_with_database_path) && $original_image_file_unique_name_with_database_path!=null){
                         $data['original'] = $original_image_file_unique_name_with_database_path;
                     }
-                
+
                     array_push($product_image_ids,(int)$image[3]);
                     ProductImage::where('id',$image[3])->update($data);
                 }
-            }       
-            
+            }
+/*
             $product_image_db_ids = [];
             //  delete if not found
             $productImages=ProductImage::where('product_id',$product->id)->get();
@@ -753,7 +753,7 @@ class ProductController extends Controller
                     $pid->delete();
                 }
             }
-            
+*/
             // [1,2,3,4] [1,3,4] = [2]
             // dd($product_image_db_ids, $product_image_ids, $ids_to_delete);//db array
             // dd($product_image_ids);//frontend array
@@ -890,5 +890,5 @@ class ProductController extends Controller
         }
         return response()->json(['msg' => 'folder not exists'], 500);
     }
-    
+
 }
