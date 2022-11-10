@@ -29,6 +29,311 @@ $reviewsCount = count($productReviews);
 <input type="hidden" name="product_sku" value="{{$product->sku}}">
 
 
+<div class="new_design_product_detail_wrap">
+    <div class="new_design_product_detail">
+        <div class="row column_wrapper">
+            <!-- First Column Container -->
+            <div class="for_collapse">
+                <div class="col s12 l3 tabs_wrapper first_header">
+                    <!-- Tabs -->
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs">
+                                <li class="tab col m6"><a href="#projectHighlight">PRODUCT HIGHLIGHT</a></li>
+                                <li class="tab col m6"><a class="active" href="#supplierInfo">SUPPLIER INFO</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- First tabs contant -->
+                        <div id="projectHighlight" class="col s12">
+                            <div class="row tab_first_btn">
+                                <div class="col s12 m4 product_btn">
+                                    <!--h6>SS 2023</h6-->
+                                </div>
+                                <div class="col s12 m8">
+                                    @if($product->is_new_arrival == 1)
+                                    <button class="arrival_btn">NEW ARRIVAL</button>
+                                    @endif
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text_size">{!! $product->description !!}</p>
+                            </div>
+                            <div class="margin_top">
+                                <h5 class="margin_top">AVAILABLE COLORS</h5>
+                                <div class="row">
+                                    <div class="col s12 l10 size_wrapper">
+                                        @if($product->product_type==2 || $product->product_type== 3)
+                                            @foreach($colors_sizes as $color)
+                                            <div class="size_border"><span class="text_center">{{$color->color}}</span></div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin_top">
+                                <h5 class="margin_top">CUSTOMIZATION</h5>
+                                <P>{{$product->customize ? "Yes" : "No"}}</P>
+                            </div>
+                        </div>
+                        <!-- Second tabs contant -->
+                        <div id="supplierInfo" class="col s12">
+                            @php
+                                $supplierCompanyInfo = json_decode($supplierCompanyInfo->companyOverview['data']);
+                                //echo "<pre>"; print_r($supplierCompanyInfo); echo "</pre>";
+                            @endphp
+                            <div class="margin_top">
+                                <h6>EXPERIENCE</h6>
+                                <p>{{date("Y") - $supplierCompanyInfo[4]->value}} Years</p>
+                            </div>
+                            <!--div class="margin_top">
+                                <h6 class="margin_top">CERTIFICATES</h6>
+                                <div class="image_wrapper">
+                                    <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                    <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                    <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                    <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                </div>
+                            </div-->
+                            <div class="margin_top">
+                                <h6 class="margin_top">EMPLOYEE SIZE</h6>
+                                <H6>{{$supplierCompanyInfo[1]->value + $supplierCompanyInfo[2]->value}}</H6>
+                            </div>
+                            <div class="margin_top">
+                                <h6 class="margin_top ">MAIN PRODUCTS</h6>
+                                <p class="text_size">Jackets, Fleece Jackets, Cardigan, Sweaters, Shirts,
+                                    Cardigan
+                                    etc...</p>
+                            </div>
+                            <div class="row contact_supplier">
+                                <div class="col s12 l6">
+                                    <button class="btn_contact_supplier ">Contact Supplier</button>
+                                </div>
+                                <div class="col s12 l6">
+                                    <a class="visit_profile" href="javascript:void(0);">Visit Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Column Container -->
+                <div class="col s12 l6 second_header">
+                    <div class="row">
+                        <div class="col s12 l8 second_contant_image_sizing">
+                            <img src="./images/Gap-classic-T-shirt.webp" alt="">
+                        </div>
+                        <div class="col s12 l4 flex_side_image">
+                            <div>
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                            </div>
+                            <div>
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                                <img class="image_width" src="./images/Gap-classic-T-shirt.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Column Container-->
+            <div class="col s12 l3 third_header">
+                @if($product->video)
+                <div>
+                    <video controls height="245" width="300">
+                        <source src="{{Storage::disk('s3')->url('public/'.$product->video->video)}}" type="video/mp4" />
+                    </video>
+                </div>
+                @endif
+                <h5 class="margin_top">{{ $product->name }}</h5>
+                <div class="sweatshit_wrapper margin_top">
+                    <!-- Product div -->
+                    <div class="row">
+                        <div class=" col s12 l6">
+                            <P>PRODUCT CODE</P>
+                            <P class="font_weight">{{$product->id}}</P>
+                        </div>
+                        <div class="col s12 l6">
+                            <P>MOQ</P>
+                            <P><span class="font_weight">{{ $product->moq }}</span> {{$product->product_unit}}</P>
+                        </div>
+
+                        <!-- Pricing  -->
+                        <div class="col s12 l6">
+                            <p>PRICE</p>
+                            <p><span class="font_weight">$ Negotiable</span></p>
+                            <a href="javascript:void(0);">View details</a>
+                        </div>
+                        <div class="col s12 l6">
+                            <p>LEAD TIME</p>
+                            <p> <span class="font_weight">60</span> days</p>
+                            <a href="javascript:void(0);">View details</a>
+                        </div>
+
+                        <!-- Sample and ready stock -->
+                        <div class="col s12 l6">
+                            <h6>SAMPLE</h6>
+                            <p class="font_weight">Available</p>
+                        </div>
+                        <div class="col s12 l6">
+                            <h6>READY STOCK</h6>
+                            <p class="font_weight">Available</p>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="col s12 l6">
+                            <button class="btn_bg_yellow">Ask for Sample</button>
+                        </div>
+
+                        <div class="col s12 l6">
+                            <button class="btn_bg_yellow">Buy Now</button>
+                        </div>
+
+                    </div>
+
+                    <!-- Quotation button -->
+                    <div class="margin_top">
+                        <button class="quotation_btn margin_top">REQUEST FOR QUOTATION</button>
+                    </div>
+
+                    <!-- This code is for modals -->
+                    <div class="margin_top">
+                        <!-- This part is for Modal Structure -->
+                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <h5>PRICE BREAKDOWN</h5>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>MIN QTY</th>
+                                        <th>MAX QTY</th>
+                                        <th>PRICE $(USD)</th>
+                                        <th>LEAD TIME (DAYS)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>500</td>
+                                        <td>4.75 $</td>
+                                        <td>60 days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>501</td>
+                                        <td>1500</td>
+                                        <td>4.15 $</td>
+                                        <td>70 days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1500</td>
+                                        <td>3000</td>
+                                        <td>3.75 $</td>
+                                        <td>80 days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3001</td>
+                                        <td>---</td>
+                                        <td>3.15 $</td>
+                                        <td>90 days</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="modal-footer">
+                                <a href="javascript:void(0);"
+                                    class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended product part -->
+    <div class="recommend_wrapper">
+        <div class="row">
+            <h5 class="margin_left">Recommended product for you</h5>
+            <div class="col s12 l3">
+                <div class="product_details_parent">
+                    <img src="./images/Gap-classic-T-shirt.webp" alt="">
+                    <div class="row inner_hover_part">
+                        <h6>Breton Stripe Crewen MB22-SJ-12</h6>
+                        <div class="col s12 l6">
+                            <p>LEAD TIME</p>
+                            <p class="font_sizing"> 30-40 <span> days </span></p>
+                        </div>
+                        <div class="col s12 l6">
+                            <p>MOQ</p>
+                            <p class="font_sizing"> 100 <span> pcs </span> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l3">
+                <div class="product_details_parent">
+                    <img src="./images/Gap-classic-T-shirt.webp" alt="">
+                    <div class="row inner_hover_part">
+                        <h6>Breton Stripe Crewen MB22-SJ-12</h6>
+                        <div class="col s12 l6">
+                            <p>LEAD TIME</p>
+                            <p class="font_sizing"> 30-40 <span> days </span></p>
+                        </div>
+                        <div class="col s12 l6">
+                            <p>MOQ</p>
+                            <p class="font_sizing"> 100 <span> pcs </span> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l3">
+                <div class="product_details_parent">
+                    <img src="./images/Gap-classic-T-shirt.webp" alt="">
+                    <div class="row inner_hover_part">
+                        <h6>Breton Stripe Crewen MB22-SJ-12</h6>
+                        <div class="col s12 l6">
+                            <p>LEAD TIME</p>
+                            <p class="font_sizing"> 30-40 <span> days </span></p>
+                        </div>
+                        <div class="col s12 l6">
+                            <p>MOQ</p>
+                            <p class="font_sizing"> 100 <span> pcs </span> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l3">
+                <div class="product_details_parent">
+                    <img src="./images/Gap-classic-T-shirt.webp" alt="">
+                    <div class="row inner_hover_part">
+                        <h6>Breton Stripe Crewen MB22-SJ-12</h6>
+                        <div class="col s12 l6">
+                            <p>LEAD TIME</p>
+                            <p class="font_sizing"> 30-40 <span> days </span></p>
+                        </div>
+                        <div class="col s12 l6">
+                            <p>MOQ</p>
+                            <p class="font_sizing"> 100 <span> pcs </span> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="product_details_wrapper">
     @if ($orderModificationRequest->isNotEmpty())
     <div class="card-alert card cyan">

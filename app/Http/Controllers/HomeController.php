@@ -17,6 +17,8 @@ use App\Models\BusinessProfile;
 use App\Models\ProductCategory;
 use App\Models\ProductWishlist;
 use App\Models\CompanyFactoryTour;
+use App\Models\CompanyOverview;
+use App\Models\Certification;
 use App\Models\ProductTypeMapping;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
@@ -1185,11 +1187,16 @@ class HomeController extends Controller
     {
         if($flag == 'mb'){
             $product = ManufactureProduct::with('product_images','businessProfile','product_video')->findOrFail($id);
-            return view('product.manufactrue_product_details',compact('product'));
+            $supplierCompanyInfo = BusinessProfile::with(['companyOverview', 'certifications'])->where('id', $product['businessProfile']->id)->first();
+            //dd($supplierCompanyInfo);
+            return view('product.manufactrue_product_details',compact('product', 'supplierCompanyInfo'));
         }
         else if($flag == 'shop'){
 
             $product = Product::with('businessProfile')->where('id',$id)->first();
+            //$supplierCompanyInfo = CompanyOverview::where('business_profile_id', $product['businessProfile']->id)->first();
+            $supplierCompanyInfo = BusinessProfile::with(['companyOverview', 'certifications'])->where('id', $product['businessProfile']->id)->first();
+            //dd($supplierCompanyInfo->certifications);
 
             $orderModificationRequest=OrderModificationRequest::where(['product_id' => $product->id, 'type' => 2, 'user_id' =>auth()->id() ])->get();
             $productReviews = ProductReview::where('product_id',$product->id)->get();
@@ -1263,7 +1270,7 @@ class HomeController extends Controller
                 $wishListMfProductsIds=[];
             }
 
-            return view('product.details',compact('product','colors_sizes','attr','productReviewExistsOrNot','averageRating','orderModificationRequest','recommandProducts','wishListShopProductsIds','wishListMfProductsIds'));
+            return view('product.details',compact('product','colors_sizes','attr','productReviewExistsOrNot','averageRating','orderModificationRequest','recommandProducts','wishListShopProductsIds','wishListMfProductsIds', 'supplierCompanyInfo'));
         }
     }
     //shortest lead time
