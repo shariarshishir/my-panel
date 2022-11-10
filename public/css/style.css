@@ -15590,6 +15590,17 @@ html {
     padding: 0px 50px;
 }
 
+.product_upload_update_block .uploadOverlayImage {
+     width: 100px;
+}
+.product_upload_update_block .uploadImageAccessories {
+     width: 100px;
+     text-align: right;
+}
+.product_upload_update_block .uploadImageLabel input {
+     width: 100%;
+}
+
 /* This is for div collapse Responsiveness */
 @media only screen and (max-width: 767px) {
     .new_design_product_detail_wrap .for_collapse {
