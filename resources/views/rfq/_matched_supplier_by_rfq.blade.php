@@ -82,7 +82,6 @@
 
                             @foreach($businessProfiles as $businessProfile)
                             <div class="col s12 m4 matched_supplier_item">
-                                <!-- new -->
                                 <div class="match_supplier_rfq_single_content">
                                     <div class="input-field">
                                         <label>
@@ -98,7 +97,6 @@
                                                 <div class="image_width_wrap">
                                                     <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="col s12 m4">
@@ -113,15 +111,7 @@
                                                         @if($data->name == 'year_of_establishment')
                                                             {{date("Y")-$data->value}}+
                                                         @endif
-                                                    </span>
-                                                    <span class="icon_wrap">
-                                                        @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                            @if($data->name == 'year_of_establishment')
-                                                                {{date("Y")-$data->value}}+
-                                                            @endif
-                                                        @endforeach
-                                                    </span>
-                                                </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <!-- Second div part -->
@@ -137,26 +127,25 @@
                                         <div class="main_product_wrap">
                                             <h6>Main Products:</h6>
                                             <div class="row main_product_inner">
-                                            <div class="col s12 m10">
-                                                @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                    @if($data->name == 'main_products')
-                                                        <h5>{{$data->value}}</h5>
-                                                    @endif
-                                                @endforeach
-                                            </div>
+                                                <div class="col s12 m10">
+                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                        @if($data->name == 'main_products')
+                                                            <h5>{{$data->value}}</h5>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
                                                 <div class="col s12 m2 chatbox_wrap">
                                                     <img src="./images/chat-img.png" alt=""> <span>5</span>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-
                         </div>
                     </div>
-
                 </div>
             @else
                 <div class="non-subscribe-message-block">
@@ -171,12 +160,10 @@
                         </div>
                         <div class="col s6 m6">
                             <p>Get back to you with in 24 hours</p>
-                            <a class="btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="#rfq-user-system-entry-modal">Submit as Guest</a>
+                            <a href="javascript:void(0);" class="btn btn_green">Submit as Guest</a>
                         </div>
                     </div>
                 </div>
-                @include('rfq._guest_registration_modal')
-
             @endif
 
 
