@@ -157,14 +157,15 @@
                     <div class="row">
                         <div class="col s6 m6">
                             <p>Please subscribe to see the suppliers</p>
-                            <a href="javascript:void(0);" class="btn btn_green">Subscribe</a>
+                            <a href="{{route('pricing.plan.form')}}" class="btn btn_green">Subscribe</a>
                         </div>
                         <div class="col s6 m6">
                             <p>Get back to you with in 24 hours</p>
-                            <a href="javascript:void(0);" class="btn btn_green">Submit as Guest</a>
+                            <a class="btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="#rfq-user-system-entry-modal">Submit as Guest</a>
                         </div>
                     </div>
                 </div>
+                
             @endif
 
 
