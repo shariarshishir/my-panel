@@ -18983,7 +18983,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .design_studio_product_list_wrapper .masonry-brick {
 	overflow: hidden;
 	border-radius: 5px;
-	margin: 8px; 
+	margin: 8px;
 	background-color: #eee;
 	/* position: relative; */
 }
@@ -24989,7 +24989,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	.single_product_preview_inner_info {
 		margin-bottom: 30px;
 	}
-/* 
+/*
 	.design_studio_product_list_wrapper .design_stodio_product_item {
 		width: 48%;
 		position: inherit !important;
@@ -25955,11 +25955,19 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .rfq_new_layout_match_supplier_with_rfq
     .match_supplier_rfq_single_wrapper
     .match_supplier_rfq_single_content
-    .image_width {
+    .image_width_wrap {
     background: gray;
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    overflow: hidden;
+}
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .rfq_new_layout_match_supplier_with_rfq
@@ -25975,9 +25983,19 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .match_supplier_rfq_single_wrapper
     .match_supplier_rfq_single_content
     .sparkle_part {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    position: relative;
+
+}
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .middle_wrap{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .rfq_new_layout_match_supplier_with_rfq
@@ -25986,7 +26004,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .sparkle_part
     .sparkle_knit
     h3,
-p {
+    .rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .sparkle_part
+    .sparkle_knit p {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -25996,22 +26018,12 @@ p {
     .match_supplier_rfq_single_wrapper
     .match_supplier_rfq_single_content
     .sparkle_part
-    .middle_wrap {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 10px;
-}
-
-.rfq_new_layout_match_supplier_with_rfq
-    .match_supplier_rfq_single_wrapper
-    .match_supplier_rfq_single_content
-    .sparkle_part
     .middle_wrap
     i.material-icons {
-    font-size: 28px;
+    font-size: 38px;
     color: #48ab48;
-    margin-top: 6px;
+    margin-top: 0px;
+    margin-right: 5px;
 }
 
 .rfq_new_layout_match_supplier_with_rfq
@@ -26021,10 +26033,14 @@ p {
     .middle_wrap
     .icon_wrap {
     background: #48ab48;
-    width: 23px;
-    height: 23px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    line-height: 23px;
+    line-height: 32px;
+    float: right;
+    text-align: center;
+    color: #fff;
+    margin-top:
 }
 
 .rfq_new_layout_match_supplier_with_rfq
@@ -26034,9 +26050,9 @@ p {
     .middle_wrap
     .icon_wrap
     p {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     color: white;
 }
 
@@ -26060,19 +26076,38 @@ p {
     .match_supplier_rfq_single_content
     .middle_part_image_wrapper
     .inner_content_image {
-    display: flex;
-    gap: 25px;
+
+    }
+.rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .middle_part_image_wrapper
+    .inner_content_image img {
+    /* display: flex;
+    gap: 25px; */
+    display: inline-block;
+    margin: 3px;
 }
 
+/* .rfq_new_layout_match_supplier_with_rfq
+    .match_supplier_rfq_single_wrapper
+    .match_supplier_rfq_single_content
+    .middle_part_image_wrapper
+    .inner_content_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+} */
 .rfq_new_layout_match_supplier_with_rfq
     .match_supplier_rfq_single_wrapper
     .match_supplier_rfq_single_content
     .middle_part_image_wrapper
     .inner_content_image
     img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
 }
 
 .rfq_new_layout_match_supplier_with_rfq
@@ -26080,9 +26115,9 @@ p {
     .match_supplier_rfq_single_content
     .main_product_wrap
     .main_product_inner {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .rfq_new_layout_match_supplier_with_rfq

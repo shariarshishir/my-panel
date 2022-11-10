@@ -86,27 +86,34 @@
 
                                     <!-- First div part -->
                                     <div class="row sparkle_part">
-                                        <div class="col s12 m3 image_width_wrap">
-                                            <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
-                                        </div>
-                                        <div class="col s12 m5 sparkle_knit">
-                                            <h3>{{$businessProfile['business_name']}}</h3>
-                                            <p>{{$businessProfile['location']}}</p>
-                                        </div>
-                                        <div class="col s12 m4 middle_wrap">
-                                            <div class="">
-                                                @if($businessProfile['profile_verified_by_admin'] == 1)
-                                                <i class="material-icons">check_circle</i>
-                                                @else
-                                                <i class="material-icons">close_circle</i>
-                                                @endif
+                                        <div class="col s12 m3">
+                                            <div class="image_width_wrap">
+                                                <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
                                             </div>
-                                            <div class="icon_wrap">
-                                                @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                    @if($data->name == 'year_of_establishment')
-                                                        {{date("Y")-$data->value}}+
+
+                                        </div>
+                                        <div class="col s12 m5">
+                                            <div class="sparkle_knit">
+                                                <h3>{{$businessProfile['business_name']}}</h3>
+                                                <p>{{$businessProfile['location']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col s12 m4">
+                                            <div class="middle_wrap">
+                                                <span class="check_circle">
+                                                    @if($businessProfile['profile_verified_by_admin'] == 1)
+                                                    <i class="material-icons">check_circle</i>
+                                                    @else
+                                                    <i class="material-icons">close_circle</i>
                                                     @endif
-                                                @endforeach
+                                                </span>
+                                                <span class="icon_wrap">
+                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                        @if($data->name == 'year_of_establishment')
+                                                            {{date("Y")-$data->value}}+
+                                                        @endif
+                                                    @endforeach
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
