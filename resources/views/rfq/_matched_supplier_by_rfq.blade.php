@@ -120,10 +120,7 @@
 
                 </div>
             </div>
-            @php
-            var_dump($businessProfiles);
-        @endphp
-            
+                        
         </div>
 @endsection
 @push('js')
