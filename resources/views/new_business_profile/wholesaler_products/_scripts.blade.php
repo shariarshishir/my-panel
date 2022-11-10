@@ -16,8 +16,10 @@
         $('#errors').empty();
         // $('.image-uploader').removeClass('has-files');
         // $('.image-uploader .uploaded').html('');
-        $('.input-images-1').html('');
-        $('.input-images-1').imageUploader();
+
+        //$('.input-images-1').html('');
+        //$('.input-images-1').imageUploader();
+
         $('.full-stock-price').hide();
         $('.non-clothing-full-stock-price').hide();
         $('.ready-stock-prices-breakdown').show();
@@ -113,8 +115,10 @@
                         $('#errors').empty();
                         // $('.image-uploader').removeClass('has-files');
                         // $('.image-uploader .uploaded').html('');
-                        $('.input-images-1').html('');
-                        $('.input-images-1').imageUploader();
+
+                        // $('.input-images-1').html('');
+                        // $('.input-images-1').imageUploader();
+
                         location.reload();
                         // var table = $('#seller-product-datatable').DataTable();
                         // table.ajax.reload();
@@ -163,19 +167,22 @@
         var sku=sku;
         var url = '{{ route("wholesaler.product.edit", ":slug") }}';
             url = url.replace(':slug', sku);
+
         $.ajax({
+
                 method: 'get',
                 processData: false,
                 contentType: false,
                 cache: false,
                 url: url,
+
                 beforeSend: function() {
                 $('.loading-message').html("Please Wait.");
                 $('#loadingProgressContainer').show();
                 },
                 success:function(data)
                     {
-                        //console.log(data);
+                        console.log(data.product.images);
 
                         $('.loading-message').html("");
 		                $('#loadingProgressContainer').hide();
@@ -187,7 +194,7 @@
                         $('#edit_product_tag').trigger('change');
                         $('.product_unit').val(data.product.product_unit);
                         $('.product_unit').trigger('change');
-
+                        $(".product_upload_update_table tbody").html('');
                         //product type mapping
                         $('#product-edit-modal-block .product_type_select').val(data.product.product_type_mapping_id).trigger('change');
                         if(data.product.product_type_mapping_id != null){
@@ -217,6 +224,60 @@
                             $('#product-edit-modal-block .remove-overlay-image').html('');
                             $('#product-edit-modal-block .overlay-image-preview').attr("src", 'https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png');
                         }
+
+                        //image
+                        $.each(data.product.images, function (key, item)
+                        {
+                            var asset='{{Storage::disk('s3')->url('public')}}'+'/'+item.image;
+                            var label;
+                            var isRawMaterial;
+                                
+                            if(item.image_label == null){
+                                label = '';
+                            }else{
+                                label= item.image_label;
+                            }
+
+
+                            //     if(item.is_raw_material==1){
+                            //     $('#product-edit-modal-block .is_accessories_checked').prop('checked', true);
+                            // }
+                            // else{
+                            //     $('#product-edit-modal-block .edit_is_new_arrival').prop('checked', false);
+                            // }
+
+
+                            if(item.is_raw_materials == 1){
+                                isRawMaterial = 'checked';
+                            }else{
+                                isRawMaterial= '';
+                            }
+                            var html = '<tr>';
+                            html += '<td data-title="Image">';
+                            html += '<div id="addImage">';
+                            html += '<div class="overlay-addImage-preview-block">';
+                            html += '<img src="'+asset+'" id="overlayImage" class="overlay-addImage-preview" alt="preview image">';
+                            html += '</div>';
+                            html += '<input type="hidden" name="productImg[product_image_id][]" value="'+item.id+'" />';
+                            html += '<div class="file-field uplodad_file_button_wrap">';
+                            html += '<div class="btn">';
+                            html += '<i class="material-icons">file_upload</i>';
+                            html += '<input class="overlay-add-image" id="productaddImage" type="file" name="productImg[product_add_image][]" />';
+                            html += '</div>';
+                            html += '</div>';
+                            html += '</div>';
+                            html += '</td>';
+                            html += '<td data-title="Image Label"><input type="text" value="'+label+'" name="productImg[product_image_label][]" /></td>';
+                            html += '<td data-title="Is Accessories">';
+                            html += '<label>';
+                            html += '<input class="is_accessories_checked" type="checkbox" '+isRawMaterial+' />';
+                            html += '<span></span>';
+                            html += '<input type="hidden" name="productImg[product_image_is_accessories][]" class="is_accessories_checked_value" value="'+isRawMaterial+'" />';
+                            html += '</label>';
+                            html += '<a class="btn_delete" href="javascript:void(0);" onclick="removeProductRow(this)"><i class="material-icons dp48">delete_outline</i> <span>Delete</span</a></td>';
+                            html += '</tr>';
+                            $(".product_upload_update_table tbody").append(html);
+                        });
 
                         // video
                         $('#product-edit-modal-block input[name=remove_video_id]').val('');
@@ -700,7 +761,6 @@
                 return false;
             })
         }
-
     });
 
     //toggle product type
@@ -730,7 +790,6 @@
                     $('#product-add-modal-block .ready-stock-prices-breakdown').show();
                     $('#product-add-modal-block .moq-unit-block').show();
                 }
-
             }
            //non clothing item
             else if(this.value == '3') {
@@ -748,16 +807,14 @@
                     $('#product-add-modal-block .non-clothing-prices-breakdown').show();
                     $('#product-add-modal-block .moq-unit-block').show();
                 }
-
             }
-
 
     });
 
    //image upload script
-   $(function(){
-     $('.input-images-1').imageUploader();
-    });
+    // $(function(){
+    //     $('.input-images-1').imageUploader();
+    // });
 
    //related products
    $(document).on('change','input[name=rel-products]',function(){
@@ -1054,5 +1111,66 @@ $(document).on('click', '.btn-back-to-product-list', function (e) {
     });
 </script>
 
+<script>
+    function addNewProductImage()
+    {
+        let totalChild = $('.product_upload_update_table tbody').children().length;
+        var html = '<tr>';
+        html += '<td data-title="Image">';
+        html += '<div id="addImage">';
+        html += '<div class="overlay-addImage-preview-block">';
+        html += '<img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png" id="overlayImage" class="overlay-addImage-preview" alt="preview image">';
+        html += '</div>';
+        html += '<input type="hidden" name="productImg[product_image_id][]" />';
+        html += '<div class="file-field uplodad_file_button_wrap">';
+        html += '<div class="btn">';
+        html += '<i class="material-icons">file_upload</i>';
+        html += '<input class="overlay-add-image" id="productaddImage" type="file" name="productImg[product_add_image][]" />';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
+        html += '</td>';
+        html += '<td data-title="Image Label"><input type="text" name="productImg[product_image_label][]" /></td>';
+        html += '<td data-title="Is Accessories">';
+        html += '<label>';
+        html += '<input class="is_accessories_checked" type="checkbox" />';
+        html += '<span></span>';
+        html += '<input type="hidden" name="productImg[product_image_is_accessories][]" class="is_accessories_checked_value" value="no" />';
+        html += '</label>';
+        html += '<a class="btn_delete" href="javascript:void(0);" onclick="removeProductRow(this)"><i class="material-icons dp48">delete_outline</i> <span>Delete</span</a></td>';
+        html += '</tr>';
+        $('.product_upload_update_table tbody').append(html);
+    }
+
+
+    $(document).on("change", '.overlay-add-image', function(){
+    var dom = $(this).parent().parent().parent().find('.overlay-addImage-preview');
+        var obj = $(this);
+        const file = this.files[0];
+        if (file){
+        let reader = new FileReader();
+        reader.onload = function(event){
+            dom.attr('src', event.target.result);
+        }
+        reader.readAsDataURL(file);
+        }
+    });
+
+    function removeProductRow(el)
+    {
+        $(el).parent().parent().remove();
+    }
+
+    $(document).on("click", ".is_accessories_checked", function(){
+        if($(this).is(':checked'))
+        {
+            $(this).closest("label").children(".is_accessories_checked_value").val('yes');
+        } else {
+            $(this).closest("label").children(".is_accessories_checked_value").val('no');
+        }
+    })
+
+
+</script>
 
 @endpush

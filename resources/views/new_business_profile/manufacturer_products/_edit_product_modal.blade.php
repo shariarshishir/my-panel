@@ -197,6 +197,48 @@
                         </div>
                     </div>{{-- input_field_wrap --}}
 
+
+                    <div class="product_upload_update_block">
+                        <div class="no_more_tables">
+                            <table class="product_upload_update_table"> 
+                                <thead class="cf">
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Label</th>
+                                        <th>Is Accessories</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-title="Image">
+                                            <div id="addImage">
+                                                <div class="overlay-addImage-preview-block">
+                                                    <img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png" id="overlayImage" class="overlay-addImage-preview" alt="preview image">
+                                                </div>
+                                                <div class="file-field uplodad_file_button_wrap">
+                                                    <div class="btn">
+                                                        <i class="material-icons">file_upload</i>
+                                                        <input class="overlay-add-image" id="productaddImage" type="file" name="product_add_image[]">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td data-title="Image Label"><input type="text" name="product_image_label[]" /></td>
+                                        <td data-title="Is Accessories">
+                                            <label>
+                                                <input name="product_image_is_accessories[]" type="checkbox">
+                                                <span></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="add_more_box">
+                            <a href="javascript:void(0);" class="add-more-block" onclick="addNewProductImage(this)"><i class="material-icons dp48">add</i> Add More</a>
+                        </div>
+                    </div>
+
                     <div class="row input-field product-upload-block edit-image-block" style="padding-top: 15px;">
                         <div class="col s12">
                             <label class="active">Image <span class="text-danger">*</span></label>

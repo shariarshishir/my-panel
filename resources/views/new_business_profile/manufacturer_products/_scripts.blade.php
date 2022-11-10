@@ -2,11 +2,11 @@
     <script>
 
    //image upload script
-$(function(){
-    $('.input-images-1').imageUploader();
-});
+    // $(function(){
+    //     $('.input-images-1').imageUploader();
+    // });
 
-//add manufacture product modal open
+    //add manufacture product modal open
     $('.product-add-modal-trigger').click(function(){
         $("#product-add-modal-block").modal('open');
         $('#manufacture-product-upload-form')[0].reset();
@@ -16,8 +16,8 @@ $(function(){
         $('#colors').trigger('change');
         $('#sizes').val('');
         $('#sizes').trigger('change');
-        $('.input-images-1').html('');
-        $('.input-images-1').imageUploader();
+        // $('.input-images-1').html('');
+        // $('.input-images-1').imageUploader();
         $('.file').val('');
         $('.overlay-image').val('');
         $('.img-thumbnail').attr('src', 'https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png');
@@ -57,7 +57,7 @@ $(function(){
                     $('#product-add-modal-block').modal('close');
                     // $('.manufacture-product-table-data').html('');
                     // $('.manufacture-product-table-data').html(data.data);
-                    html= '<div class="col s6 m4 l3 product_item_box">';
+                    html= '<div class="col s6 m4 product_item_box">';
                     html+='<div class="productBox">';
                     html+='<div class="inner_productBox">';
                     html+='<a href="javascript:void(0);" onclick="editproduct('+data.data.id+')">';
@@ -85,8 +85,8 @@ $(function(){
                     html+='</div>';
                     console.log(data);
                     $('.product-list').prepend(html);
-                    $('.input-images-1').html('');
-                    $('.input-images-1').imageUploader();
+                    // $('.input-images-1').html('');
+                    // $('.input-images-1').imageUploader();
                     swal("Done!", data.msg,"success");
                 },
             error: function(xhr, status, error)
@@ -138,7 +138,6 @@ $(function(){
 
                     $('#product-edit-modal-block .overlay-image-preview').attr("src", 'https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png');
                     $('#product-edit-modal-block .overlay-image').val('');
-
                      if(data.product.overlay_image){
                         var src='{{Storage::disk('s3')->url('public')}}'+'/'+data.product.overlay_image;
                         $('#product-edit-modal-block .overlay-image-preview').attr("src", src);
@@ -148,6 +147,20 @@ $(function(){
                         $('#product-edit-modal-block .remove-overlay-image').html('');
                         $('#product-edit-modal-block .overlay-image-preview').attr("src", 'https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png');
                     }
+
+                    // $('#product-edit-modal-block .overlay-addImage-preview').attr("src", 'https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png');
+                    // $('#product-edit-modal-block .overlay-add-image').val('');
+                    // if(data.product.product_add_image){
+                    //     var src='{{Storage::disk('s3')->url('public')}}'+'/'+data.product.product_add_image;
+                    //     $('#product-edit-modal-block .overlay-addImage-preview').attr("src", src);
+                    //     const overlay_image_delete_button='<a href="javascript:void(0);" class="btn_delete" onclick="removeManufactureOverlayImage('+data.product.id+');"><i class="material-icons">highlight_off</i></a>';
+                    //     $('#product-edit-modal-block .remove-overlay-image').html(overlay_image_delete_button);
+                    // }else{
+                    //     $('#product-edit-modal-block .remove-overlay-image').html('');
+                    //     $('#product-edit-modal-block .overlay-addImage-preview').attr("src", 'https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png');
+                    // }
+
+                    
                      // video
                     $('#product-edit-modal-block input[name=remove_video_id]').val('');
                     $('#product-edit-modal-block .edit-video-show-block').empty();
@@ -211,6 +224,12 @@ $(function(){
 
                     $('#product-edit-modal-block .free_to_show').val(data.product.free_to_show).trigger('change');
                     $("#product-edit-modal-block select[name=free_to_show][value=" + data.product.free_to_show + "]").prop('selected', true);
+                    
+
+
+                    $('#product-edit-modal-block input[name=product_image_label]').val(data.product.product_image_label);
+                    
+
 
                     var preloaded = data.product_images;
                     console.log(preloaded);
@@ -509,5 +528,65 @@ $(function(){
         });
     </script>
 
+    <script>
+        function addNewProductImage()
+        {
+            let totalChild = $('.product_upload_update_table tbody').children().length;
+            var html = '<tr>';
+            html += '<td data-title="Image">';
+            html += '<div id="addImage">';
+            html += '<div class="overlay-addImage-preview-block">';
+            html += '<img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png" id="overlayImage" class="overlay-addImage-preview" alt="preview image">';
+            html += '</div>';
+            html += '<div class="file-field uplodad_file_button_wrap">';
+            html += '<div class="btn">';
+            html += '<i class="material-icons">file_upload</i>';
+            html += '<input class="overlay-add-image" id="productaddImage" type="file" name="productImg[product_add_image][]" />';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '</td>';
+            html += '<td data-title="Image Label"><input type="text" name="productImg[product_image_label][]" /></td>';
+            html += '<td data-title="Is Accessories">';
+            html += '<label>';
+            html += '<input class="is_accessories_checked" type="checkbox" />';
+            html += '<span></span>';
+            html += '<input type="hidden" name="productImg[product_image_is_accessories][]" class="is_accessories_checked_value" value="no" />';
+            html += '</label>';
+            html += '<a class="btn_delete" href="javascript:void(0);" onclick="removeProductRow(this)"><i class="material-icons dp48">delete_outline</i> <span>Delete</span</a></td>';
+            html += '</tr>';
+            $('.product_upload_update_table tbody').append(html);
+        }
+
+
+        $(document).on("change", '.overlay-add-image', function(){
+        var dom = $(this).parent().parent().parent().find('.overlay-addImage-preview');
+            var obj = $(this);
+            const file = this.files[0];
+            if (file){
+            let reader = new FileReader();
+            reader.onload = function(event){
+                dom.attr('src', event.target.result);
+            }
+            reader.readAsDataURL(file);
+            }
+        });
+
+        function removeProductRow(el)
+        {
+            $(el).parent().parent().remove();
+        }
+
+        $(document).on("click", ".is_accessories_checked", function(){
+            if($(this).is(':checked'))
+            {
+                $(this).closest("label").children(".is_accessories_checked_value").val('yes');
+            } else {
+                $(this).closest("label").children(".is_accessories_checked_value").val('no');
+            }
+        })
+
+
+    </script>
 
 @endpush
