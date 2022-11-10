@@ -103,8 +103,6 @@
                                                 <span class="check_circle">
                                                     @if($businessProfile['profile_verified_by_admin'] == 1)
                                                     <i class="material-icons">check_circle</i>
-                                                    @else
-                                                    <i class="material-icons">close_circle</i>
                                                     @endif
                                                 </span>
                                                 <span class="icon_wrap">
