@@ -15582,9 +15582,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .rfq_upload_filebox {
-	max-width: 500px;
+	/* max-width: 500px; */
 	border: 2px dashed #878787;
-	padding: 100px 50px;
+	padding: 50px;
 }
 
 .rfq_upload_filebox .material-icons {
@@ -15826,7 +15826,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 .create_rfq_form_wrap {
-	padding-left: 70px !important;
+	/* padding-left: 70px !important; */
 }
 
 .btn_rfq_post_bottom {
@@ -22510,7 +22510,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 	/* ************* How We Work css end ************* */
 	.create_rfq_form_wrap {
-		padding-left: 20px !important;
+		/* padding-left: 20px !important; */
 	}
 
 	.faq_contentinfo_wrapper .faq_search_wrap {
@@ -25012,7 +25012,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 	}
 
 	.create_rfq_form_wrap {
-		padding-left: 12px !important;
+		/* padding-left: 12px !important; */
 	}
 
 	#create-rfq-form .captchaContent div {

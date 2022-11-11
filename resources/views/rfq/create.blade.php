@@ -14,18 +14,9 @@
                         </div>
                         <form class="update_rfq_product_upload_form createRfqForm" method="post" enctype="multipart/form-data" action="">
                             <div class="row createRfqForm_contect_wrap">
-                                <div class="col s12 m6 l5 rfq_upload_filebox_leftBox">
-                                    <div class="rfq_upload_filebox_wrap">
-                                        <div class="rfq_upload_filebox center-align">
-                                            <div class="rfq-document-upload" id="rfq-document-upload"></div>
-                                            <div class="or"><span>OR</span></div>
-                                            <a href="javascript:void(0);" class="btn_green browse_file_trigger">Browse files</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6 l7 create_rfq_form_wrap">
+                                <div class="col s12 m12 l12 create_rfq_form_wrap">
                                     <div class="row">
-                                        <div class="col s12 input-field">
+                                        <div class="col s12 m6 input-field">
                                             <label>Select Product Tags <span>*</span></label>
                                             <select class="select2" id="category_id" name="category[]" multiple required >
                                                 <option>Select an option</option>
@@ -34,10 +25,12 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col s12 input-field">
+                                        <div class="col s12 m6 input-field">
                                             <label>Title <span>*</span></label>
                                             <input type="text" class="" name="title" required/>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col s12 input-field">
                                             <div class="">
                                                 <label>Short Description <span>*</span></label>
@@ -104,6 +97,15 @@
                                                 <label>Expected Delivery Date <span>*</span></label>
                                                 <input type="date" class="" name="delivery_time" required/>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s12 m12 l12 rfq_upload_filebox_leftBox">
+                                    <div class="rfq_upload_filebox_wrap">
+                                        <div class="rfq_upload_filebox center-align">
+                                            <div class="rfq-document-upload" id="rfq-document-upload"></div>
+                                            <div class="or"><span>OR</span></div>
+                                            <a href="javascript:void(0);" class="btn_green browse_file_trigger">Browse files</a>
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +216,7 @@
                                         <button type="submit" id="page_button" style="display: none;"></button>
                                         <div class="submit_btn_wrap center-align">
                                             <button type="button" class="btn_green btn_rfq_post btn-green right" onclick="onSubmitWithAuthUserValidation();">
-                                                Submit <i class="material-icons">navigate_next</i>
+                                                MATCH SUPPLIER
                                             </button>
                                         </div>
                                     </div>
