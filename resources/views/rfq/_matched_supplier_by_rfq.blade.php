@@ -268,7 +268,7 @@
         }
         const showBusinessProfileCount = (len) => {
             document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = len + ' suppliers?';
-            $(".supplier-matched-selected-box").html("Selected Suppliers "+business_profile_ids.length);
+            $(".supplier-matched-selected-box").html(business_profile_ids.length+" Suppliers Selected");
 
         }
         const onRequestSubmit = () => {
@@ -353,7 +353,7 @@
             }else{
                 //$("#request-for-quotation-from-rfq").modal('hide');
             }
-            $(".supplier-matched-selected-box").html("Selected Suppliers "+business_profile_ids.length);
+            $(".supplier-matched-selected-box").html(business_profile_ids.length+" Suppliers Selected");
             console.log('business_profile_ids',business_profile_ids);
             console.log('business_profile_user_ids',business_profile_user_ids);
 

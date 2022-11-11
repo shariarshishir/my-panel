@@ -19067,6 +19067,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .new_rfq_supplier_outer_wrapper .request_for_quotation {
     text-align: right;
 }
+.new_rfq_supplier_outer_wrapper .request_for_quotation a[disabled] {
+    background: #DFDFDF !important;
+    color: #9F9F9F !important;
+    cursor: default;
+}
 .new_rfq_supplier_outer_wrapper .request_for_quotation a {
     background: #54a958 !important;
     display: inline-block;
