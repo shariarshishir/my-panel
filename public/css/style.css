@@ -19030,6 +19030,43 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 		margin: 0 0 20px 0;
 	}
 }
+
+
+/* ****************** new_rfq_supplier_outer_wrapper css start ***************** */
+.new_rfq_supplier_outer_wrapper {
+
+}
+.new_rfq_supplier_outer_wrapper .new_rfq_supplier_product_info {
+	margin-bottom: 30px;
+}
+.new_rfq_supplier_outer_wrapper .new_rfq_supplier_matched_outerwrapper {
+	padding: 0 !important;
+}
+.new_rfq_supplier_outer_wrapper .supplier-matched-count-outerwrapper {
+	background: #defcdf;
+	display: inline-block;
+	width: 100%;
+	padding: 15px 20px;
+}
+.new_rfq_supplier_outer_wrapper .supplier-matched-count-outerwrapper h4 {
+	width: 25%;
+	float: left;
+	margin: 0;
+}
+.new_rfq_supplier_outer_wrapper .supplier-matched-count-outerwrapper .supplier-matched-count-wrapper {
+	float: right;
+	width: 75%;    
+	padding-top: 3px;
+}
+.new_rfq_supplier_outer_wrapper .rfq_new_layout_match_suppliers_wrap {
+	padding: 20px;
+}
+.new_rfq_supplier_outer_wrapper .new_rfq_filter_wrapper {
+	
+}
+
+/* ****************** new_rfq_supplier_outer_wrapper css end ***************** */
+
 /* ******************** design_studio_product_list_wrapper style end *********************** */
 
 
