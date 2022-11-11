@@ -9732,8 +9732,8 @@ html {
      margin-right: 8px;
      margin-top: 8px;
 }
- .profile_account_searchBar .post_new a:link, 
- .profile_account_searchBar .post_new a:active, 
+ .profile_account_searchBar .post_new a:link,
+ .profile_account_searchBar .post_new a:active,
  .profile_account_searchBar .post_new a:visited {
      font-size: 14px;
      color: #000000;
@@ -13512,7 +13512,7 @@ html {
      height: 200px;
      margin-bottom: 20px;
 }
- .uplodad_video_button_wrap .btn, 
+ .uplodad_video_button_wrap .btn,
  .uplodad_file_button_wrap .btn {
      background: #54a958;
      width: 100%;
@@ -13662,7 +13662,7 @@ html {
  .profile_account_myrfq_addPost .material-icons {
      display: block;
      margin-bottom: 5px;
-     font-size: 50px;
+     font-size: 192px;
      white-space: inherit;
 }
  .profile_account_myrfq_addPost h6 {
