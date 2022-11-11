@@ -45,7 +45,7 @@
                     <div class="col s12 l8">
                         <div class="supplier-matched-count-wrapper">
                             <div class="supplier-matched-count-box">{{ count($businessProfiles) }} Supplier Matched</div>
-                            <div class="supplier-matched-selected-box"></div>
+                            <div class="supplier-matched-selected-box" id="supplier-matched-selected-count"></div>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                              <div class="new_rfq_filter_select">
                                 <div class="input-field">
                                     <label>
-                                        <input type="checkbox" id="select-all-supplier" name="select-all-supplier" />
+                                        <input type="checkbox" id="select-all-supplier" name="select-all-supplier" onclick='onSelectAll(this)'/>
                                         <span>Select All</span>
                                     </label>
                                 </div>
@@ -228,6 +228,7 @@
         let business_profile_ids = [];
         let business_profile_user_ids = [];
         let business_profiles = [];
+        let rfq = {};
         const filterSupplier = (e) => {
             const value = e.value;
             business_profiles.map(i=>{
@@ -249,6 +250,7 @@
         $(document).ready(function(){
             
             business_profiles = @json($businessProfiles);
+            rfq = @json($rfq);
             if(business_profile_ids.length == 0) {
                 $(".request-for-quotation-modal-trigger").attr("disabled", true);
             }
@@ -259,13 +261,16 @@
         }
         const showBusinessProfileCount = (len) => {
             document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = len + ' suppliers?';
+            $(".supplier-matched-selected-box").html("Selected Suppliers "+business_profile_ids.length);
+            
         }
         const onRequestSubmit = () => {
             var xmlHttp = new XMLHttpRequest();
             // xmlHttp.open( "GET", "http://127.0.0.1:8000/rfq/submit-matched-suppleirs/"+business_profile_user_ids.join(','), false ); // false for synchronous request
             // xmlHttp.send( null );
             var redirect_url = '{{ route("rfq.submit-matched-suppleirs", ":slug") }}';
-            redirect_url = redirect_url.replace(':slug', business_profile_user_ids.join(','));
+                
+            redirect_url = redirect_url.replace(':slug', JSON.stringify({rfq_id:rfq['id'],business_profile_ids:business_profile_ids}));
             var url = redirect_url;
             fetch(url, {
                 method: 'GET',
@@ -278,9 +283,35 @@
                     window.location.href = '{{ route("home") }}';
                 }
             });
-            // console.log()
         }
-
+        const onSelectAll = (e) => {
+            
+            if(e?.checked){
+                business_profiles.map(i=>{
+                    
+                    business_profile_ids.push(i['id']);
+                    business_profile_user_ids.push(i['user_id']);
+                    const card = document.getElementById(""+i['id']+"");
+                    card.checked = true;
+                });
+                business_profile_ids = business_profile_ids.filter((i,index)=> business_profile_ids.indexOf(i)==index);
+                business_profile_user_ids = business_profile_user_ids.filter((i,index)=> business_profile_user_ids.indexOf(i)==index);
+            } else {
+                business_profiles.map(i=>{
+                    const card = document.getElementById(""+i['id']+"");
+                    card.checked = false;
+                });
+                business_profile_ids = [];
+                business_profile_user_ids = [];
+                
+            }
+            showBusinessProfileCount(business_profile_ids.length);
+            if(business_profile_ids.length == 0) {
+                $(".request-for-quotation-modal-trigger").attr("disabled", true);
+            } else {
+                $(".request-for-quotation-modal-trigger").attr("disabled", false);
+            }
+        }
         const onProfileSelected = (e) => {
 
             let id = Number(e?.id);

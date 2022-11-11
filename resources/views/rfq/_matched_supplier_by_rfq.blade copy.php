@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="card">
+
+    <div class="new_rfq_supplier_outer_wrapper">
+        <div class="card new_rfq_supplier_product_info">
             <div class="row">
                 <h4>{{$rfq['title']}}</h4>
                 <div class="rfq_posted_time">{{ $rfq['created_at'] }}</div>
@@ -34,7 +36,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card new_rfq_supplier_matched_outerwrapper">
             <div class="supplier-matched-count-outerwrapper">
                 <h4>Matched Suppliers</h4>
                 <div class="supplier-matched-count-wrapper">
@@ -43,23 +45,40 @@
                 </div>
             </div>
 
+            {{-- Need to recommend --}}
             @php
                 $cookie = Cookie::get('sso_token');
                 $cookie = base64_decode(explode(".",$cookie)[1]);
                 $cookie = json_decode(json_decode(json_encode($cookie)));
             @endphp
 
-            @if($cookie->subscription_status == 1)
+            <div class="rfq_new_layout_match_suppliers_wrap">
+                @if($cookie->subscription_status == 1)
                 <div class="new_rfq_filter_wrapper">
-                    <div class="new_rfq_filter_select">
-                        <div class="input-field">
-                            <label>
-                                <input type="checkbox" id="select-all-supplier" name="select-all-supplier" />
-                                <span>Select All</span>
-                            </label>
+                    <div class="row">
+                        <div class="col s12 m4">
+                             <div class="new_rfq_filter_select">
+                                <div class="input-field">
+                                    <label>
+                                        <input type="checkbox" id="select-all-supplier" name="select-all-supplier" />
+                                        <span>Select All</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="rfq_supplier_filter input-field">
+                                <input type="text" name="rfq_supplier_filter_field" value="" onkeydown="filterSupplier(this)"/>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="request_for_quotation">
+                                <a class="btn_request_quotation waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+                            </div>
                         </div>
                     </div>
-                    <a class="waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+
+
                 </div>
                 <!-- Modal Structure -->
                 <div id="request-for-quotation-from-rfq" class="modal">
@@ -81,7 +100,7 @@
                         <div class="row single_wraper_gapping">
 
                             @foreach($businessProfiles as $businessProfile)
-                            <div class="col s12 m4 matched_supplier_item">
+                            <div class="col s12 m4 matched_supplier_item" name="{{$businessProfile['business_name']}}">
                                 <div class="match_supplier_rfq_single_content">
                                     <div class="input-field">
                                         <label>
@@ -98,22 +117,28 @@
                                                     <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col s12 m4">
-                                            <div class="middle_wrap">
-                                                <span class="check_circle">
-                                                    @if($businessProfile['profile_verified_by_admin'] == 1)
-                                                    <i class="material-icons">check_circle</i>
-                                                    @endif
-                                                </span>
-                                                <span class="icon_wrap">
-                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                        @if($data->name == 'year_of_establishment')
-                                                            {{date("Y")-$data->value}}+
+                                            <div class="col s12 m4">
+                                                <h3>{{$businessProfile['business_name']}}</h3>
+                                                <span>{{$businessProfile['location']}}</span>
+                                            </div>
+                                            <div class="col s12 m4">
+                                                <div class="middle_wrap">
+                                                    <span class="check_circle">
+                                                        @if($businessProfile['profile_verified_by_admin'] == 1)
+                                                        <i class="material-icons">check_circle</i>
                                                         @endif
-                                                </span>
+                                                    </span>
+                                                    <span class="icon_wrap">
+                                                        @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                            @if($data->name == 'year_of_establishment')
+                                                            {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}}
+                                                            @endif
+                                                        @endforeach
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
+
                                         <!-- Second div part -->
                                         <div class="middle_part_image_wrapper">
                                             <h6>Certification:</h6>
@@ -147,6 +172,7 @@
                         </div>
                     </div>
                 </div>
+            {{-- Need to recommend --}}
             @else
                 <div class="non-subscribe-message-block">
                     <div class="non-subscribe-block-text">
@@ -156,27 +182,52 @@
                     <div class="row">
                         <div class="col s6 m6">
                             <p>Please subscribe to see the suppliers</p>
-                            <a href="javascript:void(0);" class="btn btn_green">Subscribe</a>
+                            <a href="{{route('pricing.plan.form')}}" class="btn btn_green">Subscribe</a>
                         </div>
                         <div class="col s6 m6">
                             <p>Get back to you with in 24 hours</p>
-                            <a href="javascript:void(0);" class="btn btn_green">Submit as Guest</a>
+                            <a class="btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="#rfq-user-system-entry-modal">Submit as Guest</a>
                         </div>
                     </div>
                 </div>
+
+             {{-- Need to recommend --}}
             @endif
+            </div>
+
 
 
         </div>
+    </div>
+
 @endsection
 @push('js')
     <script type="text/javascript">
 
         let business_profile_ids = [];
         let business_profile_user_ids = [];
-
+        let business_profiles = [];
+        const filterSupplier = (e) => {
+            const value = e.value;
+            business_profiles.map(i=>{
+                const elms = document.getElementsByName(i['business_name']);
+                for(var k = 0; k < elms.length; k++) {
+                    if(value){
+                        if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
+                            elms[k].style.display='block'; 
+                        }else{
+                            elms[k].style.display='none'; 
+                        }
+                    }else{
+                        elms[k].style.display='block'; 
+                    }
+                    
+                }
+            });
+        }
         $(document).ready(function(){
-            console.log(business_profile_ids.length)
+            
+            business_profiles = @json($businessProfiles);
             if(business_profile_ids.length == 0) {
                 $(".request-for-quotation-modal-trigger").attr("disabled", true);
             }
@@ -189,8 +240,6 @@
             document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = len + ' suppliers?';
         }
         const onRequestSubmit = () => {
-            console.log('business_profile_ids',business_profile_ids);
-            console.log('business_profile_user_ids',business_profile_user_ids);
             var xmlHttp = new XMLHttpRequest();
             // xmlHttp.open( "GET", "http://127.0.0.1:8000/rfq/submit-matched-suppleirs/"+business_profile_user_ids.join(','), false ); // false for synchronous request
             // xmlHttp.send( null );

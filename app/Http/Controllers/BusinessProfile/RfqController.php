@@ -1763,10 +1763,19 @@ class RfqController extends Controller
 
     }
 
-    public function submitMatchedSuppleirs(Request $request, $userIds, $link = false){
-        $userIds = explode(",", $userIds);
-        $users = User::whereIn('id',$userIds)->get();
+    public function submitMatchedSuppleirs(Request $request, $data, $link = false){
+        // $userIds = explode(",", $userIds);
+        // $businessProfiles = explode(",", $businessProfiles);
+        $d = json_decode($data);
+        $rfqId = $d->rfq_id;
+        $businessProfileIds = $d->business_profile_ids;
         
+        $response = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$rfqId,[
+            'selected_business_profiles'=>$businessProfileIds
+        ]);
+
+        // $users = User::whereIn('id',$userIds)->get();
+        // email starts
         return response()->json(['success' => True], 200);
     }
     public function matchedSuppleirs(Request $request, $rfqid, $link = false)
