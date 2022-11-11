@@ -109,7 +109,7 @@
                                                 <span class="icon_wrap">
                                                     @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
                                                         @if($data->name == 'year_of_establishment')
-                                                            {{date("Y")-$data->value}}+
+                                                            {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}}
                                                         @endif
                                                     @endforeach
                                                 </span>
