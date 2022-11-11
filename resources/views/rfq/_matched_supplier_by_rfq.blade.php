@@ -72,11 +72,13 @@
                             </div>
                         </div>
                         <div class="col s12 m4">
-                            <a class="waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+                            <div class="request_for_quotation">
+                                <a class="btn_request_quotation waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+                            </div>
                         </div>
                     </div>
-                   
-                    
+
+
                 </div>
                 <!-- Modal Structure -->
                 <div id="request-for-quotation-from-rfq" class="modal">
@@ -98,7 +100,7 @@
                         <div class="row single_wraper_gapping">
 
                             @foreach($businessProfiles as $businessProfile)
-                            <div class="col s12 m4 matched_supplier_item">
+                            <div class="col s12 m6 l4 matched_supplier_item">
                                 <div class="match_supplier_rfq_single_content">
                                     <div class="input-field">
                                         <label>
@@ -115,23 +117,28 @@
                                                     <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col s12 m4">
-                                            <div class="middle_wrap">
-                                                <span class="check_circle">
-                                                    @if($businessProfile['profile_verified_by_admin'] == 1)
-                                                    <i class="material-icons">check_circle</i>
-                                                    @endif
-                                                </span>
-                                                <span class="icon_wrap">
-                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                        @if($data->name == 'year_of_establishment')
-                                                            {{date("Y")-$data->value}}+
+                                            <div class="col s12 m4">
+                                                <h3>{{$businessProfile['business_name']}}</h3>
+                                                <span>{{$businessProfile['location']}}</span>
+                                            </div>
+                                            <div class="col s12 m4">
+                                                <div class="middle_wrap">
+                                                    <span class="check_circle">
+                                                        @if($businessProfile['profile_verified_by_admin'] == 1)
+                                                        <i class="material-icons">check_circle</i>
                                                         @endif
-                                                    @endforeach
-                                                </span>
+                                                    </span>
+                                                    <span class="icon_wrap">
+                                                        @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                            @if($data->name == 'year_of_establishment')
+                                                                {{date("Y")-$data->value}}+
+                                                            @endif
+                                                        @endforeach
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
+
                                         <!-- Second div part -->
                                         <div class="middle_part_image_wrapper">
                                             <h6>Certification:</h6>
@@ -187,12 +194,12 @@
              {{-- Need to recommend --}}
             @endif
             </div>
-            
+
 
 
         </div>
     </div>
-        
+
 @endsection
 @push('js')
     <script type="text/javascript">
