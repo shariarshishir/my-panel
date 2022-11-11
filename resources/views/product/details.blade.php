@@ -66,7 +66,7 @@ $reviewsCount = count($productReviews);
                             <div class="margin_top">
                                 <h5 class="margin_top">AVAILABLE COLORS</h5>
                                 <div class="row">
-                                    <div class="col s12 l10 size_wrapper">      
+                                    <div class="col s12 l10 size_wrapper">
                                         @foreach($colors_sizes as $color)
                                         <div class="size_border"><span class="text_center">{{$color->color}}</span></div>
                                         @endforeach
@@ -86,7 +86,7 @@ $reviewsCount = count($productReviews);
                                 //echo "<pre>"; print_r($companyInfo); echo "</pre>";
                             @endphp
                             @foreach($companyInfo as $item)
-                                @php 
+                                @php
                                     //echo "<pre>"; print_r($item); echo "</pre>";
                                 @endphp
                                 @if($item->name == "year_of_establishment")
@@ -112,7 +112,7 @@ $reviewsCount = count($productReviews);
                                             <p>{{$item->value}} Years</p>
                                         </div>
                                     @endif
-                                @endif                           
+                                @endif
                             @endforeach
 
                             @if(count($supplierCompanyInfo->certifications) > 0)
@@ -164,34 +164,26 @@ $reviewsCount = count($productReviews);
                                                     </div>
                                                 @endforeach
                                             @endif
-                                            @if($product->overlay_original_image)
-                                            <div>
-                                                <center>
-                                                    <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
-                                                        <img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="300px"/>
-
-                                                        <div class="click-to-zoom">
-                                                            <i class="material-icons dp48">zoom_in</i>
-                                                            <!-- Click on image to view large size. -->
-                                                        </div>
-                                                    </a>
-                                                </center>
-                                            </div>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col s12 m4 product_details_right_image">
                                     <div class="row">
-                                        <div class="col s6 details_img_list">
+                                        @if(count($product->images)> 0)
+                                            @foreach ($product->images as $image)
+                                                @if($image->is_raw_materials == 0)
+                                                <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
+                                                @else
+                                                <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                        {{-- <div class="col s6 details_img_list">
                                             <ul class="product-list-images-block">
                                                 @if(count($product->images)> 0)
                                                     @foreach ($product->images as $image)
                                                         <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" /></a></li>
                                                     @endforeach
-                                                @endif
-                                                @if($product->overlay_original_image)
-                                                        <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="100px" /></a></li>
                                                 @endif
                                             </ul>
                                         </div>
@@ -202,13 +194,11 @@ $reviewsCount = count($productReviews);
                                                         <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" /></a></li>
                                                     @endforeach
                                                 @endif
-                                                @if($product->overlay_original_image)
-                                                        <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="100px" /></a></li>
-                                                @endif
                                             </ul>
-                                        </div>
+                                        </div> --}}
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -216,7 +206,7 @@ $reviewsCount = count($productReviews);
                     </div>
                 </div>
             </div>
-            
+
             <!-- Third Column Container-->
             <div class="col s12 m3">
                 @if($product->video)
@@ -273,7 +263,35 @@ $reviewsCount = count($productReviews);
                                         </span>
                                     </span>
                                 </p>
-                                <!--a href="javascript:void(0);">View details</a-->
+                                <a class="modal-trigger" href="#price-breakdown-modal">View details</a>
+                                <!-- Modal Structure -->
+                                <div id="price-breakdown-modal" class="modal">
+                                    <h5>PRICE BREAKDOWN</h5>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>MIN QTY</th>
+                                                <th>MAX QTY</th>
+                                                <th>PRICE $(USD)</th>
+                                                @if($product->product_type==1) <th>LEAD TIME (DAYS) </th>@endif
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($attr as $key=>$list)
+                                            <tr>
+                                                <td>{{$list[0]}}</td>
+                                                <td>{{$list[1]}}</td>
+                                                <td>{{$list[2]}}</td>
+                                                @if($product->product_type==1) <td data-title="Lead Time">{{$list[3]}} days</td>@endif
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <div class="modal-footer">
+                                        <a href="javascript:void(0);"
+                                            class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -281,9 +299,15 @@ $reviewsCount = count($productReviews);
                         <div class="col s12 m6">
                             <div class="attribute_box">
                                 <p>LEAD TIME</p>
-                                <p> 
+                                <p>
+                                    @php
+                                        $numItems = count($attr);
+                                        $i = 0;
+                                    @endphp
                                     @foreach($attr as $key=>$list)
-                                        <span class="font_weight">{{$list[3]}}</span> days
+                                        @if(++$i === $numItems)
+                                            <span class="font_weight">{{$list[3]}}</span> days
+                                        @endif
                                     @endforeach
                                 </p>
                                 <!--a href="javascript:void(0);">View details</a-->
@@ -295,7 +319,7 @@ $reviewsCount = count($productReviews);
                         @if($product->sample_availability==1)
                         <div class="col s12 m6">
                             <div class="attribute_box">
-                                <h6>SAMPLE</h6>
+                                <p>SAMPLE</p>
                                 <p class="font_weight">Available</p>
                             </div>
                         </div>
@@ -321,133 +345,15 @@ $reviewsCount = count($productReviews);
                     <div class="margin_top">
                         <a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}">REQUEST FOR QUOTATION</a>
                     </div>
-
-                    <!-- This code is for modals -->
-                    <div class="margin_top" style="display: none;">
-                        <!-- This part is for Modal Structure -->
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-                        <!-- Modal Structure -->
-                        <div id="modal1" class="modal">
-                            <h5>PRICE BREAKDOWN</h5>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>MIN QTY</th>
-                                        <th>MAX QTY</th>
-                                        <th>PRICE $(USD)</th>
-                                        <th>LEAD TIME (DAYS)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>500</td>
-                                        <td>4.75 $</td>
-                                        <td>60 days</td>
-                                    </tr>
-                                    <tr>
-                                        <td>501</td>
-                                        <td>1500</td>
-                                        <td>4.15 $</td>
-                                        <td>70 days</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1500</td>
-                                        <td>3000</td>
-                                        <td>3.75 $</td>
-                                        <td>80 days</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3001</td>
-                                        <td>---</td>
-                                        <td>3.15 $</td>
-                                        <td>90 days</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="modal-footer">
-                                <a href="javascript:void(0);"
-                                    class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
-        
+
     </div>
 
-    <!-- Recommended product part -->
-    <div class="recommend_wrapper">
-        <div class="row">
-            <h5 class="margin_left">Recommended product for you</h5>
-            <div class="col s12 l3">
-                <div class="product_details_parent">
-                    <img src="./images/Gap-classic-T-shirt.webp" alt="">
-                    <div class="row inner_hover_part">
-                        <h6>Breton Stripe Crewen MB22-SJ-12</h6>
-                        <div class="col s12 l6">
-                            <p>LEAD TIME</p>
-                            <p class="font_sizing"> 30-40 <span> days </span></p>
-                        </div>
-                        <div class="col s12 l6">
-                            <p>MOQ</p>
-                            <p class="font_sizing"> 100 <span> pcs </span> </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 l3">
-                <div class="product_details_parent">
-                    <img src="./images/Gap-classic-T-shirt.webp" alt="">
-                    <div class="row inner_hover_part">
-                        <h6>Breton Stripe Crewen MB22-SJ-12</h6>
-                        <div class="col s12 l6">
-                            <p>LEAD TIME</p>
-                            <p class="font_sizing"> 30-40 <span> days </span></p>
-                        </div>
-                        <div class="col s12 l6">
-                            <p>MOQ</p>
-                            <p class="font_sizing"> 100 <span> pcs </span> </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 l3">
-                <div class="product_details_parent">
-                    <img src="./images/Gap-classic-T-shirt.webp" alt="">
-                    <div class="row inner_hover_part">
-                        <h6>Breton Stripe Crewen MB22-SJ-12</h6>
-                        <div class="col s12 l6">
-                            <p>LEAD TIME</p>
-                            <p class="font_sizing"> 30-40 <span> days </span></p>
-                        </div>
-                        <div class="col s12 l6">
-                            <p>MOQ</p>
-                            <p class="font_sizing"> 100 <span> pcs </span> </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 l3">
-                <div class="product_details_parent">
-                    <img src="./images/Gap-classic-T-shirt.webp" alt="">
-                    <div class="row inner_hover_part">
-                        <h6>Breton Stripe Crewen MB22-SJ-12</h6>
-                        <div class="col s12 l6">
-                            <p>LEAD TIME</p>
-                            <p class="font_sizing"> 30-40 <span> days </span></p>
-                        </div>
-                        <div class="col s12 l6">
-                            <p>MOQ</p>
-                            <p class="font_sizing"> 100 <span> pcs </span> </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <p>Recomendation product block will show here from below</p>
+
 </div>
 
 
