@@ -19124,7 +19124,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .sparkle_part {
     position: relative;
-
+}
+.new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .sparkle_part h3 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 15px;
 }
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .middle_wrap{
     position: absolute;
