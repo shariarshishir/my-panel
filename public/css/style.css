@@ -12526,8 +12526,6 @@ html {
      padding-top: 15px;
 }
  .rfq_upload_filebox {
-    /* max-width: 500px;
-     */
      border: 2px dashed #878787;
      padding: 50px;
 }
@@ -18312,6 +18310,18 @@ html {
 	.design_studio_product_list_wrapper .masonry-brick {
 		width: 48% !important;
 	}
+     .rfq_detail_from_wrap .submit_btn_wrap {
+          text-align: center !important;
+     }
+     .new_rfq_upload_form_wrap .btn_rfq_post {
+          float: none !important;
+          padding: 5px 20px !important;
+     }
+     .rfq_upload_filebox {
+          margin-bottom: 50px;
+          padding: 20px;
+          max-width: 100%;
+     }
 }
  @media only screen and (max-width: 900px) {
      .chat-application .app-sidebar {
@@ -20022,11 +20032,6 @@ html {
      .rfq_update_design_wrap .rfq_update_topbar br {
          display: none;
     }
-     .rfq_upload_filebox {
-         margin-bottom: 50px;
-         padding: 20px;
-         max-width: 100%;
-    }
      .new_rfq_paths_boxwrap h3, .rfq_update_design_wrap h1 {
          font-size: 22px;
     }
@@ -20312,8 +20317,9 @@ html {
 	}
 	.free_trial_subscription_message_box .free_trial_subscription_rightText,
 	.free_trial_subscription_message_box .free_trial_subscription_leftText {
-		width: 100px;
+		width: 100%;
 		padding: 15px;
+          float: none;
 	}
 }
  @media only screen and (max-width: 480px) {
