@@ -73,8 +73,9 @@
                             </div>
                         </div>
                         <div class="col s12 m4">
-                            <div class="rfq_supplier_filter input-field">
-                                <input type="text" name="rfq_supplier_filter_field" value="" onkeydown="filterSupplier(this)"/>
+                            <div class="rfq_supplier_filter">
+                                <i class="material-icons">search</i>
+                                <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeydown="filterSupplier(this)"/>
                             </div>
                         </div>
                         <div class="col s12 m4">
@@ -87,17 +88,19 @@
 
                 </div>
                 <!-- Modal Structure -->
-                <div id="request-for-quotation-from-rfq" class="modal">
+                <div id="request-for-quotation-from-rfq" class="modal request_quotation_rfq_from">
+                    <a href="javascript:void(0)" class="btn btn_green_close modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">close</i></a>
                     <div class="modal-content">
                         <h4>Request for quotation</h4>
                         <div class="request-for-quotation-from-rfq-profile-count-message">
+                            <img class="" src="{{Storage::disk('s3')->url('public/frontendimages/matched-supplier-icon.png')}}" alt="matched-supplier-icon" itemprop="img">
                             <p>Are you sure about requesting for quotation to</p>
-                            <p id="request-for-quotation-from-rfq-profile-count"></p>
+                            <p class="nupplier_numbers" id="request-for-quotation-from-rfq-profile-count"></p>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <a href="javascript:void(0)" class="btn btn_green" onclick='onRequestSubmit()'>Submit</a>
-                        <a href="javascript:void(0)" class="btn btn_green modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                        <a href="javascript:void(0)" class="btn btn_green btn_cancle modal-action modal-close waves-effect waves-green btn-flat">Caccle</a>
                     </div>
                 </div>
 
@@ -236,19 +239,19 @@
                 for(var k = 0; k < elms.length; k++) {
                     if(value){
                         if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
-                            elms[k].style.display='block'; 
+                            elms[k].style.display='block';
                         }else{
-                            elms[k].style.display='none'; 
+                            elms[k].style.display='none';
                         }
                     }else{
-                        elms[k].style.display='block'; 
+                        elms[k].style.display='block';
                     }
-                    
+
                 }
             });
         }
         $(document).ready(function(){
-            
+
             business_profiles = @json($businessProfiles);
             rfq = @json($rfq);
             if(business_profile_ids.length == 0) {

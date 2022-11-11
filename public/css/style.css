@@ -19058,7 +19058,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 18px;
 }
 .new_rfq_supplier_outer_wrapper .rfq_new_layout_match_suppliers_wrap {
-	padding: 20px;
+	padding: 30px 20px 20px;
+}
+.new_rfq_supplier_outer_wrapper .rfq_new_layout_match_suppliers_wrap .new_rfq_filter_wrapper {
+    padding-bottom: 10px;
 }
 .new_rfq_supplier_outer_wrapper .request_for_quotation {
     text-align: right;
@@ -19071,7 +19074,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     line-height: 42px;
     padding: 0 20px;
 }
-
 
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_wrapper {
     margin-bottom: 30px;
@@ -19086,7 +19088,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content {
     padding: 30px;
-    border: 1px solid gray;
+    border: 1px solid #c1c1c1;
     position: relative;
     height: 380px;
 }
@@ -19117,13 +19119,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     object-fit: cover;
 }
-
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .image_width
     img {
     border-radius: 100%;
     padding: 10px;
 }
-
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .sparkle_part {
     position: relative;
 }
@@ -19148,14 +19148,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     top: 0;
     right: -5px;
 }
-
 .new_rfq_supplier_outer_wrapper .middle_wrap i.material-icons {
     font-size: 38px;
     color: #48ab48;
     margin-top: 0px;
     margin-right: 5px;
 }
-
 .new_rfq_supplier_outer_wrapper .middle_wrap span.icon_wrap {
     background: #48ab48;
     width: 32px;
@@ -19168,15 +19166,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #fff;
     margin-top: 3px;
 }
-
 .new_rfq_supplier_outer_wrapper .middle_part_image_wrapper {
     margin: 25px 0px;
 }
-
 .new_rfq_supplier_outer_wrapper .middle_part_image_wrapper h6 {
     margin-bottom: 20px;
 }
-
 .new_rfq_supplier_outer_wrapper .middle_part_image_wrapper .inner_content_image {
     display: inline-block;
     width: 100%;
@@ -19202,20 +19197,17 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
-
 .new_rfq_supplier_outer_wrapper .main_product_wrap .main_product_inner
     i.material-icons {
     font-size: 30px;
     color: #48ab48;
 }
-
 .new_rfq_supplier_outer_wrapper .chatbox_wrap {
     position: absolute;
     bottom: 14px;
     right: 10px;
     height: 22px;
 }
-
 .new_rfq_supplier_outer_wrapper .main_product_inner .chatbox_wrap img {
     width: 30px;
 }
@@ -19224,7 +19216,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 30px;
     color: #48ab48;
 }
-
 .new_rfq_supplier_outer_wrapper .main_product_inner .chatbox_wrap span {
     position: absolute;
     width: 15px;
@@ -19240,10 +19231,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     text-align: center;
     color: #ffffff;
 }
-
 .new_rfq_supplier_outer_wrapper .supplier-matched-count-box {
     display: inline-block;
     padding-right: 16px;
+    border-left: 2px transparent;
+    padding-left: 15px;
 }
 .new_rfq_supplier_outer_wrapper .supplier-matched-selected-box {
     display: inline-block;
@@ -19251,9 +19243,83 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding-left: 15px;
     color: #48ab48;
 }
-/* Arnob End */
+.new_rfq_supplier_outer_wrapper .rfq_supplier_filter {
+    border: 1px solid #c1c1c1;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+.new_rfq_supplier_outer_wrapper .rfq_supplier_filter .material-icons {
+    position: absolute;
+    font-size: 30px;
+    top: 9px;
+    left: 10px;
+    color: #999;
+}
+.new_rfq_supplier_outer_wrapper .rfq_supplier_filter input {
+    padding: 0 10px 0 45px;
+    border: none !important;
+    width: -webkit-fill-available !important;
+    width: -moz-available !important;
+    margin: 0;
+}
+.new_rfq_supplier_outer_wrapper .rfq_supplier_filter input:hover,
+.new_rfq_supplier_outer_wrapper .rfq_supplier_filter input:focus {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none;
+}
 
+.request_quotation_rfq_from .modal-content {
+    padding: 0;
+}
+.request_quotation_rfq_from .modal-content h4 {
+    font-size: 25px;
+    line-height: 35px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #c1c1c1;
+    padding: 25px 20px 20px;
+}
+.request_quotation_rfq_from .request-for-quotation-from-rfq-profile-count-message {
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.request_quotation_rfq_from .btn_green_close {
+    position: absolute;
+    top: 23px;
+    right: 13px;
+    width: auto;
+    min-width: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    color: #000;
+}
+.request_quotation_rfq_from .btn_green_close .material-icons{
+    font-size: 35px;
+    color: #48ab48;
+}
+.request_quotation_rfq_from .request-for-quotation-from-rfq-profile-count-message img {
+    max-height: 185px;
+}
+.request_quotation_rfq_from .request-for-quotation-from-rfq-profile-count-message .nupplier_numbers {
+    font-size: 30px;
+}
 
+.request_quotation_rfq_from .modal-footer {
+    padding: 10px 20px;
+    height: 70px;
+    width: 100%;
+    text-align: right;
+    display: inline-block;
+}
+.request_quotation_rfq_from .modal-footer .btn_cancle {
+    float: left;
+    background: none;
+    color: #48ab48;
+}
 /* ****************** new_rfq_supplier_outer_wrapper css end ***************** */
 
 /* ******************** design_studio_product_list_wrapper style end *********************** */
