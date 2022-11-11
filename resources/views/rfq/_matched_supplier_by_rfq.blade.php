@@ -200,17 +200,21 @@
             @else
                 <div class="non-subscribe-message-block">
                     <div class="non-subscribe-block-text">
-                        <p>We have {{count($businessProfiles)}} suppliers matched</p>
-                        <p>with your Quotation.</p>
+                        <h4>We have {{count($businessProfiles)}} suppliers matched <br/> with your Quotation.</h4>
                     </div>
-                    <div class="row">
-                        <div class="col s6 m6">
-                            <p>Please subscribe to see the suppliers</p>
-                            <a href="{{route('pricing.plan.form')}}" class="btn btn_green">Subscribe</a>
-                        </div>
-                        <div class="col s6 m6">
-                            <p>Get back to you with in 24 hours</p>
-                            <a class="btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="{{ route('home')}}">Submit as Guest</a>
+                    <div class="new_rfq_subscribe_wrap">
+                        <div class="row">
+                            <div class="col s6 m5">
+                                <p>Please subscribe to see the suppliers</p>
+                                <a href="{{route('pricing.plan.form')}}" class="btn_subscribe btn btn_green">Subscribe</a>
+                            </div>
+                            <div class="col s6 m2">
+                                <div class="or"><span>OR</span></div>
+                            </div>
+                            <div class="col s6 m5">
+                                <p>Get back to you with in 24 hours</p>
+                                <a class="btn_submit_as_guest btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="{{ route('home')}}">Submit as Guest</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -265,14 +269,14 @@
         const showBusinessProfileCount = (len) => {
             document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = len + ' suppliers?';
             $(".supplier-matched-selected-box").html("Selected Suppliers "+business_profile_ids.length);
-            
+
         }
         const onRequestSubmit = () => {
             var xmlHttp = new XMLHttpRequest();
             // xmlHttp.open( "GET", "http://127.0.0.1:8000/rfq/submit-matched-suppleirs/"+business_profile_user_ids.join(','), false ); // false for synchronous request
             // xmlHttp.send( null );
             var redirect_url = '{{ route("rfq.submit-matched-suppleirs", ":slug") }}';
-                
+
             redirect_url = redirect_url.replace(':slug', JSON.stringify({rfq_id:rfq['id'],business_profile_ids:business_profile_ids}));
             var url = redirect_url;
             fetch(url, {
@@ -288,10 +292,10 @@
             });
         }
         const onSelectAll = (e) => {
-            
+
             if(e?.checked){
                 business_profiles.map(i=>{
-                    
+
                     business_profile_ids.push(i['id']);
                     business_profile_user_ids.push(i['user_id']);
                     const card = document.getElementById(""+i['id']+"");
@@ -306,7 +310,7 @@
                 });
                 business_profile_ids = [];
                 business_profile_user_ids = [];
-                
+
             }
             showBusinessProfileCount(business_profile_ids.length);
             if(business_profile_ids.length == 0) {

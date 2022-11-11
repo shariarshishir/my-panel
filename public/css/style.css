@@ -19059,6 +19059,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .new_rfq_supplier_outer_wrapper .rfq_new_layout_match_suppliers_wrap {
 	padding: 30px 20px 20px;
+    position: relative;
 }
 .new_rfq_supplier_outer_wrapper .rfq_new_layout_match_suppliers_wrap .new_rfq_filter_wrapper {
     padding-bottom: 10px;
@@ -19278,7 +19279,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     line-height: 35px;
     text-transform: uppercase;
     border-bottom: 1px solid #c1c1c1;
-    padding: 25px 20px 20px;
+    padding: 25px 20px 17px;
 }
 .request_quotation_rfq_from .request-for-quotation-from-rfq-profile-count-message {
     padding: 20px;
@@ -19287,7 +19288,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .request_quotation_rfq_from .btn_green_close {
     position: absolute;
-    top: 23px;
+    top: 26px;
     right: 13px;
     width: auto;
     min-width: inherit;
@@ -19319,6 +19320,38 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     float: left;
     background: none;
     color: #48ab48;
+}
+
+.new_rfq_supplier_outer_wrapper .non-subscribe-message-block {
+    /* position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; */
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 50px;
+    text-align: center;
+}
+.non-subscribe-message-block  h4 {
+    font-size: 30px;
+    margin-bottom: 80px;
+}
+.non-subscribe-message-block  .new_rfq_subscribe_wrap {
+    font-size: 18px;
+    font-size: 20px;
+}
+.non-subscribe-message-block  .new_rfq_subscribe_wrap .btn_green {
+    float: none !important;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.non-subscribe-message-block  .new_rfq_subscribe_wrap .btn_green:hover {
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
 }
 /* ****************** new_rfq_supplier_outer_wrapper css end ***************** */
 
