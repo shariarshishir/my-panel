@@ -51,7 +51,7 @@ $reviewsCount = count($productReviews);
                         <div id="projectHighlight" class="col s12">
                             <div class="row tab_first_btn">
                                 <div class="col s12 m4 product_btn">
-                                    <h6>SS 2023</h6>
+                                    <!--h6>SS 2023</h6-->
                                 </div>
                                 <div class="col s12 m8">
                                     @if($product->is_new_arrival == 1)
@@ -62,18 +62,18 @@ $reviewsCount = count($productReviews);
                             <div>
                                 <p class="text_size">{!! $product->description !!}</p>
                             </div>
+                            @if($product->product_type==2 || $product->product_type== 3)
                             <div class="margin_top">
                                 <h5 class="margin_top">AVAILABLE COLORS</h5>
                                 <div class="row">
-                                    <div class="col s12 l10 size_wrapper">
-                                        @if($product->product_type==2 || $product->product_type== 3)
-                                            @foreach($colors_sizes as $color)
-                                            <div class="size_border"><span class="text_center">{{$color->color}}</span></div>
-                                            @endforeach
-                                        @endif
+                                    <div class="col s12 l10 size_wrapper">      
+                                        @foreach($colors_sizes as $color)
+                                        <div class="size_border"><span class="text_center">{{$color->color}}</span></div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
+                            @endif
                             <div class="margin_top">
                                 <h5 class="margin_top">CUSTOMIZATION</h5>
                                 <P>{{$product->customize ? "Yes" : "No"}}</P>
@@ -82,14 +82,41 @@ $reviewsCount = count($productReviews);
                         <!-- Second tabs contant -->
                         <div id="supplierInfo" class="col s12">
                             @php
-                                $supplierCompanyInfo = json_decode($supplierCompanyInfo->companyOverview['data']);
-                                //echo "<pre>"; print_r($supplierCompanyInfo); echo "</pre>";
+                                $companyInfo = json_decode($supplierCompanyInfo->companyOverview['data']);
+                                //echo "<pre>"; print_r($companyInfo); echo "</pre>";
                             @endphp
+                            @foreach($companyInfo as $item)
+                                @php 
+                                    //echo "<pre>"; print_r($item); echo "</pre>";
+                                @endphp
+                                @if($item->name == "year_of_establishment")
+                                    @if(isset($item->value))
+                                        <div class="margin_top">
+                                            <h6>EXPERIENCE</h6>
+                                            <p>{{date("Y") - $item->value}} Years</p>
+                                        </div>
+                                    @endif
+                                @endif
+                                @if($item->name == "number_of_worker")
+                                    @if(isset($item->value))
+                                        <div class="margin_top">
+                                            <h6>EMPLOYEE SIZE</h6>
+                                            <p>{{$item->value}} Years</p>
+                                        </div>
+                                    @endif
+                                @endif
+                                @if($item->name == "main_products")
+                                    @if(isset($item->value))
+                                        <div class="margin_top">
+                                            <h6>MAIN PRODUCTS</h6>
+                                            <p>{{$item->value}} Years</p>
+                                        </div>
+                                    @endif
+                                @endif                           
+                            @endforeach
+
+                            @if(count($supplierCompanyInfo->certifications) > 0)
                             <div class="margin_top">
-                                <h6>EXPERIENCE</h6>
-                                <p>{{date("Y") - $supplierCompanyInfo[4]->value}} Years</p>
-                            </div>
-                            <!--div class="margin_top">
                                 <h6 class="margin_top">CERTIFICATES</h6>
                                 <div class="image_wrapper">
                                     <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
@@ -97,23 +124,15 @@ $reviewsCount = count($productReviews);
                                     <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
                                     <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
                                 </div>
-                            </div-->
-                            <div class="margin_top">
-                                <h6 class="margin_top">EMPLOYEE SIZE</h6>
-                                <H6>{{$supplierCompanyInfo[1]->value + $supplierCompanyInfo[2]->value}}</H6>
                             </div>
-                            <div class="margin_top">
-                                <h6 class="margin_top ">MAIN PRODUCTS</h6>
-                                <p class="text_size">Jackets, Fleece Jackets, Cardigan, Sweaters, Shirts,
-                                    Cardigan
-                                    etc...</p>
-                            </div>
+                            @endif
+
                             <div class="row contact_supplier">
                                 <div class="col s12 l6">
-                                    <button class="btn_contact_supplier ">Contact Supplier</button>
+                                    <!--button class="btn_contact_supplier">Contact Supplier</button-->
                                 </div>
                                 <div class="col s12 l6">
-                                    <a class="visit_profile" href="javascript:void(0);">Visit Profile</a>
+                                    <a class="btn_contact_supplier" href="{{route('supplier.profile', $product->businessProfile->alias)}}">Visit Profile</a>
                                 </div>
                             </div>
                         </div>
@@ -125,94 +144,75 @@ $reviewsCount = count($productReviews);
             <div class="col s12 m6">
                 <div class="new_design_product_preview_wrap">
                     <div class="product_preview_wrap">
-                        @if($product->video)
-                            <div class="product-images">
-                                <div class="video_content">
-                                    <div class="details_video_box">
-                                        <video controls height="245" width="300">
-                                            <source src="{{Storage::disk('s3')->url('public/'.$product->video->video)}}" type="video/mp4" />
-                                        </video>
-                                    </div>
-                                </div>
-                                <ul class="product-list-images-block">
-                                    @if(count($product->images)> 0)
-                                        @foreach ($product->images as $image)
-                                            <li>
-                                                <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}"><img src="{{Storage::disk('s3')->url('public/'.$image->original)}}" class="responsive-img" width="100px" /></a>
-                                            </li>
-                                        @endforeach
-                                    @endif
-                                </ul>
-                            </div>
-                        @else
-                            <div class="product-images">
-                                <div class="row">
-                                    <div class="col s12 m8">
-                                        <div class="product-main-image">
-                                            <div class="pre-loading-image-gallery"><img src="{{Storage::disk('s3')->url('public/frontendimages/ajax-search-loader-bar.gif')}}" width="80" height="80" alt="Loading"></div>
-                                            <div class="product-large-image-block product_details_imgwrap">
-                                                @if(count($product->images)> 0)
-                                                    @foreach ($product->images as $image)
-                                                        <div class="details_gallery_box">
-                                                            <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
-                                                                <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="300px"/>
-                                                                <div class="click-to-zoom">
-                                                                    <i class="material-icons dp48">zoom_in</i>
-                                                                    <!-- Click on image to view large size. -->
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    @endforeach
-                                                @endif
-                                                @if($product->overlay_original_image)
-                                                <div>
-                                                    <center>
-                                                        <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
-                                                            <img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="300px"/>
 
+                        <div class="product-images">
+                            <div class="row">
+                                <div class="col s12 m8">
+                                    <div class="product-main-image">
+                                        <div class="pre-loading-image-gallery"><img src="{{Storage::disk('s3')->url('public/frontendimages/ajax-search-loader-bar.gif')}}" width="80" height="80" alt="Loading"></div>
+                                        <div class="product-large-image-block product_details_imgwrap">
+                                            @if(count($product->images)> 0)
+                                                @foreach ($product->images as $image)
+                                                    <div class="details_gallery_box">
+                                                        <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
+                                                            <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="300px"/>
                                                             <div class="click-to-zoom">
                                                                 <i class="material-icons dp48">zoom_in</i>
                                                                 <!-- Click on image to view large size. -->
                                                             </div>
                                                         </a>
-                                                    </center>
-                                                </div>
-                                                @endif
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                            @if($product->overlay_original_image)
+                                            <div>
+                                                <center>
+                                                    <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="300px"/>
+
+                                                        <div class="click-to-zoom">
+                                                            <i class="material-icons dp48">zoom_in</i>
+                                                            <!-- Click on image to view large size. -->
+                                                        </div>
+                                                    </a>
+                                                </center>
                                             </div>
+                                            @endif
                                         </div>
-                                    </div>
-                                    <div class="col s12 m4 product_details_right_image">
-                                        <div class="row">
-                                            <div class="col s6 details_img_list">
-                                                <ul class="product-list-images-block">
-                                                    @if(count($product->images)> 0)
-                                                        @foreach ($product->images as $image)
-                                                            <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" /></a></li>
-                                                        @endforeach
-                                                    @endif
-                                                    @if($product->overlay_original_image)
-                                                            <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="100px" /></a></li>
-                                                    @endif
-                                                </ul>
-                                            </div>
-                                            <div class="col s6 details_img_list">
-                                                <ul class="product-list-images-block">
-                                                    @if(count($product->images)> 0)
-                                                        @foreach ($product->images as $image)
-                                                            <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" /></a></li>
-                                                        @endforeach
-                                                    @endif
-                                                    @if($product->overlay_original_image)
-                                                            <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="100px" /></a></li>
-                                                    @endif
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        
                                     </div>
                                 </div>
+                                <div class="col s12 m4 product_details_right_image">
+                                    <div class="row">
+                                        <div class="col s6 details_img_list">
+                                            <ul class="product-list-images-block">
+                                                @if(count($product->images)> 0)
+                                                    @foreach ($product->images as $image)
+                                                        <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" /></a></li>
+                                                    @endforeach
+                                                @endif
+                                                @if($product->overlay_original_image)
+                                                        <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="100px" /></a></li>
+                                                @endif
+                                            </ul>
+                                        </div>
+                                        <div class="col s6 details_img_list">
+                                            <ul class="product-list-images-block">
+                                                @if(count($product->images)> 0)
+                                                    @foreach ($product->images as $image)
+                                                        <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" /></a></li>
+                                                    @endforeach
+                                                @endif
+                                                @if($product->overlay_original_image)
+                                                        <li><a href="javascript:void(0);"><img src="{{Storage::disk('s3')->url('public/'.$product->overlay_original_image)}}" class="responsive-img" width="100px" /></a></li>
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                             </div>
-                        @endif
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -235,7 +235,6 @@ $reviewsCount = count($productReviews);
                                 <P>PRODUCT CODE</P>
                                 <P class="font_weight">{{$product->id}}</P>
                             </div>
-                            
                         </div>
                         <div class="col s12 m6">
                             <div class="attribute_box">
@@ -243,53 +242,88 @@ $reviewsCount = count($productReviews);
                                 <P><span class="font_weight">{{ $product->moq }}</span> {{$product->product_unit}}</P>
                             </div>
                         </div>
-
                         <!-- Pricing  -->
                         <div class="col s12 m6">
                             <div class="attribute_box">
                                 <p>PRICE</p>
-                                <p><span class="font_weight">$ Negotiable</span></p>
-                                <a href="javascript:void(0);">View details</a>
-                            </div>
-                        </div>
-                        <div class="col s12 m6">
-                            <div class="attribute_box">
-                                <p>LEAD TIME</p>
-                                <p> <span class="font_weight">60</span> days</p>
-                                <a href="javascript:void(0);">View details</a>
+                                <p>
+                                    <span class="font_weight">
+                                        @php
+                                            $count= count(json_decode($product->attribute));
+                                            $count = $count-2;
+                                        @endphp
+                                        <span class="price_negotiable">
+                                            @foreach (json_decode($product->attribute) as $k => $v)
+                                                @if($k == 0 && $v[2] == 'Negotiable')
+                                                {{ 'Negotiable' }}
+                                                @endif
+                                                @if($loop->last && $v[2] != 'Negotiable')
+                                                <span class="nego_price">
+                                                    ${{ $v[2] }}
+                                                </span>
+                                                @endif
+                                                @if($loop->last && $v[2] == 'Negotiable')
+                                                    @foreach (json_decode($product->attribute) as $k => $v)
+                                                            @if($k == $count)
+                                                                ${{ $v[2]  }} {{ 'Negotiable' }}
+                                                            @endif
+                                                    @endforeach
+                                                @endif
+                                            @endforeach
+                                        </span>
+                                    </span>
+                                </p>
+                                <!--a href="javascript:void(0);">View details</a-->
                             </div>
                         </div>
 
+                        @if($product->product_type==1)
+                        <div class="col s12 m6">
+                            <div class="attribute_box">
+                                <p>LEAD TIME</p>
+                                <p> 
+                                    @foreach($attr as $key=>$list)
+                                        <span class="font_weight">{{$list[3]}}</span> days
+                                    @endforeach
+                                </p>
+                                <!--a href="javascript:void(0);">View details</a-->
+                            </div>
+                        </div>
+                        @endif
+
                         <!-- Sample and ready stock -->
+                        @if($product->sample_availability==1)
                         <div class="col s12 m6">
                             <div class="attribute_box">
                                 <h6>SAMPLE</h6>
                                 <p class="font_weight">Available</p>
                             </div>
                         </div>
-                        <div class="col s12 m6">
+                        @endif
+
+                        <!--div class="col s12 m6">
                             <h6>READY STOCK</h6>
                             <p class="font_weight">Available</p>
-                        </div>
+                        </div-->
 
                         <!-- Button -->
-                        <div class="col s12 m6">
+                        <!--div class="col s12 m6">
                             <button class="btn_bg_yellow">Ask for Sample</button>
                         </div>
 
-                        <div class="col s12 m6">
+                        <div-- class="col s12 m6">
                             <button class="btn_bg_yellow">Buy Now</button>
-                        </div>
+                        </div-->
 
                     </div>
 
                     <!-- Quotation button -->
                     <div class="margin_top">
-                        <button class="quotation_btn margin_top">REQUEST FOR QUOTATION</button>
+                        <a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}">REQUEST FOR QUOTATION</a>
                     </div>
 
                     <!-- This code is for modals -->
-                    <div class="margin_top">
+                    <div class="margin_top" style="display: none;">
                         <!-- This part is for Modal Structure -->
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
                         <!-- Modal Structure -->
