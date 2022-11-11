@@ -848,9 +848,9 @@
                                 success:function(response){
                                     $('.loading-message').html("");
                                     $('#loadingProgressContainer').hide();
-                                    const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
-                                    swal("Done!", msg,"success");
-                                    console.log('response::',rfq_id);
+                                    //const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
+                                    //swal("Done!", msg,"success");
+                                    //console.log('response::',rfq_id);
                                     //window.location.reload;
                                     var alias = rfq_id;
                                     var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
