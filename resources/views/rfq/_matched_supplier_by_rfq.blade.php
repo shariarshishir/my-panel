@@ -38,10 +38,16 @@
 
         <div class="card new_rfq_supplier_matched_outerwrapper">
             <div class="supplier-matched-count-outerwrapper">
-                <h4>Matched Suppliers</h4>
-                <div class="supplier-matched-count-wrapper">
-                    <div class="supplier-matched-count-box">{{ count($businessProfiles) }} Supplier Matched</div>
-                    <div class="supplier-matched-selected-box"></div>
+                <div class="row">
+                    <div class="col s12 l4">
+                        <h4>Matched Suppliers</h4>
+                    </div>
+                    <div class="col s12 l8">
+                        <div class="supplier-matched-count-wrapper">
+                            <div class="supplier-matched-count-box">{{ count($businessProfiles) }} Supplier Matched</div>
+                            <div class="supplier-matched-selected-box"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -114,14 +120,18 @@
                                         <div class="row sparkle_part">
                                             <div class="col s12 m3">
                                                 <div class="image_width_wrap">
+                                                    @if($businessProfile['business_profile_logo'])
                                                     <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
+                                                    @else
+                                                    <img class="image_width" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" itemprop="img">
+                                                    @endif
                                                 </div>
                                             </div>
-                                            <div class="col s12 m4">
+                                            <div class="col s12 m6">
                                                 <h3>{{$businessProfile['business_name']}}</h3>
-                                                <span>{{$businessProfile['location']}}</span>
+                                                <span class="location">{{$businessProfile['location']}}</span>
                                             </div>
-                                            <div class="col s12 m4">
+                                            <div class="col s12 m3">
                                                 <div class="middle_wrap">
                                                     <span class="check_circle">
                                                         @if($businessProfile['profile_verified_by_admin'] == 1)
@@ -140,29 +150,40 @@
                                         </div>
 
                                         <!-- Second div part -->
+
                                         <div class="middle_part_image_wrapper">
                                             <h6>Certification:</h6>
+                                            @if($businessProfile['certifications'])
                                             <div class="inner_content_image">
                                                 @foreach($businessProfile['certifications'] as $cert)
                                                     <img class="" src='{{Storage::disk('s3')->url('public/'.$cert['image'])}}' alt="">
                                                 @endforeach
                                             </div>
+                                            @else
+                                                <p>No Certifications found.</p>
+                                            @endif
                                         </div>
+
                                         <!-- Third div part -->
                                         <div class="main_product_wrap">
                                             <h6>Main Products:</h6>
-                                            <div class="row main_product_inner">
-                                                <div class="col s12 m10">
-                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                        @if($data->name == 'main_products')
-                                                            <h5>{{$data->value}}</h5>
-                                                        @endif
-                                                    @endforeach
-                                                </div>
-                                                <div class="col s12 m2 chatbox_wrap">
-                                                    <img src="./images/chat-img.png" alt=""> <span>5</span>
-                                                </div>
+                                            <div class="main_product_inner">
+                                                @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                    @if($data->name == 'main_products')
+                                                        <h5>{{$data->value}}</h5>
+                                                    @else
+                                                        <p>No main Products found.</p>
+                                                        @break
+                                                    @endif
+                                                @endforeach
                                             </div>
+                                        </div>
+
+                                        <div class="chatbox_wrap">
+                                            {{-- <img src="./images/chat-img.png" alt="">  --}}
+                                            <a href="javascript:void(0)">
+                                                <i class="material-icons">chat</i> <!--span>5</span-->
+                                            </a>
                                         </div>
 
                                     </div>
