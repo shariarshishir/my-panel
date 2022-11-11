@@ -68,7 +68,7 @@
                         </div>
                         <div class="col s12 m4">
                             <div class="rfq_supplier_filter input-field">
-                                <input type="text" name="rfq_supplier_filter_field" value="" />
+                                <input type="text" name="rfq_supplier_filter_field" value="" onkeydown="filterSupplier(this)"/>
                             </div>
                         </div>
                         <div class="col s12 m4">
@@ -100,7 +100,7 @@
                         <div class="row single_wraper_gapping">
 
                             @foreach($businessProfiles as $businessProfile)
-                            <div class="col s12 m6 l4 matched_supplier_item">
+                            <div class="col s12 m4 matched_supplier_item" id="{{$businessProfile['business_name']}}">
                                 <div class="match_supplier_rfq_single_content">
                                     <div class="input-field">
                                         <label>
@@ -206,8 +206,35 @@
 
         let business_profile_ids = [];
         let business_profile_user_ids = [];
-
+        let business_profiles = [];
+        const filterSupplier = (e) => {
+            const value = e.value;
+            if(value){
+                business_profiles.map(i=>{
+                    const row = document.getElementById(i['business_name']);
+                    if(row){
+                        if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
+                            row.style.display = 'block';
+                        }else{
+                            row.style.display = 'none';
+                        }
+                    }else{
+                        console.log('not found',i['business_name']);
+                    }
+                    
+                    
+                });
+            }else{
+                business_profiles.map(i=>{
+                    const row = document.getElementById(i['business_name']);
+                    row.style.display = 'block';
+                });
+            }
+        }
         $(document).ready(function(){
+            
+            business_profiles = @json($businessProfiles);
+            console.log(business_profiles);
             console.log(business_profile_ids.length)
             if(business_profile_ids.length == 0) {
                 $(".request-for-quotation-modal-trigger").attr("disabled", true);
