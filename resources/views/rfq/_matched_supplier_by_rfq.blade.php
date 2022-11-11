@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="card">
+
+    <div class="new_rfq_supplier_outer_wrapper">
+        <div class="card new_rfq_supplier_product_info">
             <div class="row">
                 <h4>{{$rfq['title']}}</h4>
                 <div class="rfq_posted_time">{{ $rfq['created_at'] }}</div>
@@ -34,7 +36,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card new_rfq_supplier_matched_outerwrapper">
             <div class="supplier-matched-count-outerwrapper">
                 <h4>Matched Suppliers</h4>
                 <div class="supplier-matched-count-wrapper">
@@ -43,23 +45,38 @@
                 </div>
             </div>
 
+            {{-- Need to recommend --}}
             @php
                 $cookie = Cookie::get('sso_token');
                 $cookie = base64_decode(explode(".",$cookie)[1]);
                 $cookie = json_decode(json_decode(json_encode($cookie)));
             @endphp
 
-            @if($cookie->subscription_status == 1)
+            <div class="rfq_new_layout_match_suppliers_wrap">
+                @if($cookie->subscription_status == 1)
                 <div class="new_rfq_filter_wrapper">
-                    <div class="new_rfq_filter_select">
-                        <div class="input-field">
-                            <label>
-                                <input type="checkbox" id="select-all-supplier" name="select-all-supplier" />
-                                <span>Select All</span>
-                            </label>
+                    <div class="row">
+                        <div class="col s12 m4">
+                             <div class="new_rfq_filter_select">
+                                <div class="input-field">
+                                    <label>
+                                        <input type="checkbox" id="select-all-supplier" name="select-all-supplier" />
+                                        <span>Select All</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="rfq_supplier_filter input-field">
+                                <input type="text" name="rfq_supplier_filter_field" value="" />
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <a class="waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
                         </div>
                     </div>
-                    <a class="waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+                   
+                    
                 </div>
                 <!-- Modal Structure -->
                 <div id="request-for-quotation-from-rfq" class="modal">
@@ -148,6 +165,7 @@
                         </div>
                     </div>
                 </div>
+            {{-- Need to recommend --}}
             @else
                 <div class="non-subscribe-message-block">
                     <div class="non-subscribe-block-text">
@@ -165,11 +183,16 @@
                         </div>
                     </div>
                 </div>
-                
+
+             {{-- Need to recommend --}}
             @endif
+            </div>
+            
 
 
         </div>
+    </div>
+        
 @endsection
 @push('js')
     <script type="text/javascript">
