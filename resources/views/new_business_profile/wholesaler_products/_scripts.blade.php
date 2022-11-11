@@ -4,6 +4,30 @@
         $('.js-example-basic-multiple').select2();
     });
 
+    var productFirstHtml = '<tr>';
+    productFirstHtml += '<td data-title="Image" class="uploadOverlayImage">';
+    productFirstHtml += '<div id="addImage">';
+    productFirstHtml += '<div class="overlay-addImage-preview-block">';
+    productFirstHtml += '<img src="https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png" id="overlayImage" class="overlay-addImage-preview" alt="preview image">';
+    productFirstHtml += '</div>';
+    productFirstHtml += '<input type="hidden" name="productImg[product_image_id][]" />';
+    productFirstHtml += '<div class="file-field uplodad_file_button_wrap">';
+    productFirstHtml += '<div class="btn">';
+    productFirstHtml += '<i class="material-icons">file_upload</i>';
+    productFirstHtml += '<input class="overlay-add-image" id="productaddImage" type="file" name="productImg[product_add_image][]" />';
+    productFirstHtml += '</div>';
+    productFirstHtml += '</div>';
+    productFirstHtml += '</div>';
+    productFirstHtml += '</td>';
+    productFirstHtml += '<td data-title="Image Label" class="uploadImageLabel"><input type="text" name="productImg[product_image_label][]" /></td>';
+    productFirstHtml += '<td data-title="Is Accessories" class="uploadImageAccessories">';
+    productFirstHtml += '<label>';
+    productFirstHtml += '<input class="is_accessories_checked" type="checkbox" />';
+    productFirstHtml += '<span></span>';
+    productFirstHtml += '<input type="hidden" name="productImg[product_image_is_accessories][]" class="is_accessories_checked_value" value="no" />';
+    productFirstHtml += '</label>';
+    productFirstHtml += '</tr>';    
+
     $('.product-add-modal-trigger').click(function(){
         $("#product-add-modal-block").modal('open');
         $('.fresh-rtd-attr').show();
@@ -24,7 +48,8 @@
         $('.non-clothing-full-stock-price').hide();
         $('.ready-stock-prices-breakdown').show();
         $('#product-add-modal-block .product_unit').val('');
-        $(".product_upload_update_table tbody").html('');
+        //$(".product_upload_update_table tbody").html('');
+        $('.product_upload_update_table tbody').html(productFirstHtml);
         $('#product-add-modal-block .product_unit').trigger('change');
         $('.error-rm').html('');
         $('.select2').val('');

@@ -1534,7 +1534,7 @@ $reviewsCount = count($productReviews);
 
 
 
-    <div class="row single-product-related-products" style="display: none;">
+    <div class="row single-product-related-products">
         <div class="related-products col s12">
             <div class="card-with-padding">
                 <legend>Recommended products for you</legend>
