@@ -6385,7 +6385,7 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 
 .input-field textarea {
 	min-height: 150px;
-	border: none !important;
+	/* border: none !important; */
 	line-height: 25px !important;
 }
 
