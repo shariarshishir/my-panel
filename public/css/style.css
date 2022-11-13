@@ -15005,7 +15005,7 @@ html {
 }
  .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details .details_value {
      display: inline-block;
-     height: 24px;
+     height: 28px;
      overflow: hidden;
      text-overflow: ellipsis;
      -webkit-line-clamp: 2;
