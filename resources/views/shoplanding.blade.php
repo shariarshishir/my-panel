@@ -99,7 +99,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                         </div>
                                         @if($rfqLists)
                                             @foreach($rfqLists as $key => $rfq)
-                                            <div class="col s6 m6 l4 newAccountMyrfqBox" rfq_id="{{$rfq['id']}}" onclick='setSelectedRFQ(this);'>
+                                            <div class="col s6 m6 l4 newAccountMyrfqBox" rfq_id="{{$rfq['id']}}" onclick="setSelectedRFQ(this);">
                                                 <div class="account_myrfq_infoBox">
                                                     <div class="top_rfq_status">
                                                         <div class="row">
