@@ -184,7 +184,7 @@
 								</div>
 								<div class="col s12 m4 product_details_right_image">
 									<div class="row">
-                                        <div class="col s6 m6">
+                                        <div class="col s6 m6 raw_materials_left_img">
                                             @if(count($product->product_images)> 0)
                                                 @foreach ($product->product_images as $image)
                                                     @if($image->is_raw_materials == 0)
@@ -193,7 +193,7 @@
                                                 @endforeach
                                             @endif
                                         </div>
-                                        <div class="col s6 m6">
+                                        <div class="col s6 m6 raw_materials_right_img">
                                             @if(count($product->product_images)> 0)
                                                 @foreach ($product->product_images as $image)
                                                     @if($image->is_raw_materials == 1)

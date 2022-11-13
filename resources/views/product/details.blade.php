@@ -169,7 +169,7 @@ $reviewsCount = count($productReviews);
                                 </div>
                                 <div class="col s12 m4 product_details_right_image">
                                     <div class="row">
-                                        <div class="col s6 m6">
+                                        <div class="col s6 m6 raw_materials_sm_imglist">
                                             @if(count($product->images)> 0)
                                                 @foreach ($product->images as $image)
                                                     @if($image->is_raw_materials == 0)
@@ -178,7 +178,7 @@ $reviewsCount = count($productReviews);
                                                 @endforeach
                                             @endif
                                         </div>
-                                        <div class="col s6 m6">
+                                        <div class="col s6 m6 raw_materials_sm_imglist">
                                             @if(count($product->images)> 0)
                                                 @foreach ($product->images as $image)
                                                     @if($image->is_raw_materials == 1)
