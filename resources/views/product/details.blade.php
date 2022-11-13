@@ -153,15 +153,15 @@ $reviewsCount = count($productReviews);
                                         <div class="product-large-image-block product_details_imgwrap">
                                             @if(count($product->images)> 0)
                                                 @foreach ($product->images as $image)
-                                                    <div class="details_gallery_box">
-                                                        <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
-                                                            <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="300px"/>
-                                                            <div class="click-to-zoom">
-                                                                <i class="material-icons dp48">zoom_in</i>
-                                                                <!-- Click on image to view large size. -->
-                                                            </div>
-                                                        </a>
-                                                    </div>
+                                                    <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
+                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image->original)}});"></div>
+                                                    </a>
+                                                    <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="300px"/>
+                                                        <div class="click-to-zoom">
+                                                            <i class="material-icons dp48">zoom_in</i>
+                                                        </div>
+                                                    </a-->
                                                 @endforeach
                                             @endif
                                         </div>

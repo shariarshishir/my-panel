@@ -9209,7 +9209,7 @@ html {
  .landing_request_img img {
      width: 70%;
 }
- .product-list-images-block, .product-large-image-block {
+ .product-list-images-block {
      display: none;
 }
  .product-list-images-block.slick-initialized, .product-large-image-block.slick-initialized {
@@ -20875,3 +20875,15 @@ html {
     }
 }
 /* ******************** Media css style end *********************** */
+
+.product-large-image-block {
+    height: 550px;
+    /* background: red; */
+    overflow: auto;
+}
+.product-bg-image {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

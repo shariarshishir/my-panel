@@ -165,11 +165,12 @@
 								<div class="col s12 m8">
 									<div class="product-main-image">
 										<div class="pre-loading-image-gallery" style="display: none;"><img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/ajax-search-loader-bar.gif" width="80" height="80" alt="Loading"></div>
-                                        <div class="product-large-image-block product_details_imgwrap" style="height: 550px; background: red; overflow: auto;">
+                                        <div class="product-large-image-block product_details_imgwrap">
                                             @if(count($product->product_images)> 0)
                                                 @foreach ($product->product_images as $image)
-                                                    <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image['product_image'])}}); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-
+                                                    <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
+                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image['product_image'])}});"></div>
+                                                    </a>
                                                     <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
                                                         <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="300px"/>
                                                         <div class="click-to-zoom">
