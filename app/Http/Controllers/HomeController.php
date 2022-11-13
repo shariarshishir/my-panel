@@ -31,6 +31,7 @@ use App\Models\Manufacture\ProductCategory as ManufatureProductCategeory;
 use App\Userchat;
 use App\RfqApp;
 use Illuminate\Support\Facades\Cookie;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -1528,5 +1529,27 @@ class HomeController extends Controller
     public function supplyChainLandingPage()
     {
         return view('supply_chain.index');
+    }
+
+    public function pricingPlan()
+    {
+        $trialPeiodStartDate = Carbon::now()->format('F j, Y');
+        $trialPeiodEndDate = Carbon::now()->addDays(30)->format('F j, Y');
+
+        $trialPeiodStartDateNonFormate = Carbon::now();
+        $trialPeiodEndDateNonFormate = Carbon::now()->addDays(30);
+
+        return view('pricingplan.index', compact('trialPeiodStartDate', 'trialPeiodEndDate', 'trialPeiodStartDateNonFormate', 'trialPeiodEndDateNonFormate'));
+    }
+
+    public function pricingPlanForm()
+    {
+        $trialPeiodStartDate = Carbon::now()->format('F j, Y');
+        $trialPeiodEndDate = Carbon::now()->addDays(30)->format('F j, Y');
+
+        $trialPeiodStartDateNonFormate = Carbon::now();
+        $trialPeiodEndDateNonFormate = Carbon::now()->addDays(30);
+
+        return view('pricingplan.form', compact('trialPeiodStartDate', 'trialPeiodEndDate', 'trialPeiodStartDateNonFormate', 'trialPeiodEndDateNonFormate'));
     }
 }

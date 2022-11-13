@@ -77,6 +77,7 @@ use App\Http\Controllers\RfqBidController;
 use App\Http\Controllers\BusinessProfile\QuerybidController;
 use App\Http\Controllers\DesignersController;
 use App\Http\Controllers\SamplesController;
+use App\Http\Controllers\ContactusController;
 
 
 use App\Models\BusinessProfile;
@@ -212,13 +213,16 @@ Route::get('/policy', [HomeController::class, 'policyLandingPage'])->name('front
 Route::get('/aboutus', [HomeController::class, 'aboutusLandingPage'])->name('front.aboutus');
 Route::get('/supply-chain', [HomeController::class, 'supplyChainLandingPage'])->name('front.supplychain');
 Route::get('/how-we-work', [HomeController::class, 'howweworkLandingPage'])->name('front.howwework');
-Route::get('/contactus', [HomeController::class, 'contactusLandingPage'])->name('front.contactus');
 Route::get('/welcomepage', [HomeController::class, 'rfqPostSuccessfulByAnonymous'])->name('front.rfqpostsuccessfulbyanonymous');
 Route::get('/faqs', [HomeController::class, 'faqLandingPage'])->name('front.faq');
 
 
 Route::get('/suppliers', [HomeController::class, 'suppliers'])->name('suppliers');
 Route::get('/supplier/location/data',[HomeController::class,'getSupplierLocationData'])->name('get.supplier.location.data');
+Route::get('/pricing-plan', [HomeController::class, 'pricingPlan'])->name('pricing.plan');
+Route::get('/pricing-plan/form', [HomeController::class, 'pricingPlanForm'])->name('pricing.plan.form');
+Route::get('/contactus/{subscription?}', [ContactusController::class, 'index'])->name('front.contactus');
+Route::post('/contactus/store', [ContactusController::class, 'store'])->name('front.contactus.store');
 
 Route::get('/designers', [DesignersController::class, 'designers'])->name('designers');
 Route::get('/designer/{id}', [DesignersController::class, 'singleDesignerDetails'])->name('single.designer.details');
@@ -492,6 +496,9 @@ Route::group(['middleware'=>['sso.verified','auth']],function (){
 });
 Route::post('rfq/store/with/login',[RfqController::class, 'storeWithLogin'])->name('rfq.store.with.login');
 Route::get('rfq/create/{flag?}/{productid?}',[RfqController::class, 'create'])->name('rfq.create');
+Route::get('rfq/matched-suppleirs/{rfqid?}',[RfqController::class, 'matchedSuppleirs'])->name('rfq.matched-suppleirs');
+// Route::get('rfq/submit-matched-suppleirs/{userIds?}',[RfqController::class, 'submitMatchedSuppleirs'])->name('rfq.submit-matched-suppleirs');
+Route::get('rfq/submit-matched-suppleirs/{data?}',[RfqController::class, 'submitMatchedSuppleirs'])->name('rfq.submit-matched-suppleirs');
 //rfq show with shareable link
 Route::get('rfq/{link}',[RfqController::class, 'showRfqUsingLink'])->name('show.rfq.using.link');
 Route::get('sitemap',[HomeController::class, 'showSiteMap'])->name('show.site.map');
