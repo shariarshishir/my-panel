@@ -74,7 +74,7 @@
                     </div>
                     <div class="col s12 m4">
                         <div class="request_for_quotation">
-                            <button href="javascript:void(0)" class="btn btn_green" id="send-request-again-for-rfq" onclick="onRequestSubmit()">Send Request</button>
+                            <button href="javascript:void(0)" class="btn btn_green" id="send-request-again-for-rfq" onclick="onRequestSubmit()" style="display:none;">Send Request</button>
                             <a class="btn_request_quotation waves-effect waves-light btn request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="javascript:void(0)" onclick="putSupplierList()">Request More</a>
                         </div>
                     </div>
@@ -250,7 +250,13 @@
         const putSupplierList = () => {
             const content = document.getElementById('matched-supplier-list');
             check_status = !check_status;
-            document.getElementById("send-request-again-for-rfq").disabled = check_status;
+            if(!check_status){
+                document.getElementById("send-request-again-for-rfq").style.display = 'block';
+                document.getElementById("send-request-again-for-rfq").disabled = true;
+            }else{
+                document.getElementById("send-request-again-for-rfq").style.display = 'none';
+            }
+            
             if(content){
                 var myvar = '';
                 
@@ -415,7 +421,7 @@
                         }
                         updateRFQHeader(d?.rfq);
                         business_profile_ids = d?.rfq?.selected_business_profiles || [];
-                        console.log(business_profile_ids);
+                        rfq = d?.rfq;
                         showBusinessProfileCount(business_profile_ids.length);
                         putSupplierList();
                     }
@@ -505,6 +511,7 @@
                 //$("#request-for-quotation-from-rfq").modal('hide');
             }
             $(".supplier-matched-selected-box").html(business_profile_ids.length+" Suppliers Selected");
+            document.getElementById("send-request-again-for-rfq").disabled = false;
         }
     </script>
 @endpush
