@@ -60,7 +60,7 @@ $reviewsCount = count($productReviews);
                                 </div>
                             </div>
                             <div>
-                                <p class="text_size">{!! $product->description !!}</p>
+                                {!! $product->description !!}
                             </div>
                             @if($product->product_type==2 || $product->product_type== 3)
                             <div class="margin_top">

@@ -23,8 +23,13 @@
 
 <div class="new_design_product_detail_wrap">
 	<div class="back_to">
-		<a href="http://192.168.68.151:8282/studio/design"> <img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/new_layout_images/back-arrow.png" alt=""></a>
+		<a href="{{ url()->previous() }}">
+            <img src="{{Storage::disk('s3')->url('public/frontendimages/new_layout_images/back-arrow.png')}}" alt="" />
+        </a>
 	</div>
+    @php
+        //echo "<pre>"; print_r($product); echo "</pre>";
+    @endphp
 	<div class="new_design_product_detail">
 		<!-- First Column Container -->
 		<div class="row">
@@ -50,43 +55,104 @@
 								</div>
 							</div>
 							<div>
-								<p class="text_size"></p>
-								<p>Studio Design Non Clothing Item</p>
-								<p></p>
+								{!! $product->product_details !!}
 							</div>
-							<div class="margin_top">
-								<h5 class="margin_top">AVAILABLE COLORS</h5>
-								<div class="row">
-									<div class="col s12 l10 size_wrapper">
-										<div class="size_border"><span class="text_center">Yellow</span></div>
-										<div class="size_border"><span class="text_center">Blue</span></div>
-									</div>
-								</div>
-							</div>
+
+                            @php
+                                $colors = $product->colors ?? [];
+                                $sizes = $product->sizes ?? [];
+                            @endphp
+
+                            @if( !empty($colors) && is_array($colors) )
+                                <div class="margin_top">
+                                    <h5 class="margin_top">AVAILABLE COLORS</h5>
+                                    <div class="row">
+                                        <div class="col s12 l10 size_wrapper">
+                                            @foreach($colors as $color)
+                                            <div class="size_border"><span class="text_center">{{ strtolower($color) }}</span></div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if( !empty($sizes) && is_array($sizes) )
+                                <div class="margin_top">
+                                    <h5 class="margin_top">AVAILABLE SIZES</h5>
+                                    <div class="row">
+                                        <div class="col s12 l10 size_wrapper">
+                                            @foreach($sizes as $size)
+                                                <div class="size_border"><span class="text_center">{{ strtoupper($size) }}</span></div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
 							<div class="margin_top">
 								<h5 class="margin_top">CUSTOMIZATION</h5>
-								<p>No</p>
+								<p>Yes</p>
 							</div>
 						</div>
 						<!-- Second tabs contant -->
-						<div id="supplierInfo" class="col s12" style="display: none;">
-							<div class="margin_top">
-								<h6>EMPLOYEE SIZE</h6>
-								<p>1000 Years</p>
-							</div>
-							<div class="margin_top">
-								<h6>EXPERIENCE</h6>
-								<p>21 Years</p>
-							</div>
-							<div class="row contact_supplier">
-								<div class="col s12 l6">
-									<!--button class="btn_contact_supplier">Contact Supplier</button-->
-								</div>
-								<div class="col s12 l6">
-									<a class="btn_contact_supplier" href="http://192.168.68.151:8282/mb-studio">Visit Profile</a>
-								</div>
-							</div>
-						</div>
+						<div id="supplierInfo" class="col s12">
+                            @php
+                                $companyInfo = json_decode($supplierCompanyInfo->companyOverview['data']);
+                                //echo "<pre>"; print_r($companyInfo); echo "</pre>";
+                            @endphp
+                            @foreach($companyInfo as $item)
+                                @php
+                                    //echo "<pre>"; print_r($item); echo "</pre>";
+                                @endphp
+                                @if($item->name == "year_of_establishment")
+                                    @if(isset($item->value))
+                                        <div class="margin_top">
+                                            <h6>EXPERIENCE</h6>
+                                            <p>{{date("Y") - $item->value}} Years</p>
+                                        </div>
+                                    @endif
+                                @endif
+                                @if($item->name == "number_of_worker")
+                                    @if(isset($item->value))
+                                        <div class="margin_top">
+                                            <h6>EMPLOYEE SIZE</h6>
+                                            <p>{{$item->value}} Years</p>
+                                        </div>
+                                    @endif
+                                @endif
+                                @if($item->name == "main_products")
+                                    @if(isset($item->value))
+                                        <div class="margin_top">
+                                            <h6>MAIN PRODUCTS</h6>
+                                            <p>{{$item->value}} Years</p>
+                                        </div>
+                                    @endif
+                                @endif
+                            @endforeach
+
+                            @if(count($supplierCompanyInfo->certifications) > 0)
+                            <div class="margin_top">
+                                <h6 class="margin_top">CERTIFICATES</h6>
+                                <div class="image_wrapper">
+                                    @foreach ($supplierCompanyInfo->certifications as $certificateItem)
+                                    <div><img class="image-sizing" src="{{Storage::disk('s3')->url('public/'.$certificateItem->image.'')}}" alt=""></div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endif
+
+                            <div class="row contact_supplier">
+                                <div class="col s12 l6">
+                                    <!--button class="btn_contact_supplier">Contact Supplier</button-->
+                                </div>
+                                <div class="col s12 l6">
+                                    <a class="btn_contact_supplier" href="{{route('supplier.profile', $product->businessProfile->alias)}}">Visit Profile</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
 					</div>
 				</div>
 			</div>
@@ -99,26 +165,34 @@
 								<div class="col s12 m8">
 									<div class="product-main-image">
 										<div class="pre-loading-image-gallery" style="display: none;"><img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/ajax-search-loader-bar.gif" width="80" height="80" alt="Loading"></div>
-										<div class="product-large-image-block product_details_imgwrap slick-initialized slick-slider">
-											<div class="slick-list draggable">
-												<div class="slick-track" style="opacity: 1; width: 422px;">
-													<div class="details_gallery_box slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 422px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
-														<a data-fancybox="gallery" href="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/images/MB%20Studio/products/original/636e866e7d99c886230d6fe367404c728a240a001259f.jpg" tabindex="0">
-															<img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/images/MB%20Studio/products/small/636e866e40d204806c7a33e437e28cb95ec1a3b420b58.jpg" class="responsive-img" width="300px">
-															<div class="click-to-zoom">
-																<i class="material-icons dp48">zoom_in</i>
-																<!-- Click on image to view large size. -->
-															</div>
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
+                                        <div class="product-large-image-block product_details_imgwrap">
+                                            @if(count($product->product_images)> 0)
+                                                @foreach ($product->product_images as $image)
+                                                    <div class="details_gallery_box">
+                                                        <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
+                                                            <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="300px"/>
+                                                            <div class="click-to-zoom">
+                                                                <i class="material-icons dp48">zoom_in</i>
+                                                                <!-- Click on image to view large size. -->
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                        </div>
 									</div>
 								</div>
 								<div class="col s12 m4 product_details_right_image">
 									<div class="row">
-										<img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/images/MB%20Studio/products/small/636e866e40d204806c7a33e437e28cb95ec1a3b420b58.jpg" class="responsive-img" width="100px">
+                                        @if(count($product->product_images)> 0)
+                                            @foreach ($product->product_images as $image)
+                                                @if($image->is_raw_materials == 0)
+                                                <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
+                                                @else
+                                                <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
+                                                @endif
+                                            @endforeach
+                                        @endif
 									</div>
 								</div>
 							</div>
@@ -128,25 +202,27 @@
 			</div>
 			<!-- Third Column Container-->
 			<div class="col s12 m3">
-				<div>
-					<video controls="" height="245" width="300">
-						<source src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/video/MB%20Studio/636e866eaf5b0450990662f8129dc0307b1682dca9ce8.mp4" type="video/mp4">
-					</video>
-				</div>
-				<h5 class="margin_top">Studio Design Non Clothing Item</h5>
+                @if($product->product_video->video)
+                <div>
+                    <video controls height="245" width="300">
+                        <source src="{{Storage::disk('s3')->url('public/'.$product->product_video->video)}}" type="video/mp4" />
+                    </video>
+                </div>
+                @endif
+				<h5 class="margin_top">{{ $product->title }}</h5>
 				<div class="sweatshit_wrapper margin_top">
 					<!-- Product div -->
 					<div class="row">
 						<div class=" col s12 m6">
 							<div class="attribute_box">
 								<p>PRODUCT CODE</p>
-								<p class="font_weight">393</p>
+								<p class="font_weight">mb-{{ $product->id }}</p>
 							</div>
 						</div>
 						<div class="col s12 m6">
 							<div class="attribute_box">
 								<p>MOQ</p>
-								<p><span class="font_weight">150</span> PCS</p>
+								<p><span class="font_weight">{{ $product->moq }}</span> {{ $product->qty_unit }}</p>
 							</div>
 						</div>
 						<!-- Pricing  -->
@@ -155,51 +231,24 @@
 								<p>PRICE</p>
 								<p>
 									<span class="font_weight">
-									<span class="price_negotiable">
-									<span class="nego_price">
-									$12.00
-									</span>
-									</span>
+                                        <span class="price_negotiable">
+                                            <span class="nego_price">
+                                                {{$product->price_unit}} {{$product->price_per_unit}}
+                                            </span>
+                                        </span>
 									</span>
 								</p>
-								<a class="modal-trigger" href="#price-breakdown-modal">View details</a>
-								<!-- Modal Structure -->
-								<div id="price-breakdown-modal" class="modal" tabindex="0">
-									<h5>PRICE BREAKDOWN</h5>
-									<table>
-										<thead>
-											<tr>
-												<th>MIN QTY</th>
-												<th>MAX QTY</th>
-												<th>PRICE $(USD)</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>100</td>
-												<td>15.00</td>
-											</tr>
-											<tr>
-												<td>101</td>
-												<td>1000</td>
-												<td>12.00</td>
-											</tr>
-										</tbody>
-									</table>
-									<div class="modal-footer">
-										<a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-									</div>
-								</div>
 							</div>
 						</div>
 						<!-- Sample and ready stock -->
-						<div class="col s12 m6">
-							<div class="attribute_box">
-								<p>SAMPLE</p>
-								<p class="font_weight">Available</p>
-							</div>
-						</div>
+                        @if($product->sample_availability==1)
+                        <div class="col s12 m6">
+                            <div class="attribute_box">
+                                <p>SAMPLE</p>
+                                <p class="font_weight">Available</p>
+                            </div>
+                        </div>
+                        @endif
 						<!--div class="col s12 m6">
 							<h6>READY STOCK</h6>
 							<p class="font_weight">Available</p>
@@ -215,7 +264,7 @@
 					</div>
 					<!-- Quotation button -->
 					<div class="margin_top">
-						<a class="quotation_btn margin_top" href="http://192.168.68.151:8282/rfq/create/shop/393">REQUEST FOR QUOTATION</a>
+						<a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}">REQUEST FOR QUOTATION</a>
 					</div>
 				</div>
 			</div>
