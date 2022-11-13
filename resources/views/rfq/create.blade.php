@@ -736,7 +736,7 @@
                                 success:function(response){
                                     var rfq_id = response.data.id;
                                     $('.loading-message').html("");
-                                    $('#loadingProgressContainer').hide();
+                                    $('#loadingProgressContainer').show();
                                     const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
                                     swal("Done!", msg,"success");
                                     console.log('response: =>',response);
@@ -849,7 +849,7 @@
                                 beforeSend: function() {},
                                 success:function(response){
                                     $('.loading-message').html("");
-                                    $('#loadingProgressContainer').hide();
+                                    $('#loadingProgressContainer').show();
                                     //const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
                                     //swal("Done!", msg,"success");
                                     //console.log('response::',rfq_id);
