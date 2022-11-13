@@ -119,10 +119,10 @@ $reviewsCount = count($productReviews);
                             <div class="margin_top">
                                 <h6 class="margin_top">CERTIFICATES</h6>
                                 <div class="image_wrapper">
-                                    <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
-                                    <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
-                                    <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
-                                    <div><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                    <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                    <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                    <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                    <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
                                 </div>
                             </div>
                             @endif

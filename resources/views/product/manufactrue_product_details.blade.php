@@ -135,7 +135,7 @@
                                 <h6 class="margin_top">CERTIFICATES</h6>
                                 <div class="image_wrapper">
                                     @foreach ($supplierCompanyInfo->certifications as $certificateItem)
-                                    <div><img class="image-sizing" src="{{Storage::disk('s3')->url('public/'.$certificateItem->image.'')}}" alt=""></div>
+                                    <div class="cert_image"><img class="image-sizing" src="{{Storage::disk('s3')->url('public/'.$certificateItem->image.'')}}" alt=""></div>
                                     @endforeach
                                 </div>
                             </div>
