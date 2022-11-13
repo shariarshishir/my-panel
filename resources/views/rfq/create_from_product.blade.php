@@ -86,7 +86,7 @@
                             </div>
                             @endif
                         </div>
-                        
+
                         <form class="update_rfq_product_upload_form createRfqForm" method="post" enctype="multipart/form-data" action="">
                             <input type="hidden" name="product_id" value="<?php echo $product->id; ?>" />
                             <input type="hidden" name="product_flag" value="<?php echo $flag; ?>" />
@@ -832,6 +832,7 @@
                                 headers: { 'Authorization': sso_token },
 
                                 success:function(response){
+                                    var rfq_id = response.data.id;
                                     $('.loading-message').html("");
                                     $('#loadingProgressContainer').hide();
                                     const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
@@ -847,7 +848,11 @@
                                         // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
                                         // redirect_url = redirect_url.replace(':slug', alias);
                                         // window.location.href = redirect_url;
-                                        var redirect_url = '{{ route("home") }}';
+                                        // var redirect_url = '{{ route("home") }}';
+                                        // window.location.href = redirect_url;
+                                        var alias = rfq_id;
+                                        var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
+                                        redirect_url = redirect_url.replace(':slug', alias);
                                         window.location.href = redirect_url;
                                     }
                                     //window.location.href = "{{ route('rfq.my')}}";
@@ -948,6 +953,7 @@
                         },
                         success:function(response)
                         {
+                            var rfq_id = response.data.id;
                             var mailTrigger = '{{ route("rfq.mailTriggerForAuthUser") }}';
                             $.ajax({
                                 method: 'post',
@@ -961,15 +967,19 @@
                                 success:function(response){
                                     $('.loading-message').html("");
                                     $('#loadingProgressContainer').hide();
-                                    const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
-                                    swal("Done!", msg,"success");
+                                    // const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
+                                    // swal("Done!", msg,"success");
+                                    var alias = rfq_id;
+                                    var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
+                                    redirect_url = redirect_url.replace(':slug', alias);
+                                    window.location.href = redirect_url;
                                     //window.location.reload;
-                                    var alias = "{{$profileAlias??""}}";
+                                    // var alias = "{{$profileAlias??""}}";
                                     // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
                                     // redirect_url = redirect_url.replace(':slug', alias);
                                     // window.location.href = redirect_url;
-                                    var redirect_url = '{{ route("home") }}';
-                                    window.location.href = redirect_url;
+                                    // var redirect_url = '{{ route("home") }}';
+                                    // window.location.href = redirect_url;
                                 }
                             })
                         },
