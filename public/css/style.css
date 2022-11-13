@@ -3983,6 +3983,7 @@ html {
 }
 .create_rfq_detail_from_wrap .rfq-product-you-may-also-like {
 	background: #f9f9f9;
+	margin-bottom: 50px;
 }
 .create_rfq_detail_from_wrap .rfq-product-you-may-also-like h3 {
 	font-size: 20px;
@@ -3990,7 +3991,6 @@ html {
 }
 .create_rfq_detail_from_wrap .rfq-product-you-may-also-like .design_studio_product {
 	position: relative;
-	height: 250px;
 	overflow: hidden;
 }
 .create_rfq_detail_from_wrap .rfq-product-you-may-also-like .product_short_details {
@@ -4004,12 +4004,21 @@ html {
     width: 90%;
 	padding: 8px 10px 5px !important;
 }
+.create_rfq_detail_from_wrap .rfq-product-you-may-also-like .product_img  {
+	height: 250px;
+}
+.create_rfq_detail_from_wrap .rfq-product-you-may-also-like .product_img a {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
 .create_rfq_detail_from_wrap .rfq-product-you-may-also-like .product_img img {
 	min-height: inherit;
     max-height: inherit;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+	border: 1px solid #eeeeee;
 }
 .create_rfq_detail_from_wrap .product_short_details .product-title {
     margin-bottom: 5px;
@@ -4019,6 +4028,7 @@ html {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+	font-family: 'nexabold';
     color: #000000;
     height: 20px;
     overflow: hidden;
@@ -16877,6 +16887,10 @@ html {
          padding: 0.5rem;
          overflow: hidden;
     }
+	.subscription_pricing_block .yearly_plan_price .bill_test {
+		text-align: left;
+		display: block;
+	}
 }
  @media only screen and (max-width: 1299px) {
      .container {
@@ -17244,6 +17258,7 @@ html {
          font-size: 16px;
          width: 14px;
     }
+
 }
  @media only screen and (max-width: 1200px) {
      .rfq_review_results_box {
@@ -18801,6 +18816,10 @@ html {
      .design_studio_product_list_wrapper .masonry-brick {
          width: 48%;
     }
+	.create_rfq_detail_from_wrap .rfq-product-you-may-also-like .product_img {
+		margin-bottom: 20px;
+		height: 300px;
+	}
 }
  @media only screen and (max-width: 900px) {
      .chat-application .app-sidebar {
@@ -19794,6 +19813,28 @@ html {
      .rfq_post_success .rfq_post_success_inner_right, .login_landing_inner .login_landing_inner_right {
          background: none;
     }
+
+	.subscribe-data-modal-wrapper-inside .selected_plan_content {
+		padding-right: 0;
+	}
+	.subscribe-data-modal-wrapper-inside .row-inside {
+		display: inherit;
+	}
+	.subscribe-data-modal-wrapper-inside .row-inside .col.s12.m6.l6 {
+		width: 100%;
+	}
+	.subscribe-data-modal-wrapper-inside .subscription_plan_block {
+		margin-bottom: 50px;
+	}
+	.rfq_detail_from_wrap .submit_btn_wrap {
+		text-align: center !important;
+		display: inline-block;
+		width: 100%;
+		padding-top: 30px;
+	}
+	.rfq_detail_from_wrap .submit_btn_wrap .btn_rfq_post {
+		float: none !important;
+	}
 }
  @media only screen and (max-width: 600px) {
      .user-profile-basic-info-block .my_businesses_wrap .col.m4 {
@@ -20769,6 +20810,14 @@ html {
          width: 100%;
          margin: 0 0 20px 0;
     }
+	.subscription_pricing_block .yearly_plan_price, 
+	.subscription_pricing_block .half_yearly_plan_price {
+		font-size: 25px;
+	}
+	.subscription_pricing_block .yearly_plan_price .bill_test {
+		text-align: left;
+		display: block;
+	}
 }
  @media only screen and (max-width: 480px) {
      .profile_wholesaler_tab_menu ul li, .profile_tab_menu .tabs .tab {

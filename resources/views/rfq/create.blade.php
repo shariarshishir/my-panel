@@ -22,7 +22,7 @@
                                 <h3>You may like...</h3>
                                 <div class="row">
                                     @foreach ($design_products as $design_products)
-                                    <div class="col s12 m3">
+                                    <div class="col s12 m6 l3">
                                         <div class="design_studio_product">
                                             <div class="card-content">
                                                 <div class="product_img">
