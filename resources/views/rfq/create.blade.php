@@ -16,60 +16,63 @@
                             <h1 style="margin-bottom:10px;">Request For Quotation</h1>
                             <p style="margin-bottom: 20px;">Submit an RFQ and find the best match with speed and reliability.</p>
                         </div>
+                        <div class="col s12">
                         @if(isset($design_products))
-                        <div class="rfq-product-you-may-also-like">
-                            @foreach ($design_products as $design_products)
-                                <div class="design_studio_product">
-
-                                    <div class="card">
-                                        <div class="card-content">
-                                            <div class="product_img">
-                                                <a href="{{route('rfq.create',[$design_products->flag, $design_products->id])}}">
-                                                    @if(count($design_products->images) > 0)
-                                                        <img src="{{Storage::disk('s3')->url('public/'.$design_products->images[0]['original'])}}" class="single-product-img" alt="">
-                                                    @endif
-                                                </a>
-                                            </div>
-                                            <div class="product_short_details">
-                                                <div class="product-title">
+                            <div class="rfq-product-you-may-also-like card">
+                                <h3>You may like...</h3>
+                                <div class="row">
+                                    @foreach ($design_products as $design_products)
+                                    <div class="col s12 m3">
+                                        <div class="design_studio_product">
+                                            <div class="card-content">
+                                                <div class="product_img">
                                                     <a href="{{route('rfq.create',[$design_products->flag, $design_products->id])}}">
-                                                        {{$design_products->name}}
+                                                        @if(count($design_products->images) > 0)
+                                                            <img src="{{Storage::disk('s3')->url('public/'.$design_products->images[0]['original'])}}" class="single-product-img" alt="">
+                                                        @endif
                                                     </a>
                                                 </div>
-                                                <div class="product_price">
-                                                    <div class="single-product-price-value">
-                                                        @php
-                                                            $count= count(json_decode($design_products->attribute));
-                                                            $count = $count-2;
-                                                        @endphp
-                                                        <span class="price_negotiable">
-                                                            @foreach (json_decode($design_products->attribute) as $k => $v)
-                                                                @if($k == 0 && $v[2] == 'Negotiable')
-                                                                {{ 'Negotiable' }}
-                                                                @endif
-                                                                @if($loop->last && $v[2] != 'Negotiable')
-                                                                <span class="nego_price">
-                                                                    ${{ $v[2] }}
-                                                                </span>
-                                                                @endif
-                                                                @if($loop->last && $v[2] == 'Negotiable')
-                                                                    @foreach (json_decode($design_products->attribute) as $k => $v)
-                                                                            @if($k == $count)
-                                                                                ${{ $v[2]  }} {{ 'Negotiable' }}
-                                                                            @endif
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
-                                                        </span>
+                                                <div class="product_short_details">
+                                                    <div class="product-title">
+                                                        <a href="{{route('rfq.create',[$design_products->flag, $design_products->id])}}">
+                                                            {{$design_products->name}}
+                                                        </a>
+                                                    </div>
+                                                    <div class="product_price">
+                                                        <div class="single-product-price-value">
+                                                            @php
+                                                                $count= count(json_decode($design_products->attribute));
+                                                                $count = $count-2;
+                                                            @endphp
+                                                            <span class="price_negotiable">
+                                                                @foreach (json_decode($design_products->attribute) as $k => $v)
+                                                                    @if($k == 0 && $v[2] == 'Negotiable')
+                                                                    {{ 'Negotiable' }}
+                                                                    @endif
+                                                                    @if($loop->last && $v[2] != 'Negotiable')
+                                                                    <span class="nego_price">
+                                                                        ${{ $v[2] }}
+                                                                    </span>
+                                                                    @endif
+                                                                    @if($loop->last && $v[2] == 'Negotiable')
+                                                                        @foreach (json_decode($design_products->attribute) as $k => $v)
+                                                                                @if($k == $count)
+                                                                                    ${{ $v[2]  }} {{ 'Negotiable' }}
+                                                                                @endif
+                                                                        @endforeach
+                                                                    @endif
+                                                                @endforeach
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    @endforeach
+                                    </div>
                                 </div>
-                            @endforeach
-                        </div>
+                            </div>
                         @endif
                         <form class="update_rfq_product_upload_form createRfqForm" method="post" enctype="multipart/form-data" action="">
                             <div class="row createRfqForm_contect_wrap">
