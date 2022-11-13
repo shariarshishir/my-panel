@@ -15594,23 +15594,54 @@ html {
      float: none !important;
      height: 50px;
      line-height: 50px;
-     padding: 0 30px;
-     font-size: 20px;
+     padding: 0 20px;
+     font-size: 18px;
      margin-top: 20px;
      box-shadow: none;
+     text-transform: uppercase;
 }
 .non-subscribe-message-block .new_rfq_subscribe_wrap .btn_green:focus,
  .non-subscribe-message-block .new_rfq_subscribe_wrap .btn_green:hover {
      color: #ffffff !important;
      border: 1px solid #ffffff !important;
 }
-.non-subscribe-message-block .new_rfq_subscribe_wrap .or {
+/* .non-subscribe-message-block .new_rfq_subscribe_wrap .or {
      background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/rfq-white-border-bg.png") no-repeat center center;
      height: 200px;
      line-height: 200px;
+} */
+.non-subscribe-message-block .new_rfq_subscribe_wrap .or {
+     padding: 50px 0;
+     background: none;
+     position: relative;
+     height: 200px;
+     line-height: 105px;
+     width: 40px;
+     margin: 0 auto 20px;
 }
+.non-subscribe-message-block .new_rfq_subscribe_wrap .or span {
+     width: 20px;
+}
+.non-subscribe-message-block .new_rfq_subscribe_wrap .or span::before {
+     content: "";
+     border-left: 1px solid #ffffff;
+     height: 75px;
+     position: absolute;
+     left: 20px;
+     top: 0;
+}
+.non-subscribe-message-block .new_rfq_subscribe_wrap .or span::after {
+     content: "";
+     border-left: 1px solid #ffffff;
+     height: 75px;
+     position: absolute;
+     bottom: 0;
+     right: 20px;
+}
+     
 .non-subscribe-message-block .new_rfq_subscribe_box {
-     padding-top: 30px;
+     padding-top: 45px;
+     line-height: 25px;
 }
 /* ****************** new_rfq_supplier_outer_wrapper css end ***************** */
 
@@ -19393,6 +19424,10 @@ html {
 		position: inherit;
 		padding: 30px 0 0;
 	}
+     .non-subscribe-message-block .new_rfq_subscribe_wrap .btn_green {
+          padding: 0 10px;
+          font-size: 16px;
+     }
 }
 
  @media only screen and (max-width: 600px) {
@@ -20369,6 +20404,17 @@ html {
 		padding: 15px;
           float: none;
 	}
+
+     .non-subscribe-message-block h4 {
+          margin-bottom: 20px;
+     }
+     .non-subscribe-message-block h4 br {
+          display: none;
+     }
+     .non-subscribe-message-block .new_rfq_subscribe_wrap .btn_green {
+              margin-top: 30px !important;
+     }
+     
 }
  @media only screen and (max-width: 480px) {
      .profile_wholesaler_tab_menu ul li, .profile_tab_menu .tabs .tab {

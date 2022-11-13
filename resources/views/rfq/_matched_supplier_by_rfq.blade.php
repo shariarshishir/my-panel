@@ -59,6 +59,7 @@
                 $cookie = Cookie::get('sso_token');
                 $cookie = base64_decode(explode(".",$cookie)[1]);
                 $cookie = json_decode(json_decode(json_encode($cookie)));
+                $cookie->subscription_status = 0;
             @endphp
 
             <div class="rfq_new_layout_match_suppliers_wrap">
@@ -207,15 +208,15 @@
                     </div>
                     <div class="new_rfq_subscribe_wrap">
                         <div class="row">
-                            <div class="col s6 m5 new_rfq_subscribe_box">
+                            <div class="col s12 m5 new_rfq_subscribe_box">
                                 <p>Please subscribe to see the suppliers</p>
                                 <a href="{{route('pricing.plan.form')}}" class="btn_subscribe btn btn_green">Subscribe</a>
                             </div>
-                            <div class="col s6 m2">
-                                <div class="or"><span>OR</span></div>
+                            <div class="col s12 m2">
+                                <div class="or"><span>or</span></div>
                             </div>
-                            <div class="col s6 m5 new_rfq_subscribe_box">
-                                <p>Get back to you with in 24 hours</p>
+                            <div class="col s12 m5 new_rfq_subscribe_box">
+                                <p>Get back to you within 24 hours</p>
                                 <a class="btn_submit_as_guest btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="{{ route('home')}}">Submit as Guest</a>
                             </div>
                         </div>
