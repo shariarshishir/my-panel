@@ -1591,7 +1591,7 @@ class RfqController extends Controller
             }
 
             $user = User::where('id',auth()->id())->first();
-            event(new NewRFQHasPostedEvent( $user ));
+            //event(new NewRFQHasPostedEvent( $user ));
 
             return response()->json(['access_token' =>  $access_token, 'profileAlias' => $profileAlias, 'flag' => 'login'],200);
 
@@ -1691,8 +1691,8 @@ class RfqController extends Controller
                 'token' => $email_verification_OTP
               ]);
 
-            event(new NewAnonymousUserHasRegisteredEvent($new_user, $email_verification_OTP, $request->r_password));
-            event(new NewRFQHasPostedEvent($new_user));
+            //event(new NewAnonymousUserHasRegisteredEvent($new_user, $email_verification_OTP, $request->r_password));
+            //event(new NewRFQHasPostedEvent($new_user));
 
             return response()->json(['access_token' =>  $access_token, "profileAlias" => $business_profile->alias,'flag'=> 'registration'],200);
 
@@ -1774,7 +1774,7 @@ class RfqController extends Controller
         // ];
 
         $user = User::where('id',auth()->id())->first();
-        event(new NewRFQHasPostedEvent( $user ));
+        //event(new NewRFQHasPostedEvent( $user ));
 
         return response()->json(['success' => True], 200);
 

@@ -27,20 +27,66 @@
                             <h1 style="margin-bottom:10px;">Request For Quotation</h1>
                             <p style="margin-bottom: 20px;">Submit an RFQ and find the best match with speed and reliability.</p>
                         </div>
+                        @if(isset($design_products))
+                        <div class="rfq-product-you-may-also-like">
+                            @foreach ($design_products as $design_products)
+                                <div class="design_studio_product">
+
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <div class="product_img">
+                                                <a href="{{route('rfq.create',[$design_products->flag, $design_products->id])}}">
+                                                    @if(count($design_products->images) > 0)
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$design_products->images[0]['original'])}}" class="single-product-img" alt="">
+                                                    @endif
+                                                </a>
+                                            </div>
+                                            <div class="product_short_details">
+                                                <div class="product-title">
+                                                    <a href="{{route('rfq.create',[$design_products->flag, $design_products->id])}}">
+                                                        {{$design_products->name}}
+                                                    </a>
+                                                </div>
+                                                <div class="product_price">
+                                                    <div class="single-product-price-value">
+                                                        @php
+                                                            $count= count(json_decode($design_products->attribute));
+                                                            $count = $count-2;
+                                                        @endphp
+                                                        <span class="price_negotiable">
+                                                            @foreach (json_decode($design_products->attribute) as $k => $v)
+                                                                @if($k == 0 && $v[2] == 'Negotiable')
+                                                                {{ 'Negotiable' }}
+                                                                @endif
+                                                                @if($loop->last && $v[2] != 'Negotiable')
+                                                                <span class="nego_price">
+                                                                    ${{ $v[2] }}
+                                                                </span>
+                                                                @endif
+                                                                @if($loop->last && $v[2] == 'Negotiable')
+                                                                    @foreach (json_decode($design_products->attribute) as $k => $v)
+                                                                            @if($k == $count)
+                                                                                ${{ $v[2]  }} {{ 'Negotiable' }}
+                                                                            @endif
+                                                                    @endforeach
+                                                                @endif
+                                                            @endforeach
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endforeach
+                        </div>
+                        @endif
                         <form class="update_rfq_product_upload_form createRfqForm" method="post" enctype="multipart/form-data" action="">
                             <input type="hidden" name="product_id" value="<?php echo $product->id; ?>" />
                             <input type="hidden" name="product_flag" value="<?php echo $flag; ?>" />
                             <div class="row createRfqForm_contect_wrap">
-                                <div class="col s12 m6 l5 rfq_upload_filebox_leftBox">
-                                    <div class="rfq_upload_filebox_wrap">
-                                        <div class="rfq_upload_filebox center-align">
-                                            <div class="rfq-document-upload" id="rfq-document-upload"></div>
-                                            <div class="or"><span>OR</span></div>
-                                            <a href="javascript:void(0);" class="btn_green browse_file_trigger">Browse files</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s12 m6 l7 create_rfq_form_wrap">
+                                <div class="col s12 m12 l12 create_rfq_form_wrap">
                                     <div class="row">
                                         <div class="col s12 input-field">
                                             <label>Select Product Tags <span>*</span></label>
@@ -121,6 +167,15 @@
                                                 <label>Expected Delivery Date <span>*</span></label>
                                                 <input type="date" class="" name="delivery_time" required/>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s12 m12 l12 rfq_upload_filebox_leftBox">
+                                    <div class="rfq_upload_filebox_wrap">
+                                        <div class="rfq_upload_filebox center-align">
+                                            <div class="rfq-document-upload" id="rfq-document-upload"></div>
+                                            <div class="or"><span>OR</span></div>
+                                            <a href="javascript:void(0);" class="btn_green browse_file_trigger">Browse files</a>
                                         </div>
                                     </div>
                                 </div>
