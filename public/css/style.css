@@ -15478,9 +15478,18 @@ html {
 .new_design_product_detail_wrap .new_design_product_detail {
     margin-bottom: 70px;
 }
-.new_design_product_detail_wrap .product_btn {
-    display: flex;
-    justify-content: space-between;
+.new_design_product_detail h5 {
+     font-family: 'nexablack';
+     font-size: 14px;
+     text-transform: uppercase;
+}
+.new_design_product_detail h6 {
+     font-family: 'nexabold';
+     font-size: 14px;
+     text-transform: uppercase;
+}
+.new_design_product_detail #supplierInfo h6{
+     margin-bottom: 5px;
 }
 .new_design_product_detail_wrap .image_wrapper {
     display: flex;
@@ -15495,14 +15504,15 @@ html {
     border: 1px solid green;
     color: green;
     border-radius: 4px;
-    padding: 4px 20px;
+    padding: 7px 20px 6px;
+    min-width: inherit;
+    font-family: 'nexabold';
 }
 .new_design_product_detail_wrap .text_size {
     width: 80%;
     margin-top: 10px;
     font-size: 16px;
 }
-
 .new_design_product_detail_wrap .image-sizing {
     width: 50px;
     height: 50px;
@@ -15517,21 +15527,18 @@ html {
     float: left;
     margin: 3px;
 }
-
 .new_design_product_detail_wrap .margin_top {
     margin-top: 22px;
 }
 .new_design_product_detail_wrap .tab_first_btn {
-    margin-top: 25px;
-}
-.new_design_product_detail_wrap .arrival_btn {
-    min-width: 180px;
+    padding: 20px 0 10px;
 }
 .new_design_product_detail_wrap .btn_contact_supplier {
     border: none;
     background: yellow;
     padding: 8px 10px;
     min-width: 140px;
+    color: #000000;
 }
 .new_design_product_detail_wrap .btn_bg_yellow {
     border: none;
@@ -15539,18 +15546,24 @@ html {
     padding: 8px 10px;
     min-width: 130px;
     margin-top: 20px;
+    color: #000000;
 }
 .new_design_product_detail_wrap .font_weight {
     font-weight: 700;
 }
 .new_design_product_detail_wrap .quotation_btn {
     background: #54a958;
+    font-family: 'nexablack';
     color: white;
+    font-size: 12px;
     border: none;
     padding: 0px 10px;
     width: 100%;
     line-height: 43px;
     height: 40px;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
 }
 .new_design_product_detail_wrap .contact_supplier {
     padding-top: 30px;
@@ -15669,26 +15682,44 @@ html {
 .new_design_product_detail .product-list-images-block.slick-initialized.slick-slider {
      padding-top: 0;
 }
-
 .new_design_product_detail .details_img_list {
      padding: 0;
 }
 
-
-/* This is for div collapse Responsiveness */
-@media only screen and (max-width: 767px) {
-    .new_design_product_detail_wrap .for_collapse {
-        display: flex;
-        flex-direction: column;
-    }
-    .new_design_product_detail_wrap .first_header {
-        order: 2;
-    }
-    .new_design_product_detail_wrap .second_header {
-        order: 1;
-    }
+.new_design_product_detail .tabs_wrapper .tabs {
+     border-bottom: 2px solid #eeeeee;
+     height: 42px;
 }
-/* Arnob End */
+.new_design_product_detail .tabs_wrapper .tabs .tab {
+     height: 42px;
+}
+.new_design_product_detail .tabs_wrapper .tabs .tab a {
+     color: #3b3b3b;
+     text-transform: uppercase;
+     padding: 0 10px 0 0;
+}
+.new_design_product_detail .tabs_wrapper .tabs .tab a.active {
+     font-family: 'nexablack';
+}
+.new_design_product_detail .tabs_wrapper .tabs .tab a:focus.active {
+     background: none;
+}
+.new_design_product_detail .sweatshit_wrapper .attribute_box {
+     font-size: 12px;
+     margin-bottom: 20px;
+}
+.new_design_product_detail .attribute_box p {
+     margin-bottom: 5px;
+}
+.new_design_product_detail .attribute_box .modal-trigger {
+     font-size: 14px;
+     text-decoration: underline;
+}
+
+.new_design_product_detail video {
+     width: 100%;
+     height: auto;
+}
 
 
 /* ******************** Media css style start *********************** */
@@ -19171,6 +19202,16 @@ html {
      .rfq_post_success .rfq_post_success_inner_right, .login_landing_inner .login_landing_inner_right {
          background: none;
     }
+     .new_design_product_detail_wrap .for_collapse {
+          display: flex;
+          flex-direction: column;
+     }
+     .new_design_product_detail_wrap .first_header {
+          order: 2;
+     }
+     .new_design_product_detail_wrap .second_header {
+          order: 1;
+     }
 }
  @media only screen and (max-width: 600px) {
      .user-profile-basic-info-block .my_businesses_wrap .col.m4 {
