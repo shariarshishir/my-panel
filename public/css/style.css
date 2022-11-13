@@ -15471,9 +15471,9 @@ html {
      width: -webkit-fill-available !important;
      width: -moz-available !important;
 }
+/* ******************** design_studio_product_list_wrapper style end *********************** */
 
-
-/* ******************** new_design_product_detail_wrap style end *********************** */
+/* ******************** new_design_product_detail_wrap style start *********************** */
 .new_design_product_detail_wrap .new_design_product_detail {
     margin-bottom: 70px;
 }
@@ -15788,6 +15788,43 @@ html {
 .new_design_product_detail_wrap .related_products_slider .price_negotiable {
      font-size: 18px;
 }
+.new_design_product_detail_wrap .product_details_right_image img {
+    float: left;
+    border: 1px solid #eeeeee;
+    height: 60px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+.new_design_product_detail_wrap .raw_materials_sm_imglist {
+     padding: 0 0 0 10px;
+}
+.new_design_product_detail_wrap .product-large-image-block::-webkit-scrollbar {
+    width: 1px;
+}
+.new_design_product_detail_wrap .product-large-image-block::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.new_design_product_detail_wrap .product-large-image-block::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.new_design_product_detail_wrap .product-large-image-block {
+    height: 450px;
+    /* background: red; */
+    overflow: auto;
+}
+.new_design_product_detail_wrap .product-bg-image {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+
+/* ******************** new_design_product_detail_wrap style end ******************* */
+
 /* ******************** Media css style start *********************** */
  @media only screen and (min-width: 1900px) {
      .container {
@@ -15880,6 +15917,9 @@ html {
      #lineitems_video, .overlay-image-preview-block, .edit-video-show-div video, .edit-video-show-block, .edit-video-upload-block #editVideo, .edit-video-show-div, .video-image-preview-block #video {
          height: 250px;
          max-height: 250px !important;
+    }
+    .new_design_product_detail_wrap .product-large-image-block {
+          height: 550px;
     }
 }
  @media only screen and (min-width: 1201px) {
@@ -20875,15 +20915,3 @@ html {
     }
 }
 /* ******************** Media css style end *********************** */
-
-.product-large-image-block {
-    height: 550px;
-    /* background: red; */
-    overflow: auto;
-}
-.product-bg-image {
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
