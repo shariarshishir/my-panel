@@ -165,18 +165,17 @@
 								<div class="col s12 m8">
 									<div class="product-main-image">
 										<div class="pre-loading-image-gallery" style="display: none;"><img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/ajax-search-loader-bar.gif" width="80" height="80" alt="Loading"></div>
-                                        <div class="product-large-image-block product_details_imgwrap">
+                                        <div class="product-large-image-block product_details_imgwrap" style="height: 550px; background: red; overflow: auto;">
                                             @if(count($product->product_images)> 0)
                                                 @foreach ($product->product_images as $image)
-                                                    <div class="details_gallery_box">
-                                                        <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
-                                                            <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="300px"/>
-                                                            <div class="click-to-zoom">
-                                                                <i class="material-icons dp48">zoom_in</i>
-                                                                <!-- Click on image to view large size. -->
-                                                            </div>
-                                                        </a>
-                                                    </div>
+                                                    <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image['product_image'])}}); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+
+                                                    <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="300px"/>
+                                                        <div class="click-to-zoom">
+                                                            <i class="material-icons dp48">zoom_in</i>
+                                                        </div>
+                                                    </a-->
                                                 @endforeach
                                             @endif
                                         </div>
@@ -184,15 +183,24 @@
 								</div>
 								<div class="col s12 m4 product_details_right_image">
 									<div class="row">
-                                        @if(count($product->product_images)> 0)
-                                            @foreach ($product->product_images as $image)
-                                                @if($image->is_raw_materials == 0)
-                                                <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
-                                                @else
-                                                <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
-                                                @endif
-                                            @endforeach
-                                        @endif
+                                        <div class="col s6 m6">
+                                            @if(count($product->product_images)> 0)
+                                                @foreach ($product->product_images as $image)
+                                                    @if($image->is_raw_materials == 0)
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                        <div class="col s6 m6">
+                                            @if(count($product->product_images)> 0)
+                                                @foreach ($product->product_images as $image)
+                                                    @if($image->is_raw_materials == 1)
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </div>
 									</div>
 								</div>
 							</div>

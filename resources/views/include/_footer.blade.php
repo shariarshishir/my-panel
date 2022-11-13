@@ -293,23 +293,23 @@
             }
         }, 5000);
     });
-    $('.product-large-image-block').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '.product-list-images-block'
-    });
-    $('.product-list-images-block').slick({
-        dots: false,
-        speed: 500,
-        centerMode: true,
-        centerPadding: '60px',
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.product-large-image-block',
-        focusOnSelect: true
-    });
+    // $('.product-large-image-block').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     arrows: false,
+    //     fade: true,
+    //     asNavFor: '.product-list-images-block'
+    // });
+    // $('.product-list-images-block').slick({
+    //     dots: false,
+    //     speed: 500,
+    //     centerMode: true,
+    //     centerPadding: '60px',
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1,
+    //     asNavFor: '.product-large-image-block',
+    //     focusOnSelect: true
+    // });
     $('.related-products-block').slick({
         dots: false,
         infinite: false,
@@ -1706,6 +1706,6 @@ function addToWishList(flag, id, obj){
             });
         }, false);
     });
-</script>   
-{{-- masonry script end --}}    
+</script>
+{{-- masonry script end --}}
 

@@ -169,15 +169,24 @@ $reviewsCount = count($productReviews);
                                 </div>
                                 <div class="col s12 m4 product_details_right_image">
                                     <div class="row">
-                                        @if(count($product->images)> 0)
-                                            @foreach ($product->images as $image)
-                                                @if($image->is_raw_materials == 0)
-                                                <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
-                                                @else
-                                                <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
-                                                @endif
-                                            @endforeach
-                                        @endif
+                                        <div class="col s6 m6">
+                                            @if(count($product->images)> 0)
+                                                @foreach ($product->images as $image)
+                                                    @if($image->is_raw_materials == 0)
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                        <div class="col s6 m6">
+                                            @if(count($product->images)> 0)
+                                                @foreach ($product->images as $image)
+                                                    @if($image->is_raw_materials == 1)
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </div>
                                         {{-- <div class="col s6 details_img_list">
                                             <ul class="product-list-images-block">
                                                 @if(count($product->images)> 0)
