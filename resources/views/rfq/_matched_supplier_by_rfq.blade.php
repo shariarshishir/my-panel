@@ -6,7 +6,7 @@
         <div class="card new_rfq_supplier_product_info">
             <h4>{{$rfq['title']}}</h4>
             <div class="rfq_posted_time"> <i class="material-icons">access_time</i> {{ $rfq['created_at'] }}</div>
-            
+
             <div class="rfq_product_infoBox">
                 <div class="row">
                     <div class="col s12 m4 l2">
@@ -59,6 +59,7 @@
                 $cookie = Cookie::get('sso_token');
                 $cookie = base64_decode(explode(".",$cookie)[1]);
                 $cookie = json_decode(json_decode(json_encode($cookie)));
+                $cookie->subscription_status = 0;
             @endphp
 
             <div class="rfq_new_layout_match_suppliers_wrap">
@@ -244,7 +245,7 @@
             let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
-                
+
                 for(var k = 0; k < elms.length; k++) {
                     if(value){
                         if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
@@ -259,7 +260,7 @@
                     }
 
                 }
-                
+
             });
             const not_found = document.getElementById('no-supplier-found');
             if(profile_count == 0){
