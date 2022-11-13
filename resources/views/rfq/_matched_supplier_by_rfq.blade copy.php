@@ -4,34 +4,36 @@
 
     <div class="new_rfq_supplier_outer_wrapper">
         <div class="card new_rfq_supplier_product_info">
-            <div class="row">
-                <h4>{{$rfq['title']}}</h4>
-                <div class="rfq_posted_time">{{ $rfq['created_at'] }}</div>
-                <div class="col s12 m2">
-                    <label>Product Type</label>
-                    <p>{{$rfq['industry']}}</p>
-                </div>
-                <div class="col s12 m2">
-                    <label>Product Tags</label>
-                    @foreach($rfq['category'] as $tag)
-                        <p>{{$tag['name']}}</p>
-                    @endforeach
-                </div>
-                <div class="col s12 m2">
-                    <label>Quantity</label>
-                    <p>{{$rfq['quantity']}}</p>
-                </div>
-                <div class="col s12 m2">
-                    <label>Target Price</label>
-                    <p>{{$rfq['unit_price']}}</p>
-                </div>
-                <div class="col s12 m2">
-                    <label>Delivery In</label>
-                    <p>{{$rfq['delivery_time']}}</p>
-                </div>
-                <div class="col s12 m2">
-                    <label>Delivery To</label>
-                    <p>{{$rfq['destination']}}</p>
+            <h4>{{$rfq['title']}}</h4>
+            <div class="rfq_posted_time"><i class="material-icons">access_time</i> {{ $rfq['created_at'] }}</div>
+            <div class="rfq_product_infoBox">
+                <div class="row">
+                    <div class="col s12 m4 l2">
+                        <label>Product Type</label>
+                        <p>{{$rfq['industry']}}</p>
+                    </div>
+                    <div class="col s12 m4 l2">
+                        <label>Product Tags</label>
+                        @foreach($rfq['category'] as $tag)
+                            <p>{{$tag['name']}}</p>
+                        @endforeach
+                    </div>
+                    <div class="col s12 m4 l2">
+                        <label>Quantity</label>
+                        <p>{{$rfq['quantity']}}</p>
+                    </div>
+                    <div class="col s12 m4 l2">
+                        <label>Target Price</label>
+                        <p>{{$rfq['unit_price']}}</p>
+                    </div>
+                    <div class="col s12 m4 l2">
+                        <label>Delivery In</label>
+                        <p>{{$rfq['delivery_time']}}</p>
+                    </div>
+                    <div class="col s12 m4 l2">
+                        <label>Delivery To</label>
+                        <p>{{$rfq['destination']}}</p>
+                    </div>
                 </div>
             </div>
         </div>
