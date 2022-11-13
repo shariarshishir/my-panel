@@ -2005,7 +2005,6 @@ class RfqController extends Controller
             'businessProfilesShortListed' => $businessProfilesShortListed,
             'businessProfilesShortListed' => $businessProfilesShortListed,
             'businessProfilesSelectedListed' => $businessProfilesSelectedListed,
-
             'buyerBusinessProfile' => $buyerBusinessProfile,
             'chatdata' => $chatdata,
             'from_user_image' => $from_user_image,

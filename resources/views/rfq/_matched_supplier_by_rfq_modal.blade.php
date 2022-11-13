@@ -59,10 +59,10 @@
                     <div class="col s12 m4">
                             <div class="new_rfq_filter_select">
                             <div class="input-field">
-                                <label>
+                                <!-- <label>
                                     <input type="checkbox" id="select-all-supplier" name="select-all-supplier" onclick='onSelectAll(this)'/>
                                     <span>Select All</span>
-                                </label>
+                                </label> -->
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,8 @@
                     </div>
                     <div class="col s12 m4">
                         <div class="request_for_quotation">
-                            <a class="btn_request_quotation waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+                            <button href="javascript:void(0)" class="btn btn_green" id="send-request-again-for-rfq" onclick="onRequestSubmit()">Send Request</button>
+                            <a class="btn_request_quotation waves-effect waves-light btn request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="javascript:void(0)" onclick="putSupplierList()">Request More</a>
                         </div>
                     </div>
                 </div>
@@ -145,6 +146,8 @@
         let business_profile_user_ids = [];
         let business_profiles = [];
         let rfq = {};
+        let check_status = false;
+        
         const filterSupplier = (e) => {
             const value = e.value;
             let profile_count = 0;
@@ -183,9 +186,9 @@
             business_profiles = @json([]);
             rfq = @json($rfq);
             console.log(rfq);
-            if(business_profile_ids.length == 0) {
-                $(".request-for-quotation-modal-trigger").attr("disabled", true);
-            }
+            // if(business_profile_ids.length == 0) {
+            //     $(".request-for-quotation-modal-trigger").attr("disabled", true);
+            // }
         });
 
         const isReadyToSumbit = () =>{
@@ -244,14 +247,72 @@
             });
             return dd.length == 0 ? 'No main Products found.' : dd.join(',');
         }
-        const putSupplierList = (businessProfiles) => {
+        const putSupplierList = () => {
             const content = document.getElementById('matched-supplier-list');
-            
+            check_status = !check_status;
+            document.getElementById("send-request-again-for-rfq").disabled = check_status;
             if(content){
                 var myvar = '';
                 
-                businessProfiles.map(businessProfile=>{
-                    myvar += '<div class="col s12 m4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
+                business_profiles.map(businessProfile=>{
+                    if(check_status){
+                        if(business_profile_ids.includes(businessProfile?.id)){
+                            myvar += '<div class="col s12 m4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
+        '						<div class="match_supplier_rfq_single_content">'+
+        '							<div class="input-field">'+
+        '								<label>'+
+        '								<input type="checkbox" checked id="'+businessProfile.id+'" user_id="'+businessProfile.user_id+'" name="remember" onclick="onProfileSelected(this)">'+
+        '								<span></span>'+
+        '								</label>'+
+        '							</div>'+
+        '							<div class="match_supplier_rfq_single_content_inner_part">'+
+        '								<!-- First div part -->'+
+        '								<div class="row sparkle_part">'+
+        '									<div class="col s12 m3">'+
+        '										<div class="image_width_wrap">'+
+        '											<img class="image_width" src="'+getBusinessProfileLogo(businessProfile)+'" alt="avatar" itemprop="img">'+
+        '										</div>'+
+        '									</div>'+
+        '									<div class="col s12 m6">'+
+        '										<h3>'+businessProfile?.business_name+'</h3>'+
+        '										<span class="location">'+businessProfile?.location+'</span>'+
+        '									</div>'+
+        '									<div class="col s12 m3">'+
+        '										<div class="middle_wrap">'+
+        '											<span class="check_circle">'+
+        '											<i class="material-icons">check_circle</i>'+
+        '											</span>'+
+        '											<span class="icon_wrap">'+
+        '											'+getYearOfExperiance(businessProfile)+''+
+        '											</span>'+
+        '										</div>'+
+        '									</div>'+
+        '								</div>'+
+        '								<!-- Second div part -->'+
+        '								<div class="middle_part_image_wrapper">'+
+        '									<h6>Certification:</h6>'+
+                                            getCertifications(businessProfile)+
+        '									<p>No Certifications found.</p>'+
+        '								</div>'+
+        '								<!-- Third div part -->'+
+        '								<div class="main_product_wrap">'+
+        '									<h6>Main Products:</h6>'+
+        '									<div class="main_product_inner">'+
+        '										<p>'+getMainProducts(businessProfile)+'</p>'+
+        '									</div>'+
+        '								</div>'+
+        '								<div class="chatbox_wrap">'+
+        '									<a href="javascript:void(0)">'+
+        '										<i class="material-icons">chat</i> <!--span>5</span-->'+
+        '									</a>'+
+        '								</div>'+
+        '							</div>'+
+        '						</div>'+
+        '					</div>';
+                        }
+                    }else{
+                        if(!business_profile_ids.includes(businessProfile?.id)){
+                            myvar += '<div class="col s12 m4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
         '						<div class="match_supplier_rfq_single_content">'+
         '							<div class="input-field">'+
         '								<label>'+
@@ -303,6 +364,9 @@
         '							</div>'+
         '						</div>'+
         '					</div>';
+                        }
+                    }
+                    
                 });
             }
             content.innerHTML = myvar;
@@ -339,18 +403,21 @@
                 response.text().then(data=>{
                     const d = JSON.parse(data);
                     if(d?.businessProfiles){
-                        putSupplierList(d.businessProfiles);
+                        check_status = false;
                         business_profiles = d.businessProfiles;
                         const supplier_matched_total_count = document.getElementById('supplier-matched-total-count');
                         if(supplier_matched_total_count){
                             supplier_matched_total_count.innerHTML = (business_profiles?.length || 0) + " Suppliers Found";
                         }
-
                         const select_all_supplier = document.getElementById('select-all-supplier');
                         if(select_all_supplier){
                             select_all_supplier.checked = false;
                         }
                         updateRFQHeader(d?.rfq);
+                        business_profile_ids = d?.rfq?.selected_business_profiles || [];
+                        console.log(business_profile_ids);
+                        showBusinessProfileCount(business_profile_ids.length);
+                        putSupplierList();
                     }
                     
                 })
@@ -372,7 +439,6 @@
             })
             .then(response => {
                 if(response.status == 200){
-                    window.location.href = '{{ route("home") }}';
                 }
             });
         }
@@ -398,11 +464,11 @@
 
             }
             showBusinessProfileCount(business_profile_ids.length);
-            if(business_profile_ids.length == 0) {
-                $(".request-for-quotation-modal-trigger").attr("disabled", true);
-            } else {
-                $(".request-for-quotation-modal-trigger").attr("disabled", false);
-            }
+            // if(business_profile_ids.length == 0) {
+            //     $(".request-for-quotation-modal-trigger").attr("disabled", true);
+            // } else {
+            //     $(".request-for-quotation-modal-trigger").attr("disabled", false);
+            // }
         }
         const onProfileSelected = (e) => {
 
@@ -426,11 +492,11 @@
                     business_profile_user_ids.splice(user_index, 1);
                 }
             }
-            if(business_profile_ids.length == 0) {
-                $(".request-for-quotation-modal-trigger").attr("disabled", true);
-            } else {
-                $(".request-for-quotation-modal-trigger").attr("disabled", false);
-            }
+            // if(business_profile_ids.length == 0) {
+            //     $(".request-for-quotation-modal-trigger").attr("disabled", true);
+            // } else {
+            //     $(".request-for-quotation-modal-trigger").attr("disabled", false);
+            // }
             if(isReadyToSumbit()){
                 console.log('business_profile_ids.length',business_profile_ids.length)
                 showBusinessProfileCount(business_profile_ids.length);
