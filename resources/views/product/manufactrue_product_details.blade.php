@@ -211,7 +211,7 @@
 			</div>
 			<!-- Third Column Container-->
 			<div class="col s12 m3">
-                @if($product->product_video->video)
+                @if(isset($product->product_video->video))
                 <div>
                     <video controls height="245" width="300">
                         <source src="{{Storage::disk('s3')->url('public/'.$product->product_video->video)}}" type="video/mp4" />

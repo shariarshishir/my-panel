@@ -218,7 +218,7 @@ $reviewsCount = count($productReviews);
 
             <!-- Third Column Container-->
             <div class="col s12 m3">
-                @if($product->video)
+                @if(isset($product->video))
                 <div>
                     <video controls height="245" width="300">
                         <source src="{{Storage::disk('s3')->url('public/'.$product->video->video)}}" type="video/mp4" />
