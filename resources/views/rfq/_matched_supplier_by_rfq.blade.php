@@ -111,7 +111,7 @@
                 <div class="rfq_new_layout_match_supplier_with_rfq">
                     <div class="match_supplier_rfq_single_wrapper">
                         <div class="row single_wraper_gapping">
-
+                            <label id="no-supplier-found" style="display:none;">No Supplier Found</label>
                             @foreach($businessProfiles as $businessProfile)
                             <div class="col s12 m4 matched_supplier_item" name="{{$businessProfile['business_name']}}">
                                 <div class="match_supplier_rfq_single_content">
@@ -242,21 +242,36 @@
         let rfq = {};
         const filterSupplier = (e) => {
             const value = e.value;
+            let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
+                
                 for(var k = 0; k < elms.length; k++) {
                     if(value){
                         if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
                             elms[k].style.display='block';
+                            profile_count = profile_count + 1;
                         }else{
                             elms[k].style.display='none';
                         }
                     }else{
                         elms[k].style.display='block';
+                        profile_count = profile_count + 1;
                     }
 
                 }
+                
             });
+            const not_found = document.getElementById('no-supplier-found');
+            if(profile_count == 0){
+                if(not_found){
+                    not_found.style.display = 'block';
+                }
+            }else{
+                if(not_found){
+                    not_found.style.display = 'none';
+                }
+            }
         }
         $(document).ready(function(){
 
