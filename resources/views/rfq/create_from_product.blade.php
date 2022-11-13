@@ -291,7 +291,7 @@
                                         <button type="submit" id="page_button" style="display: none;"></button>
                                         <div class="submit_btn_wrap center-align">
                                             <button type="button" class="btn_green btn_rfq_post btn-green right" onclick="onSubmitWithAuthUserValidation();">
-                                                Submit <i class="material-icons">navigate_next</i>
+                                                MATCH SUPPLIER
                                             </button>
                                         </div>
                                     </div>
