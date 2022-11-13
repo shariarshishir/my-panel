@@ -672,7 +672,30 @@ class ProductController extends Controller
             // dd($productArray);
             // new image upload code will be here start.
 
+
+
             $product_image_ids = [];
+            $product_image_db_ids = [];
+            if(isset($productArray))
+            {
+                foreach ($productArray as $image) {
+                    if($image[3] != null){
+                        array_push($product_image_ids,(int)$image[3]);
+                    }
+                }
+                $productImages=ProductImage::where('product_id',$product->id)->get();
+                if($productImages->isNotEmpty()){
+                    foreach($productImages as $productImage){
+                        array_push($product_image_db_ids,(int)$productImage->id);
+                    }
+                }
+            }
+            foreach($product_image_db_ids as $id){
+                if(!in_array($id,$product_image_ids)){
+                    ProductImage::where('id',$id)->delete();
+                }
+            }
+
             if(isset($productArray))
             {
 
@@ -735,7 +758,7 @@ class ProductController extends Controller
                     ProductImage::where('id',$image[3])->update($data);
                 }
             }
- 
+
             // [1,2,3,4] [1,3,4] = [2]
             // dd($product_image_db_ids, $product_image_ids, $ids_to_delete);//db array
             // dd($product_image_ids);//frontend array

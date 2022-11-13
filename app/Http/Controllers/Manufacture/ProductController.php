@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $validator = Validator::make($request->all(), [
             'product_tag' => 'required',
             'business_profile_id' => 'required',
@@ -59,7 +59,7 @@ class ProductController extends Controller
             'raw_materials_id.required_if' => 'the raw materials type is required when raw materials selected',
         ]);
 
-        
+
         if ($validator->fails())
         {
             return response()->json(array(
@@ -92,12 +92,12 @@ class ProductController extends Controller
                 $s3filePath = '/public'.'/'.$overlay_image_file_name;
                 $s3->put($s3filePath, file_get_contents($image));
             }
-            
+
             // Mostafiz
             $business_profile=BusinessProfile::withTrashed()->where('id', $request->business_profile_id)->first();
             $business_profile_name=$business_profile->business_name;
 
-            
+
             $colorExp = [];
             if(isset($request->colors)) {
                 $colorImp = implode($request->colors);
@@ -293,7 +293,7 @@ public function update(Request $request, $product_id)
 
     // dd($request->all());
 
-    //Image Update 
+    //Image Update
     $productArray =[];
     if(isset($request->productImg['product_image_label'])) {
         for($i=0; $i < count($request->productImg['product_image_label']); $i++){
@@ -304,7 +304,7 @@ public function update(Request $request, $product_id)
     }
 
     // Mostafiz
-    $business_profile=BusinessProfile::withTrashed()->where('id', $request->business_profile_id)->first();    
+    $business_profile=BusinessProfile::withTrashed()->where('id', $request->business_profile_id)->first();
     $business_profile_name=$business_profile->business_name;
 
     if ($validator->fails())
@@ -401,8 +401,29 @@ public function update(Request $request, $product_id)
     }
 
 
-    
+
     $product_image_ids = [];
+    $product_image_db_ids = [];
+    if(isset($productArray))
+    {
+        foreach ($productArray as $image) {
+            if($image[3] != null){
+                array_push($product_image_ids,(int)$image[3]);
+            }
+        }
+        $productImages=ProductImage::where('product_id',$product->id)->get();
+        if($productImages->isNotEmpty()){
+            foreach($productImages as $productImage){
+                array_push($product_image_db_ids,(int)$productImage->id);
+            }
+        }
+    }
+    foreach($product_image_db_ids as $id){
+        if(!in_array($id,$product_image_ids)){
+            ProductImage::where('id',$id)->delete();
+        }
+    }
+
     if(isset($productArray))
     {
 

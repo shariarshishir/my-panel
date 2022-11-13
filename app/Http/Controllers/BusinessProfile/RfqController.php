@@ -36,6 +36,7 @@ use App\Events\NewAnonymousUserHasRegisteredEvent;
 use App\Events\NewRFQHasPostedEvent;
 use App\Models\Manufacture\ProductCategory;
 use App\Models\Proforma;
+use App\Models\ProductTypeMapping;
 
 
 class RfqController extends Controller
@@ -1331,6 +1332,10 @@ class RfqController extends Controller
     public function create($flag = false, $product_id = NULL)
     {
 
+        $product_type_mapping_id = 1;
+        // $child = 'design';
+        // $product_type_mapping_child_id = ProductTypeMapping::select('id')->where('title',$child)->first();
+
         $product = "";
         $preloaded_image = [];
         if($flag == 'mb' && $product_id != NULL)
@@ -1359,6 +1364,18 @@ class RfqController extends Controller
             }
         }
 
+        $design_products = Product::with(['images','businessProfile'])->where('product_type_mapping_id', $product_type_mapping_id)->where(['state' => 1])->where('business_profile_id', '!=', null)->inRandomOrder()->limit(4)->get();
+        // $manufacture_products = ManufactureProduct::with(['product_images','businessProfile'])->where('product_type_mapping_id', $product_type_mapping_id)->where('business_profile_id', '!=', null)->get();
+        // $merged = $wholesaler_products->mergeRecursive($manufacture_products)->sortBy([ ['priority_level', 'asc'], ['created_at', 'desc'] ])->values();
+
+        // $merged = $merged->filter(function($item) use ($product_type_mapping_child_id) {
+        //     $result=array_intersect($item->product_type_mapping_child_id,(array)$product_type_mapping_child_id);
+        //     if(count($result) > 0){
+        //         return true;
+        //     }
+        // dd($merged);
+        //dd($design_products);
+
         if(auth()->user())
         {
             $businessProfiles = BusinessProfile::withTrashed()->where('user_id',auth()->id())->get();
@@ -1373,16 +1390,16 @@ class RfqController extends Controller
                 $profileAlias = $businessProfiles['alias'];
             }
             if($flag) {
-                return view('rfq.create_from_product',compact('profileAlias', 'flag', 'product', 'preloaded_image'));
+                return view('rfq.create_from_product',compact('profileAlias', 'flag', 'product', 'preloaded_image', 'design_products'));
             } else {
-                return view('rfq.create',compact('profileAlias'));
+                return view('rfq.create',compact('profileAlias', 'design_products'));
             }
 
         }
         else
         {
             if($flag) {
-                return view('rfq.create_from_product',compact('flag', 'product', 'preloaded_image'));
+                return view('rfq.create_from_product',compact('flag', 'product', 'preloaded_image', 'design_products'));
             } else {
                 return view('rfq.create');
             }
@@ -1769,7 +1786,7 @@ class RfqController extends Controller
         $d = json_decode($data);
         $rfqId = $d->rfq_id;
         $businessProfileIds = $d->business_profile_ids;
-        
+
         $response = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$rfqId,[
             'selected_business_profiles'=>$businessProfileIds
         ]);
@@ -1884,8 +1901,8 @@ class RfqController extends Controller
             $associativeArrayUsingIDandCount[$user['user_id']]  = $user;
         }
         $proforma_invoice_url_for_buyer =$profromaInvoice ? route('open.proforma.single.html', $profromaInvoice->id) : '';
-        $url_exists=$link;        
-        
+        $url_exists=$link;
+
         return view('rfq._matched_supplier_by_rfq', compact('rfq','businessProfiles','businessProfilesShortListed','businessProfilesSelectedListed','buyerBusinessProfile','chatdata','from_user_image','to_user_image','user','buyer','productCategories','userNameShortForm','profromaInvoice','associativeArrayUsingIDandCount','proforma_invoice_url_for_buyer','url_exists', 'product_tag', 'factory_type_as_tag_parent'));
     }
 
