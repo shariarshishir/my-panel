@@ -115,16 +115,9 @@
                 </div>
                 <div class="new_rfq_subscribe_wrap">
                     <div class="row">
-                        <div class="col s6 m5">
+                        <div class="col s12 m12">
                             <p>Please subscribe to see the suppliers</p>
                             <a href="{{route('pricing.plan.form')}}" class="btn_subscribe btn btn_green">Subscribe</a>
-                        </div>
-                        <div class="col s6 m2">
-                            <div class="or"><span>OR</span></div>
-                        </div>
-                        <div class="col s6 m5">
-                            <p>Get back to you with in 24 hours</p>
-                            <a class="btn_submit_as_guest btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="{{ route('home')}}">Submit as Guest</a>
                         </div>
                     </div>
                 </div>
