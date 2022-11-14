@@ -37,18 +37,13 @@
                             </div> -->
                             <div class="row">
                                 <div class="col s6">
-                                    <h4><span> {{ \Illuminate\Support\Str::limit($product->name, 35, '...') }} </span></h4>
+                                    <h4><span> {{ $product->name }} </span></h4>
                                 </div>
                                 <div class="col s6">
                                     <div class="product_moq"><span class="moq">MOQ:</span> {{$product->moq}} <span class="moq-unit">{{ $product->qty_unit }}</span></div>
                                 </div>
                             </div>
 
-                            <!-- <h4>
-                                <a href="{{route('productdetails',$product->sku)}}">
-                                    {{ \Illuminate\Support\Str::limit($product->name, 35, '...') }}
-                                </a>
-                            </h4>
 
                             @if(isset($product->moq))
                                 <div class="product_moq"><span class="moq">MOQ:</span> {{$product->moq}} <span class="moq-unit">{{ $product->qty_unit }}</span></div>
@@ -66,21 +61,6 @@
                         </div>
                     </a>
 
-
-
-
-                    <!-- <div class="priceBox row">
-                        <div class="col m5 s5 apperal">Apparel</div>
-                        <div class="price col m7 s7 right-align">$26.50 <span>/pc</span></div>
-                        <div class="price col m7 s7 right-align">@include('product._product_price')</div>
-                    </div>
-                    <h4>
-                        <a href="{{route('productdetails',$product->sku)}}">
-                            {{ \Illuminate\Support\Str::limit($product->name, 35, '...') }}
-                        </a>
-                    </h4>
-                    <div class="moq" style="display: none;">MOQ  150 <span>pcs</span></div>
-                    <div class="leadTime" style="display: none;">Lead time 10 <span>days</span></div> -->
 
 
                 </div>
