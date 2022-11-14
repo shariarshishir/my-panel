@@ -124,7 +124,7 @@
                                     @if(isset($item->value))
                                         <div class="margin_top">
                                             <h6>MAIN PRODUCTS</h6>
-                                            <p>{{$item->value}} Years</p>
+                                            <p>{{$item->value}}</p>
                                         </div>
                                     @endif
                                 @endif
