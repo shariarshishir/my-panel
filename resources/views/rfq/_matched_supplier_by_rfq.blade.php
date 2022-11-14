@@ -126,8 +126,8 @@
                                         <div class="row sparkle_part">
                                             <div class="col s12 m3">
                                                 <div class="image_width_wrap">
-                                                    @if($businessProfile['business_profile_logo'])
-                                                    <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
+                                                    @if($businessProfile['user']['image'])
+                                                    <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['user']['image'])}}' alt="">
                                                     @else
                                                     <img class="image_width" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" itemprop="img">
                                                     @endif
