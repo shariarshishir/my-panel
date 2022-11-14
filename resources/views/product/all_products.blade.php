@@ -54,7 +54,7 @@
                                                 <span>Reset All</span>
                                             </div>
                                             @endif
-                                            <div class="filter_by">
+                                            <div class="filter_by" @php echo ($mapping_type_child=="textile" || $mapping_type_child=="yarn" || $mapping_type_child=="trims and accessories") ? 'style="display: none;"' : 'style="display: block;"'; @endphp>
                                                 <a onclick="openProductNav()" href="javascript:void(0);" class="btn-product-sidenav"><i class="material-icons">filter_alt</i></a>
                                                 <span>Filter By</span>
                                             </div>
