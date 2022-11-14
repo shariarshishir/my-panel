@@ -443,6 +443,7 @@
             })
             .then(response => {
                 if(response.status == 200){
+                    putSupplierList();
                 }
             });
         }
