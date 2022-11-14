@@ -12891,8 +12891,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .requst_for_rfq_icon span {
     display: block;
 }
-
-
 #rfqDetailsRightSlider .match_supplier_rfq_single_content {
     padding: 30px 25px;
 }
@@ -12902,9 +12900,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 #rfqDetailsRightSlider .match_supplier_rfq_single_content .input-field {
     top: 3px;
     left: 5px;
-}
-.my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox p {
-    font-size: 14px;
 }
 #rfqDetailsRightSlider .new_rfq_supplier_outer_wrapper .request_for_quotation {
     float: right;
@@ -15056,14 +15051,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 14px 10px 10px;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time i {
-   /* font-size: 12px;
+    font-size: 15px;
     vertical-align: middle;
     margin-right: 5px;
-    */
-    font-size: 17px;
-    vertical-align: middle;
-    margin-right: 5px;
-    margin-top: 4px;
+    margin-top: 5px;
     float: left;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .posted_time .posted_time_content {
@@ -15093,7 +15084,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_info_details .details_value {
     display: inline-block;
-    height: 24px;
+    height: 28px;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
@@ -15143,7 +15134,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox p {
     margin-bottom: 5px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 20px;
 }
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox p span.details_label {
@@ -15803,25 +15794,25 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .middle_wrap{
     position: absolute;
     top: 0;
-    right: -5px;
+    right: 0px;
 }
 .new_rfq_supplier_outer_wrapper .middle_wrap i.material-icons {
-    font-size: 32px;
+    font-size: 30px;
     color: #48ab48;
     margin-top: 0px;
     margin-right: 5px;
 }
 .new_rfq_supplier_outer_wrapper .middle_wrap span.icon_wrap {
     background: #48ab48;
-    width: 27px;
-    height: 27px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
-    line-height: 29px;
+    line-height: 27px;
     float: right;
     text-align: center;
     font-size: 12px;
     color: #fff;
-    margin-top: 3px;
+    margin-top: 2px;
 }
 .new_rfq_supplier_outer_wrapper .middle_part_image_wrapper {
     margin: 25px 0px;
@@ -15843,7 +15834,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     display: inline-block;
     margin: 3px;
     width: auto;
-    height: 58px;
+    height: 50px;
     object-fit: contain;
 }
 .new_rfq_supplier_outer_wrapper .main_product_wrap .main_product_inner h5 {
@@ -15868,7 +15859,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 30px;
 }
 .new_rfq_supplier_outer_wrapper .chatbox_wrap .material-icons {
-    font-size: 30px;
+    font-size: 25px;
     color: #48ab48;
 }
 .new_rfq_supplier_outer_wrapper .main_product_inner .chatbox_wrap span {
@@ -15991,7 +15982,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .new_rfq_supplier_product_info h4 {
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 18px;
 }
 .new_rfq_supplier_product_info .rfq_product_infoBox {
     margin: 0 -10px;
@@ -16086,18 +16077,18 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    float: left;
    margin: 3px;
 }
-.new_design_product_detail_wrap .tab_first_btn {
-    justify-content: center;
-    align-items: center;
-}
 .new_design_product_detail_wrap .arrival_btn {
     background: none;
     border: 1px solid green;
     color: green;
     border-radius: 4px;
-    padding: 7px 20px 6px;
+    padding: 0 10px;
     min-width: inherit;
+    max-width: inherit;
     font-family: 'nexabold';
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
 }
 .new_design_product_detail_wrap .text_size {
     width: 80%;
@@ -16122,7 +16113,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-top: 22px;
 }
 .new_design_product_detail_wrap .tab_first_btn {
-    padding: 20px 0 15px;
+    padding: 20px 0 10px;
     text-align: right;
 }
 .new_design_product_detail_wrap .btn_contact_supplier {
@@ -16384,6 +16375,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 60px;
     object-fit: cover;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 .new_design_product_detail_wrap .product-large-image-block {
     height: 450px;
