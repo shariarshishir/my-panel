@@ -246,7 +246,7 @@
                 business_profiles.map(businessProfile=>{
                     if(check_status){
                         if(business_profile_ids.includes(businessProfile?.id)){
-                            myvar += '<div class="col s12 m4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
+                            myvar += '<div class="col s12 m6 l4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
         '						<div class="match_supplier_rfq_single_content">'+
         '							<div class="input-field">'+
         '								<label>'+
@@ -300,7 +300,7 @@
                         }
                     }else{
                         if(!business_profile_ids.includes(businessProfile?.id)){
-                            myvar += '<div class="col s12 m4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
+                            myvar += '<div class="col s12 m6 l4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
         '						<div class="match_supplier_rfq_single_content">'+
         '							<div class="input-field">'+
         '								<label>'+

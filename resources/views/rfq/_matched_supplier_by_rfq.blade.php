@@ -112,7 +112,7 @@
                         <div class="row single_wraper_gapping">
                             <label id="no-supplier-found" style="display:none;">No Supplier Found</label>
                             @foreach($businessProfiles as $businessProfile)
-                            <div class="col s12 m4 matched_supplier_item" name="{{$businessProfile['business_name']}}">
+                            <div class="col s12 m6 l4 matched_supplier_item" name="{{$businessProfile['business_name']}}">
                                 <div class="match_supplier_rfq_single_content">
                                     <div class="input-field">
                                         <label>
@@ -133,11 +133,11 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col s12 m6">
+                                            <div class="col s12 m7">
                                                 <h3>{{$businessProfile['business_name']}}</h3>
                                                 <span class="location">{{$businessProfile['location']}}</span>
                                             </div>
-                                            <div class="col s12 m3">
+                                            <div class="col s12 m2">
                                                 <div class="middle_wrap">
                                                     <span class="check_circle">
                                                         @if($businessProfile['profile_verified_by_admin'] == 1)
@@ -201,28 +201,29 @@
                 </div>
             {{-- Need to recommend --}}
             @else
-                <div class="non-subscribe-message-block">
-                    <div class="non-subscribe-block-text">
-                        <h4>We have {{count($businessProfiles)}} suppliers matched <br/> with your Quotation.</h4>
-                    </div>
-                    <div class="new_rfq_subscribe_wrap">
-                        <div class="row">
-                            <div class="col s12 m5 new_rfq_subscribe_box">
-                                <p>Please subscribe to see the suppliers</p>
-                                <a href="{{route('pricing.plan.form')}}" class="btn_subscribe btn btn_green">Subscribe</a>
-                            </div>
-                            <div class="col s12 m2">
-                                <div class="or"><span>or</span></div>
-                            </div>
-                            <div class="col s12 m5 new_rfq_subscribe_box">
-                                <p>Get back to you within 24 hours</p>
-                                <a class="btn_submit_as_guest btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="{{ route('home')}}">Submit as Guest</a>
+                <div class="non_subscriber_message_block_outer">
+                    <div class="non-subscribe-message-block">
+                        <div class="non-subscribe-block-text">
+                            <h4>We have {{count($businessProfiles)}} suppliers matched <br/> with your Quotation.</h4>
+                        </div>
+                        <div class="new_rfq_subscribe_wrap">
+                            <div class="row">
+                                <div class="col s12 m5 new_rfq_subscribe_box">
+                                    <p>Please subscribe to see the suppliers</p>
+                                    <a href="{{route('pricing.plan.form')}}" class="btn_subscribe btn btn_green">Subscribe</a>
+                                </div>
+                                <div class="col s12 m2">
+                                    <div class="or"><span>or</span></div>
+                                </div>
+                                <div class="col s12 m5 new_rfq_subscribe_box">
+                                    <p>Get back to you within 24 hours</p>
+                                    <a class="btn_submit_as_guest btn_green btn_rfq_post_next btn_rfq_post modal-trigger right" href="{{ route('home')}}">Submit as Guest</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {{-- Need to recommend --}}
                 </div>
-
-             {{-- Need to recommend --}}
             @endif
             </div>
 
