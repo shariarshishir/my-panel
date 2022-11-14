@@ -111,7 +111,7 @@
         @else
             <div class="non-subscribe-message-block">
                 <div class="non-subscribe-block-text">
-                    <h4>We have {{count($businessProfiles)}} suppliers matched <br/> with your Quotation.</h4>
+                    <h4 id="business-profile-count-total"></h4>
                 </div>
                 <div class="new_rfq_subscribe_wrap">
                     <div class="row">
@@ -181,16 +181,6 @@
                 }
             }
         }
-        $(document).ready(function(){
-
-            business_profiles = @json([]);
-            rfq = @json($rfq);
-            console.log(rfq);
-            // if(business_profile_ids.length == 0) {
-            //     $(".request-for-quotation-modal-trigger").attr("disabled", true);
-            // }
-        });
-
         const isReadyToSumbit = () =>{
             return business_profile_ids.length>0;
         }
@@ -424,7 +414,10 @@
                         showBusinessProfileCount(business_profile_ids.length);
                         putSupplierList();
                     }
-
+                    const business_profile_count_total = document.getElementById('business-profile-count-total');
+                    if(business_profile_count_total){
+                        business_profile_count_total.innerHTML = "We have "+(business_profiles?.length||0)+" suppliers matched <br/> with your Quotation."
+                    }
                 })
             });
         }
