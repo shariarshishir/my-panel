@@ -99,12 +99,11 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                         </div>
                                         @if($rfqLists)
                                             @foreach($rfqLists as $key => $rfq)
-                                            <div class="col s6 m6 l4 newAccountMyrfqBox" rfq_id="{{$rfq['id']}}" onclick="setSelectedRFQ(this);">
+                                            <div class="col s6 m6 l4 newAccountMyrfqBox">
                                                 <div class="account_myrfq_infoBox">
                                                     <div class="top_rfq_status">
                                                         <div class="row">
                                                             <div class="col s6 m6">
-                                                            
                                                                 <div class="rfq_status_wrap">
                                                                     @if(isset($rfq['pi_status']) && $rfq['pi_status'] == 0)
                                                                         <span class="status pending_rfq">Pending</span>
@@ -191,7 +190,63 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    
+
+
+                                                    @include('rfq._matched_supplier_by_rfq_modal')
+                                                    <div class="new_rfq_details_wrapper_outer" id="rfqDetailsRightSlider">
+                                                        <div class="new_rfq_details_empty_area"></div>
+                                                        <div class="new_rfq_details_inner">
+                                                            <div class="close_rfq_details_box">
+                                                                <a href="javascript:void(0);" class="rfq_chat_details_close_trigger btn_white">Close <i class="material-icons">close</i></a>
+                                                            </div>
+                                                            <h3>{{$rfq['title']}}</h3>
+                                                            <p><b>Description:</b> <span>{{$rfq['short_description']}}</span></p>
+                                                            <p><b>Quantity:</b> <span>{{$rfq['quantity']}} / {{$rfq['unit']}} </span></p>
+                                                            <p><b>Target Price:</b> <span>{{$rfq['unit_price']}} / {{$rfq['unit']}} </span></p>
+                                                            <p><b>Deliver in:</b> <span>{{ date('F j, Y',strtotime($rfq['delivery_time'])) }}</span></p>
+                                                            <p><b>Deliver to:</b> <span>{{$rfq['destination']}}</span></p>
+                                                            <p><b>Payment Method:</b> <span>{{$rfq['payment_method']}}</span></p>
+                                                            <p><b>Category:</b> <span> @foreach ($rfq['category'] as $catItem) {{$catItem['name']}} @endforeach </span></p>
+                                                            <div class="rfqImagesBox">
+                                                                @if(isset($rfq['images']))
+                                                                    @foreach ($rfq['images'] as $rfqDetailsImg)
+                                                                        @php
+                                                                            $imgFullpath = explode('/', $rfqDetailsImg['image']);
+                                                                            $imgExt = end($imgFullpath);
+                                                                        @endphp
+                                                                        @if(pathinfo($imgExt, PATHINFO_EXTENSION) == 'pdf' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'PDF')
+                                                                            <a href="{{$rfqDetailsImg['image']}}" target="_blank"><span class="pdf_icon">&nbsp;</span></a>
+                                                                        @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'doc' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'docx')
+                                                                            <a href="{{$rfqDetailsImg['image']}}" target="_blank"><span class="doc_icon">&nbsp;</span></a>
+                                                                        @elseif(pathinfo($imgExt, PATHINFO_EXTENSION) == 'xlsx' || pathinfo($imgExt, PATHINFO_EXTENSION) == 'xls')
+                                                                            <a href="{{$rfqDetailsImg['image']}}" target="_blank"><span class="xlsx_icon">&nbsp;</span></a>
+                                                                        @else
+                                                                            <a data-fancybox="rfq-details-product-img-{{$rfq['id']}}" href="{{$rfqDetailsImg['image']}}"><img src="{{$rfqDetailsImg['image']}}" alt="RFQ Image" style="height: 255px;" /></a>
+                                                                        @endif
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+
+                                                            <div class="account_rfq_btn_wrap row" style="display: none;">
+                                                                <div class="rfq_btn_box rfq_quotation_button_wrapper col s6 m6 l6">
+                                                                    <button class="btn_white rfq_btn quotation-button" data-rfq_id="{{$rfq['id']}}">Quotations</button>
+                                                                    @if($rfq['unseen_quotation_count'] >0)
+                                                                        <span class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                                    @else
+                                                                        <span style="display:none" class="unseen_quotation_count_{{$rfq['id']}}" data-unseen_quotation_count="{{$rfq['unseen_quotation_count']}}">{{$rfq['unseen_quotation_count']}}</span>
+                                                                    @endif
+                                                                </div>
+                                                                <div class="rfq_btn_box rfq_message_button_wrapper col s6 m6 l6">
+                                                                    <button class="btn_white rfq_btn message-button" data-rfq_id="{{$rfq['id']}}">Messages</button>
+                                                                    @if(($rfq['unseen_count'] - $rfq['unseen_quotation_count']) >0)
+                                                                        <span  class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                                    @else
+                                                                        <span style="display:none" class="unseen_message_count_{{$rfq['id']}}" data-unseen_message_count="{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}">{{$rfq['unseen_count'] - $rfq['unseen_quotation_count']}}</span>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                             </div>
@@ -206,17 +261,6 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             </div>
                                         </div>
                                         @endif
-
-                                        <div class="new_rfq_details_wrapper_outer" id="rfqDetailsRightSlider">
-                                            <div class="new_rfq_details_empty_area"></div>
-                                            <div class="new_rfq_details_inner">
-                                                <div class="close_rfq_details_box">
-                                                    <a href="javascript:void(0);" class="rfq_chat_details_close_trigger btn_white">Close <i class="material-icons">close</i></a>
-                                                </div>
-                                                @include('rfq._matched_supplier_by_rfq_modal')
-                                            </div>
-                                        </div>
-                                        
                                     </div>
 
                                     @if( $noOfPages > 1)
@@ -371,13 +415,3 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
     @include('new_business_profile._rfq_landing_scripts')
     @include('new_business_profile.share_modal')
 @endsection
-@push('js')
-<script>
-    
-    let selected_rfq_id = undefined;
-    const setSelectedRFQ = (e) => {
-        selected_rfq_id = e?.attributes?.rfq_id?.value;
-        loadSupplierList(selected_rfq_id);
-    }
-</script>
-@endpush

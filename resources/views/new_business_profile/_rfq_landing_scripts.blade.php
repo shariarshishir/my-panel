@@ -550,7 +550,9 @@
             });
 
             $(".profile_account_myrfq_box").click(function(){
-                $(this).closest(".account_myrfq_infoBox").children(".new_rfq_details_wrapper_outer").addClass("active");
+                //alert("I am here");
+                //$(this).closest(".row").find().children(".new_rfq_details_wrapper_outer").addClass("active");
+                $("#rfqDetailsRightSlider").addClass('active');
             });
             $(".rfq_chat_details_close_trigger").click(function(){
                 $(this).closest(".new_rfq_details_wrapper_outer").removeClass("active");
@@ -853,5 +855,8 @@
             $('#share-modal input[name=share_text]').val();
             $('#share-modal input[name=share_text]').val(url);
         }
+
+
+
 </script>
 @endpush

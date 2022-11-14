@@ -1906,4 +1906,137 @@ class RfqController extends Controller
         return view('rfq._matched_supplier_by_rfq', compact('rfq','businessProfiles','businessProfilesShortListed','businessProfilesSelectedListed','buyerBusinessProfile','chatdata','from_user_image','to_user_image','user','buyer','productCategories','userNameShortForm','profromaInvoice','associativeArrayUsingIDandCount','proforma_invoice_url_for_buyer','url_exists', 'product_tag', 'factory_type_as_tag_parent'));
     }
 
+    public function matchedSuppleirsDataModal(Request $request, $rfqid, $link = false)
+    {
+        $response = Http::get(env('RFQ_APP_URL').'/api/quotation/'.$rfqid);
+        $data = $response->json();
+        $rfq = $data['data']['data'];
+
+        $businessProfilesShortListed = 0;
+        $businessProfilesSelectedListed = 0;
+
+        if( isset($rfq['short_listed_profiles']) ) {
+            $rfq['short_listed_profiles'] = $rfq['short_listed_profiles'];
+            $rfq['short_listed_profiles'] = implode("," , $rfq['short_listed_profiles']);
+
+        } else {
+            $rfq['short_listed_profiles'] = "";
+        }
+
+        if( isset($rfq['selected_profile']) ) {
+            $rfq['selected_profile'] = $rfq['selected_profile'];
+            $rfq['selected_profile'] = implode("," , $rfq['selected_profile']);
+        } else {
+            $rfq['selected_profile'] = "";
+        }
+
+        $factory_type_value = [];
+        foreach($rfq['category'] as $category) {
+            array_push($factory_type_value, $category['name']);
+        }
+
+        $product_tag = ProductTag::get();
+
+        $product_tag_for_parent_id = ProductTag::with('tagMapping')->whereIn('id',$rfq['category_id'])->get();
+        $factory_type_as_tag_parent = [];
+        foreach($product_tag_for_parent_id as $tag){
+            foreach($tag->tagMapping as $mapping){
+                array_push($factory_type_as_tag_parent,$mapping->name);
+            }
+        }
+        // [{"name":"annual_revenue","value":"9.75 Million USD","status":"1"},{"name":"number_of_worker","value":"600","status":"1"},{"name":"number_of_female_worker","value":"300","status":"1"},{"name":"trade_license_number","value":null,"status":"1"},{"name":"year_of_establishment","value":"2005","status":"1"},{"name":"opertaing_hours","value":"8","status":"1"},{"name":"shift_details","value":null,"status":"1"},{"name":"main_products","value":"T-shirt, Polo shirt, Fancy Item, Tank Top, PK Polo Sweatshirt, Fleece.","status":"1"}]
+        // WHERE business_profile_id=5640
+        // ->leftJoin('certifications', 'certifications.business_profile_id', '=', 'business_profiles.id')
+        // ->where('profile_verified_by_admin', '!=', 0)
+        $businessProfiles = BusinessProfile::select('business_profiles.*')
+        ->leftJoin('rfq_quotation_sent_supplier_to_buyer_rel', 'rfq_quotation_sent_supplier_to_buyer_rel.business_profile_id', '=', 'business_profiles.id')
+        ->with(['user','supplierQuotationToBuyer'=> function($q) use ($rfqid){
+            $q->where('rfq_id', $rfqid);}])
+        ->with(['certifications'])
+        ->with(['CompanyOverview'])
+        ->whereIn('factory_type',$factory_type_value)
+        ->orWhereIn('factory_type',$factory_type_as_tag_parent)
+        ->groupBy('business_profiles.id')
+        ->orderBy('rfq_quotation_sent_supplier_to_buyer_rel.created_at', 'desc')
+        ->get()
+        ->toArray();
+
+        $productCategories = ProductCategory::all('id','name');
+        if( env('APP_ENV') == 'production') {
+            $user = "5771";
+        }
+        else{
+            $user = "5552";
+        }
+        $from_user = User::find($user);
+        $to_user = User::with('businessProfile')->where('email',$rfq['user']['email'])->first();
+        $buyerBusinessProfile = $to_user->businessProfile[0];
+        $from_user_image = isset($from_user->image) ? asset($from_user->image) : asset('images/frontendimages/no-image.png');
+        if($rfq['user']['user_picture'] !=""){
+            $to_user_image = $rfq['user']['user_picture'];
+            $userNameShortForm = "";
+        }else{
+            $to_user_image = $rfq['user']['user_picture'];
+            $nameWordArray = explode(" ", $rfq['user']['user_name']);
+            $firstWordFirstLetter = $nameWordArray[0][0];
+            $secorndWordFirstLetter = $nameWordArray[1][0] ??'';
+            $userNameShortForm = $firstWordFirstLetter.$secorndWordFirstLetter;
+        }
+        //conversation with merchant bay and buyer who created rfq
+        $response =   Http::get(env('RFQ_APP_URL').'/api/messages/'.$rfq['id'].'/admin/'.$user.'/user/'.$rfq['created_by']);
+        $data = $response->json();
+        $chats = $data['data']['messages'];
+        $profromaInvoice = Proforma::where('generated_po_from_rfq',$rfqid)->latest()->first();
+
+        //$chatdata = $chats;
+        $chatdataAllData = $chats;
+        $chatdata = $chatdataAllData;
+        foreach ($chatdataAllData as $key => $value) {
+            $messageStr = preg_replace('!(((f|ht)tp(s)?://)[-a-zA-Zа-яА-Я()0-9@:%_+.~#?&;//=]+)!i', '<a href="$1">$1</a>', $value['message']);
+            $chatdata[$key]['message'] = $messageStr;
+            //echo "<pre>"; print_r($chatdataAllData[$key]); exit();
+        }
+
+        $buyer = $to_user;
+        $userSsoIds = [];
+        foreach($businessProfiles as $profile){
+            array_push($userSsoIds, $profile['user']['sso_reference_id']);
+        }
+        $commaSeparatedStringOfSsoId = implode(",",$userSsoIds);
+        //suppliers who have unseen messages
+        $response = Http::get(env('RFQ_APP_URL').'/api/rfq/'.$rfqid.'/users/'.$commaSeparatedStringOfSsoId.'/conversations');
+        $data = $response->json();
+        $usersWithMessageUnseen = $data['data'] ?? [];
+        $associativeArrayUsingIDandCount = [];
+        foreach($usersWithMessageUnseen as $user){
+            $associativeArrayUsingIDandCount[$user['user_id']]  = $user;
+        }
+        $proforma_invoice_url_for_buyer =$profromaInvoice ? route('open.proforma.single.html', $profromaInvoice->id) : '';
+        $url_exists=$link;        
+        
+        //return view('rfq._matched_supplier_by_rfq', compact('rfq','businessProfiles','businessProfilesShortListed','businessProfilesSelectedListed','buyerBusinessProfile','chatdata','from_user_image','to_user_image','user','buyer','productCategories','userNameShortForm','profromaInvoice','associativeArrayUsingIDandCount','proforma_invoice_url_for_buyer','url_exists', 'product_tag', 'factory_type_as_tag_parent'));
+        return response()->json([
+            'success' => True,
+            'rfq' => $rfq,
+            'businessProfiles' => $businessProfiles,
+            'businessProfilesShortListed' => $businessProfilesShortListed,
+            'businessProfilesShortListed' => $businessProfilesShortListed,
+            'businessProfilesSelectedListed' => $businessProfilesSelectedListed,
+            'buyerBusinessProfile' => $buyerBusinessProfile,
+            'chatdata' => $chatdata,
+            'from_user_image' => $from_user_image,
+            'to_user_image' => $to_user_image,
+            'user' => $user,
+            'buyer' => $buyer,
+            'productCategories' => $productCategories,
+            'userNameShortForm' => $userNameShortForm,
+            'profromaInvoice' => $profromaInvoice,
+            'associativeArrayUsingIDandCount' => $associativeArrayUsingIDandCount,
+            'proforma_invoice_url_for_buyer' => $proforma_invoice_url_for_buyer,
+            'url_exists' => $url_exists,
+            'product_tag' => $product_tag,
+            'factory_type_as_tag_parent' => $factory_type_as_tag_parent,
+        ], 200);
+    }
+
 }
