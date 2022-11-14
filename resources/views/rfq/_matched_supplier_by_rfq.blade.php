@@ -5,7 +5,7 @@
     <div class="new_rfq_supplier_outer_wrapper">
         <div class="card new_rfq_supplier_product_info">
             <h4>{{$rfq['title']}}</h4>
-            <div class="rfq_posted_time"> <i class="material-icons">access_time</i> {{ $rfq['created_at'] }}</div>
+            <div class="rfq_posted_time"> <i class="material-icons">access_time</i> {{ \Carbon\Carbon::parse($rfq['created_at'])->isoFormat('MMMM Do YYYY')}}</div>
 
             <div class="rfq_product_infoBox">
                 <div class="row">

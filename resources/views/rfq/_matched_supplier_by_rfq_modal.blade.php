@@ -147,13 +147,13 @@
         let business_profiles = [];
         let rfq = {};
         let check_status = false;
-        
+
         const filterSupplier = (e) => {
             const value = e.value;
             let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
-                
+
                 for(var k = 0; k < elms.length; k++) {
                     if(value){
                         if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
@@ -168,7 +168,7 @@
                     }
 
                 }
-                
+
             });
             const not_found = document.getElementById('no-supplier-found');
             if(profile_count == 0){
@@ -213,20 +213,20 @@
                 if(cert['image']!=null){
                     imgs.push('https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/'+cert['image']);
                 }
-                
+
             })
 
             let v = '<div class="inner_content_image">';
             imgs.map(i=>{
-                v += '<img class="" src="'+i+'" alt="">' 
+                v += '<img class="" src="'+i+'" alt="">'
             })
-            
-                
+
+
             v+='</div>';
             return imgs.length == 0 ? '<p>No Certifications Found</p>' : v;
         }
         const getYearOfExperiance = (businessProfile) => {
-            
+
             let date =  new Date().getFullYear();
             let dd = 0;
             const data = JSON.parse(businessProfile['company_overview']?.data) || [];
@@ -256,10 +256,10 @@
             }else{
                 document.getElementById("send-request-again-for-rfq").style.display = 'none';
             }
-            
+
             if(content){
                 var myvar = '';
-                
+
                 business_profiles.map(businessProfile=>{
                     if(check_status){
                         if(business_profile_ids.includes(businessProfile?.id)){
@@ -370,15 +370,16 @@
         '					</div>';
                         }
                     }
-                    
+
                 });
             }
             content.innerHTML = myvar;
         }
 
+        var dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
         const updateRFQHeader = (rfq) => {
             document.getElementById('modal-rfq-title').innerHTML = rfq['title'];
-            document.getElementById('modal-rfq-created-at').innerHTML = rfq['created_at'];
+            document.getElementById('modal-rfq-created-at').innerHTML = '<i class="material-icons">access_time</i> ' + new Date(rfq['created_at']).toLocaleDateString("en-US", dateOptions);
             document.getElementById('modal-rfq-product-type').innerHTML = rfq['industry'];
             let tags = [];
             rfq['category']?.map(i=>{
@@ -423,7 +424,7 @@
                         showBusinessProfileCount(business_profile_ids.length);
                         putSupplierList();
                     }
-                    
+
                 })
             });
         }
