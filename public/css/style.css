@@ -15979,7 +15979,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #48ab48;
 }
 .new_rfq_supplier_outer_wrapper .non_subscriber_message_block_outer {
-    background: url(../images/frontendimages/rfq_non_subscribers_background.png) no-repeat center center;
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/rfq_non_subscribers_background.png") no-repeat center center;
     background-size: cover;
     margin: -36px -20px -20px;
 }
