@@ -21541,3 +21541,16 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         width: 65%;
     }
 }
+
+
+#rfqDetailsRightSlider .main_product_wrap .main_product_inner {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-height: 80px;
+    overflow: hidden;
+}
+.profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box span {
+     z-index: 1;
+}
