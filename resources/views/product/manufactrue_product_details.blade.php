@@ -165,39 +165,54 @@
 								<div class="col s12 m8">
 									<div class="product-main-image">
 										<div class="pre-loading-image-gallery" style="display: none;"><img src="https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/ajax-search-loader-bar.gif" width="80" height="80" alt="Loading"></div>
-                                        <div class="product-large-image-block product_details_imgwrap">
+                                        <div class="product-large-image-block product_details_imgwrap" id="product-large-image-block-scrollview">
                                             @if(count($product->product_images)> 0)
                                                 @foreach ($product->product_images as $image)
+                                                    @if($image->is_raw_materials == 0)
                                                     <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
-                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image['product_image'])}});"></div>
+                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image['product_image'])}}); margin-bottom: 0px;"></div>
                                                     </a>
-                                                    <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
-                                                        <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="300px"/>
+                                                    @endif
+                                                    <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="300px"/>
                                                         <div class="click-to-zoom">
                                                             <i class="material-icons dp48">zoom_in</i>
                                                         </div>
                                                     </a-->
                                                 @endforeach
+                                                @foreach ($product->product_images as $image)
+                                                    @if($image->is_raw_materials == 1)
+                                                    <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
+                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image['product_image'])}}); margin-bottom: 0px;"></div>
+                                                    </a>
+                                                    @endif
+                                                    <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="300px"/>
+                                                        <div class="click-to-zoom">
+                                                            <i class="material-icons dp48">zoom_in</i>
+                                                        </div>
+                                                    </a-->
+                                                @endforeach                                                
                                             @endif
                                         </div>
 									</div>
 								</div>
 								<div class="col s12 m4 product_details_right_image">
 									<div class="row">
-                                        <div class="col s6 m6 raw_materials_left_img">
+                                        <div class="col s6 m6 raw_materials_sm_imglist">
                                             @if(count($product->product_images)> 0)
                                                 @foreach ($product->product_images as $image)
                                                     @if($image->is_raw_materials == 0)
-                                                        <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
+                                                        <img onclick="onImageClickEvent(this);" img_id="{{$image['id']}}" src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
                                                     @endif
                                                 @endforeach
                                             @endif
                                         </div>
-                                        <div class="col s6 m6 raw_materials_right_img">
+                                        <div class="col s6 m6 raw_materials_sm_imglist">
                                             @if(count($product->product_images)> 0)
                                                 @foreach ($product->product_images as $image)
                                                     @if($image->is_raw_materials == 1)
-                                                        <img src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
+                                                        <img onclick="onImageClickEvent(this);" img_id="{{$image['id']}}" src="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}" class="responsive-img" width="100px" />
                                                     @endif
                                                 @endforeach
                                             @endif
@@ -289,7 +304,34 @@
 @push('js')
     <script>
 
-var serverURL = "{{ env('CHAT_URL'), 'localhost' }}:3000";
+        let product_images = [];
+        const onImageClickEvent = (e) => {
+            const selected_img_id = e?.attributes?.img_id?.value;
+            const index = product_images.indexOf(Number(selected_img_id));
+            // scroll to 450 * index
+            const scrollView = document.getElementById('product-large-image-block-scrollview');
+            if(scrollView){
+                scrollView.scrollTo(0,450 * index);
+            }
+        }
+        $(document).ready(function() {
+            const p_imgs = @json($product->product_images) || [];
+            p_imgs?.map(i=>{
+                if(i['is_raw_materials'] == 0){
+                    product_images.push(Number(i?.id));
+                }
+            });
+            p_imgs?.map(i=>{
+                if(i['is_raw_materials'] == 1){
+                    product_images.push(Number(i?.id));
+                }
+            });
+
+            console.log(product_images);
+        });
+
+
+        var serverURL = "{{ env('CHAT_URL'), 'localhost' }}:3000";
         var socket = io.connect(serverURL);
         socket.on('connect', function(data) {
         //alert('connect');

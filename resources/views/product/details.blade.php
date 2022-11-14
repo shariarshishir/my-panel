@@ -150,12 +150,27 @@ $reviewsCount = count($productReviews);
                                 <div class="col s12 m8">
                                     <div class="product-main-image">
                                         <div class="pre-loading-image-gallery"><img src="{{Storage::disk('s3')->url('public/frontendimages/ajax-search-loader-bar.gif')}}" width="80" height="80" alt="Loading"></div>
-                                        <div class="product-large-image-block product_details_imgwrap">
+                                        <div class="product-large-image-block product_details_imgwrap" id="product-large-image-block-scrollview">
                                             @if(count($product->images)> 0)
                                                 @foreach ($product->images as $image)
+                                                    @if($image->is_raw_materials == 0)
                                                     <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
-                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image->original)}});"></div>
+                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image->original)}}); margin-bottom: 0px;"></div>
                                                     </a>
+                                                    @endif
+                                                    <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
+                                                        <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="300px"/>
+                                                        <div class="click-to-zoom">
+                                                            <i class="material-icons dp48">zoom_in</i>
+                                                        </div>
+                                                    </a-->
+                                                @endforeach
+                                                @foreach ($product->images as $image)
+                                                    @if($image->is_raw_materials == 1)
+                                                    <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
+                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image->original)}}); margin-bottom: 0px;"></div>
+                                                    </a>
+                                                    @endif
                                                     <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
                                                         <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="300px"/>
                                                         <div class="click-to-zoom">
@@ -173,7 +188,7 @@ $reviewsCount = count($productReviews);
                                             @if(count($product->images)> 0)
                                                 @foreach ($product->images as $image)
                                                     @if($image->is_raw_materials == 0)
-                                                        <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
+                                                        <img onclick="onImageClickEvent(this);" img_id="{{$image->id}}" src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
                                                     @endif
                                                 @endforeach
                                             @endif
@@ -182,7 +197,7 @@ $reviewsCount = count($productReviews);
                                             @if(count($product->images)> 0)
                                                 @foreach ($product->images as $image)
                                                     @if($image->is_raw_materials == 1)
-                                                        <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
+                                                        <img onclick="onImageClickEvent(this);" img_id="{{$image->id}}" src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" width="100px" />
                                                     @endif
                                                 @endforeach
                                             @endif
@@ -368,21 +383,21 @@ $reviewsCount = count($productReviews);
 
                 @if(count($recommandProducts)>0)
                 <div class="row recommendation-products related_products_slider">
-                    @foreach($recommandProducts as $key=>$product)
+                    @foreach($recommandProducts as $key=>$rProduct)
 
                     <!-- <div class="col s12 m3 l3"></div> -->
 
                     <div class="card">
                         <div class="card-content">
                             <div class="product_quick_options">
-                                <a href="{{ route("mix.product.details", [$product->flag, $product->id]) }}" class="quick_options_link">&nbsp;</a>
+                                <a href="{{ route("mix.product.details", [$rProduct->flag, $rProduct->id]) }}" class="quick_options_link">&nbsp;</a>
                                 <div class="poduct_quick_options_inside">
-                                    @if(in_array($product->id,$wishListShopProductsIds))
-                                        <a href="javascript:void(0);" onclick="addToWishList('{{$product->flag}}', '{{$product->id}}', $(this));" class="product-add-wishlist active">
+                                    @if(in_array($rProduct->id,$wishListShopProductsIds))
+                                        <a href="javascript:void(0);" onclick="addToWishList('{{$rProduct->flag}}', '{{$rProduct->id}}', $(this));" class="product-add-wishlist active">
                                             <i class="material-icons dp48">favorite</i>
                                         </a>
                                     @else
-                                        <a href="javascript:void(0);" onclick="addToWishList('{{$product->flag}}', '{{$product->id}}', $(this));" class="product-add-wishlist">
+                                        <a href="javascript:void(0);" onclick="addToWishList('{{$rProduct->flag}}', '{{$rProduct->id}}', $(this));" class="product-add-wishlist">
                                             <i class="material-icons dp48">favorite</i>
                                         </a>
                                     @endif
@@ -391,9 +406,9 @@ $reviewsCount = count($productReviews);
 
                             <div class="product_img">
                                 {{-- <a href="javascript:void();" class="overlay_hover"></a> --}}
-                                @foreach($product->images as $key=>$image)
-                                    @if($product->businessProfile()->exists())
-                                        <a href="{{ route("mix.product.details", [$product->flag, $product->id]) }}">
+                                @foreach($rProduct->images as $key=>$image)
+                                    @if($rProduct->businessProfile()->exists())
+                                        <a href="{{ route("mix.product.details", [$rProduct->flag, $rProduct->id]) }}">
                                             <img src="{{Storage::disk('s3')->url('public/'.$image->image)}} " class="single-product-img" alt="" />
                                         </a>
                                     @else
@@ -408,29 +423,29 @@ $reviewsCount = count($productReviews);
                             </div>
                             <div class="product_short_details">
                                 <div class="product-title">
-                                    <a href="{{ route("mix.product.details", [$product->flag, $product->id]) }}">
-                                        {{ $product->name }}
+                                    <a href="{{ route("mix.product.details", [$rProduct->flag, $rProduct->id]) }}">
+                                        {{ $rProduct->name }}
                                     </a>
                                 </div>
                                 <div class="product_price">
                                     @include('product._product_price')
 
-                                    @if($product->availability==0 && $product->product_type==2)
+                                    @if($rProduct->availability==0 && $rProduct->product_type==2)
                                         <span class="new badge red sold-out" data-badge-caption="Sold Out" style="display: none;"></span>
                                     @endif
                                 </div>
                             </div>
                             <!-- Modal Structure -->
-                            <div  id="product-details-modal_{{$product->sku}}" class="modal modal-fixed-footer product-details-modal" tabindex="0">
+                            <div  id="product-details-modal_{{$rProduct->sku}}" class="modal modal-fixed-footer product-details-modal" tabindex="0">
                                 <div class="modal-content">
                                     <div class="row">
                                         <div class="col m6 s12 modal-product-images">
-                                        @foreach($product->images as $key=>$image)
+                                        @foreach($rProduct->images as $key=>$image)
                                             <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="responsive-img" alt="" />
                                         @endforeach
                                         </div>
                                         <div class="col m6 s12">
-                                            <h5>{{$product->name}}</h5>
+                                            <h5>{{$rProduct->name}}</h5>
                                             <span class="new badge ml-0 mr-2 pink lighten-1 rating-badge" data-badge-caption="">
 
                                                 <i class="material-icons white-text"> star </i> <span class="rating_value">{{$averageRating}}</span>
@@ -439,15 +454,15 @@ $reviewsCount = count($productReviews);
                                             <p class="pink-text">Free Shipping</p>
                                             <div class="border-separator"></div>
                                             <ul class="list-bullet">
-                                                <li class="list-item-bullet">{{$product->sku}}</li>
-                                                <li class="list-item-bullet">{!! $product->description !!}</li>
+                                                <li class="list-item-bullet">{{$rProduct->sku}}</li>
+                                                <li class="list-item-bullet">{!! $rProduct->description !!}</li>
                                             </ul>
                                             <h5>
                                                 @include('product._product_price')
                                             </h5>
-                                            <input type="hidden" value="{{$product->sku}}" name="sku">
-                                            <a href="{{route('productdetails',$product->sku)}}" class="waves-effect waves-light btn green mt-2">View Details</a>
-                                            <a href="javascript:void(0);" id="wishList" data-productSku={{$product->sku}} class="waves-effect waves-light btn green mt-2 wishlist-trigger">
+                                            <input type="hidden" value="{{$rProduct->sku}}" name="sku">
+                                            <a href="{{route('productdetails',$rProduct->sku)}}" class="waves-effect waves-light btn green mt-2">View Details</a>
+                                            <a href="javascript:void(0);" id="wishList" data-productSku={{$rProduct->sku}} class="waves-effect waves-light btn green mt-2 wishlist-trigger">
                                                 <i class="material-icons mr-3">favorite_border</i> Add to Wishlist
                                             </a>
                                         </div>
@@ -486,6 +501,32 @@ $reviewsCount = count($productReviews);
 @endsection
 @push('js')
     <script>
+
+        let product_images = [];
+        const onImageClickEvent = (e) => {
+            const selected_img_id = e?.attributes?.img_id?.value;
+            const index = product_images.indexOf(Number(selected_img_id));
+            // scroll to 450 * index
+            const scrollView = document.getElementById('product-large-image-block-scrollview');
+            if(scrollView){
+                scrollView.scrollTo(0,450 * index);
+            }
+        }
+        $(document).ready(function() {
+            const p_imgs = @json($product->images) || [];
+            p_imgs?.map(i=>{
+                if(i['is_raw_materials'] == 0){
+                    product_images.push(Number(i?.id));
+                }
+            });
+            p_imgs?.map(i=>{
+                if(i['is_raw_materials'] == 1){
+                    product_images.push(Number(i?.id));
+                }
+            });
+
+            console.log(product_images);
+        });
         // $('input[name=fresh_input]').change(function() {
         //     var value =  $('input[name=fresh_input]').val();
         //     var product_sku= $('input[name=product_sku]').val();
