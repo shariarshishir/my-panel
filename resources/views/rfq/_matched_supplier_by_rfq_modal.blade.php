@@ -444,6 +444,8 @@
             .then(response => {
                 if(response.status == 200){
                     putSupplierList();
+                    const msg = "Supplier selected successfully";
+                    swal("Done!", msg,"success");
                 }
             });
         }
