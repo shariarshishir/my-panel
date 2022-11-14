@@ -223,7 +223,7 @@
             
                 
             v+='</div>';
-            return v;
+            return imgs.length == 0 ? '<p>No Certifications Found</p>' : v;
         }
         const getYearOfExperiance = (businessProfile) => {
             
@@ -298,7 +298,6 @@
         '								<div class="middle_part_image_wrapper">'+
         '									<h6>Certification:</h6>'+
                                             getCertifications(businessProfile)+
-        '									<p>No Certifications found.</p>'+
         '								</div>'+
         '								<!-- Third div part -->'+
         '								<div class="main_product_wrap">'+
@@ -353,7 +352,6 @@
         '								<div class="middle_part_image_wrapper">'+
         '									<h6>Certification:</h6>'+
                                             getCertifications(businessProfile)+
-        '									<p>No Certifications found.</p>'+
         '								</div>'+
         '								<!-- Third div part -->'+
         '								<div class="main_product_wrap">'+
