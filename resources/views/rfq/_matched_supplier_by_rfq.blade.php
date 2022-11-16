@@ -59,6 +59,7 @@
                 $cookie = Cookie::get('sso_token');
                 $cookie = base64_decode(explode(".",$cookie)[1]);
                 $cookie = json_decode(json_decode(json_encode($cookie)));
+                //$cookie->subscription_status = 1;
             @endphp
 
             <div class="rfq_new_layout_match_suppliers_wrap">
@@ -126,8 +127,8 @@
                                         <div class="row sparkle_part">
                                             <div class="col s12 m3">
                                                 <div class="image_width_wrap">
-                                                    @if($businessProfile['business_profile_logo'])
-                                                    <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['business_profile_logo'])}}' alt="">
+                                                    @if($businessProfile['user']['image'])
+                                                    <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['user']['image'])}}' alt="">
                                                     @else
                                                     <img class="image_width" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" itemprop="img">
                                                     @endif
