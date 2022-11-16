@@ -12957,7 +12957,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 #rfqDetailsRightSlider .middle_wrap span.icon_wrap {
     width: 25px;
     height: 25px;
-    line-height: 25px;
+    line-height: 27px;
     margin-top: 2px;
 }
 .new_rfq_supplier_product_info .rfq_posted_time {
@@ -16057,7 +16057,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-bottom: 70px;
 }
 .new_design_product_detail_wrap h5 {
-    font-family: 'nexablack';
+    font-family: 'nexabold';
     font-size: 14px;
     text-transform: uppercase;
 }
@@ -16119,9 +16119,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .new_design_product_detail_wrap .btn_contact_supplier {
     border: none;
     background: yellow;
-    padding: 8px 10px;
-    min-width: 140px;
+    padding: 0px 10px;
+    font-family: 'nexabold';
+    font-size: 12px;
     color: #000000;
+    display: inline-block;
+    min-width: inherit;
+    height: 30px;
+    line-height: 32px;
 }
 .new_design_product_detail_wrap .btn_bg_yellow {
     border: none;
@@ -16161,7 +16166,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .new_design_product_detail_wrap .size_border {
     border: 1px solid #8eb58e;
-    padding: 2px 3px;
+    padding: 0px 4px;
     border-radius: 3px;
     text-transform: capitalize;
     float: left;
@@ -16373,7 +16378,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     float: left;
     border: 1px solid #eeeeee;
     height: 60px;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 5px;
     cursor: pointer;
 }
@@ -16386,15 +16391,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     max-height: 450px;
     overflow: auto;
 }
+.new_design_product_detail_wrap .raw_materials_sm_imglist::-moz-scrollbar,
 .new_design_product_detail_wrap .raw_materials_sm_imglist::-webkit-scrollbar,
+.new_design_product_detail_wrap .product-large-image-block::-moz-scrollbar,
 .new_design_product_detail_wrap .product-large-image-block::-webkit-scrollbar {
     width: 1px;
 }
+.new_design_product_detail_wrap .raw_materials_sm_imglist::-moz-scrollbar-track,
 .new_design_product_detail_wrap .raw_materials_sm_imglist::-webkit-scrollbar-track,
+.new_design_product_detail_wrap .product-large-image-block::-moz-scrollbar-track,
 .new_design_product_detail_wrap .product-large-image-block::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
+.new_design_product_detail_wrap .raw_materials_sm_imglist::-moz-scrollbar-thumb,
 .new_design_product_detail_wrap .raw_materials_sm_imglist::-webkit-scrollbar-thumb,
+.new_design_product_detail_wrap .product-large-image-block::-moz-scrollbar-thumb,
 .new_design_product_detail_wrap .product-large-image-block::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
@@ -16403,7 +16414,24 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    position: relative;
+    /* background: #e6e6e6; */
+}
+.new_design_product_detail_wrap .product-bg-image .image_label {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    background: #f5f5f5d6;
+    transition: 0.5s ease;
+    border: 1px solid #efeeee;
+    font-family: 'nexablack';
+    color: #000;
+    padding: 5px 20px;
+    border-left: none;
+    text-transform: capitalize;
+    min-width: 100px;
+    text-align: center;
 }
 
 /* ******************** new_design_product_detail_wrap style end ******************* */
@@ -17345,7 +17373,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         width: 50px;
         height: 50px;
    }
-
+   .new_rfq_supplier_outer_wrapper .single_wraper_gapping .matched_supplier_item {
+        width: 50%;
+   }
 }
 @media only screen and (max-width: 1200px) {
     .rfq_review_results_box {
@@ -19940,6 +19970,45 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         font-size: 14px;
         padding: 0 10px;
    }
+    .new_design_product_detail_wrap .new_design_product_detail .new_design_detail_info {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start
+    }
+    .new_design_product_detail_wrap .new_design_product_detail .new_design_detail_left {
+        order: 1;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .new_design_product_detail_wrap .new_design_product_detail .new_design_detail_right {
+        order: 2;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .new_design_product_detail_wrap .new_design_product_detail .new_design_detail_imgbox {
+        order: 3;
+        width: 100%;
+    }
+    #rfqDetailsRightSlider .new_rfq_details_inner .request_quotation_wrap {
+        width: 100%;
+    }
+    .new_rfq_supplier_outer_wrapper .request_quotation_wrap .request_for_quotation {
+        text-align: center;
+        float: none !important;
+        display: inline-block;
+        width: 100%;
+        padding-top: 20px;
+    }
+    .new_rfq_supplier_outer_wrapper .request_quotation_wrap .request_for_quotation .btn {
+        float: none !important;
+    }
+    #rfqDetailsRightSlider .new_rfq_details_inner .request_for_quotation .btn#send-request-again-for-rfq,
+    #rfqDetailsRightSlider .new_rfq_details_inner .request_for_quotation .btn[disabled] {
+        display: inline-block !important;
+    }
+    #rfqDetailsRightSlider .new_rfq_details_inner .request_for_quotation .btn#send-request-again-for-rfq {
+        line-height: 40px;
+    }
 }
 @media only screen and (max-width: 600px) {
     .user-profile-basic-info-block .my_businesses_wrap .col.m4 {
@@ -20973,7 +21042,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content {
         height: auto;
     }
-
+    .new_design_product_detail_wrap .product_details_right_image img {
+        width: 60px;
+        margin: 3px;
+    }
+    .new_design_product_detail_wrap .raw_materials_sm_imglist {
+        width: 100% !important;
+    }
 }
 @media only screen and (max-width: 480px) {
     .profile_wholesaler_tab_menu ul li, .profile_tab_menu .tabs .tab {

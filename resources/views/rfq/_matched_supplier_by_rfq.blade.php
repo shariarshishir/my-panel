@@ -59,6 +59,7 @@
                 $cookie = Cookie::get('sso_token');
                 $cookie = base64_decode(explode(".",$cookie)[1]);
                 $cookie = json_decode(json_decode(json_encode($cookie)));
+                //$cookie->subscription_status = 1;
             @endphp
 
             <div class="rfq_new_layout_match_suppliers_wrap">

@@ -32,8 +32,8 @@
     @endphp
 	<div class="new_design_product_detail">
 		<!-- First Column Container -->
-		<div class="row">
-			<div class="col s12 m3">
+		<div class="row new_design_detail_info">
+			<div class="col s12 m3 new_design_detail_left">
 				<div class="tabs_wrapper lab_header">
 					<!-- Tabs -->
 					<div class="row">
@@ -150,14 +150,11 @@
                                 </div>
                             </div>
                         </div>
-
-
-
 					</div>
 				</div>
 			</div>
 			<!-- Second Column Container -->
-			<div class="col s12 m6">
+			<div class="col s12 m6 new_design_detail_imgbox">
 				<div class="new_design_product_preview_wrap">
 					<div class="product_preview_wrap">
 						<div class="product-images">
@@ -170,7 +167,9 @@
                                                 @foreach ($product->product_images as $image)
                                                     @if($image->is_raw_materials == 0)
                                                     <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image['product_image'])}}">
-                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image['product_image'])}}); margin-bottom: 0px;"></div>
+                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image['product_image'])}}); margin-bottom: 0px;">
+                                                            <span class="image_label">{{$image['image_label']}}</span>
+                                                        </div>
                                                     </a>
                                                     @endif
                                                     <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
@@ -225,7 +224,7 @@
 				</div>
 			</div>
 			<!-- Third Column Container-->
-			<div class="col s12 m3">
+			<div class="col s12 m3 new_design_detail_right">
                 @if(isset($product->product_video->video))
                 <div>
                     <video controls height="245" width="300">

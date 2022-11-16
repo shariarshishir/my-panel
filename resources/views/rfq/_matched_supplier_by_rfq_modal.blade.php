@@ -50,13 +50,14 @@
             $cookie = Cookie::get('sso_token');
             $cookie = base64_decode(explode(".",$cookie)[1]);
             $cookie = json_decode(json_decode(json_encode($cookie)));
+            //$cookie->subscription_status = 1;
         @endphp
 
         <div class="rfq_new_layout_match_suppliers_wrap">
             @if($cookie->subscription_status == 1)
             <div class="new_rfq_filter_wrapper">
                 <div class="row">
-                    <div class="col s12 m4">
+                    <div class="col s12 m6 l4 new_rfq_filter_wrap">
                             <div class="new_rfq_filter_select">
                             <div class="input-field">
                                 <!-- <label>
@@ -66,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col s12 m4">
+                    <div class="col s12 m6 l4 rfq_supplier_wrap">
                         <div class="rfq_supplier_filter">
                             <i class="material-icons">search</i>
                             <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value)"/>
@@ -79,7 +80,7 @@
                         </div>
                         <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value)"/>
                     </div>
-                    <div class="col s12 m4">
+                    <div class="col s12 m6 l4 request_quotation_wrap">
                         <div class="request_for_quotation">
                             <button href="javascript:void(0)" class="btn btn_green" id="send-request-again-for-rfq" onclick="onRequestSubmit()" style="display:none;">Send Request</button>
                             <a class="btn_request_quotation waves-effect waves-light btn request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="javascript:void(0)" onclick="putSupplierList()">Request More</a>

@@ -35,8 +35,8 @@ $reviewsCount = count($productReviews);
     </div>
     <div class="new_design_product_detail">
     <!-- First Column Container -->
-        <div class="row">
-            <div class="col s12 m3">
+        <div class="row new_design_detail_info">
+            <div class="col s12 m3 new_design_detail_left">
                 <div class="tabs_wrapper lab_header">
                     <!-- Tabs -->
                     <div class="row">
@@ -46,7 +46,6 @@ $reviewsCount = count($productReviews);
                                 <li class="tab col m6"><a href="#supplierInfo">SUPPLIER INFO</a></li>
                             </ul>
                         </div>
-
                         <!-- First tabs contant -->
                         <div id="projectHighlight" class="col s12">
                             <div class="row tab_first_btn">
@@ -141,7 +140,7 @@ $reviewsCount = count($productReviews);
             </div>
 
             <!-- Second Column Container -->
-            <div class="col s12 m6">
+            <div class="col s12 m6 new_design_detail_imgbox">
                 <div class="new_design_product_preview_wrap">
                     <div class="product_preview_wrap">
 
@@ -155,7 +154,9 @@ $reviewsCount = count($productReviews);
                                                 @foreach ($product->images as $image)
                                                     @if($image->is_raw_materials == 0)
                                                     <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
-                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image->original)}}); margin-bottom: 0px;"></div>
+                                                        <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image->original)}}); margin-bottom: 0px;">
+                                                            <span class="image_label">{{$image->image_label}}</span>
+                                                        </div>
                                                     </a>
                                                     @endif
                                                     <!--a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
@@ -226,13 +227,12 @@ $reviewsCount = count($productReviews);
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
 
             <!-- Third Column Container-->
-            <div class="col s12 m3">
+            <div class="col s12 m3 new_design_detail_right">
                 @if(isset($product->video))
                 <div>
                     <video controls height="245" width="300">
