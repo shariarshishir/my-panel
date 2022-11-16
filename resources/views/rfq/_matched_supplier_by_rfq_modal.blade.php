@@ -69,8 +69,15 @@
                     <div class="col s12 m4">
                         <div class="rfq_supplier_filter">
                             <i class="material-icons">search</i>
-                            <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this)"/>
+                            <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value)"/>
                         </div>
+                        <div class="rfq_matched_supplier_list_wrapper">
+                            <a href="javascript:void(0);" class="rfq_matched_supplier_list_trigger">Select one/multiple certificates</a>
+                            <ul id="rfq_matched_supplier_list_ul" style="height: 200px; overflow-y: auto;">
+                                
+                            </ul>
+                        </div>
+                        <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value)"/>
                     </div>
                     <div class="col s12 m4">
                         <div class="request_for_quotation">
@@ -138,18 +145,58 @@
         let business_profile_ids = [];
         let business_profile_user_ids = [];
         let business_profiles = [];
+        let certifications = [];
         let rfq = {};
         let check_status = false;
-
+        let filter_params = '';
         const filterSupplier = (e) => {
-            const value = e.value;
+            const value = e;
+            
+            
+            
+            
+            console.log(filter_params);
+            if(filter_params.includes('-' + e + '-')){
+                let fp = '';
+                let aa = filter_params.split('-');
+                for(let x = aa.length - 1; x >= 0; x--){
+                    if(aa[x] && !aa[x].includes(value)){
+                        fp += '-' + aa[x] + '-';
+                    }
+                }
+                fp += '-' + e + '-';
+                filter_params = fp;
+            }else{
+                filter_params += '-' + e + '-';
+
+            }
+            
+            console.log(filter_params);
+            return;
             let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
-
+                let certs = '';
+                i?.certifications?.map(c=>{
+                    certs += '-'+c.title;
+                });
+                let dd = 0;
+                let date =  new Date().getFullYear();
+                const year_of_establishment_data = JSON.parse(i?.company_overview?.data||[]);
+                year_of_establishment_data?.map(d=>{
+                    if(d['name'] == 'year_of_establishment'){
+                        dd = date - d['value'];
+                    }
+                });
+                const search_field = business_name + '-' + certs + '-' + dd;
                 for(var k = 0; k < elms.length; k++) {
                     if(value){
-                        if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
+                        const business_name = i['business_name'];
+                        
+                        
+                        // business_name certifications years of experience
+                        if((search_field.toLowerCase()).includes(value.toLowerCase())){
+                            console.log('search_field',search_field);
                             elms[k].style.display='block';
                             profile_count = profile_count + 1;
                         }else{
@@ -181,7 +228,7 @@
             document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = len + ' suppliers?';
             $(".supplier-matched-selected-box").html(business_profile_ids.length+" Suppliers Selected");
 
-        }
+        } 
         const getBusinessProfileLogo = (businessProfile) => {
             if(businessProfile?.user?.image == null){
                 return "https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/no-image.png";
@@ -197,12 +244,12 @@
                     imgs.push('https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/'+cert['image']);
                 }
 
-            })
+            });
 
             let v = '<div class="inner_content_image">';
             imgs.map(i=>{
                 v += '<img class="" src="'+i+'" alt="">'
-            })
+            });
 
 
             v+='</div>';
@@ -381,6 +428,7 @@
             redirect_url = redirect_url.replace(':slug', rfq_id);
             var url = redirect_url;
             business_profiles = [];
+            certifications = [];
             fetch(url, {
                 method: 'GET',
                 headers: {
@@ -411,6 +459,32 @@
                     if(business_profile_count_total){
                         business_profile_count_total.innerHTML = "We have "+(business_profiles?.length||0)+" suppliers matched <br/> with your Quotation."
                     }
+                    business_profiles.map(i=>{
+                        certifications = [...certifications,...i.certifications];
+                    });
+                    const certs = [];
+                    certifications.map(i=>{
+                        const a = certs.filter(b=>b.title == i.title);
+                        if(a.length == 0){
+                            if(i.image){
+                                certs.push(i);
+                            }
+                        }
+                    });
+                    certifications = certs;
+                    const rfq_matched_supplier_list_ul = document.getElementById('rfq_matched_supplier_list_ul');
+                    let ul_html = '';
+                    certifications.map(i=>{
+                        ul_html += '<li>'
+                                +    '<div class="input-field">'
+                                +        '<label>'
+                                +            '<input type="checkbox" value="'+i?.title+'" onchange="filterSupplier(this.value)" />'
+                                +            '<span>'+i?.title+'</span>'
+                                +        '</label>'
+                                +    '</div>'
+                                +'</li>';
+                    });
+                    rfq_matched_supplier_list_ul.innerHTML = ul_html;
                 })
             });
         }
