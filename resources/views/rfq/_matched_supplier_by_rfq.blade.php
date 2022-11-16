@@ -79,7 +79,7 @@
                         <div class="col s12 m4">
                             <div class="rfq_supplier_filter">
                                 <i class="material-icons">search</i>
-                                <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeydown="filterSupplier(this)"/>
+                                <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this)"/>
                             </div>
                         </div>
                         <div class="col s12 m4">

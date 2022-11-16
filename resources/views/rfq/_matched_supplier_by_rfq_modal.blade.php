@@ -70,7 +70,7 @@
                     <div class="col s12 m6 l4 rfq_supplier_wrap">
                         <div class="rfq_supplier_filter">
                             <i class="material-icons">search</i>
-                            <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeydown="filterSupplier(this)"/>
+                            <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this)"/>
                         </div>
                     </div>
                     <div class="col s12 m6 l4 request_quotation_wrap">
@@ -184,10 +184,10 @@
 
         }
         const getBusinessProfileLogo = (businessProfile) => {
-            if(businessProfile?.business_profile_logo == null){
+            if(businessProfile?.user?.image == null){
                 return "https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/no-image.png";
             }else{
-                return "https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/"+businessProfile?.business_profile_logo;
+                return "https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/"+businessProfile?.user?.image;
             }
         }
         const getCertifications = (businessProfile) => {

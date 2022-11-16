@@ -64,7 +64,7 @@ class HomeController extends Controller
             $uniqueRfqIdsWithChatdata = array_unique($chatdataRfqIds);
             //all rfqs where auth user has messages
             $rfqs = RfqApp::whereIn('id',$uniqueRfqIdsWithChatdata)->latest()->get();
-            if(count($rfqs)>0){
+            if(count($rfqs)>0 && count($rfqLists)>0){
                 //messages of first rfq of auth user
                 $response = Http::get(env('RFQ_APP_URL').'/api/messages/'.$rfqLists[0]['id'].'/user/'.$user->sso_reference_id);
                 $data = $response->json();
