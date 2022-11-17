@@ -161,7 +161,7 @@
                                         <div class="middle_part_image_wrapper">
                                             <h6>Certification:</h6>
                                             @if($businessProfile['certifications'])
-                                            <div class="inner_content_image">
+                                            <div class="inner_content_image suppliers_certificates_list">
                                                 @foreach($businessProfile['certifications'] as $cert)
                                                     <img class="" src='{{Storage::disk('s3')->url('public/'.$cert['image'])}}' alt="">
                                                 @endforeach
