@@ -250,11 +250,11 @@ $cookie = json_decode(json_decode(json_encode($cookie)));
             <div class="non_subscriber_message_block">
                 <div class="non-subscribe-message-block">
                     <div class="non-subscribe-block-text">
-                        {{count($suppliersCount)}}
-                        <h4>Please Subscribe to see the Suppliers</h4>
+                        <h4>We have {{count($suppliersCount)}} suppliers.</h4>
                     </div>
                     <div class="new_rfq_subscribe_wrap">
                         <div class="new_rfq_subscribe_box">
+                            <p>Please Subscribe to see the Suppliers</p>
                             <a href="{{route('pricing.plan.form')}}" class="btn_subscribe btn btn_green">Subscribe</a>
                         </div>
                     </div>

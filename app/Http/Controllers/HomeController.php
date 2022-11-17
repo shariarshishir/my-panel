@@ -917,7 +917,7 @@ class HomeController extends Controller
     //suppliers
     public function suppliers(Request $request)
     {
-        $suppliers=BusinessProfile::select('business_profiles.*')
+        $suppliers = BusinessProfile::select('business_profiles.*')
             ->leftJoin('certifications', 'certifications.business_profile_id', '=', 'business_profiles.id')
             ->with(['businessCategory', 'user', 'companyOverview'])->where(function($query) use ($request){
             if($request->business_type){
@@ -965,6 +965,8 @@ class HomeController extends Controller
         ->orderBy('certifications.created_at', 'desc')
         ->paginate(12);
 
+        $suppliersCount = BusinessProfile::select('business_profiles.*')->get();
+
         $industry_type_cat= BusinessMappingTree::with('children.children')->where('parent_id', null)->get();
         $factory_type_cat=[];
         foreach($industry_type_cat as $data){
@@ -979,7 +981,7 @@ class HomeController extends Controller
             }
         }
         $factory_type_cat= array_unique($factory_type_cat);
-        return view('suppliers.index',compact('suppliers', 'industry_type_cat', 'factory_type_cat'));
+        return view('suppliers.index',compact('suppliers', 'suppliersCount', 'industry_type_cat', 'factory_type_cat'));
     }
     //supplier profile
     public function supplierProfile($alias)
