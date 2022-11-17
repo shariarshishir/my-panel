@@ -649,7 +649,7 @@
 			</a>
 		</li>
         <li class="oms">
-			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="https://app.merchantbay.com/console/" target="_blank">
+			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="https://app.merchantbay.com/console/?token={{Cookie::get('sso_token_oms')}}" target="_blank">
                 <span>OMS</span>
             </a>
 		</li>
