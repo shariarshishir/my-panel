@@ -12915,7 +12915,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding-bottom: 30px !important;
 }
 #rfqDetailsRightSlider .middle_part_image_wrapper {
-   margin: 25px 0px;
+   margin: 25px 0px 15px;
 }
 #rfqDetailsRightSlider .match_supplier_rfq_single_content .sparkle_part h3 {
     font-size: 16px;
@@ -16416,13 +16416,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background-color: darkgrey;
     outline: 1px solid slategrey;
 }
+
 .new_design_product_detail_wrap .product-bg-image {
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
-    /* background: #e6e6e6; */
 }
 .new_design_product_detail_wrap .product-bg-image .image_label {
     position: absolute;
@@ -21483,6 +21483,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    }
    .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_top_content {
     height: auto;
+   }
+   .chat-application .app-chat .chat-content .chat-content-area .chat-footer .chat-input {
+    margin-bottom: 30px;
    }
 }
 @media only screen and (max-width: 380px) {
