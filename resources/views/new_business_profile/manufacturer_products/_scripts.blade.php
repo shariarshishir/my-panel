@@ -28,7 +28,7 @@
     productFirstHtml += '<span></span>';
     productFirstHtml += '<input type="hidden" name="productImg[product_image_is_accessories][]" class="is_accessories_checked_value" value="no" />';
     productFirstHtml += '</label>';
-    productFirstHtml += '</tr>';   
+    productFirstHtml += '</tr>';
 
     //add manufacture product modal open
     $('.product-add-modal-trigger').click(function(){
@@ -183,7 +183,7 @@
 
                         var label;
                         var isRawMaterial;
-                            
+
                         if(item.image_label == null){
                             label = '';
                         }else{
@@ -243,7 +243,7 @@
                     //     $('#product-edit-modal-block .overlay-addImage-preview').attr("src", 'https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/upload_Image_file.png');
                     // }
 
-                    
+
                      // video
                     $('#product-edit-modal-block input[name=remove_video_id]').val('');
                     $('#product-edit-modal-block .edit-video-show-block').empty();
@@ -307,11 +307,11 @@
 
                     $('#product-edit-modal-block .free_to_show').val(data.product.free_to_show).trigger('change');
                     $("#product-edit-modal-block select[name=free_to_show][value=" + data.product.free_to_show + "]").prop('selected', true);
-                    
+
 
 
                     $('#product-edit-modal-block input[name=product_image_label]').val(data.product.product_image_label);
-                    
+
 
 
                     var preloaded = data.product_images;
@@ -665,8 +665,10 @@
         if($(this).is(':checked'))
         {
             $(this).closest("label").children(".is_accessories_checked_value").val('yes');
+            $(this).closest("td.uploadImageAccessories").prev("td.uploadImageLabel").children("input").attr("disabled", true);
         } else {
             $(this).closest("label").children(".is_accessories_checked_value").val('no');
+            $(this).closest("td.uploadImageAccessories").prev("td.uploadImageLabel").children("input").attr("disabled", false);
         }
     })
 
