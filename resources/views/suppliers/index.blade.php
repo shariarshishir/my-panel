@@ -40,7 +40,7 @@
 $cookie = Cookie::get('sso_token');
 $cookie = base64_decode(explode(".",$cookie)[1]);
 $cookie = json_decode(json_decode(json_encode($cookie)));
-$cookie->subscription_status = 0;
+//$cookie->subscription_status = 0;
 @endphp
     @if($cookie->subscription_status == 1)
     <div class="suppliers_container suppliers_filter_wrapper row" itemscope>
