@@ -112,12 +112,12 @@
                             <table class="product_upload_update_table"> 
                                 <thead class="cf">
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Label</th>
-                                        <th>Is Accessories</th>
+                                        <th class="uploadOverlayImage">Image</th>
+                                        <th class="uploadImageLabel">Label</th>
+                                        <th class="uploadImageAccessories">Is Accessories</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="upload_overlay_box">
                                     <tr>
                                         <td data-title="Image" class="uploadOverlayImage">
                                             <div id="addImage">

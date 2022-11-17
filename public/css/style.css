@@ -15426,8 +15426,68 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .product_upload_update_block {
     padding: 20px 0 30px;
 }
+.product_upload_update_block .product_upload_update_table thead {
+    display: table-caption;
+    background: #eee;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px 5px 0 0;
+}
+.product_upload_update_block .product_upload_update_table thead tr {
+    display: block;
+    border: none;
+}
+.product_upload_update_block .product_upload_update_table thead th {
+    text-align: center;
+    display: inline-table;
+}
+.product_upload_update_block .product_upload_update_table tbody {
+    display: table-caption;
+    max-height: 300px;
+    overflow: auto;
+    border: 1px solid #eeeeee;
+}
+.product_upload_update_block .product_upload_update_table tr {
+    border-bottom: 1px solid #eeeeee;
+    display: block;
+}
+.product_upload_update_block .product_upload_update_table tbody::-webkit-scrollbar {
+    width: 1px;
+}
+.product_upload_update_block .product_upload_update_table tbody::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.product_upload_update_block .product_upload_update_table tbody::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+.product_upload_update_block .uploadOverlayImage {
+    min-width: 350px;
+}
+.product_upload_update_block .uploadImageLabel {
+    min-width: 200px;
+}
+.product_upload_update_block .uploadImageAccessories {
+    min-width: 120px;
+    text-align: center;
+}
+.product_upload_update_block .add_more_box {
+    padding-top: 10px;
+}
+.product_upload_update_block .uploadImageAccessories label {
+    display: inline-block;
+    margin-top: 4px;
+}
+.product_upload_update_block .uploadImageLabel input {
+    width: -webkit-fill-available !important;
+    width: -moz-available !important;
+}
+
+.product_upload_update_block input[type=text]:not(.browser-default):disabled {
+    background: #e5e5e5;
+}
 .product_upload_update_block .overlay-addImage-preview-block {
-    height: 80px;
+    height: 130px;
     max-height: inherit !important;
     text-align: center;
 }
@@ -15442,7 +15502,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 88px;
+    height: 130px;
 }
 .product_upload_update_block .uplodad_file_button_wrap .btn {
     width: auto;
@@ -15463,28 +15523,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .product_upload_update_block .product_upload_update_table .overlay-addImage-preview-block img {
     width: auto;
-    height: 80px;
+    height: 130px;
     object-fit: contain;
     border: 1px solid #eeeeee
 }
-.product_upload_update_block .add_more_box {
-    padding-top: 10px;
-}
-.product_upload_update_block .uploadOverlayImage {
-    width: 200px;
-}
-.product_upload_update_block .uploadImageAccessories {
-    width: 120px;
-    text-align: right;
-}
-.product_upload_update_block .uploadImageAccessories label {
-    display: inline-block;
-    margin-top: 4px;
-}
-.product_upload_update_block .uploadImageLabel input {
-    width: -webkit-fill-available !important;
-    width: -moz-available !important;
-}
+
 /* ******************** .contactus-content-body style start *********************** */
 .contactus-content-body {
     padding-top: 20px;
@@ -16421,7 +16464,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     position: relative;
 }
 .new_design_product_detail_wrap .product-bg-image .image_label {
@@ -18959,6 +19002,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_top_content {
         height: 185px;
     }
+    .product_upload_update_block .uploadOverlayImage {
+        min-width: 250px;
+    }
 }
 @media only screen and (max-width: 900px) {
     .chat-application .app-sidebar {
@@ -20041,6 +20087,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .free_trial_subscription_message_box .free_trial_subscription_leftText {
         padding-bottom: 0;
     }
+    .product_upload_update_block .product_upload_update_table thead {
+        background: none;
+        padding: 0;
+    }
+    .product_upload_update_block .product_upload_update_table tbody {
+        display: inherit;
+    }
+    .product_upload_update_block .product_upload_update_table tr:last-child {
+        margin-bottom: 0;
+    }
+    .product_upload_update_block .product_upload_update_table tr td {
+        text-align: center !important;
+    }
+    .product_upload_update_block .product_upload_update_table tr {
+        border: none !important;
+    }
 }
 @media only screen and (max-width: 600px) {
     .user-profile-basic-info-block .my_businesses_wrap .col.m4 {
@@ -21089,6 +21151,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .contactus-content-body .contact_right_block {
         padding: 0 30px;
+    }
+    .profile_account_searchBar .post_new {
+        margin-left: -10px;
     }
 }
 @media only screen and (max-width: 480px) {
