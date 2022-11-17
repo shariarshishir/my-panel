@@ -1131,6 +1131,7 @@ legend {
 .profile_tab_menu .tabs .tab {
     line-height: 38px;
     height: 38px;
+    padding: 0 3px;
 }
 .profile_wholesaler_tab_menu ul li a:link, .profile_wholesaler_tab_menu ul li a:active, .profile_wholesaler_tab_menu ul li a:visited, .profile_tab_menu .tabs .tab a:link, .profile_tab_menu .tabs .tab a:active, .profile_tab_menu .tabs .tab a:visited {
     font-family: "nexabold";
@@ -1139,6 +1140,7 @@ legend {
     text-transform: capitalize;
     border-radius: 10px;
     border: none;
+    padding: 0 18px;
 }
 .profile_wholesaler_tab_menu ul li a.active {
     color: #ffffff;
@@ -8815,8 +8817,10 @@ nav .pagination li.active .page-link {
     margin-bottom: 0;
     margin-top: 0;
     height: 35px;
+    border-top: none;
 }
-.samples_from_mb_collection .productBox h4 span, .product_design_wrapper .productBox h4 span {
+.samples_from_mb_collection .productBox h4 span, 
+.product_design_wrapper .productBox h4 span {
     overflow: hidden;
     position: absolute;
     top: 50%;
@@ -16800,6 +16804,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    }
     .profile_tabNav_wrap .product_design_wrapper .productBox .imgBox {
         height: 210px;
+   }
+   .profile_contentCol .profile_tabNav_wrap .product_design_wrapper .productBox .imgBox {
+        height: 170px;
    }
     .product_upload_innerBox .input-field .price_leadtime_table input {
         width: 80% !important;

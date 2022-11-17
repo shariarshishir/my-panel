@@ -2,7 +2,7 @@
     @if($business_profile->manufactureProducts()->exists())
     <div class="product_boxwrap">
         @foreach($business_profile->manufactureProducts as $key=>$product)
-            <div class="col s6 m4 l3 product_item_box">
+            <div class="col s6 m4 product_item_box">
                 <div class="productBox">
                     <div class="favorite">
                         @if(in_array($product->id,$wishListMfProductsIds))
