@@ -70,7 +70,7 @@
                     <div class="col s12 m6 l4 rfq_supplier_wrap">
                         <div class="rfq_supplier_filter">
                             <i class="material-icons">search</i>
-                            <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value)"/>
+                            <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,0)"/>
                         </div>
                         <div class="rfq_matched_supplier_list_wrapper">
                             <a href="javascript:void(0);" class="rfq_matched_supplier_list_trigger">Select one/multiple certificates</a>
@@ -78,7 +78,7 @@
                                 
                             </ul>
                         </div>
-                        <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value)"/>
+                        <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,2)"/>
                     </div>
                     <div class="col s12 m6 l4 request_quotation_wrap">
                         <div class="request_for_quotation">
@@ -149,31 +149,33 @@
         let certifications = [];
         let rfq = {};
         let check_status = false;
-        let filter_params = '';
-        const filterSupplier = (e) => {
-            const value = e;
-            
-            
-            
-            
-            console.log(filter_params);
-            if(filter_params.includes('-' + e + '-')){
-                let fp = '';
-                let aa = filter_params.split('-');
-                for(let x = aa.length - 1; x >= 0; x--){
-                    if(aa[x] && !aa[x].includes(value)){
-                        fp += '-' + aa[x] + '-';
+        let filter_certs = [];
+        let filter_exp = '';
+        let filter_name = '';
+        const filterSupplier = (e,t) => {
+            const value = e.toLowerCase();
+            if(t == 0){
+                filter_name = value;
+            }
+            if(t == 1){
+                let a = filter_certs.filter((item,index)=>item != value);
+                if(a.length == 0){
+                    if(value){
+                        filter_certs.push(value);
                     }
+                }else{
+                    filter_certs = a;
                 }
-                fp += '-' + e + '-';
-                filter_params = fp;
-            }else{
-                filter_params += '-' + e + '-';
-
+            }
+            if(t == 2){
+                filter_exp = value;
             }
             
-            console.log(filter_params);
-            return;
+
+            let search_by = [...[filter_name],...filter_certs,...[filter_exp]];
+            search_by = search_by.filter(i=>i!="");
+            console.log(search_by);
+            
             let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
@@ -189,15 +191,14 @@
                         dd = date - d['value'];
                     }
                 });
-                const search_field = business_name + '-' + certs + '-' + dd;
+                const business_name = i['business_name'];
+                const search_field = (business_name + '-' + certs + '-' + dd).toLowerCase();
                 for(var k = 0; k < elms.length; k++) {
-                    if(value){
-                        const business_name = i['business_name'];
+                    if(search_by){
                         
-                        
+                        const a = search_by.filter(i=>search_field.includes(i));
                         // business_name certifications years of experience
-                        if((search_field.toLowerCase()).includes(value.toLowerCase())){
-                            console.log('search_field',search_field);
+                        if(a.length == search_by.length){
                             elms[k].style.display='block';
                             profile_count = profile_count + 1;
                         }else{
@@ -479,7 +480,7 @@
                         ul_html += '<li>'
                                 +    '<div class="input-field">'
                                 +        '<label>'
-                                +            '<input type="checkbox" value="'+i?.title+'" onchange="filterSupplier(this.value)" />'
+                                +            '<input type="checkbox" value="'+i?.title+'" onchange="filterSupplier(this.value,1)" />'
                                 +            '<span>'+i?.title+'</span>'
                                 +        '</label>'
                                 +    '</div>'
