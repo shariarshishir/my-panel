@@ -76,15 +76,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 m4">
+                        <div class="col s12 m6 l4 rfq_supplier_wrap">
                             <div class="rfq_supplier_filter">
                                 <i class="material-icons">search</i>
-                                <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this)"/>
+                                <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,0)"/>
                             </div>
+                            <div class="rfq_matched_supplier_list_wrapper">
+                                <a href="javascript:void(0);" class="rfq_matched_supplier_list_trigger">Select one/multiple certificates</a>
+                                <ul id="rfq_matched_supplier_list_ul" style="height: 200px; overflow-y: auto;">
+                                    
+                                </ul>
+                            </div>
+                            <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,2)"/>
                         </div>
-                        <div class="col s12 m4">
+                        <div class="col s12 m6 l4 request_quotation_wrap">
                             <div class="request_for_quotation">
                                 <a class="btn_request_quotation waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+                                <a href="javascript:void(0);" class="btn btn_green" onclick="clearFilter();">Clear Filter</a>
                             </div>
                         </div>
                     </div>
@@ -241,15 +249,62 @@
         let business_profile_user_ids = [];
         let business_profiles = [];
         let rfq = {};
-        const filterSupplier = (e) => {
-            const value = e.value;
+        let filter_certs = [];
+        let filter_exp = '';
+        let filter_name = '';
+        let certifications = [];
+        const clearFilter = () => {
+            filter_certs = [];
+            filter_exp = '';
+            filter_name = '';
+            window.location.reload();
+        }
+        const filterSupplier = (e,t) => {
+            const value = e.toLowerCase();
+            if(t == 0){
+                filter_name = value;
+            }
+            if(t == 1){
+                console.log(value);
+                if(filter_certs.includes(value)){
+                    filter_certs = filter_certs.filter((item)=>item != value);
+                }else{
+                    filter_certs.push(value);
+                }
+                
+                console.log(filter_certs);
+            }
+            if(t == 2){
+                filter_exp = value;
+            }
+            
+
+            let search_by = [...[filter_name],...filter_certs,...[filter_exp]];
+            search_by = search_by.filter(i=>i!="");
+            
             let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
-
+                let certs = '';
+                i?.certifications?.map(c=>{
+                    certs += '-'+c.title;
+                });
+                let dd = 0;
+                let date =  new Date().getFullYear();
+                const year_of_establishment_data = JSON.parse(i?.company_overview?.data||[]);
+                year_of_establishment_data?.map(d=>{
+                    if(d['name'] == 'year_of_establishment'){
+                        dd = date - d['value'];
+                    }
+                });
+                const business_name = i['business_name'];
+                const search_field = (business_name + '-' + certs + '-' + dd).toLowerCase();
                 for(var k = 0; k < elms.length; k++) {
-                    if(value){
-                        if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
+                    if(search_by){
+                        
+                        const a = search_by.filter(i=>search_field.includes(i));
+                        // business_name certifications years of experience
+                        if(a.length == search_by.length){
                             elms[k].style.display='block';
                             profile_count = profile_count + 1;
                         }else{
@@ -281,6 +336,33 @@
             if(business_profile_ids.length == 0) {
                 $(".request-for-quotation-modal-trigger").attr("disabled", true);
             }
+            const certs = [];
+            certifications = [];
+            business_profiles.map(i=>{
+                certifications = [...certifications,...i.certifications];
+            });
+            certifications.map(i=>{
+                const a = certs.filter(b=>b.title == i.title);
+                if(a.length == 0){
+                    if(i.image){
+                        certs.push(i);
+                    }
+                }
+            });
+            certifications = certs;
+            const rfq_matched_supplier_list_ul = document.getElementById('rfq_matched_supplier_list_ul');
+            let ul_html = '';
+            certifications.map(i=>{
+                ul_html += '<li>'
+                        +    '<div class="input-field">'
+                        +        '<label>'
+                        +            '<input type="checkbox" value="'+i?.title+'" onchange="filterSupplier(this.value,1)" />'
+                        +            '<span>'+i?.title+'</span>'
+                        +        '</label>'
+                        +    '</div>'
+                        +'</li>';
+            });
+            rfq_matched_supplier_list_ul.innerHTML = ul_html;
         });
 
         const isReadyToSumbit = () =>{
