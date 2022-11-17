@@ -26,7 +26,7 @@
     productFirstHtml += '<span></span>';
     productFirstHtml += '<input type="hidden" name="productImg[product_image_is_accessories][]" class="is_accessories_checked_value" value="no" />';
     productFirstHtml += '</label>';
-    productFirstHtml += '</tr>';    
+    productFirstHtml += '</tr>';
 
     $('.product-add-modal-trigger').click(function(){
         $("#product-add-modal-block").modal('open');
@@ -257,7 +257,7 @@
                             var asset='{{Storage::disk('s3')->url('public')}}'+'/'+item.image;
                             var label;
                             var isRawMaterial;
-                                
+
                             if(item.image_label == null){
                                 label = '';
                             }else{
@@ -1191,8 +1191,10 @@ $(document).on('click', '.btn-back-to-product-list', function (e) {
         if($(this).is(':checked'))
         {
             $(this).closest("label").children(".is_accessories_checked_value").val('yes');
+            $(this).closest("td.uploadImageAccessories").prev("td.uploadImageLabel").children("input").attr("disabled", true);
         } else {
             $(this).closest("label").children(".is_accessories_checked_value").val('no');
+            $(this).closest("td.uploadImageAccessories").prev("td.uploadImageLabel").children("input").attr("disabled", false);
         }
     })
 

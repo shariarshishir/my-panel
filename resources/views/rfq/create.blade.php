@@ -75,6 +75,7 @@
                             </div>
                         @endif
                         <form class="update_rfq_product_upload_form createRfqForm" method="post" enctype="multipart/form-data" action="">
+                            <input type="hidden" name="is_email_sent" value="0" />
                             <div class="row createRfqForm_contect_wrap">
                                 <div class="col s12 m12 l12 create_rfq_form_wrap">
                                     <div class="row">
