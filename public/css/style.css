@@ -16100,6 +16100,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding-top: 45px;
     line-height: 25px;
 }
+
 /* ****************** new_rfq_supplier_outer_wrapper css end ***************** */
 /* ******************** new_design_product_detail_wrap style start *********************** */
 .new_design_product_detail_wrap .new_design_product_detail {
@@ -16481,6 +16482,37 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     text-transform: capitalize;
     min-width: 100px;
     text-align: center;
+}
+
+.suppliers_non_subscriber_message_block_outer {
+    position: relative;
+    height: calc(100vh - 80px);
+    margin: 0 20px;
+}
+.suppliers_non_subscriber_message_block_outer .non_subscriber_message_block {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/rfq_non_subscribers_background.png") no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+.suppliers_non_subscriber_message_block_outer .non-subscribe-message-block {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 195px 50px;
+    text-align: center;
+    height: 100%;
+}
+.suppliers_non_subscriber_message_block_outer .non-subscribe-message-block .new_rfq_subscribe_box {
+    padding-top: 0;
+}
+.suppliers_non_subscriber_message_block_outer .non-subscribe-message-block h4 {
+    font-size: 35px;
+    line-height: normal;
+    margin-bottom: 25px;
 }
 
 /* ******************** new_design_product_detail_wrap style end ******************* */
