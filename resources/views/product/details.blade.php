@@ -155,7 +155,9 @@ $reviewsCount = count($productReviews);
                                                     @if($image->is_raw_materials == 0)
                                                     <a data-fancybox="gallery" href="{{Storage::disk('s3')->url('public/'.$image->original)}}">
                                                         <div class="product-bg-image" style="background-image: url({{Storage::disk('s3')->url('public/'.$image->original)}}); margin-bottom: 0px;">
-                                                            <span class="image_label">{{$image->image_label}}</span>
+                                                            @if(isset($image->image_label))
+                                                                <span class="image_label">{{$image->image_label}}</span>
+                                                            @endif
                                                         </div>
                                                     </a>
                                                     @endif

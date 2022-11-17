@@ -292,6 +292,13 @@
                 currentflow += 1;
             }
         }, 5000);
+
+
+        $('.suppliers_certificates_list').slick({
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
+
     });
     // $('.product-large-image-block').slick({
     //     slidesToShow: 1,

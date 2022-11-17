@@ -233,9 +233,9 @@
         } 
         const getBusinessProfileLogo = (businessProfile) => {
             if(businessProfile?.user?.image == null){
-                return "https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/frontendimages/no-image.png";
+                return "https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/no-image.png";
             }else{
-                return "https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/"+businessProfile?.user?.image;
+                return "https://s3.ap-southeast-1.amazonaws.com/service.products/public/"+businessProfile?.user?.image;
             }
         }
         const getCertifications = (businessProfile) => {
@@ -243,12 +243,12 @@
             let imgs = [];
             data.map(cert=>{
                 if(cert['image']!=null){
-                    imgs.push('https://s3.ap-southeast-1.amazonaws.com/development.service.products/public/'+cert['image']);
+                    imgs.push('https://s3.ap-southeast-1.amazonaws.com/service.products/public/'+cert['image']);
                 }
 
             });
 
-            let v = '<div class="inner_content_image">';
+            let v = '<div class="inner_content_image suppliers_certificates_list">';
             imgs.map(i=>{
                 v += '<img class="" src="'+i+'" alt="">'
             });
