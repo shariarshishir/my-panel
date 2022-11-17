@@ -158,14 +158,14 @@
                 filter_name = value;
             }
             if(t == 1){
-                let a = filter_certs.filter((item,index)=>item != value);
-                if(a.length == 0){
-                    if(value){
-                        filter_certs.push(value);
-                    }
+                console.log(value);
+                if(filter_certs.includes(value)){
+                    filter_certs = filter_certs.filter((item)=>item != value);
                 }else{
-                    filter_certs = a;
+                    filter_certs.push(value);
                 }
+                
+                console.log(filter_certs);
             }
             if(t == 2){
                 filter_exp = value;
@@ -174,7 +174,6 @@
 
             let search_by = [...[filter_name],...filter_certs,...[filter_exp]];
             search_by = search_by.filter(i=>i!="");
-            console.log(search_by);
             
             let profile_count = 0;
             business_profiles.map(i=>{
