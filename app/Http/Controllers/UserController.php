@@ -526,6 +526,11 @@ class UserController extends Controller
                 Cookie::queue(Cookie::forget('sso_token'));
             }
             Cookie::queue(Cookie::make('sso_token', $access_token, $totalMinutesDiff));
+            //set cookie for OMS
+            if(Cookie::has('sso_token_oms')){
+                Cookie::queue(Cookie::forget('sso_token_oms'));
+            }
+            Cookie::queue(Cookie::make('sso_token_oms', $token, $totalMinutesDiff));
             //set password to session
             if($request->session()->has('sso_password')){
                 $request->session()->forget('sso_password');
