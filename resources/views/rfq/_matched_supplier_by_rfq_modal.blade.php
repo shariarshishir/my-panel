@@ -112,7 +112,7 @@
         @else
             <div class="non-subscribe-message-block">
                 <div class="non-subscribe-block-text">
-                    <h4 id="business-profile-count-total"></h4>
+                    <h4 id="business-profile-count-total" style="color: #fff;"></h4>
                 </div>
                 <div class="new_rfq_subscribe_wrap">
                     <div class="row">
