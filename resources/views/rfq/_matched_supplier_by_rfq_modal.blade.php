@@ -56,32 +56,40 @@
         <div class="rfq_new_layout_match_suppliers_wrap">
             @if($cookie->subscription_status == 1)
             <div class="new_rfq_filter_wrapper">
-                <div class="row">
-                    <div class="col s12 m6 l4 new_rfq_filter_wrap">
-                            <div class="new_rfq_filter_select">
+                <div class="new_rfq_filter_wrap">
+                    <div class="new_rfq_filter_select">
+                        {{-- <div class="new_rfq_filter_wrap">
                             <div class="input-field">
-                                <!-- <label>
+                                <label>
                                     <input type="checkbox" id="select-all-supplier" name="select-all-supplier" onclick='onSelectAll(this)'/>
                                     <span>Select All</span>
-                                </label> -->
+                                </label>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l4 rfq_supplier_wrap">
-                        <div class="rfq_supplier_filter">
-                            <i class="material-icons">search</i>
-                            <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this)"/>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l4 request_quotation_wrap">
-                        <div class="request_for_quotation">
-                            <button href="javascript:void(0)" class="btn btn_green" id="send-request-again-for-rfq" onclick="onRequestSubmit()" style="display:none;">Send Request</button>
-                            <a class="btn_request_quotation waves-effect waves-light btn request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="javascript:void(0)" onclick="putSupplierList()">Request More</a>
-                        </div>
+                            <a href="javascript:void(0);" class="btn btn_clear_all" onclick="clearFilter();">All Clear<i class="material-icons">clear_all</i></a>
+                        </div> --}}
                     </div>
                 </div>
+                <div class="rfq_supplier_filter rfq_filter_box">
+                    <i class="material-icons">search</i>
+                    <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,0)"/>
+                </div>
+                <div class="rfq_matched_supplier_list_wrapper rfq_filter_box">
+                    <a onclick="supplierlistTrigger()" href="javascript:void(0);" class="rfq_matched_supplier_list_trigger">Select one/multiple certificates</a>
+                    <div id="rfqMatchedSupplierlist">
+                        <ul id="rfq_matched_supplier_list_ul" style="height: 200px; overflow-y: auto;">
 
-
+                        </ul>
+                    </div>
+                </div>
+                <div class="rfq_filter_box input-field rfq_filter_experience">
+                    <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,2)"/>
+                </div>
+                <div class="request_quotation_wrap">
+                    <div class="request_for_quotation">
+                        <button href="javascript:void(0)" class="btn btn_green" id="send-request-again-for-rfq" onclick="onRequestSubmit()" style="display:none;">Send Request</button>
+                        <a class="btn_request_quotation waves-effect waves-light btn request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="javascript:void(0)" onclick="putSupplierList()">Request More</a>
+                    </div>
+                </div>
             </div>
             <!-- Modal Structure -->
             <div id="request-for-quotation-from-rfq" class="modal request_quotation_rfq_from">
@@ -139,18 +147,58 @@
         let business_profile_ids = [];
         let business_profile_user_ids = [];
         let business_profiles = [];
+        let certifications = [];
         let rfq = {};
         let check_status = false;
+        let filter_certs = [];
+        let filter_exp = '';
+        let filter_name = '';
+        const filterSupplier = (e,t) => {
+            const value = e.toLowerCase();
+            if(t == 0){
+                filter_name = value;
+            }
+            if(t == 1){
+                console.log(value);
+                if(filter_certs.includes(value)){
+                    filter_certs = filter_certs.filter((item)=>item != value);
+                }else{
+                    filter_certs.push(value);
+                }
+                
+                console.log(filter_certs);
+            }
+            if(t == 2){
+                filter_exp = value;
+            }
+            
 
-        const filterSupplier = (e) => {
-            const value = e.value;
+            let search_by = [...[filter_name],...filter_certs,...[filter_exp]];
+            search_by = search_by.filter(i=>i!="");
+            
             let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
-
+                let certs = '';
+                i?.certifications?.map(c=>{
+                    certs += '-'+c.title;
+                });
+                let dd = 0;
+                let date =  new Date().getFullYear();
+                const year_of_establishment_data = JSON.parse(i?.company_overview?.data||[]);
+                year_of_establishment_data?.map(d=>{
+                    if(d['name'] == 'year_of_establishment'){
+                        dd = date - d['value'];
+                    }
+                });
+                const business_name = i['business_name'];
+                const search_field = (business_name + '-' + certs + '-' + dd).toLowerCase();
                 for(var k = 0; k < elms.length; k++) {
-                    if(value){
-                        if((i['business_name'].toLowerCase()).includes(value.toLowerCase())){
+                    if(search_by){
+                        
+                        const a = search_by.filter(i=>search_field.includes(i));
+                        // business_name certifications years of experience
+                        if(a.length == search_by.length){
                             elms[k].style.display='block';
                             profile_count = profile_count + 1;
                         }else{
@@ -182,7 +230,7 @@
             document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = len + ' suppliers?';
             $(".supplier-matched-selected-box").html(business_profile_ids.length+" Suppliers Selected");
 
-        }
+        } 
         const getBusinessProfileLogo = (businessProfile) => {
             if(businessProfile?.user?.image == null){
                 return "https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/no-image.png";
@@ -198,12 +246,12 @@
                     imgs.push('https://s3.ap-southeast-1.amazonaws.com/service.products/public/'+cert['image']);
                 }
 
-            })
+            });
 
             let v = '<div class="inner_content_image suppliers_certificates_list">';
             imgs.map(i=>{
                 v += '<img class="" src="'+i+'" alt="">'
-            })
+            });
 
 
             v+='</div>';
@@ -382,6 +430,7 @@
             redirect_url = redirect_url.replace(':slug', rfq_id);
             var url = redirect_url;
             business_profiles = [];
+            certifications = [];
             fetch(url, {
                 method: 'GET',
                 headers: {
@@ -412,6 +461,32 @@
                     if(business_profile_count_total){
                         business_profile_count_total.innerHTML = "We have "+(business_profiles?.length||0)+" suppliers matched <br/> with your Quotation."
                     }
+                    business_profiles.map(i=>{
+                        certifications = [...certifications,...i.certifications];
+                    });
+                    const certs = [];
+                    certifications.map(i=>{
+                        const a = certs.filter(b=>b.title == i.title);
+                        if(a.length == 0){
+                            if(i.image){
+                                certs.push(i);
+                            }
+                        }
+                    });
+                    certifications = certs;
+                    const rfq_matched_supplier_list_ul = document.getElementById('rfq_matched_supplier_list_ul');
+                    let ul_html = '';
+                    certifications.map(i=>{
+                        ul_html += '<li>'
+                                +    '<div class="input-field">'
+                                +        '<label>'
+                                +            '<input type="checkbox" value="'+i?.title+'" onchange="filterSupplier(this.value,1)" />'
+                                +            '<span>'+i?.title+'</span>'
+                                +        '</label>'
+                                +    '</div>'
+                                +'</li>';
+                    });
+                    rfq_matched_supplier_list_ul.innerHTML = ul_html;
                 })
             });
         }
@@ -501,6 +576,14 @@
             }
             $(".supplier-matched-selected-box").html(business_profile_ids.length+" Suppliers Selected");
             document.getElementById("send-request-again-for-rfq").disabled = false;
+        }
+    </script>
+
+
+    <script>
+        function supplierlistTrigger() {
+            var element = document.getElementById("rfqMatchedSupplierlist");
+            element.classList.toggle("supplierlist");
         }
     </script>
 @endpush
