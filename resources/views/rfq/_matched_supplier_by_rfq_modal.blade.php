@@ -65,7 +65,6 @@
                                     <span>Select All</span>
                                 </label>
                             </div>
-                            <a href="javascript:void(0);" class="btn btn_clear_all" onclick="clearFilter();">All Clear<i class="material-icons">clear_all</i></a>
                         </div> --}}
                     </div>
                 </div>
@@ -84,6 +83,9 @@
                 <div class="rfq_filter_box input-field rfq_filter_experience">
                     <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,2)"/>
                 </div>
+                {{-- <div class="filter_clear_all">
+                    <a href="javascript:void(0);" class="btn btn_clear_all" onclick="clearFilter();">All Clear<i class="material-icons">clear_all</i></a>
+                </div> --}}
                 <div class="request_quotation_wrap">
                     <div class="request_for_quotation">
                         <button href="javascript:void(0)" class="btn btn_green" id="send-request-again-for-rfq" onclick="onRequestSubmit()" style="display:none;">Send Request</button>
@@ -340,7 +342,7 @@
         '								</div>'+
         '								<div class="chatbox_wrap">'+
         '									<a href="javascript:void(0)">'+
-        '										<i class="material-icons">chat</i> <!--span>5</span-->'+
+        '										<img src="{{Storage::disk('s3')->url('public/frontendimages/chatbox_iocn.png')}}" alt="Chatbox Iocn"> <!--span>5</span-->' +
         '									</a>'+
         '								</div>'+
         '							</div>'+
@@ -394,7 +396,7 @@
         '								</div>'+
         '								<div class="chatbox_wrap">'+
         '									<a href="javascript:void(0)">'+
-        '										<i class="material-icons">chat</i> <!--span>5</span-->'+
+        '										<img src="{{Storage::disk('s3')->url('public/frontendimages/chatbox_iocn.png')}}" alt="Chatbox Iocn"> <!--span>5</span-->' +
         '									</a>'+
         '								</div>'+
         '							</div>'+

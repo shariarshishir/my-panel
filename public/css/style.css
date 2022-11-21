@@ -15822,7 +15822,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #fff !important;
     height: 42px;
     line-height: 46px;
-    padding: 0 12px;
+    padding: 0 10px;
     font-size: 12px;
     box-shadow: none;
     margin: 0;
@@ -15964,13 +15964,17 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     right: 10px;
     height: 22px;
 }
-.new_rfq_supplier_outer_wrapper .main_product_inner .chatbox_wrap img {
-    width: 30px;
+.new_rfq_supplier_outer_wrapper .chatbox_wrap a {
+    display: block;
+    height: 22px;
 }
-.new_rfq_supplier_outer_wrapper .chatbox_wrap .material-icons {
+.new_rfq_supplier_outer_wrapper .chatbox_wrap img {
+    width: 25px;
+}
+/* .new_rfq_supplier_outer_wrapper .chatbox_wrap .material-icons {
     font-size: 25px;
     color: #48ab48;
-}
+} */
 .new_rfq_supplier_outer_wrapper .main_product_inner .chatbox_wrap span {
     position: absolute;
     width: 15px;
@@ -16196,19 +16200,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding-left: 28px;
     font-size: 14px;
 }
-.new_rfq_filter_wrapper .new_rfq_filter_wrap {
-    display: flex;
-}
 .new_rfq_filter_wrapper .new_rfq_filter_select .input-field {
-    max-width: 88px;
     margin-bottom: 0;
+    padding-right: 10px;
+    white-space: nowrap;
 }
 .new_rfq_filter_wrapper .new_rfq_filter_select .input-field label {
     font-size: 12px;
     padding-top: 10px;
     margin: 0;
 }
-.new_rfq_filter_wrapper .new_rfq_filter_select .btn_clear_all {
+.new_rfq_filter_wrapper .new_rfq_filter_select [type="checkbox"]+span:not(.lever) {
+    padding-left: 26px;
+    font-size: 12px;
+}
+.new_rfq_filter_wrapper .filter_clear_all .btn_clear_all {
     background: #48ab48;
     box-shadow: none;
     color: #fff;
@@ -16218,15 +16224,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 44px;
     text-transform: capitalize;
     line-height: 12px;
-    margin: 3px 8px 0;
+    margin: 3px 4px 0;
 }
-.new_rfq_filter_wrapper .new_rfq_filter_select .btn_clear_all .material-icons {
+.new_rfq_filter_wrapper .filter_clear_all .btn_clear_all .material-icons {
     line-height: 15px;
 }
-.new_rfq_filter_wrapper .new_rfq_filter_select [type="checkbox"]+span:not(.lever) {
-    padding-left: 26px;
-    font-size: 12px;
-}
+
 .new_rfq_supplier_outer_wrapper [type="checkbox"]:not(.filled-in)+span:not(.lever):after,
 .new_rfq_supplier_outer_wrapper [type="checkbox"]+span:not(.lever):before {
     width: 15px;
@@ -17635,6 +17638,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         width: 100%;
         text-align: center;
     }
+    .new_rfq_filter_wrapper .filter_clear_all,
     .new_rfq_filter_wrapper .rfq_filter_experience,
     .new_rfq_filter_wrapper .rfq_filter_box,
     .new_rfq_supplier_outer_wrapper .request_quotation_wrap,
