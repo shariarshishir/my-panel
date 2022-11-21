@@ -65,39 +65,38 @@
             <div class="rfq_new_layout_match_suppliers_wrap">
                 @if($cookie->subscription_status == 1)
                 <div class="new_rfq_filter_wrapper">
-                    <div class="row">
-                        <div class="col s12 m4">
-                             <div class="new_rfq_filter_select">
-                                <div class="input-field">
-                                    <label>
-                                        <input type="checkbox" id="select-all-supplier" name="select-all-supplier" onclick='onSelectAll(this)'/>
-                                        <span>Select All</span>
-                                    </label>
-                                </div>
+                    <div class="new_rfq_filter_select">
+                        <div class="new_rfq_filter_wrap">
+                            <div class="input-field">
+                                <label>
+                                    <input type="checkbox" id="select-all-supplier" name="select-all-supplier" onclick='onSelectAll(this)'/>
+                                    <span>Select All</span>
+                                </label>
                             </div>
-                        </div>
-                        <div class="col s12 m6 l4 rfq_supplier_wrap">
-                            <div class="rfq_supplier_filter">
-                                <i class="material-icons">search</i>
-                                <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,0)"/>
-                            </div>
-                            <div class="rfq_matched_supplier_list_wrapper">
-                                <a href="javascript:void(0);" class="rfq_matched_supplier_list_trigger">Select one/multiple certificates</a>
-                                <ul id="rfq_matched_supplier_list_ul" style="height: 200px; overflow-y: auto;">
-                                    
-                                </ul>
-                            </div>
-                            <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,2)"/>
-                        </div>
-                        <div class="col s12 m6 l4 request_quotation_wrap">
-                            <div class="request_for_quotation">
-                                <a class="btn_request_quotation waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
-                                <a href="javascript:void(0);" class="btn btn_green" onclick="clearFilter();">Clear Filter</a>
-                            </div>
+                            <a href="javascript:void(0);" class="btn btn_clear_all" onclick="clearFilter();">All Clear<i class="material-icons">clear_all</i></a>
                         </div>
                     </div>
-
-
+                    <div class="rfq_supplier_filter rfq_filter_box">
+                        <i class="material-icons">search</i>
+                        <input placeholder="Type a Supplier Name" type="text" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,0)"/>
+                    </div>
+                    <div class="rfq_matched_supplier_list_wrapper rfq_filter_box">
+                        <a onclick="supplierlistTrigger()" href="javascript:void(0);" class="rfq_matched_supplier_list_trigger">Select one/multiple certificates</a>
+                        <div id="rfqMatchedSupplierlist">
+                            <ul id="rfq_matched_supplier_list_ul" style="height: 200px; overflow-y: auto;">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rfq_filter_box input-field rfq_filter_experience">
+                        <input placeholder="Years Of Experience" type="number" name="rfq_supplier_filter_field" value="" onkeyup="filterSupplier(this.value,2)"/>
+                    </div>
+                    <div class="request_quotation_wrap">
+                        <div class="request_for_quotation">
+                            <a class="btn_request_quotation waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
+                            
+                        </div>
+                    </div>
                 </div>
                 <!-- Modal Structure -->
                 <div id="request-for-quotation-from-rfq" class="modal request_quotation_rfq_from">
@@ -459,6 +458,13 @@
             console.log('business_profile_ids',business_profile_ids);
             console.log('business_profile_user_ids',business_profile_user_ids);
 
+        }
+    </script>
+
+    <script>
+        function supplierlistTrigger() {
+            var element = document.getElementById("rfqMatchedSupplierlist");
+            element.classList.toggle("supplierlist");
         }
     </script>
 @endpush

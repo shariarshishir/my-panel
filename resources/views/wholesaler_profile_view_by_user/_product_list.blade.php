@@ -1,7 +1,7 @@
 @if($business_profile->wholesalerProducts()->exists())
-<div class="product_design_wrapper">
+<div class="product_design_wrapper row">
     @foreach($business_profile->wholesalerProducts as $key=>$product)
-        <div class="col s6 m4 l3 product_item_box">
+        <div class="col s6 m6 l4 product_item_box">
             <div class="productBox">
                 <div class="favorite">
                     @if(in_array($product->id,$wishListShopProductsIds))
@@ -27,14 +27,14 @@
                         </div>
 
                         <div class="products_inner_textbox">
-                            <!-- <div class="priceBox row">
+                            {{-- <div class="priceBox row">
                                 <div class="col s12 m12 l4 apperal">
 
                                 </div>
                                 <div class="col s12 m12 l8 right-align price">
                                     $ {{$product->price_per_unit}}/<span class="unit"> {{$product->qty_unit}}</span>
                                 </div>
-                            </div> -->
+                            </div> --}}
                             <div class="row">
                                 <div class="col s6">
                                     <h4><span> {{ $product->name }} </span></h4>
@@ -44,12 +44,11 @@
                                 </div>
                             </div>
 
-
-                            @if(isset($product->moq))
+                            {{-- @if(isset($product->moq))
                                 <div class="product_moq"><span class="moq">MOQ:</span> {{$product->moq}} <span class="moq-unit">{{ $product->qty_unit }}</span></div>
-                            @endif -->
+                            @endif  --}}
 
-                            <!-- @if(isset($product->lead_time))
+                            {{-- @if(isset($product->lead_time))
                                 <div class="product_lead_time">Lead time:
                                     @php
                                         $pattern= '/[^0-9\-]/';
@@ -57,7 +56,8 @@
                                     @endphp
                                     {{$preg_replace}} days
                                 </div>
-                            @endif -->
+                            @endif --}}
+
                         </div>
                     </a>
 
