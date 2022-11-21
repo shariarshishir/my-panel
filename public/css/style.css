@@ -185,10 +185,10 @@ table {
     background: #54a958;
     color: #fff;
 }
-.btn_grBorder:hover, 
-.btn_lightgr:hover, 
-.btn_default:hover, 
-.btn:hover, 
+.btn_grBorder:hover,
+.btn_lightgr:hover,
+.btn_default:hover,
+.btn:hover,
 button:hover {
     cursor: pointer;
 }
@@ -227,22 +227,22 @@ button:hover {
     font-family: "nexabold";
     color: #54a958;
 }
-.radio_box [type="radio"]+span:before, 
+.radio_box [type="radio"]+span:before,
 [type="radio"]+span:after {
     width: 20px;
     height: 20px;
     top: -2px;
 }
-.radio_box [type="radio"]:not(:checked)+span:before, 
+.radio_box [type="radio"]:not(:checked)+span:before,
 .radio_box [type="radio"]:not(:checked)+span:after {
     border: 2px solid #54a958;
 }
-.radio_box [type="radio"]:checked+span:after, 
+.radio_box [type="radio"]:checked+span:after,
 [type="ra.radio_box dio"].with-gap:checked+span:after {
     background: #54a958;
 }
-.radio_box [type="radio"]:checked+span:after, 
-.radio_box [type="radio"].with-gap:checked+span:before, 
+.radio_box [type="radio"]:checked+span:after,
+.radio_box [type="radio"].with-gap:checked+span:before,
 .radio_box [type="radio"].with-gap:checked+span:after {
     border: 2px solid #54a958;
 }
@@ -8856,7 +8856,7 @@ nav .pagination li.active .page-link {
     height: 35px;
     border-top: none;
 }
-.samples_from_mb_collection .productBox h4 span, 
+.samples_from_mb_collection .productBox h4 span,
 .product_design_wrapper .productBox h4 span {
     overflow: hidden;
     position: absolute;
@@ -12662,6 +12662,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 5px 35px;
     line-height: 24px;
 }
+.rfq_upload_filebox .btn_green.browse_file_trigger_from_product {
+    margin-top: 30px;
+}
 #updateRfqsigninModal .or, .rfq_upload_filebox .or {
     border-bottom: 2px solid #8a8a8a;
     max-width: 235px;
@@ -13029,12 +13032,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 
 /* ************* New rfq update design css end ************* */
 .image-uploader .uploaded .uploaded-image {
-    width: 70px !important;
-    height: 70px !important;
+    width: 150px !important;
+    height: 150px !important;
     padding: 5px !important;
 }
 .image-uploader .uploaded .uploaded-image img {
-    max-width: 70px !important;
+    max-width: 150px !important;
     left: 0px;
     top: 0px;
 }
@@ -13734,11 +13737,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .profile_account_myrfq_addPost .material-icons {
     display: block;
     margin-bottom: 5px;
-    font-size: 50px;
+    font-size: 280px;
     white-space: inherit;
 }
 .profile_account_myrfq_addPost h6 {
     display: block;
+    text-transform: uppercase;
 }
 /* Fixed side nav start */
 .mainSidenav .btn_mainSidenav {
@@ -15359,7 +15363,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .close_rfq_chat_box, .close_rfq_details_box {
     text-align: right;
 }
-.close_rfq_chat_box .btn_white, 
+.close_rfq_chat_box .btn_white,
 .close_rfq_details_box .btn_white {
     padding: 0px 5px;
     margin: 0;
@@ -15368,7 +15372,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #ffffff;
     border: none;
 }
-.close_rfq_chat_box .btn_white .material-icons, 
+.close_rfq_chat_box .btn_white .material-icons,
 .close_rfq_details_box .btn_white .material-icons {
     float: right;
     font-size: 16px;
@@ -16266,7 +16270,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     font-size: 14px;
 }
-.new_rfq_supplier_outer_wrapper .rfq_supplier_filter input:hover, 
+.new_rfq_supplier_outer_wrapper .rfq_supplier_filter input:hover,
 .new_rfq_supplier_outer_wrapper .rfq_supplier_filter input:focus {
     border: none !important;
     box-shadow: none !important;

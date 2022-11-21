@@ -180,8 +180,8 @@
                                     <div class="rfq_upload_filebox_wrap">
                                         <div class="rfq_upload_filebox center-align">
                                             <div class="rfq-document-upload" id="rfq-document-upload"></div>
-                                            <div class="or"><span>OR</span></div>
-                                            <a href="javascript:void(0);" class="btn_green browse_file_trigger">Browse files</a>
+                                            <!--div class="or"><span>OR</span></div-->
+                                            <a href="javascript:void(0);" class="btn_green browse_file_trigger browse_file_trigger_from_product">Add More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -292,7 +292,7 @@
                                         <button type="submit" id="page_button" style="display: none;"></button>
                                         <div class="submit_btn_wrap center-align">
                                             <button type="button" class="btn_green btn_rfq_post btn-green right" onclick="onSubmitWithAuthUserValidation();">
-                                                MATCH SUPPLIER
+                                                SUBMIT
                                             </button>
                                         </div>
                                     </div>
@@ -849,12 +849,14 @@
                                         // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
                                         // redirect_url = redirect_url.replace(':slug', alias);
                                         // window.location.href = redirect_url;
-                                        // var redirect_url = '{{ route("home") }}';
-                                        // window.location.href = redirect_url;
-                                        var alias = rfq_id;
-                                        var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
-                                        redirect_url = redirect_url.replace(':slug', alias);
+
+                                        var redirect_url = '{{ route("home") }}';
                                         window.location.href = redirect_url;
+
+                                        // var alias = rfq_id;
+                                        // var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
+                                        // redirect_url = redirect_url.replace(':slug', alias);
+                                        // window.location.href = redirect_url;
                                     }
                                     //window.location.href = "{{ route('rfq.my')}}";
                                 },
@@ -970,17 +972,20 @@
                                     $('#loadingProgressContainer').hide();
                                     // const msg = "Your RFQ was posted successfully.<br><br>Soon you will receive quotation from <br>Merchant Bay verified relevant suppliers.";
                                     // swal("Done!", msg,"success");
-                                    var alias = rfq_id;
-                                    var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
-                                    redirect_url = redirect_url.replace(':slug', alias);
-                                    window.location.href = redirect_url;
+
+                                    // var alias = rfq_id;
+                                    // var redirect_url = '{{ route("rfq.matched-suppleirs", ":slug") }}';
+                                    // redirect_url = redirect_url.replace(':slug', alias);
+                                    // window.location.href = redirect_url;
+
                                     //window.location.reload;
                                     // var alias = "{{$profileAlias??""}}";
                                     // var redirect_url = '{{ route("new.profile.my_rfqs", ":slug") }}';
                                     // redirect_url = redirect_url.replace(':slug', alias);
                                     // window.location.href = redirect_url;
-                                    // var redirect_url = '{{ route("home") }}';
-                                    // window.location.href = redirect_url;
+
+                                    var redirect_url = '{{ route("home") }}';
+                                    window.location.href = redirect_url;
                                 }
                             })
                         },
