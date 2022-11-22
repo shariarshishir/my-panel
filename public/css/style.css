@@ -15455,42 +15455,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .product_design_wrapper .design_studio_product_list_wrapper {
     margin: 0;
 }
-/*
-.design_studio_product_list_wrapper .masonry {
-    display: flex;
-    flex-flow: column wrap;
-    counter-reset: brick;
-    width: 100%;
-}
-.design_studio_product_list_wrapper .masonry-brick {
-    overflow: hidden;
-    border-radius: 5px;
-    margin: 8px;
-    background-color: #eee;
-    width: 32% !important;
-}
-.design_studio_product_list_wrapper .masonry-img {
-    object-fit: cover;
-    width: 100%;
-}
-.design_studio_product_list_wrapper .masonry-preloader {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    z-index: 999;
-}
-.design_studio_product_list_wrapper .masonry-preloader-inside {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-*/
 .product_upload_update_block {
     padding: 20px 0 30px;
 }
@@ -17207,6 +17171,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .rfq_review_message_box {
         height: 250px;
    }
+   .profile_account_myrfq_addPost .material-icons {
+        font-size: 185px;
+   }
 
 }
 @media only screen and (min-device-width: 767px) and (max-device-width: 1280px) {
@@ -17648,7 +17615,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    .new_rfq_supplier_outer_wrapper .single_wraper_gapping .matched_supplier_item {
         width: 50%;
    }
-
     .new_rfq_supplier_outer_wrapper .new_rfq_filter_wrapper {
         display: inline-block;
         width: 100%;
@@ -17663,6 +17629,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         float: none;
         margin: 3px;
         display: inline-block;
+    }
+    .my_rfq_new_layout_wrapper .rfq_status_wrap .status {
+        padding: 0px 15px;
+    }
+    .profile_account_myrfq_addPost .post_new {
+        padding: 50px 20px;
+    }
+    .profile_account_myrfq_addPost .material-icons {
+        font-size: 120px;
     }
 }
 @media only screen and (max-width: 1200px) {
@@ -19218,11 +19193,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         left: 8px;
         width: inherit;
    }
-   /*
-    .design_studio_product_list_wrapper .masonry-brick {
-        width: 48%;
-   }
-   */
    .create_rfq_detail_from_wrap .rfq-product-you-may-also-like .product_img {
        margin-bottom: 20px;
        height: 300px;
@@ -21307,13 +21277,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         border: none;
         padding-right: 10px;
    }
-   
-   /*
-    .design_studio_product_list_wrapper .masonry-brick {
-        width: 100%;
-        margin: 0 0 20px 0;
-   }
-   */
    .subscription_pricing_block .yearly_plan_price,
    .subscription_pricing_block .half_yearly_plan_price {
        font-size: 25px;
