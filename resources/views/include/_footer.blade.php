@@ -1661,58 +1661,19 @@ function addToWishList(flag, id, obj){
     }
 </script>
 
-{{-- masonry script start --}}
-{{-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/flexmasonry/dist/flexmasonry.js"></script>
 <script>
-    $('.design_studio_product_list').masonry({
-        // options
-        itemSelector: '.design_stodio_product_item',
-        columnWidth: 30
-    });
-</script> --}}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js" id='bits-prettify-js'></script>
-<script>
-    function masonry(grid, gridCell, gridGutter, dGridCol, tGridCol, mGridCol) {
-        var g = document.querySelector(grid),
-        gc = document.querySelectorAll(gridCell),
-        gcLength = gc.length,
-        gHeight = 0,
-        i;
-
-        for(i=0; i<gcLength; ++i) {
-        gHeight+=gc[i].offsetHeight+parseInt(gridGutter);
-    }
-
-    if(window.screen.width >= 993)
-        g.style.height = gHeight/dGridCol + gHeight/(gcLength+1) + "px";
-        else if(window.screen.width < 992 && window.screen.width >= 200)
-        g.style.height = gHeight/tGridCol + gHeight/(gcLength+1) + "px";
-        else
-        g.style.height = gHeight/mGridCol + gHeight/(gcLength+1) + "px";
-    }
-    var loaderHtml = '<div class="masonry-preloader-inside">';
-        loaderHtml += '<img src="{{Storage::disk('s3')->url('public/frontendimages/ajax-loader-bar.gif')}}" width="150" height="150" alt="Loading">';
-        loaderHtml += '</div>';
-
-    var masonryGrid = document.querySelector('.masonry');
-    masonryGrid.insertAdjacentHTML("afterend", "<div class='masonry-preloader'>"+loaderHtml+"</div>");
-    var masonryPreloader = document.querySelector('.masonry-preloader');
-
-    ["resize", "load"].forEach(function(event) {
-        // Adding little preloader information
-        masonryGrid.style.display="none";
-        window.addEventListener(event, function() {
-            imagesLoaded( document.querySelector('.masonry'), function() {
-                masonryGrid.style.display="flex";
-                masonryPreloader.style.display="none";
-                // A masonry grid with 8px gutter, with 3 columns on desktop, 2 on tablet, and 1 column on mobile devices.
-                masonry(".masonry", ".masonry-brick", 8, 3, 2, 1);
-                console.log("Loaded");
-            });
-        }, false);
+    //FlexMasonry.init('.grid');
+    FlexMasonry.init('.grid-design-product', {
+        responsive: true,
+        breakpointCols: {
+            'min-width: 1500px': 3,
+            'min-width: 1200px': 3,
+            'min-width: 992px': 2,
+            'min-width: 768px': 2,
+            'min-width: 576px': 1,
+        },
+        numCols: 3
     });
 </script>
-{{-- masonry script end --}}
 

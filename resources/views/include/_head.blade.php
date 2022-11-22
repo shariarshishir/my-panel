@@ -68,6 +68,7 @@
 <link rel="shortcut icon" href="{{Storage::disk('s3')->url('public/frontendimages/favicon/favicon.png')}}" type="image/x-icon">
 <!--Plugin CSS  rangeSlider file with desired skin-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/flexmasonry/dist/flexmasonry.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141181864-1"></script>
 <script>

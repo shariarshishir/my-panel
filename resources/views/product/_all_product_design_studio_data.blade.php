@@ -5,7 +5,7 @@
 
     <div class="low_moq_products_wrap product_boxwrap row design_studio_product_list_wrapper"  id="low_moq_body">
         <div class="design_studio_product_list">
-            <div class="masonry">
+            <div class="grid-design-product">
                  @foreach ($products  as $list )
                     <div class="product_item_box design_stodio_product_item masonry-brick masonry-img">
                         <div class="productBox">
