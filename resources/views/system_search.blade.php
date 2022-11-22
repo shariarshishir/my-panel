@@ -62,7 +62,7 @@
                                 <div class="blog-short-intro search_results_right">
                                     <h4>{{$item->title}}</h4>
                                     <div class="details">
-                                        <p>{!! \Illuminate\Support\Str::limit(strip_tags($item->details), 250, '(...)')  !!}</p>
+                                        <p>{!! $item->details  !!}</p>
                                     </div>
                                 </div>
                             </div>

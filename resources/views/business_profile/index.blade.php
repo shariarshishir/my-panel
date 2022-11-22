@@ -22,7 +22,7 @@
                         @endif
                     </p>
                     <p><span>Business Type:</span> {{ucwords($profile->business_type)}}</p>
-                    <p><span>Location:</span> {{ \Illuminate\Support\Str::limit($profile->location, 15, $end='...') }}</p>
+                    <p><span>Location:</span> {{ $profile->location }}</p>
                     <div class="switch profile_enable_disable_trigger">
                         <label>
                             <input type="checkbox" bpid={{$profile->id}} {{$profile->deleted_at ? '' : 'checked'}}>

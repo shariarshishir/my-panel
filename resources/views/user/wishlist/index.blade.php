@@ -52,12 +52,12 @@
                                                 </div>
 
                                                 <div class="product_info_short_details">
-                                                    {{ \Illuminate\Support\Str::limit(strip_tags($item->product->description), 30, $end='...')}}
+                                                    {!! $item->product->description !!}
                                                 </div>
                                             @endif
                                             @if($item->flag == 'mb')
                                                 <div class="product_info_short_details">
-                                                    {{ \Illuminate\Support\Str::limit(strip_tags($item->manufacture_product->product_details), 30, $end='...')}}
+                                                    {!! $item->manufacture_product->product_details !!}
                                                 </div>
                                             @endif
                                             <div class="wishlist_more_details">

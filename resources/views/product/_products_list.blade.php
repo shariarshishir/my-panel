@@ -25,11 +25,11 @@
                             <div class="imgBox">
                                 @foreach($product->images as $key=>$image)
                                     @if($product->businessProfile()->exists())
-                                        
+
                                         <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="single-product-img" alt="" />
                                     @else
                                         <img src="{{Storage::disk('s3')->url('public/'.$image->image)}}" class="single-product-img" alt="" />
-                                        
+
                                     @endif
                                     @break
                                 @endforeach
@@ -49,22 +49,20 @@
                                         </div>
                                         <div class="col s12 m12 l8 price">@include('product._product_price')</div>
                                     </div> -->
-                                    <h4><span> {{ \Illuminate\Support\Str::limit($product->name, 35, '...') }} </span></h4>
+                                    <h4><span> {{ $product->name }} </span></h4>
                                     <div class="row">
                                         <div class="col s6">
                                             @if(isset($product->moq))
                                                 <div class="product_moq"><span class="moq">MOQ:</a> {{$product->moq}} <span class="moq-unit">{{$product->product_unit}}</span></div>
-                                            @endif                                            
+                                            @endif
                                         </div>
                                         <div class="col s6">
                                             <div class="pro_price">
                                                 <span class="price">Price</span>
-                                                @include('product._product_price')                                                                                       
+                                                @include('product._product_price')
                                             </div>
                                         </div>
-                                    </div>                                    
-
-                                    <!-- <h4><a href="{{route('productdetails',$product->sku)}}" > {{ \Illuminate\Support\Str::limit($product->name, 35, '...') }}</a></h4>
+                                    </div>
 
                                     @if(isset($product->moq))
                                         <div class="product_moq">MOQ: {{$product->moq}} {{$product->product_unit}}</div>

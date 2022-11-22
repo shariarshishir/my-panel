@@ -76,17 +76,6 @@
                         </a>
 
 
-
-                        <!-- <div class="priceBox row"></div>
-                        <h4>
-                            <a href="{{route('mix.product.details', ['mb', $product->id])}}">
-                                {{ \Illuminate\Support\Str::limit($product->title, 35, '...') }}
-                            </a>
-                        </h4>
-                        <div class="moq" >MOQ  150 <span>pcs</span></div>
-                        <div class="leadTime">Lead time 10 <span>days</span></div> -->
-
-
                     </div>
                 </div>
             </div>
