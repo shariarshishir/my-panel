@@ -630,8 +630,8 @@
                             {
                                 html+='<div class="row">';
                                 html+='<div class="col s6 m6 l5">';
-                                html+='<p>Quantity <br/> <b>'+response.rfq.quantity+ ' '+response.rfq.unit+'</b></p>';
-                                html+='<p>Target Price <br/> <b>'+response.rfq.unit_price+' / '+response.rfq.unit+'</b></p>';
+                                html+='<p>Quantity <br/> <b>'+response.rfq.quantity+' pcs</b></p>';
+                                html+='<p>Target Price <br/> <b>'+response.rfq.unit_price+' / pcs</b></p>';
                                 html+='</div>';
                                 html+='<div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>';
                                 html+='<div class="col s6 m6 l5">';
