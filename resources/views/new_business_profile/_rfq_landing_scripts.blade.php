@@ -573,6 +573,7 @@
                         $('#loadingMessageProgressContainer').show();
                     },
                     success: function (response) {
+                        console.log(response);
                         $('.loading-message-progress').html("");
                         $('#loadingMessageProgressContainer').hide();
                         //$(".rfq_chat_box_wrapper").show();
@@ -616,7 +617,7 @@
                             {
                                 html+='<div class="row">';
                                 html+='<div class="col s6 m6 l5">';
-                                html+='<p>Quantity <br/> <b>'+response.rfq.id+' pcs</b></p>';
+                                html+='<p>Quantity <br/> <b>'+response.rfq.quantity+' pcs</b></p>';
                                 html+='<p>Deliver to <br/> <b>'+response.rfq.destination+'</b></p>';
                                 html+='</div>';
                                 html+='<div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>';
@@ -629,8 +630,8 @@
                             {
                                 html+='<div class="row">';
                                 html+='<div class="col s6 m6 l5">';
-                                html+='<p>Quantity <br/> <b>'+response.rfq.id+' pcs</b></p>';
-                                html+='<p>Target Price <br/> <b>'+response.rfq.unit_price+' /pc</b></p>';
+                                html+='<p>Quantity <br/> <b>'+response.rfq.quantity+ ' '+response.rfq.unit+'</b></p>';
+                                html+='<p>Target Price <br/> <b>'+response.rfq.unit_price+' / '+response.rfq.unit+'</b></p>';
                                 html+='</div>';
                                 html+='<div class="col s6 m6 l2 proinfo_account_blank">&nbsp;</div>';
                                 html+='<div class="col s6 m6 l5">';
