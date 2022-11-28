@@ -83,7 +83,7 @@
                         <a onclick="supplierlistTrigger()" href="javascript:void(0);" class="rfq_matched_supplier_list_trigger">Select one/multiple certificates</a>
                         <div id="rfqMatchedSupplierlist">
                             <ul id="rfq_matched_supplier_list_ul" style="height: 200px; overflow-y: auto;">
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                     <div class="request_quotation_wrap">
                         <div class="request_for_quotation">
                             <a class="btn_request_quotation waves-effect waves-light btn modal-trigger request-for-quotation-modal-trigger" id="request-for-quotation-from-rfq-button" href="#request-for-quotation-from-rfq" >Request for Quotation</a>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                                                     <span class="icon_wrap">
                                                         @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
                                                             @if($data->name == 'year_of_establishment')
-                                                            {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}}
+                                                            {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}} Y
                                                             @endif
                                                         @endforeach
                                                     </span>
@@ -273,17 +273,17 @@
                 }else{
                     filter_certs.push(value);
                 }
-                
+
                 console.log(filter_certs);
             }
             if(t == 2){
                 filter_exp = value;
             }
-            
+
 
             let search_by = [...[filter_name],...filter_certs,...[filter_exp]];
             search_by = search_by.filter(i=>i!="");
-            
+
             let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
@@ -303,7 +303,7 @@
                 const search_field = (business_name + '-' + certs + '-' + dd).toLowerCase();
                 for(var k = 0; k < elms.length; k++) {
                     if(search_by){
-                        
+
                         const a = search_by.filter(i=>search_field.includes(i));
                         // business_name certifications years of experience
                         if(a.length == search_by.length){

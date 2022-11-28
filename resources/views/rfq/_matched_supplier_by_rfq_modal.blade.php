@@ -167,17 +167,17 @@
                 }else{
                     filter_certs.push(value);
                 }
-                
+
                 console.log(filter_certs);
             }
             if(t == 2){
                 filter_exp = value;
             }
-            
+
 
             let search_by = [...[filter_name],...filter_certs,...[filter_exp]];
             search_by = search_by.filter(i=>i!="");
-            
+
             let profile_count = 0;
             business_profiles.map(i=>{
                 const elms = document.getElementsByName(i['business_name']);
@@ -197,7 +197,7 @@
                 const search_field = (business_name + '-' + certs + '-' + dd).toLowerCase();
                 for(var k = 0; k < elms.length; k++) {
                     if(search_by){
-                        
+
                         const a = search_by.filter(i=>search_field.includes(i));
                         // business_name certifications years of experience
                         if(a.length == search_by.length){
@@ -232,7 +232,7 @@
             document.getElementById('request-for-quotation-from-rfq-profile-count').innerHTML = len + ' suppliers?';
             $(".supplier-matched-selected-box").html(business_profile_ids.length+" Suppliers Selected");
 
-        } 
+        }
         const getBusinessProfileLogo = (businessProfile) => {
             if(businessProfile?.user?.image == null){
                 return "https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/no-image.png";
@@ -323,7 +323,7 @@
         '											<i class="material-icons">check_circle</i>'+
         '											</span>'+
         '											<span class="icon_wrap">'+
-        '											'+getYearOfExperiance(businessProfile)+''+
+        '											'+getYearOfExperiance(businessProfile)+' Y'+
         '											</span>'+
         '										</div>'+
         '									</div>'+
@@ -377,7 +377,7 @@
         '											<i class="material-icons">check_circle</i>'+
         '											</span>'+
         '											<span class="icon_wrap">'+
-        '											'+getYearOfExperiance(businessProfile)+''+
+        '											'+getYearOfExperiance(businessProfile)+' Y'+
         '											</span>'+
         '										</div>'+
         '									</div>'+
