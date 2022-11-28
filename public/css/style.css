@@ -12662,6 +12662,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 5px 35px;
     line-height: 24px;
 }
+.rfq_upload_filebox .btn_green.browse_file_trigger,
 .rfq_upload_filebox .btn_green.browse_file_trigger_from_product {
     margin-top: 30px;
 }
@@ -15082,6 +15083,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     padding-bottom: 65px;
 }
+.my_rfq_new_layout_wrapper .newAccountMyrfqBox.active .profile_account_myrfq_box {
+    background: #defcdf !important;
+}
+
 .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box.active {
     background: none;
 }
@@ -15242,12 +15247,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background: #de1a1a;
     color: #fff;
 }
+
 .my_rfq_new_layout_wrapper .account_myrfq_infoBox {
     position: relative;
     margin-bottom: 50px;
     height: 420px;
 }
-.my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:link, .my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:visited, .my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:active {
+.my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:link, 
+.my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:visited, 
+.my_rfq_new_layout_wrapper .account_myrfq_infoBox .more_vert a:active {
     color: #fff;
 }
 .rfq_img_content .doc_icon, .order_inquiries_table .doc_icon {
