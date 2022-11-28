@@ -95,6 +95,21 @@
                         </div>
                     </div>
 
+                    <div class="row input-field product-details-block">
+                        <div class="col s12">
+                            <label for="product_code" class="col-md-4 col-form-label text-md-right">{{ __('Product Code') }}</label>
+                        </div>
+                        <div class="col s12">
+                            <input id="product_code" type="text" class="form-control @error('product_code') is-invalid @enderror" name="product_code" value="{{ old('product_code') }}"  autocomplete="product_code" autofocus />
+                            @error('product_code')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <span class="product_code_error text-danger error-rm"></span>
+                        </div>
+                    </div>
+
                     <div class="row" style="padding-bottom: 10px">
                         <div class="col s12 input-field">
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }} <span class="text-danger">*</span></label>

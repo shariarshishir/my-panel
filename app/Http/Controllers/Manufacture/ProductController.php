@@ -108,6 +108,7 @@ class ProductController extends Controller
                 'business_profile_id' => $request->business_profile_id,
                 'product_tag' => $request->product_tag,
                 'title'=> $request->title,
+                'product_code'=> $request->product_code,
                 'moq'=> $request->moq,
                 'product_details'=>$request->product_details,
                 'product_specification'=>$request->product_specification,
@@ -338,6 +339,7 @@ public function update(Request $request, $product_id)
     //dd($colorExp);
     $product->created_by=auth()->id();
     $product->title=$request->title;
+    $product->product_code=$request->product_code;
     $product->price_per_unit=$request->price_per_unit;
     $product->price_unit=$request->price_unit;
     $product->moq=$request->moq;

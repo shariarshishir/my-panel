@@ -342,6 +342,7 @@
                             preloaded:preloaded
                         });
                         $('#p-edit-name').val(data.product.name);
+                        $('#p-edit-code').val(data.product.product_code);
                         $('input[name=seller_p_edit_sku]').val(data.product.sku);
                         $('input[name=p_type]').val(data.product.product_type);
                         //gender

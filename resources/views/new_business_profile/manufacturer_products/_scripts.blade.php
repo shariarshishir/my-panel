@@ -288,6 +288,7 @@
                     }
                     $('#product-edit-modal-block #edit_product_tag').val(data.product.product_tag ?? '').trigger('change');
                     $('#product-edit-modal-block input[name=title]').val(data.product.title);
+                    $('#product-edit-modal-block input[name=product_code]').val(data.product.product_code);
                     $('#product-edit-modal-block input[name=price_per_unit]').val(data.product.price_per_unit);
                     $('#product-edit-modal-block .price_unit').val(data.product.price_unit).change();
                     $('#product-edit-modal-block input[name=moq]').val(data.product.moq);

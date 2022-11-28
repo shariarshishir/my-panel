@@ -73,6 +73,16 @@
                             </div>
                         </div>
 
+                        <div class="row input-field">
+                            <div class="col s12">
+                                <label for="producut-code">Product Code</label>
+                            </div>
+                            <div class="col s12">
+                                <input type="text" id="producut-code" name="product_code" class="form-control" placeholder="Product Code" >
+                                <span class="text-danger error-text title_error rm-error"></span>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col s12 m6 l6 input-field">
                                 <label for="producut-quality">Price Range <span class="text-danger">*</span></label>

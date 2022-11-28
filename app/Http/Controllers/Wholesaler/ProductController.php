@@ -284,6 +284,7 @@ class ProductController extends Controller
             $product=Product::create([
                 'business_profile_id' => $business_profile->id,
                 'name'      => $request->name,
+                'product_code'      => $request->product_code,
                 'sku'       => $sku,
                 'product_tag' => $request->product_tag,
                 'product_type'  => $request->product_type,
@@ -607,6 +608,7 @@ class ProductController extends Controller
 
                 Product::withTrashed()->where('sku',$sku)->update([
                     'name'      => $request->name,
+                    'product_code'      => $request->product_code,
                     'product_tag' => $request->product_tag,
                     'is_featured' => $request->is_featured=='on'? 1:0,
                     'is_new_arrival' => $request->is_new_arrival=='on'? 1:0,

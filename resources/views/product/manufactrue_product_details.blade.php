@@ -241,7 +241,7 @@
 						<div class=" col s12 m6">
 							<div class="attribute_box">
 								<p>PRODUCT CODE</p>
-								<p class="font_weight">mb-{{ $product->id }}</p>
+								<p class="font_weight">{{ $product->product_code }}</p>
 							</div>
 						</div>
 						<div class="col s12 m6">
