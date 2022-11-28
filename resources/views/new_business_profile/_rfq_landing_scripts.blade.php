@@ -553,6 +553,8 @@
                 //alert("I am here");
                 //$(this).closest(".row").find().children(".new_rfq_details_wrapper_outer").addClass("active");
                 $("#rfqDetailsRightSlider").addClass('active');
+                $(".newAccountMyrfqBox").removeClass("active");
+                $(this).closest(".newAccountMyrfqBox").addClass("active");
             });
             $(".rfq_chat_details_close_trigger").click(function(){
                 $(this).closest(".new_rfq_details_wrapper_outer").removeClass("active");
@@ -563,6 +565,8 @@
                 let rfqId = $(this).attr("data-rfq_id");
                 $(".rfq_chat_box_wrapper").addClass("active");
                 let pageTitle = "{{$pageTitle}}";
+                $(".newAccountMyrfqBox").removeClass("active");
+                $(this).closest(".newAccountMyrfqBox").addClass("active");
                 console.log(pageTitle);
                 $.ajax({
                     type:'GET',
@@ -770,6 +774,9 @@
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");
                 $(".rfq_chat_box_wrapper").addClass("active");
+                $(".newAccountMyrfqBox").removeClass("active");
+                $(this).closest(".newAccountMyrfqBox").addClass("active");
+
                 $.ajax({
                     type:'GET',
                     url: "{{route('auth_user_quotations.by_rfq_id')}}",

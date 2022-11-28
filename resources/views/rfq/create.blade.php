@@ -167,8 +167,7 @@
                                     <div class="rfq_upload_filebox_wrap">
                                         <div class="rfq_upload_filebox center-align">
                                             <div class="rfq-document-upload" id="rfq-document-upload"></div>
-                                            <div class="or"><span>OR</span></div>
-                                            <a href="javascript:void(0);" class="btn_green browse_file_trigger">Browse files</a>
+                                            <a href="javascript:void(0);" class="btn_green browse_file_trigger">Upload Files</a>
                                         </div>
                                     </div>
                                 </div>
