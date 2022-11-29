@@ -249,7 +249,11 @@ $reviewsCount = count($productReviews);
                         <div class=" col s12 m6">
                             <div class="attribute_box">
                                 <P>PRODUCT CODE</P>
-                                <P class="font_weight">{{$product->product_code}}</P>
+                                @if($product->product_code)
+                                    <P class="font_weight">{{$product->product_code}}</P>
+                                @else
+                                    <P class="font_weight">{{$product->id}}</P>
+                                @endif
                             </div>
                         </div>
                         <div class="col s12 m6">

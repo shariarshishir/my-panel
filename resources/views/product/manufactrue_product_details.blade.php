@@ -193,7 +193,7 @@
                                                             <i class="material-icons dp48">zoom_in</i>
                                                         </div>
                                                     </a-->
-                                                @endforeach                                                
+                                                @endforeach
                                             @endif
                                         </div>
 									</div>
@@ -241,7 +241,11 @@
 						<div class=" col s12 m6">
 							<div class="attribute_box">
 								<p>PRODUCT CODE</p>
-								<p class="font_weight">{{ $product->product_code }}</p>
+                                @if($product->product_code)
+                                    <P class="font_weight">{{$product->product_code}}</P>
+                                @else
+                                    <P class="font_weight">mb-{{$product->id}}</P>
+                                @endif
 							</div>
 						</div>
 						<div class="col s12 m6">
