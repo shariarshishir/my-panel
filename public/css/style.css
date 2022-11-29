@@ -16502,6 +16502,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #3b3b3b;
     text-transform: uppercase;
     padding: 0 10px 0 0;
+    font-size: 13px;
 }
 .new_design_product_detail_wrap .tabs_wrapper .tabs .tab a.active {
     font-family: 'nexablack';
