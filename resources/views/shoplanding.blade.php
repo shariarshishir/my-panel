@@ -104,7 +104,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                     <div class="top_rfq_status">
                                                         <div class="row">
                                                             <div class="col s6 m6">
-                                                            
+
                                                                 <div class="rfq_status_wrap">
                                                                     @if(isset($rfq['pi_status']) && $rfq['pi_status'] == 0)
                                                                         <span class="status pending_rfq">Pending</span>
@@ -191,7 +191,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
 
                                             </div>
@@ -216,7 +216,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                 @include('rfq._matched_supplier_by_rfq_modal')
                                             </div>
                                         </div>
-                                        
+
                                     </div>
 
                                     @if( $noOfPages > 1)
@@ -373,7 +373,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
 @endsection
 @push('js')
 <script>
-    
+
     let selected_rfq_id = undefined;
     const setSelectedRFQ = (e) => {
         selected_rfq_id = e?.attributes?.rfq_id?.value;

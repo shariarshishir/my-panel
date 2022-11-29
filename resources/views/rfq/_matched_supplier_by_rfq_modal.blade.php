@@ -421,7 +421,11 @@
             })
             document.getElementById('modal-rfq-category-tags').innerHTML = tags.join(',');
             document.getElementById('modal-rfq-quantity').innerHTML = rfq['quantity'];
-            document.getElementById('modal-rfq-unit-price').innerHTML = rfq['unit_price'];
+            if(rfq['unit_price'] == 0) {
+                document.getElementById('modal-rfq-unit-price').innerHTML = "Negotiable";
+            } else {
+                document.getElementById('modal-rfq-unit-price').innerHTML = rfq['unit_price'];
+            }
             document.getElementById('modal-rfq-delivery-time').innerHTML = rfq['delivery_time'];
             document.getElementById('modal-rfq-destination').innerHTML = rfq['destination'];
 
