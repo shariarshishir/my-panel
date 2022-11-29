@@ -283,6 +283,8 @@ Route::get('rfq-by-page-no',[RfqController::class, 'rfqByPageNumber'])->name('rf
 
 Route::get('rfq-info',[HomeController::class, 'rfqInfoDetails'])->name('new_rfq.index');
 
+Route::get('/product/sample-request', [HomeController::class, 'productSampleRequest'])->name('product.sample.request');
+
 Route::group(['middleware'=>['sso.verified','auth']],function (){
     Route::get('/cart',[ProductCartController::class,'index'])->name('cart.index');
     Route::get('/cart-item-delete/{rowId}',[ProductCartController::class,'cartItemDelete'])->name('cart.delete');

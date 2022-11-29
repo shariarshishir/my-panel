@@ -1554,4 +1554,49 @@ class HomeController extends Controller
 
         return view('pricingplan.form', compact('trialPeiodStartDate', 'trialPeiodEndDate', 'trialPeiodStartDateNonFormate', 'trialPeiodEndDateNonFormate'));
     }
+
+    public function productSampleRequest(Request $request)
+    {
+        if($request->productFlag == "mb")
+        {
+            $sampleProduct = ManufactureProduct::with(['product_images','businessProfile'])->where('id', $request->productID)->get();
+            $supplierInfo = User::where('id',$sampleProduct[0]['businessProfile']['user_id'])->get();
+            //dd($sampleProduct[0]['businessProfile']);
+
+            //dd($supplierInfo[0]->name);
+            $discordNotificationText = nl2br(
+                "Product Title: ".$sampleProduct[0]->title.
+                "\n Supplier Profile: ".$sampleProduct[0]['businessProfile']['business_name'].
+                "\n Supplier Name: ".$supplierInfo[0]['name'].
+                "\n Supplier Email: ".$supplierInfo[0]['email'].
+                "\n Supplier Phone: ".$supplierInfo[0]['phone']
+            );
+
+            $demoBookingNotificationToDiscord = Http::post(env('RFQ_APP_URL').'/api/send-to-discord/sample-request/',[
+                "text" => $discordNotificationText
+            ]);
+        }
+        elseif($request->productFlag == "shop")
+        {
+            $sampleProduct = Product::with(['images','businessProfile'])->where('id', $request->productID)->get();
+            $supplierInfo = User::where('id',$sampleProduct[0]['businessProfile']['user_id'])->get();
+            //dd($sampleProduct[0]['businessProfile']);
+
+            $discordNotificationText = nl2br(
+                "Product Title: ".$sampleProduct[0]->name.
+                "\n Supplier Profile: ".$sampleProduct[0]['businessProfile']['business_name'].
+                "\n Supplier Name: ".$supplierInfo[0]['name'].
+                "\n Supplier Email: ".$supplierInfo[0]['email'].
+                "\n Supplier Phone: ".$supplierInfo[0]['phone']
+            );
+
+            $demoBookingNotificationToDiscord = Http::post(env('RFQ_APP_URL').'/api/send-to-discord/sample-request/',[
+                "text" => $discordNotificationText
+            ]);
+        }
+
+        //dd($sampleProduct);
+        return response()->json(["status" => 1, "message" => "successful"]);
+
+    }
 }

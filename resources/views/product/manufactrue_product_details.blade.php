@@ -283,11 +283,15 @@
 							<p class="font_weight">Available</p>
 							</div-->
 						<!-- Button -->
-						<!--div class="col s12 m6">
-							<button class="btn_bg_yellow">Ask for Sample</button>
-							</div>
+                        <div class="col s12 m12">
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <a class="request_for_sample_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Ask For Sample</a>
+                                </div>
+                            </div>
+                        </div>
 
-							<div-- class="col s12 m6">
+							<!--div class="col s12 m6">
 							<button class="btn_bg_yellow">Buy Now</button>
 							</div-->
 					</div>
@@ -341,91 +345,122 @@
         socket.on('connect', function(data) {
         //alert('connect');
         });
+
         @if(Auth::check())
-        function sendmessage(productId,productTitle,productCategory,moq,qtyUnit,pricePerUnit,priceUnit,productImage,createdBy)
-        {
-        let message = {'message': 'We are Interested in Your Product ID:mb-'+productId+' and would like to discuss More...', 'product': {'id': "MB-"+productId,'name': productTitle,'category': productCategory,'moq': moq,'price': priceUnit+" "+pricePerUnit, 'image': productImage}, 'from_id' : "{{Auth::user()->id}}", 'to_id' : createdBy};
-        socket.emit('new message', message);
-        setTimeout(function(){
-            //window.location.href = "/message-center";
-            var url = '{{ route("message.center") }}?uid='+createdBy;
-                // url = url.replace(':slug', sku);
-                window.location.href = url;
-            // window.location.href = "/message-center?uid="+createdBy;
-        }, 1000);
-        }
-
-        function updateUserLastActivity(form_id, to_id)
-        {
-        var form_id = form_id;
-        var to_id = to_id;
-        var csrftoken = $("[name=_token]").val();
-
-        data_json = {
-            "form_id": form_id,
-            "to_id": to_id,
-            "csrftoken": csrftoken
-        }
-        var url= '{{route("message.center.update.user.last.activity")}}';
-        jQuery.ajax({
-            method: "POST",
-            url: url,
-            headers:{
-                "X-CSRF-TOKEN": csrftoken
-            },
-            data: data_json,
-            dataType:"json",
-
-            success: function(data){
-                console.log(data);
+            function sendmessage(productId,productTitle,productCategory,moq,qtyUnit,pricePerUnit,priceUnit,productImage,createdBy)
+            {
+            let message = {'message': 'We are Interested in Your Product ID:mb-'+productId+' and would like to discuss More...', 'product': {'id': "MB-"+productId,'name': productTitle,'category': productCategory,'moq': moq,'price': priceUnit+" "+pricePerUnit, 'image': productImage}, 'from_id' : "{{Auth::user()->id}}", 'to_id' : createdBy};
+            socket.emit('new message', message);
+            setTimeout(function(){
+                //window.location.href = "/message-center";
+                var url = '{{ route("message.center") }}?uid='+createdBy;
+                    // url = url.replace(':slug', sku);
+                    window.location.href = url;
+                // window.location.href = "/message-center?uid="+createdBy;
+            }, 1000);
             }
-        });
 
-        }
+            function updateUserLastActivity(form_id, to_id)
+            {
+            var form_id = form_id;
+            var to_id = to_id;
+            var csrftoken = $("[name=_token]").val();
 
-        function contactSupplierFromProduct(supplierId)
-        {
-
-        var supplier_id = supplierId;
-        var csrftoken = $("[name=_token]").val();
-        var buyer_id = "{{Auth::id()}}";
-        data_json = {
-            "supplier_id": supplier_id,
-            "buyer_id": buyer_id,
-            "csrftoken": csrftoken
-        }
-        var url='{{route("message.center.contact.supplier.from.product")}}';
-        jQuery.ajax({
-            method: "POST",
-            url:url,
-            headers:{
-                "X-CSRF-TOKEN": csrftoken
-            },
-            data: data_json,
-            dataType:"json",
-            success: function(data){
-                console.log(data);
+            data_json = {
+                "form_id": form_id,
+                "to_id": to_id,
+                "csrftoken": csrftoken
             }
-        });
+            var url= '{{route("message.center.update.user.last.activity")}}';
+            jQuery.ajax({
+                method: "POST",
+                url: url,
+                headers:{
+                    "X-CSRF-TOKEN": csrftoken
+                },
+                data: data_json,
+                dataType:"json",
 
-        /*
-        let message = {'message': 'Hi I would like to discuss More about your Product', 'product': null, 'from_id' : "{{Auth::user()->id}}", 'to_id' : supplierId};
-        socket.emit('new message', message);
-        setTimeout(function(){
-            window.location.href = "/message-center?uid="+supplierId;
-        }, 1000);
-        */
-        }
+                success: function(data){
+                    console.log(data);
+                }
+            });
 
-        function sendsamplemessage(productId,productTitle,productCategory,moq,qtyUnit,pricePerUnit,priceUnit,productImage,createdBy)
-        {
-        let message = {'message': 'We are Interested in Your Product ID:mb-'+productId+' and would like to discuss More about the Product', 'product': {'id': "MB-"+productId,'name': productTitle,'category': productCategory,'moq': moq,'price': priceUnit+" "+pricePerUnit, 'image': productImage}, 'from_id' : "{{Auth::user()->id}}", 'to_id' : createdBy};
-        socket.emit('new message', message);
-        setTimeout(function(){
-            window.location.href = "/message-center";
-        }, 1000);
-        }
+            }
+
+            function contactSupplierFromProduct(supplierId)
+            {
+
+            var supplier_id = supplierId;
+            var csrftoken = $("[name=_token]").val();
+            var buyer_id = "{{Auth::id()}}";
+            data_json = {
+                "supplier_id": supplier_id,
+                "buyer_id": buyer_id,
+                "csrftoken": csrftoken
+            }
+            var url='{{route("message.center.contact.supplier.from.product")}}';
+            jQuery.ajax({
+                method: "POST",
+                url:url,
+                headers:{
+                    "X-CSRF-TOKEN": csrftoken
+                },
+                data: data_json,
+                dataType:"json",
+                success: function(data){
+                    console.log(data);
+                }
+            });
+
+            /*
+            let message = {'message': 'Hi I would like to discuss More about your Product', 'product': null, 'from_id' : "{{Auth::user()->id}}", 'to_id' : supplierId};
+            socket.emit('new message', message);
+            setTimeout(function(){
+                window.location.href = "/message-center?uid="+supplierId;
+            }, 1000);
+            */
+            }
+
+            function sendsamplemessage(productId,productTitle,productCategory,moq,qtyUnit,pricePerUnit,priceUnit,productImage,createdBy)
+            {
+            let message = {'message': 'We are Interested in Your Product ID:mb-'+productId+' and would like to discuss More about the Product', 'product': {'id': "MB-"+productId,'name': productTitle,'category': productCategory,'moq': moq,'price': priceUnit+" "+pricePerUnit, 'image': productImage}, 'from_id' : "{{Auth::user()->id}}", 'to_id' : createdBy};
+            socket.emit('new message', message);
+            setTimeout(function(){
+                window.location.href = "/message-center";
+            }, 1000);
+            }
         @endif
+
+        $(document).ready(function(){
+            $(".request_for_sample_event_trigger").click(function(){
+                var url = '{{ route("product.sample.request") }}';
+                var productID = $(this).data("productid");
+                var productFlag = $(this).data("productflag");
+
+                if (confirm('Are you sure?'))
+                {
+                    $.ajax({
+                        method: 'get',
+                        data: {productID:productID, productFlag:productFlag},
+                        url: url,
+                        beforeSend: function() {
+                            $('.loading-message').html("Please Wait.");
+                            $('#loadingProgressContainer').show();
+                        },
+                        success:function(data)
+                        {
+                            //console.log(data);
+                            // if(data.status==1){
+                            //     $(".verification_trigger_from_backend").hide();
+                            //     $(".unverification_trigger_from_backend").show();
+                            // }
+                            window.location.reload();
+                        }
+                    });
+                }
+            })
+        })
 
     </script>
 
