@@ -12947,10 +12947,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     display: block;
 }
 #rfqDetailsRightSlider .match_supplier_rfq_single_content {
-    padding-top: 25px;
+    padding: 30px 15px 0;
 }
 #rfqDetailsRightSlider .match_supplier_rfq_single_content .middle_wrap {
-    right: 0;
+    right: 5px;
 }
 #rfqDetailsRightSlider .match_supplier_rfq_single_content .input-field {
     top: 3px;
@@ -15826,11 +15826,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .new_rfq_supplier_outer_wrapper .single_wraper_gapping .single_wraper_inner_infoBox {
     padding-bottom: 30px;
     display: flex;
-    justify-content: space-between;
-     flex-wrap: wrap;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 .new_rfq_supplier_outer_wrapper .single_wraper_gapping .matched_supplier_item {
-    margin-bottom: 15px;
     width: 32%;
 }
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content {
@@ -15894,7 +15894,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .middle_wrap{
     position: absolute;
     top: 0;
-    right: 0px;
+    right: -10px;
 }
 .new_rfq_supplier_outer_wrapper .middle_wrap i.material-icons {
     font-size: 30px;
@@ -15904,9 +15904,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .new_rfq_supplier_outer_wrapper .middle_wrap span.icon_wrap {
     background: #48ab48;
-    width: 27px;
-    height: 27px;
-    line-height: 30px;
+    width: 26px;
+    height: 26px;
+    line-height: 28px;
     font-size: 11px;
     border-radius: 50%;
     color: #fff;
@@ -17641,7 +17641,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         height: 50px;
    }
    .new_rfq_supplier_outer_wrapper .single_wraper_gapping .matched_supplier_item {
-        width: 49%;
+        width: 48%;
    }
     .new_rfq_supplier_outer_wrapper .new_rfq_filter_wrapper {
         display: inline-block;
@@ -21354,8 +21354,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         margin-top: 2px;
     }
     .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .middle_wrap {
-        top: -20px;
-        right: 0;
+        top: -10px;
     }
     .new_rfq_supplier_outer_wrapper .match_supplier_rfq_single_content .sparkle_part h3 {
         margin-top: 20px;
