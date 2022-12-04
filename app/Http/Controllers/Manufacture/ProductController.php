@@ -72,7 +72,7 @@ class ProductController extends Controller
 
         try{
 
-            // dd($request->all());
+            //dd($request->all());
 
             $productArray =[];
             if(isset($request->productImg['product_add_image'])) {

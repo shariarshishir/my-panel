@@ -121,6 +121,7 @@
                             <div class="row">
                                 <div class="col s12 m6 input-field">
                                     <label for="product-colors">Color <span class="text-danger">*</span></label>
+                                    <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal">Add Color</a>
                                     <div class="product_color_box multipleArrowBox">
                                         <input class="product-colors" name="colors[]" id="edit_colors" type="text" placeholder="ex: Pantone TCX, hex color code" />
                                         <span class="text-danger error-text colors_error rm-error"></span>
@@ -211,7 +212,7 @@
 
                     <div class="product_upload_update_block">
                         <div class="no_more_tables">
-                            <table class="product_upload_update_table"> 
+                            <table class="product_upload_update_table">
                                 <thead class="cf">
                                     <tr>
                                         <th class="uploadOverlayImage">Image</th>
@@ -325,6 +326,34 @@
         </section>
     </div>
 
+</div>
+
+<!-- Modal Structure -->
+<div id="color-modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Product Colors</h4>
+        <div class="add-product-colors">
+            <table class="product_color_picker_table">
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Hexa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="product-color-item">
+                        <td><input index='0' type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>
+                        <td><input index='0' type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="javascript:void(0);" class="color-picker-save-trigger btn btn_green waves-effect waves-green">Save</a>
+            <a href="javascript:void(0);" class="new-color-picker-trigger btn btn_green waves-effect waves-green" onclick="addProductColors(this)">Add More</a>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
 </div>
 
 @push('js')

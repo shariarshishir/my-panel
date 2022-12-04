@@ -69,7 +69,10 @@
                                     <div class="row">
                                         <div class="col s12 l10 size_wrapper">
                                             @foreach($colors as $color)
-                                            <div class="size_border"><span class="text_center">{{ strtolower($color) }}</span></div>
+                                            @php
+                                                $color = explode('-', $color);
+                                            @endphp
+                                            <div class="size_border" style="background: {{$color[1]}}"><span class="text_center">{{ strtolower($color[0]) }}</span></div>
                                             @endforeach
                                         </div>
                                     </div>
