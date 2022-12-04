@@ -342,8 +342,8 @@
                 </thead>
                 <tbody>
                     <tr class="product-color-item">
-                        <td><input type="text" name="color_text[]" value="" /></td>
-                        <td><input type="color" name="color_hexa[]" value="" /></td>
+                        <td><input index='0' type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>
+                        <td><input index='0' type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>
                     </tr>
                 </tbody>
             </table>
@@ -371,7 +371,24 @@
             $(el).prev('input').remove();
             $(el).remove();
         }
-
+        const colors = {};
+        const onColorNameChange = (e) => {
+            colors[e?.attributes?.index?.value] = {'name':e?.value,'color':colors[e?.attributes?.index?.value]?.['color']||'#000000'};
+        }
+        const onColorSelect = (e) => {
+            colors[e?.attributes?.index?.value] = {'name':colors[e?.attributes?.index?.value]?.['name']||'','color':e?.value};
+        }
+        const updateColorInputField = () => {
+            let cols = [];
+            console.log(colors);
+            Object.keys(colors).map(i=>{
+                if(colors[i]['name'] && colors[i]['color']){
+                    cols.push(colors[i]['name']+"-"+colors[i]['color']);
+                }
+                
+            })   
+            document.getElementById('colors').value = cols.join(',');
+        }
         $(document).ready(function () {
 
         // //Transforms the listbox visually into a Select2.

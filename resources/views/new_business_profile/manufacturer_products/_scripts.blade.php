@@ -677,15 +677,15 @@
     {
         let totalChild = $('.product_color_picker_table tbody').children().length;
         var html = '<tr>';
-        html += '<td><input type="text" name="color_text[]" value="" /></td>';
-        html += '<td><input type="color" name="color_hexa[]" value="" /></td>';
+        html += '<td><input index="'+totalChild+'" type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>';
+        html += '<td><input index="'+totalChild+'" type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>';
         html += '</tr>';
         $('.product_color_picker_table tbody').append(html);
     }
 
     $(document).ready(function(){
         $(".color-picker-save-trigger").click(function(){
-            alert("I am here");
+            updateColorInputField();
         })
     })
 
