@@ -281,6 +281,16 @@
             });
             return dd.length == 0 ? 'No main Products found.' : dd.join(',');
         }
+        const getWorkers = (businessProfile) => {
+            const data = JSON.parse(businessProfile['company_overview']?.data) || [];
+            let dd = 0;
+            data?.map(d=>{
+                if(d['name'] == 'number_of_worker'||d['name'] == 'number_of_female_worker'){
+                    dd = Number(dd) + (Number(d['value'])||0);
+                }
+            });
+            return dd;
+        }
         const putSupplierList = () => {
             const content = document.getElementById('matched-supplier-list');
             check_status = !check_status;
@@ -335,6 +345,13 @@
         '								</div>'+
         '								<!-- Third div part -->'+
         '								<div class="main_product_wrap">'+
+        '									<h6>Workers:</h6>'+
+        '									<div class="main_product_inner">'+
+        '										<p>'+getWorkers(businessProfile)+'</p>'+
+        '									</div>'+
+        '								</div>'+
+        '								<!-- Third div part -->'+
+        '								<div class="main_product_wrap">'+
         '									<h6>Main Products:</h6>'+
         '									<div class="main_product_inner">'+
         '										<p>'+getMainProducts(businessProfile)+'</p>'+
@@ -386,6 +403,13 @@
         '								<div class="middle_part_image_wrapper">'+
         '									<h6>Certification:</h6>'+
                                             getCertifications(businessProfile)+
+        '								</div>'+
+        '								<!-- Third div part -->'+
+        '								<div class="main_product_wrap">'+
+        '									<h6>Workers:</h6>'+
+        '									<div class="main_product_inner">'+
+        '										<p>'+getWorkers(businessProfile)+'</p>'+
+        '									</div>'+
         '								</div>'+
         '								<!-- Third div part -->'+
         '								<div class="main_product_wrap">'+
