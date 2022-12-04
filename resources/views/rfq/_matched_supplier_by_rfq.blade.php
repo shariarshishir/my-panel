@@ -186,10 +186,11 @@
                                             <div class="main_product_inner">
                                                 @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
                                                     @if($data->name == 'main_products')
+                                                        @if($data->value == '')
+                                                        <h5>No Main Product Found</h5>
+                                                        @else
                                                         <h5>{{$data->value}}</h5>
-                                                    @else
-                                                        <p>No main Products found.</p>
-                                                        @break
+                                                        @endif
                                                     @endif
                                                 @endforeach
                                             </div>
