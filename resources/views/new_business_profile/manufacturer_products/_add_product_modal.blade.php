@@ -132,6 +132,8 @@
                             <div class="row">
                                 <div class="col s12 m6 input-field">
                                     <label for="product-colors">Color <span class="text-danger">*</span></label>
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#color-modal">Add Color</a>
                                     <div class="product_color_box multipleArrowBox">
                                         <input class="product-colors" name="colors[]" id="colors" type="text" placeholder="ex: Pentone TCX, hex color code"/>
                                         <span class="text-danger error-text colors_error rm-error"></span>
@@ -218,7 +220,7 @@
                     {{-- @if(isset($_POST['select-type'])) --}}
                     <div class="product_upload_update_block">
                         <div class="no_more_tables">
-                            <table class="product_upload_update_table"> 
+                            <table class="product_upload_update_table">
                                 <thead class="cf">
                                     <tr>
                                         <th class="uploadOverlayImage">Image</th>
@@ -327,6 +329,22 @@
     </div>
 </div>
 
+<!-- Modal Structure -->
+<div id="color-modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Product Colors</h4>
+        <div class="add-product-colors">
+            <div class="product-color-item">
+                <input type="text" name="color_text" value="" />
+                <input type="color" name="color_hexa" value="" />
+            </div>
+            <a href="javascript:void(0);" class="new-color-picker-trigger">Add More</a>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
 
 @push('js')
     <script>
