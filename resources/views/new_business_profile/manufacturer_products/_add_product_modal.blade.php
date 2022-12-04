@@ -132,10 +132,9 @@
                             <div class="row">
                                 <div class="col s12 m6 input-field">
                                     <label for="product-colors">Color <span class="text-danger">*</span></label>
-<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#color-modal">Add Color</a>
+                                    <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal">Add Color</a>
                                     <div class="product_color_box multipleArrowBox">
-                                        <input class="product-colors" name="colors[]" id="colors" type="text" placeholder="ex: Pentone TCX, hex color code"/>
+                                        <input class="product-colors" name="colors[]" id="colors" type="text" placeholder="ex: Pentone TCX, hex color code" disabled="disabled" />
                                         <span class="text-danger error-text colors_error rm-error"></span>
                                     </div>
                                 </div>
@@ -334,11 +333,22 @@
     <div class="modal-content">
         <h4>Product Colors</h4>
         <div class="add-product-colors">
-            <div class="product-color-item">
-                <input type="text" name="color_text" value="" />
-                <input type="color" name="color_hexa" value="" />
-            </div>
-            <a href="javascript:void(0);" class="new-color-picker-trigger">Add More</a>
+            <table class="product_color_picker_table">
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Hexa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="product-color-item">
+                        <td><input type="text" name="color_text[]" value="" /></td>
+                        <td><input type="color" name="color_hexa[]" value="" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="javascript:void(0);" class="color-picker-save-trigger btn btn_green waves-effect waves-green">Save</a>
+            <a href="javascript:void(0);" class="new-color-picker-trigger btn btn_green waves-effect waves-green" onclick="addProductColors(this)">Add More</a>
         </div>
     </div>
     <div class="modal-footer">

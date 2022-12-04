@@ -673,6 +673,22 @@
         }
     })
 
+    function addProductColors()
+    {
+        let totalChild = $('.product_color_picker_table tbody').children().length;
+        var html = '<tr>';
+        html += '<td><input type="text" name="color_text[]" value="" /></td>';
+        html += '<td><input type="color" name="color_hexa[]" value="" /></td>';
+        html += '</tr>';
+        $('.product_color_picker_table tbody').append(html);
+    }
+
+    $(document).ready(function(){
+        $(".color-picker-save-trigger").click(function(){
+            alert("I am here");
+        })
+    })
+
 
 </script>
 
