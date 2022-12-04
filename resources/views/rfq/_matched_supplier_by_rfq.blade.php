@@ -121,6 +121,7 @@
                     <div class="match_supplier_rfq_single_wrapper">
                         <div class="row single_wraper_gapping">
                             <label id="no-supplier-found" style="display:none;">No Supplier Found</label>
+                            
                             @foreach($businessProfiles as $businessProfile)
                             <div class="col s12 m6 l4 matched_supplier_item" name="{{$businessProfile['business_name']}}">
                                 <div class="match_supplier_rfq_single_content">
@@ -179,7 +180,18 @@
                                                 <p>No Certifications found.</p>
                                             @endif
                                         </div>
-
+                                        <div class="main_product_wrap">
+                                            <h6>Workers:</h6>
+                                            <div class="main_product_inner">
+                                                @php $t=0; @endphp
+                                                @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                    @if($data->name == 'number_of_worker' || $data->name == 'number_of_female_worker')
+                                                        @php $t = (int)$t + (int)$data->value @endphp
+                                                    @endif
+                                                @endforeach
+                                                @php echo $t; @endphp
+                                            </div>
+                                        </div>
                                         <!-- Third div part -->
                                         <div class="main_product_wrap">
                                             <h6>Main Products:</h6>
@@ -195,7 +207,7 @@
                                                 @endforeach
                                             </div>
                                         </div>
-
+                                        
                                         <div class="chatbox_wrap">
                                             {{-- <img src="./images/chat-img.png" alt="">  --}}
                                             <a href="javascript:void(0)">
