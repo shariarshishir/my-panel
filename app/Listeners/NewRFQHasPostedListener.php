@@ -29,7 +29,7 @@ class NewRFQHasPostedListener implements ShouldQueue
         // $this->pushNotificationSend($fcmToken,$title,$message,$action_url);
 
         //mail to admin
-        Mail::to('success@merchantbay.com')->send(new NewRFQPostMailToAdmin($event->user));
+        //Mail::to('success@merchantbay.com')->send(new NewRFQPostMailToAdmin($event->user));
 
         //mail to user
         if($event->user->user_agent == "Dart"){

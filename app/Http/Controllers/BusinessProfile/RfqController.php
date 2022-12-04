@@ -1774,7 +1774,7 @@ class RfqController extends Controller
         // ];
 
         $user = User::where('id',auth()->id())->first();
-        //event(new NewRFQHasPostedEvent( $user ));
+        event(new NewRFQHasPostedEvent( $user ));
 
         return response()->json(['success' => True], 200);
 

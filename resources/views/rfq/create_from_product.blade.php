@@ -27,7 +27,7 @@
                             <h1 style="margin-bottom:10px;">Request For Quotation</h1>
                             <p style="margin-bottom: 20px;">Submit an RFQ and find the best match with speed and reliability.</p>
                         </div>
-                        <div class="col s12">
+                        <div class="col s12" style="display: none;">
                             @if(isset($design_products))
                             <div class="rfq-product-you-may-also-like card">
                                 <h3>You may like...</h3>
