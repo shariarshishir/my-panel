@@ -121,10 +121,10 @@
                             <div class="row">
                                 <div class="col s12 m6 input-field">
                                     <label for="product-colors">Color <span class="text-danger">*</span></label>
-                                    <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal">Add Color</a>
+                                    <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal-edit">Add Color</a>
                                     <div class="product_color_box multipleArrowBox">
-                                        <input class="product-colors" type="text" id="picked-colors" placeholder="ex: Pentone TCX, hex color code" disabled="disabled" />
-                                        <input name="colors[]" id="colors" type="hidden" />
+                                        <input class="product-colors" type="text" id="edit-picked-colors" placeholder="ex: Pentone TCX, hex color code" disabled="disabled" />
+                                        <input name="colors[]" id="edit-colors" type="hidden" />
                                         <span class="text-danger error-text colors_error rm-error"></span>
                                     </div>
                                 </div>
@@ -330,26 +330,21 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="color-modal" class="modal modal-fixed-footer">
+<div id="color-modal-edit" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4>Product Colors</h4>
-        <div class="add-product-colors">
-            <table class="product_color_picker_table">
+        <div class="edit-product-colors">
+            <table class="product_color_picker_table_edit">
                 <thead>
                     <tr>
                         <th>Color</th>
                         <th>Hexa</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="product-color-item">
-                        <td><input index='0' type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>
-                        <td><input index='0' type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
-            <a href="javascript:void(0);" class="color-picker-save-trigger btn btn_green waves-effect waves-green">Save</a>
-            <a href="javascript:void(0);" class="new-color-picker-trigger btn btn_green waves-effect waves-green" onclick="addProductColors(this)">Add More</a>
+            <a href="javascript:void(0);" class="color-picker-edit-save-trigger btn btn_green waves-effect waves-green">Save</a>
+            <a href="javascript:void(0);" class="edit-color-picker-trigger btn btn_green waves-effect waves-green" onclick="editProductColors(this)">Add More</a>
         </div>
     </div>
     <div class="modal-footer">
@@ -373,24 +368,24 @@
             $(el).remove();
         }
 
-        const colors = {};
-        const onColorNameChange = (e) => {
-            colors[e?.attributes?.index?.value] = {'name':e?.value,'color':colors[e?.attributes?.index?.value]?.['color']||'#000000'};
+        const editColors = {};
+        const onEditColorNameChange = (e) => {
+            editColors[e?.attributes?.index?.value] = {'name':e?.value,'color':editColors[e?.attributes?.index?.value]?.['color']||'#000000'};
         }
-        const onColorSelect = (e) => {
-            colors[e?.attributes?.index?.value] = {'name':colors[e?.attributes?.index?.value]?.['name']||'','color':e?.value};
+        const onEditColorSelect = (e) => {
+            editColors[e?.attributes?.index?.value] = {'name':editColors[e?.attributes?.index?.value]?.['name']||'','color':e?.value};
         }
-        const updateColorInputField = () => {
+        const updateEditColorInputField = () => {
             let cols = [];
-            console.log(colors);
-            Object.keys(colors).map(i=>{
-                if(colors[i]['name'] && colors[i]['color']){
-                    cols.push(colors[i]['name']+"-"+colors[i]['color']);
+            console.log(editColors);
+            Object.keys(editColors).map(i=>{
+                if(editColors[i]['name'] && editColors[i]['color']){
+                    cols.push(editColors[i]['name']+"-"+editColors[i]['color']);
                 }
 
             })
-            document.getElementById('colors').value = cols.join(',');
-            document.getElementById('picked-colors').value = cols.join(',');
+            document.getElementById('edit-colors').value = cols.join(',');
+            document.getElementById('edit-picked-colors').value = cols.join(',');
         }
 
 

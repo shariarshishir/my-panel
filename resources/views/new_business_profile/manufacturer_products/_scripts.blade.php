@@ -136,7 +136,7 @@
                 }
         });
     });
-
+    
     //edit product
     function editproduct(productId)
     {
@@ -154,6 +154,7 @@
             },
             success:function(data)
                 {
+                    
                     $('.loading-message').html("");
                     $('#loadingProgressContainer').hide();
                     $('#manufacture-update-errors').empty();
@@ -175,7 +176,9 @@
                     }
 
                     // dd($data.product)
-
+                    data?.product?.colors?.map(i=>{
+                        editProductColors(null, i.split('-')[0],i.split('-')[1])
+                    })
                     //image
                     $.each(data.product.product_images, function (key, item)
                     {
@@ -672,7 +675,7 @@
             $(this).closest("td.uploadImageAccessories").prev("td.uploadImageLabel").children("input").attr("disabled", false);
         }
     })
-
+    
     function addProductColors()
     {
         let totalChild = $('.product_color_picker_table tbody').children().length;
@@ -682,10 +685,23 @@
         html += '</tr>';
         $('.product_color_picker_table tbody').append(html);
     }
+    function editProductColors(e, name='', color='#000000')
+    {
+        let totalChild = $('.product_color_picker_table_edit tbody').children().length;
+        var html = '<tr>';
+        html += '<td><input index="'+totalChild+'" type="text" name="color_text[]" value="'+name+'" onkeyup="onEditColorNameChange(this)"/></td>';
+        html += '<td><input index="'+totalChild+'" type="color" name="color_hexa[]" value="'+color+'" onchange="onEditColorSelect(this)"/></td>';
+        html += '</tr>';
+        $('.product_color_picker_table_edit tbody').append(html);
+        editColors[String(totalChild)] = {'name':name,'color':color};
+    }
 
     $(document).ready(function(){
         $(".color-picker-save-trigger").click(function(){
             updateColorInputField();
+        })
+        $(".color-picker-edit-save-trigger").click(function(){
+            updateEditColorInputField();
         })
     })
 
