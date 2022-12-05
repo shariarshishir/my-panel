@@ -124,7 +124,7 @@
                                     <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal">Add Color</a>
                                     <div class="product_color_box multipleArrowBox">
                                         <input class="product-colors" type="text" id="picked-colors" placeholder="ex: Pentone TCX, hex color code" disabled="disabled" />
-                                        <input class="product-colors" name="colors[]" id="colors" type="hidden" />
+                                        <input name="colors[]" id="colors" type="hidden" />
                                         <span class="text-danger error-text colors_error rm-error"></span>
                                     </div>
                                 </div>
@@ -371,6 +371,26 @@
         {
             $(el).prev('input').remove();
             $(el).remove();
+        }
+
+        const colors = {};
+        const onColorNameChange = (e) => {
+            colors[e?.attributes?.index?.value] = {'name':e?.value,'color':colors[e?.attributes?.index?.value]?.['color']||'#000000'};
+        }
+        const onColorSelect = (e) => {
+            colors[e?.attributes?.index?.value] = {'name':colors[e?.attributes?.index?.value]?.['name']||'','color':e?.value};
+        }
+        const updateColorInputField = () => {
+            let cols = [];
+            console.log(colors);
+            Object.keys(colors).map(i=>{
+                if(colors[i]['name'] && colors[i]['color']){
+                    cols.push(colors[i]['name']+"-"+colors[i]['color']);
+                }
+
+            })
+            document.getElementById('colors').value = cols.join(',');
+            document.getElementById('picked-colors').value = cols.join(',');
         }
 
 
