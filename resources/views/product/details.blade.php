@@ -86,59 +86,68 @@ $reviewsCount = count($productReviews);
                         <!-- Second tabs contant -->
                         <div id="supplierInfo" class="col s12">
                             @php
-                                $companyInfo = json_decode($supplierCompanyInfo->companyOverview['data']);
-                                //echo "<pre>"; print_r($companyInfo); echo "</pre>";
+                                $cookie = Cookie::get('sso_token');
+                                $cookie = base64_decode(explode(".",$cookie)[1]);
+                                $cookie = json_decode(json_decode(json_encode($cookie)));
                             @endphp
-                            @foreach($companyInfo as $item)
+                            @if($cookie->subscription_status == 1)
                                 @php
-                                    //echo "<pre>"; print_r($item); echo "</pre>";
+                                    $companyInfo = json_decode($supplierCompanyInfo->companyOverview['data']);
+                                    //echo "<pre>"; print_r($companyInfo); echo "</pre>";
                                 @endphp
-                                @if($item->name == "year_of_establishment")
-                                    @if(isset($item->value))
-                                        <div class="margin_top">
-                                            <h6>EXPERIENCE</h6>
-                                            <p>{{date("Y") - $item->value}} Years</p>
-                                        </div>
+                                @foreach($companyInfo as $item)
+                                    @php
+                                        //echo "<pre>"; print_r($item); echo "</pre>";
+                                    @endphp
+                                    @if($item->name == "year_of_establishment")
+                                        @if(isset($item->value))
+                                            <div class="margin_top">
+                                                <h6>EXPERIENCE</h6>
+                                                <p>{{date("Y") - $item->value}} Years</p>
+                                            </div>
+                                        @endif
                                     @endif
-                                @endif
-                                @if($item->name == "number_of_worker")
-                                    @if(isset($item->value))
-                                        <div class="margin_top">
-                                            <h6>EMPLOYEE SIZE</h6>
-                                            <p>{{$item->value}}</p>
-                                        </div>
+                                    @if($item->name == "number_of_worker")
+                                        @if(isset($item->value))
+                                            <div class="margin_top">
+                                                <h6>EMPLOYEE SIZE</h6>
+                                                <p>{{$item->value}}</p>
+                                            </div>
+                                        @endif
                                     @endif
-                                @endif
-                                @if($item->name == "main_products")
-                                    @if(isset($item->value))
-                                        <div class="margin_top">
-                                            <h6>MAIN PRODUCTS</h6>
-                                            <p>{{$item->value}}</p>
-                                        </div>
+                                    @if($item->name == "main_products")
+                                        @if(isset($item->value))
+                                            <div class="margin_top">
+                                                <h6>MAIN PRODUCTS</h6>
+                                                <p>{{$item->value}}</p>
+                                            </div>
+                                        @endif
                                     @endif
-                                @endif
-                            @endforeach
+                                @endforeach
 
-                            @if(count($supplierCompanyInfo->certifications) > 0)
-                            <div class="margin_top">
-                                <h6 class="margin_top">CERTIFICATES</h6>
-                                <div class="image_wrapper">
-                                    <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
-                                    <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
-                                    <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
-                                    <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                @if(count($supplierCompanyInfo->certifications) > 0)
+                                <div class="margin_top">
+                                    <h6 class="margin_top">CERTIFICATES</h6>
+                                    <div class="image_wrapper">
+                                        <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                        <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                        <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                        <div class="cert_image"><img class="image-sizing" src="./images/Gap-classic-T-shirt.webp" alt=""></div>
+                                    </div>
                                 </div>
-                            </div>
+                                @endif
+
+                                <div class="row contact_supplier">
+                                    <div class="col s12 l6">
+                                        <!--button class="btn_contact_supplier">Contact Supplier</button-->
+                                    </div>
+                                    <div class="col s12 l6">
+                                        <a class="btn_contact_supplier" href="{{route('supplier.profile', $product->businessProfile->alias)}}">Visit Profile</a>
+                                    </div>
+                                </div>
+                            @else
+                                To see supplier information Please <a href="{{route('pricing.plan.form')}}">Subscribe</a>.
                             @endif
-
-                            <div class="row contact_supplier">
-                                <div class="col s12 l6">
-                                    <!--button class="btn_contact_supplier">Contact Supplier</button-->
-                                </div>
-                                <div class="col s12 l6">
-                                    <a class="btn_contact_supplier" href="{{route('supplier.profile', $product->businessProfile->alias)}}">Visit Profile</a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
