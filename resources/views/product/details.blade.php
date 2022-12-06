@@ -67,7 +67,12 @@ $reviewsCount = count($productReviews);
                                 <div class="row">
                                     <div class="col s12 l10 size_wrapper">
                                         @foreach($colors_sizes as $color)
-                                        <div class="size_border"><span class="text_center">{{$color->color}}</span></div>
+                                            @if(isset($color->color_picker))
+                                            <div class="size_border color_picker_style" style="background: {{$color->color_picker}}"><span class="text_center">{{$color->color}}</span></div>
+                                            @else
+                                            <div class="size_border"><span class="text_center">{{$color->color}}</span></div>
+                                            @endif
+
                                         @endforeach
                                     </div>
                                 </div>

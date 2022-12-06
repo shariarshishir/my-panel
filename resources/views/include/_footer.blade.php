@@ -527,7 +527,10 @@
     {
     let totalChild = $('.color-size-table-block tbody').children().length;
     var html = '<tr>';
-    html += '<td data-title="Color"><input type="text" value="" class="form-control" name="color_size[color][]" /></td>';
+    html += '<td data-title="Color">';
+    html += '<input type="text" value="" class="form-control" name="color_size[color][]" />';
+    html += '<input type="color" value="" class="form-control" name="color_size[color_picker][]" />';
+    html += '</td>';
     html += '<td data-title="XXS"><input type="text" value="" class="form-control negitive-or-text-not-allowed" name="color_size[xxs][]" /></td>';
     html += '<td data-title="XS"><input type="text" value="" class="form-control negitive-or-text-not-allowed" name="color_size[xs][]" /></td>';
     html += '<td data-title="Small"><input type="text" value="" class="form-control negitive-or-text-not-allowed" name="color_size[small][]" /></td>';
@@ -590,7 +593,10 @@
     {
     let totalChild = $('.non-clothing-color-quantity-table-block tbody').children().length;
     var html = '<tr>';
-    html += '<td data-title="Color"><input type="text" value="" class="form-control" name="non_clothing_attr[color][]" /></td>';
+    html += '<td data-title="Color">';
+    html += '<input type="text" value="" class="form-control" name="non_clothing_attr[color][]" />';
+    html += '<input type="color" value="" class="form-control" name="non_clothing_attr[color_picker][]" />';
+    html += '</td>';
     html += '<td data-title="Quantity"><input type="text" value="" class="form-control negitive-or-text-not-allowed" name="non_clothing_attr[quantity][]" /></td>';
     html += '<td><a href="javascript:void(0);" class="btn_delete" onclick="removeNonClothingAttr(this)"><i class="material-icons dp48">delete_outline</i><span>Delete</span></a></td>';
     html += '</tr>';
