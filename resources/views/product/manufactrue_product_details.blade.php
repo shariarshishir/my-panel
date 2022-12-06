@@ -109,58 +109,68 @@
 						<!-- Second tabs contant -->
 						<div id="supplierInfo" class="col s12">
                             @php
-                                $companyInfo = json_decode($supplierCompanyInfo->companyOverview['data']);
-                                //echo "<pre>"; print_r($companyInfo); echo "</pre>";
+                                $cookie = Cookie::get('sso_token');
+                                $cookie = base64_decode(explode(".",$cookie)[1]);
+                                $cookie = json_decode(json_decode(json_encode($cookie)));
                             @endphp
-                            @foreach($companyInfo as $item)
+                            @if($cookie->subscription_status == 1)
+
                                 @php
-                                    //echo "<pre>"; print_r($item); echo "</pre>";
+                                    $companyInfo = json_decode($supplierCompanyInfo->companyOverview['data']);
+                                    //echo "<pre>"; print_r($companyInfo); echo "</pre>";
                                 @endphp
-                                @if($item->name == "year_of_establishment")
-                                    @if(isset($item->value))
-                                        <div class="margin_top">
-                                            <h6>EXPERIENCE</h6>
-                                            <p>{{date("Y") - $item->value}} Years</p>
-                                        </div>
+                                @foreach($companyInfo as $item)
+                                    @php
+                                        //echo "<pre>"; print_r($item); echo "</pre>";
+                                    @endphp
+                                    @if($item->name == "year_of_establishment")
+                                        @if(isset($item->value))
+                                            <div class="margin_top">
+                                                <h6>EXPERIENCE</h6>
+                                                <p>{{date("Y") - $item->value}} Years</p>
+                                            </div>
+                                        @endif
                                     @endif
-                                @endif
-                                @if($item->name == "number_of_worker")
-                                    @if(isset($item->value))
-                                        <div class="margin_top">
-                                            <h6>EMPLOYEE SIZE</h6>
-                                            <p>{{$item->value}}</p>
-                                        </div>
+                                    @if($item->name == "number_of_worker")
+                                        @if(isset($item->value))
+                                            <div class="margin_top">
+                                                <h6>EMPLOYEE SIZE</h6>
+                                                <p>{{$item->value}}</p>
+                                            </div>
+                                        @endif
                                     @endif
-                                @endif
-                                @if($item->name == "main_products")
-                                    @if(isset($item->value))
-                                        <div class="margin_top">
-                                            <h6>MAIN PRODUCTS</h6>
-                                            <p>{{$item->value}}</p>
-                                        </div>
+                                    @if($item->name == "main_products")
+                                        @if(isset($item->value))
+                                            <div class="margin_top">
+                                                <h6>MAIN PRODUCTS</h6>
+                                                <p>{{$item->value}}</p>
+                                            </div>
+                                        @endif
                                     @endif
-                                @endif
-                            @endforeach
+                                @endforeach
 
-                            @if(count($supplierCompanyInfo->certifications) > 0)
-                            <div class="margin_top">
-                                <h6 class="margin_top">CERTIFICATES</h6>
-                                <div class="image_wrapper">
-                                    @foreach ($supplierCompanyInfo->certifications as $certificateItem)
-                                    <div class="cert_image"><img class="image-sizing" src="{{Storage::disk('s3')->url('public/'.$certificateItem->image.'')}}" alt=""></div>
-                                    @endforeach
+                                @if(count($supplierCompanyInfo->certifications) > 0)
+                                <div class="margin_top">
+                                    <h6 class="margin_top">CERTIFICATES</h6>
+                                    <div class="image_wrapper">
+                                        @foreach ($supplierCompanyInfo->certifications as $certificateItem)
+                                        <div class="cert_image"><img class="image-sizing" src="{{Storage::disk('s3')->url('public/'.$certificateItem->image.'')}}" alt=""></div>
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
+                                @endif
+
+                                <div class="row contact_supplier">
+                                    <div class="col s12 l6">
+                                        <!--button class="btn_contact_supplier">Contact Supplier</button-->
+                                    </div>
+                                    <div class="col s12 l6">
+                                        <a class="btn_contact_supplier" href="{{route('supplier.profile', $product->businessProfile->alias)}}">Visit Profile</a>
+                                    </div>
+                                </div>
+                            @else
+                                To see supplier information Please <a href="{{route('pricing.plan.form')}}">Subscribe</a>.
                             @endif
-
-                            <div class="row contact_supplier">
-                                <div class="col s12 l6">
-                                    <!--button class="btn_contact_supplier">Contact Supplier</button-->
-                                </div>
-                                <div class="col s12 l6">
-                                    <a class="btn_contact_supplier" href="{{route('supplier.profile', $product->businessProfile->alias)}}">Visit Profile</a>
-                                </div>
-                            </div>
                         </div>
 					</div>
 				</div>
@@ -299,6 +309,9 @@
                             <div class="row">
                                 <div class="col s12 m6">
                                     <a class="request_for_sample_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Ask For Sample</a>
+                                </div>
+                                <div class="col s12 m6">
+                                    <a class="request_for_quotation_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Request for Quotation</a>
                                 </div>
                             </div>
                         </div>
@@ -447,6 +460,34 @@
         $(document).ready(function(){
             $(".request_for_sample_event_trigger").click(function(){
                 var url = '{{ route("product.sample.request") }}';
+                var productID = $(this).data("productid");
+                var productFlag = $(this).data("productflag");
+
+                if (confirm('Are you sure?'))
+                {
+                    $.ajax({
+                        method: 'get',
+                        data: {productID:productID, productFlag:productFlag},
+                        url: url,
+                        beforeSend: function() {
+                            $('.loading-message').html("Please Wait.");
+                            $('#loadingProgressContainer').show();
+                        },
+                        success:function(data)
+                        {
+                            //console.log(data);
+                            // if(data.status==1){
+                            //     $(".verification_trigger_from_backend").hide();
+                            //     $(".unverification_trigger_from_backend").show();
+                            // }
+                            window.location.reload();
+                        }
+                    });
+                }
+            })
+
+            $(".request_for_quotation_event_trigger").click(function(){
+                var url = '{{ route("product.quotation.request") }}';
                 var productID = $(this).data("productid");
                 var productFlag = $(this).data("productflag");
 
