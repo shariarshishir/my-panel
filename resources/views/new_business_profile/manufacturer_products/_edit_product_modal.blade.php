@@ -368,7 +368,7 @@
             $(el).remove();
         }
 
-        const editColors = {};
+        let editColors = {};
         const onEditColorNameChange = (e) => {
             editColors[e?.attributes?.index?.value] = {'name':e?.value,'color':editColors[e?.attributes?.index?.value]?.['color']||'#000000'};
         }
@@ -387,8 +387,13 @@
             document.getElementById('edit-colors').value = cols.join(',');
             document.getElementById('edit-picked-colors').value = cols.join(',');
         }
-
-
+        
+        const deleteeditcolor = (e) => {
+            const index = e?.attributes?.index?.value;
+            delete editColors[index];
+            const element = document.getElementById(index);
+            element.remove();
+        }
         $(document).ready(function () {
 
         // //Transforms the listbox visually into a Select2.

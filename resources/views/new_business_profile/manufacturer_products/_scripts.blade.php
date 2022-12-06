@@ -675,25 +675,37 @@
             $(this).closest("td.uploadImageAccessories").prev("td.uploadImageLabel").children("input").attr("disabled", false);
         }
     })
-    
+    function makeid(length=10) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
     function addProductColors()
     {
+        const id = makeid();
         let totalChild = $('.product_color_picker_table tbody').children().length;
-        var html = '<tr>';
-        html += '<td><input index="'+totalChild+'" type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>';
-        html += '<td><input index="'+totalChild+'" type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>';
+        var html = '<tr class="product-color-item" id="'+id+'">';
+        html += '<td><button index="'+id+'" onclick="deleteaddcolor(this);">Delete</button></td>';
+        html += '<td><input index="'+id+'" type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>';
+        html += '<td><input index="'+id+'" type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>';
         html += '</tr>';
         $('.product_color_picker_table tbody').append(html);
     }
     function editProductColors(e, name='', color='#000000')
     {
+        const id = makeid();
         let totalChild = $('.product_color_picker_table_edit tbody').children().length;
-        var html = '<tr>';
-        html += '<td><input index="'+totalChild+'" type="text" name="color_text[]" value="'+name+'" onkeyup="onEditColorNameChange(this)"/></td>';
-        html += '<td><input index="'+totalChild+'" type="color" name="color_hexa[]" value="'+color+'" onchange="onEditColorSelect(this)"/></td>';
+        var html = '<tr id="'+id+'">';
+        html += '<td><button index="'+id+'" onclick="deleteeditcolor(this);">Delete</button></td>';
+        html += '<td><input index="'+id+'" type="text" name="color_text[]" value="'+name+'" onkeyup="onEditColorNameChange(this)"/></td>';
+        html += '<td><input index="'+id+'" type="color" name="color_hexa[]" value="'+color+'" onchange="onEditColorSelect(this)"/></td>';
         html += '</tr>';
         $('.product_color_picker_table_edit tbody').append(html);
-        editColors[String(totalChild)] = {'name':name,'color':color};
+        editColors[id] = {'name':name,'color':color};
     }
 
     $(document).ready(function(){

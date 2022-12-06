@@ -343,6 +343,7 @@
                 </thead>
                 <tbody>
                     <tr class="product-color-item">
+                        <td>&nbsp;</td>
                         <td><input index='0' type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>
                         <td><input index='0' type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>
                     </tr>
@@ -378,6 +379,12 @@
         }
         const onColorSelect = (e) => {
             colors[e?.attributes?.index?.value] = {'name':colors[e?.attributes?.index?.value]?.['name']||'','color':e?.value};
+        }
+        const deleteaddcolor = (e) => {
+            const index = e?.attributes?.index?.value;
+            delete colors[index];
+            const element = document.getElementById(index);
+            element.remove();
         }
         const updateColorInputField = () => {
             let cols = [];
