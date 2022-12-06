@@ -121,10 +121,10 @@
                             <textarea id="additional_description" class="editor" name="additional_description" >{{old('additional_description')}}</textarea>
                         </div>
                     </div>
-                    
+
                     <div class="product_upload_update_block">
                         <div class="no_more_tables">
-                            <table class="product_upload_update_table"> 
+                            <table class="product_upload_update_table">
                                 <thead class="cf">
                                     <tr>
                                         <th class="uploadOverlayImage">Image</th>
@@ -345,7 +345,10 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td data-title="Color"><input type="text" value="" class="form-control" name="color_size[color][]" /></td>
+                                                    <td data-title="Color">
+                                                        <input type="text" value="" class="form-control" name="color_size[color][]" />
+                                                        <input type="color" value="" class="form-control" name="color_size[color_picker][]" />
+                                                    </td>
                                                     <td data-title="XXS"><input type="text" value="" class="form-control count-color-size negitive-or-text-not-allowed" name="color_size[xxs][]"/></td>
                                                     <td data-title="XS"><input type="text" value="" class="form-control count-color-size negitive-or-text-not-allowed" name="color_size[xs][]" /></td>
                                                     <td data-title="Small"><input type="text" value="" class="form-control count-color-size negitive-or-text-not-allowed" name="color_size[small][]" /></td>
@@ -471,7 +474,10 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td data-title="Color"><input type="text" value="" class="form-control" name="non_clothing_attr[color][]" /></td>
+                                                    <td data-title="Color">
+                                                        <input type="text" value="" class="form-control" name="non_clothing_attr[color][]" />
+                                                        <input type="color" value="" class="form-control" name="non_clothing_attr[color_picker][]" />
+                                                    </td>
                                                     <td data-title="Quantity"><input type="text" value="" class="form-control count-color-size negitive-or-text-not-allowed" name="non_clothing_attr[quantity][]" /></td>
                                                 </tr>
                                             </tbody>

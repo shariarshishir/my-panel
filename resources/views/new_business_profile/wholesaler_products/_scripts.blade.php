@@ -470,7 +470,12 @@
                             $.each(data.colors_sizes, function (key,item)
                             {
                                 var html= '<tr>';
-                                    html+='<td data-title="Color"><div class="autocomplete"><input type="text" value="'+item.color+'" class="form-control" id="predefind-colors" name="color_size[color][]" /></div></td>';
+                                    html+='<td data-title="Color">';
+                                    html+='<div class="autocomplete">';
+                                    html+='<input type="text" value="'+item.color+'" class="form-control" id="predefind-colors" name="color_size[color][]" />';
+                                    html+='<input type="color" value="'+item.color_picker+'" class="form-control" id="predefind-colors-picker" name="color_size[color_picker][]" />';
+                                    html+='</div>';
+                                    html+='</td>';
                                     html+='<td data-title="XXS"><input type="text" value="'+item.xxs+'" class="form-control negitive-or-text-not-allowed" name="color_size[xxs][]" /></td>';
                                     html+='<td data-title="XS"><input type="text" value="'+item.xs+'" class="form-control negitive-or-text-not-allowed" name="color_size[xs][]" /></td>';
                                     html+='<td data-title="Small"><input type="text" value="'+item.small+'" class="form-control negitive-or-text-not-allowed" name="color_size[small][]" /></td>';
@@ -524,7 +529,10 @@
                             $.each(data.colors_sizes, function (key, item)
                             {
                                 var html = '<tr>';
-                                    html += '<td data-title="Color"><input type="text" value="'+item.color+'" class="form-control" name="non_clothing_attr[color][]" /></td>';
+                                    html += '<td data-title="Color">';
+                                    html += '<input type="text" value="'+item.color+'" class="form-control" name="non_clothing_attr[color][]" />';
+                                    html += '<input type="color" value="'+item.color_picker+'" class="form-control" name="non_clothing_attr[color_picker][]" />';
+                                    html += '</td>';
                                     html += '<td data-title="Quantity"><input type="text" value="'+item.quantity+'" class="form-control negitive-or-text-not-allowed" name="non_clothing_attr[quantity][]" /></td>';
                                     html += '<td><a href="javascript:void(0);" class="btn_delete" onclick="removeNonClothingAttr(this)"><i class="material-icons dp48">delete_outline</i> <span>Delete</span></a></td>';
                                     html += '</tr>';

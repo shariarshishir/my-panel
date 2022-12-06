@@ -202,7 +202,10 @@ class ProductController extends Controller
                         {
                             if($key=='color'){
                                 $colors_sizes[$key2][$key]=$value2;
-                            }else{
+                            }elseif($key=='color_picker'){
+                                $colors_sizes[$key2][$key]=$value2;
+                            }
+                            else{
                                 $colors_sizes[$key2][$key]=(int)$value2;
                             }
                         }
@@ -231,7 +234,10 @@ class ProductController extends Controller
                         {
                             if($key=='color'){
                                 $colors_sizes[$key2][$key]=$value2;
-                            }else{
+                            }elseif($key=='color_picker'){
+                                $colors_sizes[$key2][$key]=$value2;
+                            }
+                            else{
                                 $colors_sizes[$key2][$key]=(int)$value2;
                             }
                         }
@@ -530,7 +536,10 @@ class ProductController extends Controller
                             foreach($value as $key2 => $value2 )
                                 {   if($key=='color'){
                                         $colors_sizes[$key2][$key]=$value2;
-                                    }else{
+                                    }elseif($key=='color_picker') {
+                                        $colors_sizes[$key2][$key]=$value2;
+                                    }
+                                    else{
                                         $colors_sizes[$key2][$key]=(int)$value2;
                                     }
 
@@ -556,6 +565,8 @@ class ProductController extends Controller
                             foreach($value as $key2 => $value2 )
                                 {
                                     if($key=='color'){
+                                        $colors_sizes[$key2][$key]=$value2;
+                                    }elseif($key=='color_picker'){
                                         $colors_sizes[$key2][$key]=$value2;
                                     }else{
                                         $colors_sizes[$key2][$key]=(int)$value2;
