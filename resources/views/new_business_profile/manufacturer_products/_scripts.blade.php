@@ -154,7 +154,8 @@
             },
             success:function(data)
                 {
-                    
+                    editColors = {};
+                    $('.product_color_picker_table_edit tbody').empty();
                     $('.loading-message').html("");
                     $('#loadingProgressContainer').hide();
                     $('#manufacture-update-errors').empty();
