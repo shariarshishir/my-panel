@@ -20,6 +20,11 @@
 @section('content')
 @include('sweet::alert')
 
+@push('styles')
+    .size_border {
+        background: red;
+    }
+@endpush
 
 <div class="new_design_product_detail_wrap">
 	<div class="back_to">
@@ -69,10 +74,14 @@
                                     <div class="row">
                                         <div class="col s12 l10 size_wrapper">
                                             @foreach($colors as $color)
-                                            @php
-                                                $color = explode('-', $color);
-                                            @endphp
-                                            <div class="size_border" style="background: {{$color[1]}}"><span class="text_center">{{ strtolower($color[0]) }}</span></div>
+                                                @php
+                                                    $color = explode('-', $color);
+                                                @endphp
+                                                @if(count($color) > 1)
+                                                    <div class="size_border color_picker_style" style="background: {{$color[1]}}"><span class="text_center">{{ strtolower($color[0]) }}</span></div>
+                                                @else
+                                                    <div class="size_border"><span class="text_center">{{ strtolower($color[0]) }}</span></div>
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
