@@ -16690,6 +16690,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .product_colorSizw_wrap .colorPickerBox label {
     float: left;
+    margin-bottom: 5px;
 }
 .product_colorSizw_wrap .colorPickerBox .modal-trigger {
     float: right;

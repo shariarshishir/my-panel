@@ -342,9 +342,9 @@
             <table class="product_color_picker_table_edit">
                 <thead style="text-align: center">
                     <tr>
-                        <th>Color</th>
-                        <th>Hexa</th>
-                        <th>Action</th>
+                        <th>Picker</th>
+                        <th>Name</th>
+                        <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody></tbody>

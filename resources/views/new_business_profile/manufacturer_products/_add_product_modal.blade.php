@@ -133,7 +133,7 @@
                                 <div class="col s12 m6 input-field">
                                     <div class="colorPickerBox">
                                         <label for="product-colors">Color <span class="text-danger">*</span></label>
-                                        <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal">Add Color</a>
+                                        <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal"><i class="material-icons dp48">add</i> Add Color</a>
                                     </div>
                                     <div class="product_color_box multipleArrowBox">
                                         <input class="product-colors" type="text" id="picked-colors" placeholder="ex: Pentone TCX, hex color code" disabled="disabled" />
@@ -334,7 +334,7 @@
 <!-- Modal Structure -->
 <div id="color-modal" class="modal color_picker_modal">
     <div class="colorPickerClose">
-        <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">clear</i></a>
+        <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat btn"><i class="material-icons">clear</i></a>
     </div>
     <div class="modal-content">
         <h4>Product Colors</h4>
@@ -342,20 +342,25 @@
             <table class="product_color_picker_table">
                 <thead>
                     <tr>
-                        <th>Color</th>
-                        <th>Hexa</th>
+                        <th>Picker</th>
+                        <th>Name</th>
+                        <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="product-color-item">
+                        <td><input index='0' class="color_hexa_box" type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>
+                        <td><input index='0' class="color_text_box" type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>
                         <td>&nbsp;</td>
-                        <td><input index='0' type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>
-                        <td><input index='0' type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>
                     </tr>
                 </tbody>
             </table>
-            <a href="javascript:void(0);" class="color-picker-save-trigger btn btn_green waves-effect waves-green">Save</a>
-            <a href="javascript:void(0);" class="new-color-picker-trigger btn btn_green waves-effect waves-green" onclick="addProductColors(this)">Add More</a>
+            <div class="add_more_box">
+                <a href="javascript:void(0);" class="new-color-picker-trigger" onclick="addProductColors(this)"><i class="material-icons dp48">add</i> Add More</a>
+            </div>
+            <div class="color_picker_save center-align">
+                <a href="javascript:void(0);" class="color-picker-save-trigger btn btn_green waves-effect waves-green modal-action modal-close">Save</a>
+            </div>
         </div>
     </div>
     {{-- <div class="modal-footer">
