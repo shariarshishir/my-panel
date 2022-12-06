@@ -131,8 +131,10 @@
                         <div class="product_colorSizw_wrap">
                             <div class="row">
                                 <div class="col s12 m6 input-field">
-                                    <label for="product-colors">Color <span class="text-danger">*</span></label>
-                                    <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal">Add Color</a>
+                                    <div class="colorPickerBox">
+                                        <label for="product-colors">Color <span class="text-danger">*</span></label>
+                                        <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal">Add Color</a>
+                                    </div>
                                     <div class="product_color_box multipleArrowBox">
                                         <input class="product-colors" type="text" id="picked-colors" placeholder="ex: Pentone TCX, hex color code" disabled="disabled" />
                                         <input class="product-colors" name="colors[]" id="colors" type="hidden" />
@@ -330,7 +332,10 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="color-modal" class="modal modal-fixed-footer">
+<div id="color-modal" class="modal color_picker_modal">
+    <div class="colorPickerClose">
+        <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">clear</i></a>
+    </div>
     <div class="modal-content">
         <h4>Product Colors</h4>
         <div class="add-product-colors">
@@ -353,9 +358,9 @@
             <a href="javascript:void(0);" class="new-color-picker-trigger btn btn_green waves-effect waves-green" onclick="addProductColors(this)">Add More</a>
         </div>
     </div>
-    <div class="modal-footer">
+    {{-- <div class="modal-footer">
         <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
+    </div> --}}
 </div>
 
 @push('js')

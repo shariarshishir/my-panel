@@ -120,8 +120,10 @@
                         <div class="product_colorSizw_wrap">
                             <div class="row">
                                 <div class="col s12 m6 input-field">
-                                    <label for="product-colors">Color <span class="text-danger">*</span></label>
-                                    <a class="waves-effect waves-light btn modal-trigger btn btn_green" href="#color-modal-edit">Add Color</a>
+                                    <div class="colorPickerBox">
+                                        <label for="product-colors">Color <span class="text-danger">*</span></label>
+                                        <a class="waves-effect waves-light btn modal-trigger" href="#color-modal-edit"> <i class="material-icons dp48">add</i> Add Color</a>
+                                    </div>
                                     <div class="product_color_box multipleArrowBox">
                                         <input class="product-colors" type="text" id="edit-picked-colors" placeholder="ex: Pentone TCX, hex color code" disabled="disabled" />
                                         <input name="colors[]" id="edit-colors" type="hidden" />
@@ -330,26 +332,34 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="color-modal-edit" class="modal modal-fixed-footer">
+<div id="color-modal-edit" class="modal color_picker_modal">
+    <div class="colorPickerClose">
+        <a href="javascript:void(0);" class="modal-action modal-close waves-effect btn waves-green btn-flat"><i class="material-icons">clear</i></a>
+    </div>
     <div class="modal-content">
         <h4>Product Colors</h4>
         <div class="edit-product-colors">
             <table class="product_color_picker_table_edit">
-                <thead>
+                <thead style="text-align: center">
                     <tr>
                         <th>Color</th>
                         <th>Hexa</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
-            <a href="javascript:void(0);" class="color-picker-edit-save-trigger btn btn_green waves-effect waves-green">Save</a>
-            <a href="javascript:void(0);" class="edit-color-picker-trigger btn btn_green waves-effect waves-green" onclick="editProductColors(this)">Add More</a>
+            <div class="add_more_box">
+                <a href="javascript:void(0);" class="edit-color-picker-trigger" onclick="editProductColors(this)"><i class="material-icons dp48">add</i> Add More</a>
+            </div>
+            <div class="color_picker_save center-align">
+                <a href="javascript:void(0);" class="color-picker-edit-save-trigger btn btn_green waves-effect waves-green modal-action modal-close">Save</a>
+            </div>
         </div>
     </div>
-    <div class="modal-footer">
+    {{-- <div class="modal-footer">
         <a href="javascript:void(0);" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
+    </div> --}}
 </div>
 
 @push('js')

@@ -700,9 +700,9 @@
         const id = makeid();
         let totalChild = $('.product_color_picker_table_edit tbody').children().length;
         var html = '<tr id="'+id+'">';
-        html += '<td><button index="'+id+'" onclick="deleteeditcolor(this);">Delete</button></td>';
-        html += '<td><input index="'+id+'" type="text" name="color_text[]" value="'+name+'" onkeyup="onEditColorNameChange(this)"/></td>';
-        html += '<td><input index="'+id+'" type="color" name="color_hexa[]" value="'+color+'" onchange="onEditColorSelect(this)"/></td>';
+        html += '<td><input class="color_hexa_box" index="'+id+'" type="color" name="color_hexa[]" value="'+color+'" onchange="onEditColorSelect(this)"/></td>';
+        html += '<td><input class="color_text_box" index="'+id+'" type="text" name="color_text[]" value="'+name+'" onkeyup="onEditColorNameChange(this)"/></td>';
+        html += '<td><button class="color_delete_box" index="'+id+'" onclick="deleteeditcolor(this);"><i class="material-icons dp48">delete_outline</i><span>Delete</span></button></td>';
         html += '</tr>';
         $('.product_color_picker_table_edit tbody').append(html);
         editColors[id] = {'name':name,'color':color};

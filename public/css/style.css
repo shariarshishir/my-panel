@@ -5338,7 +5338,8 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
 .profile_form_modal .radio_box, .profile_form_modal .radio_box {
     display: inline-block;
 }
-.modal .btn, .profile_form_modal .btn {
+.modal .btn, 
+.profile_form_modal .btn {
     float: right;
     margin-top: 20px;
     font-size: 18px;
@@ -5347,18 +5348,23 @@ ul.stepper.horizontal .step .step-content .step_content_inner .step-actions {
     color: #ffffff;
     text-transform: capitalize;
 }
+.modal .btn_green:focus,
+.modal .btn_green:hover {
+    color: #54a958;
+}
 .modal .red, .profile_form_modal .red {
     line-height: 23px;
     height: 25px;
 }
-.modal .btn .material-icons, .profile_form_modal .btn .material-icons {
+.modal .btn .material-icons, 
+.profile_form_modal .btn .material-icons {
     float: left;
 }
 .profile_form_modal tbody tr {
     border-bottom: none;
 }
 .profile_form_modal .input-field.col label {
-    position: inherit !important;
+    position: inherit !important;       
     position: inherit;
     left: inherit;
     top: inherit;
@@ -15567,6 +15573,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     object-fit: contain;
     border: 1px solid #eeeeee
 }
+.product_upload_update_block .add_more_box .add-more-block .material-icons {
+    margin-top: 2px;
+}
 
 /* ******************** .contactus-content-body style start *********************** */
 .contactus-content-body {
@@ -16640,7 +16649,6 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     min-width: 100px;
     text-align: center;
 }
-
 .suppliers_non_subscriber_message_block_outer {
     position: relative;
     height: calc(100vh - 80px);
@@ -16672,6 +16680,102 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-bottom: 25px;
 }
 /* ******************** new_design_product_detail_wrap style end ******************* */
+
+
+/* ******************** color_picker_modal style start ******************* */
+
+.product_colorSizw_wrap .colorPickerBox {
+    display: inline-block;
+    width: 100%;
+}
+.product_colorSizw_wrap .colorPickerBox label {
+    float: left;
+}
+.product_colorSizw_wrap .colorPickerBox .modal-trigger {
+    float: right;
+    margin: 5px 0 0 10px;
+    font-size: 14px;
+    height: auto;
+    line-height: initial;
+    min-width: inherit;
+    background: none;
+    color: #54a958;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+}
+.product_colorSizw_wrap .colorPickerBox .modal-trigger .material-icons {
+    float: left;
+    font-size: 16px;
+    margin-right: 5px;
+}
+.color_picker_modal {
+    max-width: 450px;
+    border-radius: 10px;
+}
+.color_picker_modal .modal-content {
+    padding: 20px;
+}
+.color_picker_modal .modal-content table tr th {
+    text-align: center;
+}
+.color_picker_modal .modal-content h4 {
+    margin-bottom: 10px;
+}
+.color_picker_modal .colorPickerClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.color_picker_modal .colorPickerClose .btn {
+    background: none !important;
+    padding: 0;
+    height: 20px;
+    line-height: 20px;
+    margin: 0;
+}
+.color_picker_modal .colorPickerClose .btn .material-icons {
+    font-size: 25px;
+    color: #000;
+}
+.color_picker_modal .color_text_box {
+    width: 150px !important;
+}
+.color_picker_modal .color_hexa_box {
+    width: 80px !important;
+    background: none;
+    border: none !important;
+    padding: 0 !important;
+}
+.color_picker_modal .color_delete_box {
+    background: none;
+    border: none !important;
+    padding: 0 !important;
+}
+.color_picker_modal .color_delete_box .material-icons {
+    color: #dc143c;
+    font-size: 24px;
+}
+.color_picker_modal .color_delete_box span {
+    display: block;
+    color: #dc143c;
+    font-size: 12px;
+}
+.color_picker_modal .add_more_box {
+    padding-top: 10px;
+}
+.color_picker_modal .add_more_box .material-icons {
+    margin-top: 0;
+}
+.color_picker_modal .color_picker_save .btn_green {
+    float: none;
+    font-size: 14px;
+    line-height: 25px;
+    height: 35px;
+}
+
+/* ******************** color_picker_modal style end ******************* */
+
 
 
 /* ******************** Media css style start *********************** */
