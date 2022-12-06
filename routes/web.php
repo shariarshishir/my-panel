@@ -284,6 +284,7 @@ Route::get('rfq-by-page-no',[RfqController::class, 'rfqByPageNumber'])->name('rf
 Route::get('rfq-info',[HomeController::class, 'rfqInfoDetails'])->name('new_rfq.index');
 
 Route::get('/product/sample-request', [HomeController::class, 'productSampleRequest'])->name('product.sample.request');
+Route::get('/product/quotation-request', [HomeController::class, 'productQuotationRequest'])->name('product.quotation.request');
 
 Route::group(['middleware'=>['sso.verified','auth']],function (){
     Route::get('/cart',[ProductCartController::class,'index'])->name('cart.index');

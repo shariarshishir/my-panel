@@ -380,6 +380,9 @@ $reviewsCount = count($productReviews);
                                 <div class="col s12 m6">
                                     <a class="request_for_sample_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Ask For Sample</a>
                                 </div>
+                                <div class="col s12 m6">
+                                    <a class="request_for_quotation_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Request for Quotation</a>
+                                </div>
                             </div>
                         </div>
 
@@ -917,6 +920,34 @@ $reviewsCount = count($productReviews);
         $(document).ready(function(){
             $(".request_for_sample_event_trigger").click(function(){
                 var url = '{{ route("product.sample.request") }}';
+                var productID = $(this).data("productid");
+                var productFlag = $(this).data("productflag");
+
+                if (confirm('Are you sure?'))
+                {
+                    $.ajax({
+                        method: 'get',
+                        data: {productID:productID, productFlag:productFlag},
+                        url: url,
+                        beforeSend: function() {
+                            $('.loading-message').html("Please Wait.");
+                            $('#loadingProgressContainer').show();
+                        },
+                        success:function(data)
+                        {
+                            //console.log(data);
+                            // if(data.status==1){
+                            //     $(".verification_trigger_from_backend").hide();
+                            //     $(".unverification_trigger_from_backend").show();
+                            // }
+                            window.location.reload();
+                        }
+                    });
+                }
+            })
+
+            $(".request_for_quotation_event_trigger").click(function(){
+                var url = '{{ route("product.quotation.request") }}';
                 var productID = $(this).data("productid");
                 var productFlag = $(this).data("productflag");
 
