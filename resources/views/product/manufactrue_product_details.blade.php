@@ -349,9 +349,38 @@
             const index = product_images.indexOf(Number(selected_img_id));
             // scroll to 450 * index
             const scrollView = document.getElementById('product-large-image-block-scrollview');
-            if(scrollView){
-                scrollView.scrollTo(0,450 * index);
+
+            if ($(window).width() < 480) {
+                if(scrollView){
+                    scrollView.scrollTo(0,000 * index);
+                }
             }
+            else if ($(window).width() < 768) {
+                if(scrollView){
+                    scrollView.scrollTo(0,450 * index);
+                }
+            }
+            else if ($(window).width() >= 768 &&  $(window).width() <= 1280) {
+                if(scrollView){
+                    scrollView.scrollTo(0,352 * index);
+                }
+            }
+            else if ($(window).width() > 1280 &&  $(window).width() <= 1400) {
+                if(scrollView){
+                    scrollView.scrollTo(0,450 * index);
+                }
+            }
+            else if ($(window).width() > 1400 &&  $(window).width() <= 1700) {
+                if(scrollView){
+                    scrollView.scrollTo(0,551 * index);
+                }
+            }
+            else  {
+                // do something for huge screens
+                if(scrollView){
+                    scrollView.scrollTo(0,610 * index);
+                }
+            } 
         }
         $(document).ready(function() {
             const p_imgs = @json($product->product_images) || [];

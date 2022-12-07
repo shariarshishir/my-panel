@@ -4227,6 +4227,9 @@ div.dataTables_wrapper table.mdc-data-table__table {
     padding: 0;
     text-align: right !important;
 }
+.profile_product_upload_modal .modal-content {
+    position: relative;
+}
 #product-edit-modal-block .submit_btn_wrap {
     padding-top: 30px;
 }
@@ -13240,7 +13243,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 /* order_management_inner_wrap css start */
 .order_management_inner_wrap .order_management_inner_left {
     border: 1px solid #d9d9d9;
-    padding: 30px 20px;
+    padding: 30px 0;
     border-radius: 5px;
 }
 .order_management_inner_wrap .order_management_inner_left:hover, .order_management_inner_wrap .order_management_inner_left:focus {
@@ -16659,7 +16662,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100%;
     position: relative;
 }
 .new_design_product_detail_wrap .product-bg-image .image_label {
@@ -16880,81 +16883,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         margin-left: 40px;
    }
    /* ************* How We Work css end ************* */
+
 }
-@media only screen and (min-width: 1700px) {
-    .container.howWeWorkContainer .manufacture_container .container .row {
-        margin-left: 0px;
-   }
-    .landing_intro_wrapper {
-        padding: 100px 0 150px;
-   }
-    .landing_intro_wrapper h1 {
-        margin-bottom: 50px;
-        font-size: 48px;
-        line-height: 68px;
-   }
-    .home_intro_left .quotation_request {
-        margin-top: 60px;
-   }
-    .product_design_wrapper .productBox .imgBox img {
-        width: auto;
-   }
-    .design_studio_product_list_wrapper .productBox .imgBox img {
-        width: 100%;
-   }
-    .landing_spotlight_top .spotlight_box {
-        bottom: -33px;
-   }
-    .landing_spotlight_infoWrap {
-        font-size: 20px;
-        line-height: 35px;
-   }
-    .simpleLens-thumbnails-container, .details_gallery_box {
-        text-align: center;
-   }
-    .landing_tools_infobox {
-        padding-top: 50px;
-   }
-    .header_dasktop .mainNav ul li {
-        padding-left: 35px;
-   }
-    .mainNav ul li .material-icons {
-        padding-left: 5px;
-        margin-top: 2px;
-   }
-    .home_intro_video_box {
-        padding-top: 0;
-   }
-    .home_intro_video_box .embed-responsive-item {
-        width: 700px;
-        height: 410px;
-   }
-    .account_profile_box .profile_account_dev_design .product_cards .modal {
-        width: 70%;
-   }
-    .account_rfqDetailes_infoWrap p b, .profile_account_myrfq_box p b, .profile_account_poinfo_box p b {
-        font-size: 13px;
-   }
-    .order_management_inner_left ul {
-        padding: 0 30px 20px;
-   }
-    #lineitems_video, .overlay-image-preview-block, .edit-video-show-div video, .edit-video-show-block, .edit-video-upload-block #editVideo, .edit-video-show-div, .video-image-preview-block #video {
-        height: 250px;
-        max-height: 250px !important;
-   }
-    .new_rfq_details_wrapper_outer.active .new_rfq_details_inner {
-        width: 65%;
-    }
-    .new_rfq_supplier_outer_wrapper .middle_wrap i.material-icons {
-        font-size: 42px;
-    }
-    .new_rfq_supplier_outer_wrapper .middle_wrap span.icon_wrap {
-        width: 37px;
-        height: 37px;
-        line-height: 40px;
-        font-size: 12px;
-    }
-}
+
 @media only screen and (min-width: 1201px) {
     .new_rfq_paths_boxwrap .row .col.new_rfq_paths_box {
         width: 20%;
@@ -17069,7 +17000,94 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
       #rfqDetailsRightSlider .new_rfq_details_inner .request_for_quotation .btn {
         font-size: 14px;
    }
+   .new_design_product_detail_wrap .raw_materials_sm_imglist,
+    .new_design_product_detail_wrap .product-large-image-block {
+        height: 550px;
+        max-height: 550px;
+    }
 }
+
+@media only screen and (min-width: 1700px) {
+    .container.howWeWorkContainer .manufacture_container .container .row {
+        margin-left: 0px;
+   }
+    .landing_intro_wrapper {
+        padding: 100px 0 150px;
+   }
+    .landing_intro_wrapper h1 {
+        margin-bottom: 50px;
+        font-size: 48px;
+        line-height: 68px;
+   }
+    .home_intro_left .quotation_request {
+        margin-top: 60px;
+   }
+    .product_design_wrapper .productBox .imgBox img {
+        width: auto;
+   }
+    .design_studio_product_list_wrapper .productBox .imgBox img {
+        width: 100%;
+   }
+    .landing_spotlight_top .spotlight_box {
+        bottom: -33px;
+   }
+    .landing_spotlight_infoWrap {
+        font-size: 20px;
+        line-height: 35px;
+   }
+    .simpleLens-thumbnails-container, .details_gallery_box {
+        text-align: center;
+   }
+    .landing_tools_infobox {
+        padding-top: 50px;
+   }
+    .header_dasktop .mainNav ul li {
+        padding-left: 35px;
+   }
+    .mainNav ul li .material-icons {
+        padding-left: 5px;
+        margin-top: 2px;
+   }
+    .home_intro_video_box {
+        padding-top: 0;
+   }
+    .home_intro_video_box .embed-responsive-item {
+        width: 700px;
+        height: 410px;
+   }
+    .account_profile_box .profile_account_dev_design .product_cards .modal {
+        width: 70%;
+   }
+    .account_rfqDetailes_infoWrap p b, .profile_account_myrfq_box p b, .profile_account_poinfo_box p b {
+        font-size: 13px;
+   }
+    .order_management_inner_left ul {
+        padding: 0 30px 20px;
+   }
+    #lineitems_video, .overlay-image-preview-block, .edit-video-show-div video, .edit-video-show-block, .edit-video-upload-block #editVideo, .edit-video-show-div, .video-image-preview-block #video {
+        height: 250px;
+        max-height: 250px !important;
+   }
+    .new_rfq_details_wrapper_outer.active .new_rfq_details_inner {
+        width: 65%;
+    }
+    .new_rfq_supplier_outer_wrapper .middle_wrap i.material-icons {
+        font-size: 42px;
+    }
+    .new_rfq_supplier_outer_wrapper .middle_wrap span.icon_wrap {
+        width: 37px;
+        height: 37px;
+        line-height: 40px;
+        font-size: 12px;
+    }
+    .new_design_product_detail_wrap .raw_materials_sm_imglist,
+    .new_design_product_detail_wrap .product-large-image-block {
+        height: 610px;
+        max-height: 610px;
+    }
+}
+
+
 @media only screen and (min-width: 1300px) {
     .account_profile_wrapper .membership_wrap .membership_textBox .imgbox {
         padding: 0 30px;
@@ -18078,6 +18096,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box .rfq_btn {
         padding: 8px 5px 6px;
    }
+   .new_design_product_detail_wrap .raw_materials_sm_imglist,
+   .new_design_product_detail_wrap .product-large-image-block {
+        height: 350px;
+    }
+    .new_design_product_detail_wrap .product-bg-image {
+        background-size: contain;
+    }
+   
 }
 @media only screen and (max-width: 1024px) {
     .export-destination-block .col.s6.m4.l2, .pr_highlights_wrap .paper_img.col.s6.m4.l2, .export_destination_wrap .flagBox .col.s6.m4.l2, .main_buyers_wrap .main_buyer_box.col.s6.m4 {
@@ -19451,6 +19477,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .product_upload_update_block .uploadOverlayImage {
         min-width: 250px;
     }
+    .new_design_product_detail_wrap .raw_materials_sm_imglist,
+    .new_design_product_detail_wrap .product-large-image-block {
+        height: 350px;
+    }
 }
 @media only screen and (max-width: 900px) {
     .chat-application .app-sidebar {
@@ -20563,6 +20593,17 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .product_upload_update_block .product_upload_update_table tr {
         border: none !important;
+    }
+
+    .new_design_product_detail_wrap .product-large-image-block {
+        height: 450px;
+        overflow: hidden;
+    }
+    .new_design_product_detail_wrap .raw_materials_sm_imglist {
+        height: auto;
+    }
+    .new_design_product_detail_wrap .product-bg-image {
+        background-size: contain;
     }
 }
 @media only screen and (max-width: 600px) {
@@ -22012,6 +22053,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .color_picker_modal .color_text_box {
         max-width: 85px !important;
+    }
+    .new_design_product_detail_wrap .product-large-image-block {
+        height: 300px;
     }
 }
 @media only screen and (max-width: 380px) {
