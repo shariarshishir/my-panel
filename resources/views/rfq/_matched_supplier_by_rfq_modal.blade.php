@@ -112,9 +112,9 @@
 
             <div class="rfq_new_layout_match_supplier_with_rfq">
                 <div class="match_supplier_rfq_single_wrapper">
-                    <div class="single_wraper_gapping">
+                    <div class="row single_wraper_gapping">
                         <label id="no-supplier-found" style="display:none;">No Supplier Found</label>
-                        <div id="matched-supplier-list" class="single_wraper_inner_infoBox"></div>
+                        <div id="matched-supplier-list"></div>
                     </div>
                 </div>
             </div>
@@ -307,7 +307,7 @@
                 business_profiles.map(businessProfile=>{
                     if(check_status){
                         if(business_profile_ids.includes(businessProfile?.id)){
-                            myvar += '<div class="matched_supplier_item" name="'+businessProfile?.business_name+'">'+
+                            myvar += '<div class="col s12 m6 l4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
         '						<div class="match_supplier_rfq_single_content">'+
         '							<div class="input-field">'+
         '								<label>'+
@@ -368,7 +368,7 @@
                         }
                     }else{
                         if(!business_profile_ids.includes(businessProfile?.id)){
-                            myvar += '<div class="matched_supplier_item" name="'+businessProfile?.business_name+'">'+
+                            myvar += '<div class="col s12 m6 l4 matched_supplier_item" name="'+businessProfile?.business_name+'">'+
         '						<div class="match_supplier_rfq_single_content">'+
         '							<div class="input-field">'+
         '								<label>'+
@@ -405,9 +405,9 @@
                                             getCertifications(businessProfile)+
         '								</div>'+
         '								<!-- Third div part -->'+
-        '								<div class="workers_number_box">'+
+        '								<div class="main_product_wrap">'+
         '									<h6>Workers:</h6>'+
-        '									<div class="workers_inner_box">'+
+        '									<div class="main_product_inner">'+
         '										<p>'+getWorkers(businessProfile)+'</p>'+
         '									</div>'+
         '								</div>'+
