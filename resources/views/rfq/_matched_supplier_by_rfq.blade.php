@@ -119,107 +119,107 @@
 
                 <div class="rfq_new_layout_match_supplier_with_rfq">
                     <div class="match_supplier_rfq_single_wrapper">
-                        <div class="row single_wraper_gapping">
+                        <div class="single_wraper_gapping">
                             <label id="no-supplier-found" style="display:none;">No Supplier Found</label>
-                            
-                            @foreach($businessProfiles as $businessProfile)
-                            <div class="col s12 m6 l4 matched_supplier_item" name="{{$businessProfile['business_name']}}">
-                                <div class="match_supplier_rfq_single_content">
-                                    <div class="input-field">
-                                        <label>
-                                            <input type="checkbox" id="{{$businessProfile['id']}}" user_id="{{$businessProfile['user_id']}}" name="remember" onclick='onProfileSelected(this)'>
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="match_supplier_rfq_single_content_inner_part">
-
-                                        <!-- First div part -->
-                                        <div class="row sparkle_part">
-                                            <div class="col s12 m3">
-                                                <div class="image_width_wrap">
-                                                    @if($businessProfile['user']['image'])
-                                                    <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['user']['image'])}}' alt="">
-                                                    @else
-                                                    <img class="image_width" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" itemprop="img">
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="col s12 m7">
-                                                <h3>{{$businessProfile['business_name']}}</h3>
-                                                <span class="location">{{$businessProfile['location']}}</span>
-                                            </div>
-                                            <div class="col s12 m2">
-                                                <div class="middle_wrap">
-                                                    <span class="check_circle">
-                                                        @if($businessProfile['profile_verified_by_admin'] == 1)
-                                                        <i class="material-icons">check_circle</i>
-                                                        @endif
-                                                    </span>
-                                                    <span class="icon_wrap">
-                                                        @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                            @if($data->name == 'year_of_establishment')
-                                                            {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}} Y
-                                                            @endif
-                                                        @endforeach
-                                                    </span>
-                                                </div>
-                                            </div>
+                            <div class="single_wraper_inner_infoBox">
+                                @foreach($businessProfiles as $businessProfile)
+                                <div class="matched_supplier_item" name="{{$businessProfile['business_name']}}">
+                                    <div class="match_supplier_rfq_single_content">
+                                        <div class="input-field">
+                                            <label>
+                                                <input type="checkbox" id="{{$businessProfile['id']}}" user_id="{{$businessProfile['user_id']}}" name="remember" onclick='onProfileSelected(this)'>
+                                                <span></span>
+                                            </label>
                                         </div>
+                                        <div class="match_supplier_rfq_single_content_inner_part">
 
-                                        <!-- Second div part -->
-
-                                        <div class="middle_part_image_wrapper">
-                                            <h6>Certification:</h6>
-                                            @if($businessProfile['certifications'])
-                                            <div class="inner_content_image suppliers_certificates_list">
-                                                @foreach($businessProfile['certifications'] as $cert)
-                                                    <img class="" src='{{Storage::disk('s3')->url('public/'.$cert['image'])}}' alt="">
-                                                @endforeach
-                                            </div>
-                                            @else
-                                                <p>No Certifications found.</p>
-                                            @endif
-                                        </div>
-                                        <div class="main_product_wrap">
-                                            <h6>Workers:</h6>
-                                            <div class="main_product_inner">
-                                                @php $t=0; @endphp
-                                                @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                    @if($data->name == 'number_of_worker' || $data->name == 'number_of_female_worker')
-                                                        @php $t = (int)$t + (int)$data->value @endphp
-                                                    @endif
-                                                @endforeach
-                                                @php echo $t; @endphp
-                                            </div>
-                                        </div>
-                                        <!-- Third div part -->
-                                        <div class="main_product_wrap">
-                                            <h6>Main Products:</h6>
-                                            <div class="main_product_inner">
-                                                @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                    @if($data->name == 'main_products')
-                                                        @if($data->value == '')
-                                                        <h5>No Main Product Found</h5>
+                                            <!-- First div part -->
+                                            <div class="row sparkle_part">
+                                                <div class="col s12 m3">
+                                                    <div class="image_width_wrap">
+                                                        @if($businessProfile['user']['image'])
+                                                        <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['user']['image'])}}' alt="">
                                                         @else
-                                                        <h5>{{$data->value}}</h5>
+                                                        <img class="image_width" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" itemprop="img">
                                                         @endif
-                                                    @endif
-                                                @endforeach
+                                                    </div>
+                                                </div>
+                                                <div class="col s12 m7">
+                                                    <h3>{{$businessProfile['business_name']}}</h3>
+                                                    <span class="location">{{$businessProfile['location']}}</span>
+                                                </div>
+                                                <div class="col s12 m2">
+                                                    <div class="middle_wrap">
+                                                        <span class="check_circle">
+                                                            @if($businessProfile['profile_verified_by_admin'] == 1)
+                                                            <i class="material-icons">check_circle</i>
+                                                            @endif
+                                                        </span>
+                                                        <span class="icon_wrap">
+                                                            @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                                @if($data->name == 'year_of_establishment')
+                                                                {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}} Y
+                                                                @endif
+                                                            @endforeach
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second div part -->
+
+                                            <div class="middle_part_image_wrapper">
+                                                <h6>Certification:</h6>
+                                                @if($businessProfile['certifications'])
+                                                <div class="inner_content_image suppliers_certificates_list">
+                                                    @foreach($businessProfile['certifications'] as $cert)
+                                                        <img class="" src='{{Storage::disk('s3')->url('public/'.$cert['image'])}}' alt="">
+                                                    @endforeach
+                                                </div>
+                                                @else
+                                                    <span>No Certifications found.</span>
+                                                @endif
+                                            </div>
+                                            <div class="workers_number_box">
+                                                <h6>Workers:</h6>
+                                                <div class="workers_inner_box">
+                                                    @php $t=0; @endphp
+                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                        @if($data->name == 'number_of_worker' || $data->name == 'number_of_female_worker')
+                                                            @php $t = (int)$t + (int)$data->value @endphp
+                                                        @endif
+                                                    @endforeach
+                                                    @php echo $t; @endphp
+                                                </div>
+                                            </div>
+                                            <!-- Third div part -->
+                                            <div class="main_product_wrap">
+                                                <h6>Main Products:</h6>
+                                                <div class="main_product_inner">
+                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                        @if($data->name == 'main_products')
+                                                            @if($data->value == '')
+                                                            <p>No Main Product Found</p>
+                                                            @else
+                                                            <p>{{$data->value}}</p>
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="chatbox_wrap">
+                                                {{-- <img src="./images/chat-img.png" alt="">  --}}
+                                                <a href="javascript:void(0)">
+                                                    {{-- <i class="material-icons">chat</i> <!--span>5</span--> --}}
+                                                    <img src="{{Storage::disk('s3')->url('public/frontendimages/chatbox_iocn.png')}}" alt="Chatbox Iocn">
+                                                </a>
                                             </div>
                                         </div>
-                                        
-                                        <div class="chatbox_wrap">
-                                            {{-- <img src="./images/chat-img.png" alt="">  --}}
-                                            <a href="javascript:void(0)">
-                                                {{-- <i class="material-icons">chat</i> <!--span>5</span--> --}}
-                                                <img src="{{Storage::disk('s3')->url('public/frontendimages/chatbox_iocn.png')}}" alt="Chatbox Iocn">
-                                            </a>
-                                        </div>
-
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
                     </div>
                 </div>
