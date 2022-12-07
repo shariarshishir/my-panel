@@ -16366,10 +16366,16 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .new_design_product_detail_wrap .btn_bg_yellow {
     border: none;
     background: yellow;
-    padding: 8px 10px;
-    min-width: 130px;
+    padding: 8px 10px 5px;
+    width: auto;
     margin-top: 20px;
     color: #000000;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: -1px;
 }
 .new_design_product_detail_wrap .font_weight {
     font-weight: 700;
@@ -16406,6 +16412,19 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     text-transform: capitalize;
     float: left;
     margin: 0 5px 5px 0;
+}
+.new_design_product_detail_wrap .colorPickerDetails .pickerColorBox {
+    border: 1px solid #ddd;
+    padding: 5px;
+    float: left;
+    margin: 0 8px 5px 0;
+    text-transform: capitalize;
+}
+.new_design_product_detail_wrap .colorPickerDetails .coloPick {
+    width: 30px;
+    height: 25px;
+    margin: 0;
+    cursor: pointer;
 }
 .new_design_product_detail_wrap .second_contant_image_sizing img {
     min-height: 500px;
@@ -16739,8 +16758,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 25px;
     color: #000;
 }
+.color_picker_modal table tbody td {
+    text-align: center;
+}
 .color_picker_modal .color_text_box {
     width: 150px !important;
+    float: none;
 }
 .color_picker_modal .color_hexa_box {
     width: 80px !important;
@@ -16773,6 +16796,33 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 14px;
     line-height: 25px;
     height: 35px;
+}
+.color-and-size-block .colorPickerBox {
+    position: relative;
+    width: 110px;
+}
+.color-and-size-block .non-clothing-color-quantity-table-block .colorPickerBox {
+    width: inherit !important;
+}
+.color-and-size-block  tr td.colorPickerBox input.colorName {
+    width: 50px !important;
+    float: left;
+}
+.color-and-size-block .non-clothing-color-quantity-table-block .colorPickerBox input.colorName {
+    width: 90% !important;
+}
+.color-and-size-block tr td.colorPickerBox input.colorPicker {
+    position: absolute;
+    background: none;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    width: 25px !important;
+    right: 0;
+    top: 12px;
+    bottom: 0;
+    height: 30px !important;
 }
 
 /* ******************** color_picker_modal style end ******************* */
@@ -17009,6 +17059,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    }
     .product_media_wrap .row .col.s6.m4.l3 {
         width: 20%;
+   }
+   .new_design_product_detail_wrap .btn_bg_yellow {
+        min-width: 100px;
    }
 }
 @media only screen and (max-width: 1899px) {
@@ -17601,9 +17654,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .landing_tools_infobox .title_border {
         min-width: 288px;
    }
-    .product_design_wrapper .productBox .imgBox img {
+    /* .product_design_wrapper .productBox .imgBox img {
         width: auto;
-   }
+   } */
     .product_upload_innerBox .price_leadtime_table .uom_box .form-control {
         width: 60px !important;
    }
@@ -17754,6 +17807,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .profile_account_myrfq_addPost .material-icons {
         font-size: 120px;
     }
+    .new_design_product_detail_wrap .request_for_button_wrap {
+        text-align: center;
+    }
+    .new_design_product_detail_wrap .btn_bg_yellow {
+        white-space: inherit;
+        letter-spacing: 0;
+        min-width: 100px;
+    }
 }
 @media only screen and (max-width: 1200px) {
     .rfq_review_results_box {
@@ -17820,6 +17881,35 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    /* ************* About us page css end ************* */
     .order_management_inner_right {
         padding-left: 0px;
+   }
+   .new_design_product_detail_wrap .contact_supplier {
+        text-align: center;
+   }
+   .new_design_product_detail_wrap .btn_contact_supplier,
+    .new_design_product_detail_wrap .btn_bg_yellow {
+        min-width: 150px;
+    }
+
+    /* ******************************* */
+   .color-and-size-block .colorPickerBox {
+        width: 80px !important;
+        padding-left: 0;
+   }
+   .color-and-size-block tr td.colorPickerBox input.colorName {
+        width: 20px !important;
+   }
+   .profile_form_modal .color-and-size-block .color-size-table-block th {
+        font-size: 12px;
+        line-height: 14px;
+   }
+   .color-and-size-block tr td.colorPickerBox input.colorPicker {
+        width: 20px !important;
+        height: 25px !important;
+        right: 12px;
+        top: 15px;
+   }
+   .color-and-size-block .non-clothing-color-quantity-table-block .colorPickerBox input.colorName {
+        width: 82% !important;
    }
 }
 @media only screen and (min-device-width: 993px) and (max-device-width: 1300px) {
@@ -18032,6 +18122,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         padding-bottom: 20px;
    }
    /* ************* About us page css end ************* */
+
 }
 @media only screen and (max-width: 992px) {
     .header_wrap.fixed {
@@ -19658,6 +19749,24 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    }
     .account_profile_wrapper .overview_table .material-icons, .profile_tabNav_wrap .overview_table .material-icons {
         font-size: 18px;
+   }
+   .color-and-size-block .non-clothing-color-quantity-table-block .colorPickerBox {
+        width: 100% !important;
+   }
+   .color-and-size-block .colorPickerBox {
+    width: 100% !important;
+   }
+   .color-and-size-block .non-clothing-color-quantity-table-block .colorPickerBox input.colorName,
+   .color-and-size-block tr td.colorPickerBox input.colorName {
+        width: 70% !important;
+   }
+   .color-and-size-block tr td.colorPickerBox input.colorPicker {
+        top: 22px;
+        width: 25px !important;
+   }
+   
+   .product_upload_update_block .product_upload_update_table tbody {
+        display: block;
    }
 }
 @media only screen and (max-width: 768px) {
@@ -21865,11 +21974,17 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         width: 100% !important;
    }
    .my_rfq_new_layout_wrapper .profile_account_myrfq_innerbox .profile_account_myrfq_box .rfq_top_content {
-    height: auto;
+        height: auto;
    }
    .chat-application .app-chat .chat-content .chat-content-area .chat-footer .chat-input {
-    margin-bottom: 30px;
+        margin-bottom: 30px;
    }
+    .color_picker_modal .color_hexa_box {
+        width: 60px !important;
+    }
+    .color_picker_modal .color_text_box {
+        max-width: 85px !important;
+    }
 }
 @media only screen and (max-width: 380px) {
     .product_design_wrapper .productBox .imgBox img {
@@ -22081,6 +22196,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    }
     .buyer_designer_details_protfolio img {
         height: 80px;
+   }
+   .new_design_product_detail_wrap .tabs_wrapper .tabs .tab a {
+        font-size: 11px;
    }
 }
 @media only screen and (max-width: 280px) {

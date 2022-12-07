@@ -49,10 +49,10 @@ $reviewsCount = count($productReviews);
                         <!-- First tabs contant -->
                         <div id="projectHighlight" class="col s12">
                             <div class="row tab_first_btn">
-                                <div class="col s12 m4 product_btn">
+                                <div class="col s12 m12 xl4 product_btn">
                                     <!--h6>SS 2023</h6-->
                                 </div>
-                                <div class="col s12 m8">
+                                <div class="col s12 m12 xl8">
                                     @if($product->is_new_arrival == 1)
                                     <button class="arrival_btn">NEW ARRIVAL</button>
                                     @endif
@@ -65,14 +65,15 @@ $reviewsCount = count($productReviews);
                             <div class="margin_top">
                                 <h5 class="margin_top">AVAILABLE COLORS</h5>
                                 <div class="row">
-                                    <div class="col s12 l10 size_wrapper">
+                                    <div class="col s12 l10 size_wrapper colorPickerDetails">
                                         @foreach($colors_sizes as $color)
                                             @if(isset($color->color_picker))
-                                            <div class="size_border color_picker_style" style="background: {{$color->color_picker}}"><span class="text_center">{{$color->color}}</span></div>
+                                            <div class="pickerColorBox">
+                                                <div class="size_border color_picker_style tooltipped coloPick" style="background: {{$color->color_picker}}" data-tooltip="{{$color->color}}" data-position="top"><span class="text_center">&nbsp;</span></div>
+                                            </div>
                                             @else
                                             <div class="size_border"><span class="text_center">{{$color->color}}</span></div>
                                             @endif
-
                                         @endforeach
                                     </div>
                                 </div>
@@ -89,6 +90,7 @@ $reviewsCount = count($productReviews);
                                 $cookie = Cookie::get('sso_token');
                                 $cookie = base64_decode(explode(".",$cookie)[1]);
                                 $cookie = json_decode(json_decode(json_encode($cookie)));
+                                //$cookie->subscription_status = 1;
                             @endphp
                             @if($cookie->subscription_status == 1)
                                 @php
@@ -138,10 +140,10 @@ $reviewsCount = count($productReviews);
                                 @endif
 
                                 <div class="row contact_supplier">
-                                    <div class="col s12 l6">
+                                    <div class="col s12 m12 xl6">
                                         <!--button class="btn_contact_supplier">Contact Supplier</button-->
                                     </div>
-                                    <div class="col s12 l6">
+                                    <div class="col s12 m12 xl6">
                                         <a class="btn_contact_supplier" href="{{route('supplier.profile', $product->businessProfile->alias)}}">Visit Profile</a>
                                     </div>
                                 </div>
@@ -260,7 +262,7 @@ $reviewsCount = count($productReviews);
                 <div class="sweatshit_wrapper margin_top">
                     <!-- Product div -->
                     <div class="row">
-                        <div class=" col s12 m6">
+                        <div class=" col s6">
                             <div class="attribute_box">
                                 <P>PRODUCT CODE</P>
                                 @if($product->product_code)
@@ -270,14 +272,14 @@ $reviewsCount = count($productReviews);
                                 @endif
                             </div>
                         </div>
-                        <div class="col s12 m6">
+                        <div class="col s6">
                             <div class="attribute_box">
                                 <P>MOQ</P>
                                 <P><span class="font_weight">{{ $product->moq }}</span> {{$product->product_unit}}</P>
                             </div>
                         </div>
                         <!-- Pricing  -->
-                        <div class="col s12 m6">
+                        <div class="col s6">
                             <div class="attribute_box">
                                 <p>PRICE</p>
                                 <p>
@@ -340,7 +342,7 @@ $reviewsCount = count($productReviews);
                         </div>
 
                         @if($product->product_type==1)
-                        <div class="col s12 m6">
+                        <div class="col s6">
                             <div class="attribute_box">
                                 <p>LEAD TIME</p>
                                 <p>
@@ -361,7 +363,7 @@ $reviewsCount = count($productReviews);
 
                         <!-- Sample and ready stock -->
                         @if($product->sample_availability==1)
-                        <div class="col s12 m6">
+                        <div class="col s6">
                             <div class="attribute_box">
                                 <p>SAMPLE</p>
                                 <p class="font_weight">Available</p>
@@ -375,12 +377,12 @@ $reviewsCount = count($productReviews);
                         </div-->
 
                         <!-- Button -->
-                        <div class="col s12 m12">
-                            <div class="row">
-                                <div class="col s12 m6">
+                        <div class="col s12">
+                            <div class="row request_for_button_wrap">
+                                <div class="col s12 m12 xl6">
                                     <a class="request_for_sample_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Ask For Sample</a>
                                 </div>
-                                <div class="col s12 m6">
+                                <div class="col s12 m12 xl6">
                                     <a class="request_for_quotation_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Request for Quotation</a>
                                 </div>
                             </div>

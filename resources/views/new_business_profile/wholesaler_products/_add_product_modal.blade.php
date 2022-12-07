@@ -345,9 +345,9 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td data-title="Color">
-                                                        <input type="text" value="" class="form-control" name="color_size[color][]" />
-                                                        <input type="color" value="" class="form-control" name="color_size[color_picker][]" />
+                                                    <td data-title="Color" class="colorPickerBox">
+                                                        <input type="text" value="" class="form-control colorName" name="color_size[color][]" />
+                                                        <input type="color" value="" class="form-control colorPicker" name="color_size[color_picker][]" />
                                                     </td>
                                                     <td data-title="XXS"><input type="text" value="" class="form-control count-color-size negitive-or-text-not-allowed" name="color_size[xxs][]"/></td>
                                                     <td data-title="XS"><input type="text" value="" class="form-control count-color-size negitive-or-text-not-allowed" name="color_size[xs][]" /></td>
@@ -474,9 +474,9 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td data-title="Color">
-                                                        <input type="text" value="" class="form-control" name="non_clothing_attr[color][]" />
-                                                        <input type="color" value="" class="form-control" name="non_clothing_attr[color_picker][]" />
+                                                    <td data-title="Color" class="colorPickerBox">
+                                                        <input type="text" value="" class="form-control colorName" name="non_clothing_attr[color][]" />
+                                                        <input type="color" value="" class="form-control colorPicker" name="non_clothing_attr[color_picker][]" />
                                                     </td>
                                                     <td data-title="Quantity"><input type="text" value="" class="form-control count-color-size negitive-or-text-not-allowed" name="non_clothing_attr[quantity][]" /></td>
                                                 </tr>

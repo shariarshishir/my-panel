@@ -690,7 +690,7 @@
         const id = makeid();
         let totalChild = $('.product_color_picker_table tbody').children().length;
         var html = '<tr class="product-color-item" id="'+id+'">';
-        html += '<td><input class="color_delete_box" index="'+id+'" type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>';
+        html += '<td><input class="color_hexa_box" index="'+id+'" type="color" name="color_hexa[]" value="" onchange="onColorSelect(this)"/></td>';
         html += '<td><input class="color_text_box" index="'+id+'" type="text" name="color_text[]" value="" onkeyup="onColorNameChange(this)"/></td>';
         html += '<td><button class="color_delete_box" index="'+id+'" onclick="deleteaddcolor(this);"><i class="material-icons dp48">delete_outline</i><span>Delete</span></button></td>';
         html += '</tr>';
