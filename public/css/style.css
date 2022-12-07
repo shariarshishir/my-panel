@@ -16824,6 +16824,17 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     bottom: 0;
     height: 30px !important;
 }
+.non_supplierInfo_box {
+    text-align: center;
+    padding: 15px 0;
+}
+.non_supplierInfo_box .btn_subscribe {
+    display: inline-block;
+    background: #54a958;
+    padding: 5px 20px;
+    color: #ffffff;
+    margin-top: 15px;
+}
 
 /* ******************** color_picker_modal style end ******************* */
 

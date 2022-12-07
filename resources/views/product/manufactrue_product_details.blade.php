@@ -172,7 +172,9 @@
                                     </div>
                                 </div>
                             @else
-                                To see supplier information Please <a href="{{route('pricing.plan.form')}}">Subscribe</a>.
+                                <div class="non_supplierInfo_box">
+                                    To see supplier information Please <a class="btn_subscribe" href="{{route('pricing.plan.form')}}">Subscribe</a>.
+                                </div>
                             @endif
                         </div>
 					</div>
