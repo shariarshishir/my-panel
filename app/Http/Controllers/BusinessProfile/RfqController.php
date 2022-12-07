@@ -1787,8 +1787,22 @@ class RfqController extends Controller
         $rfqId = $d->rfq_id;
         $businessProfileIds = $d->business_profile_ids;
 
+        $userIdArr = [];
+        $selectedBusinessProfilesUserIds = BusinessProfile::whereIn("id", $businessProfileIds)->get();
+        foreach($selectedBusinessProfilesUserIds as $item) {
+            array_push($userIdArr, $item->user_id);
+        }
+
+        $usersPhone = [];
+        $selectedUsersPhoneNUmber = User::whereIn("id", $userIdArr)->get();
+        foreach($selectedUsersPhoneNUmber as $item) {
+            array_push($usersPhone, $item->phone);
+        }
+        //dd($usersPhone);
+
         $response = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$rfqId,[
-            'selected_business_profiles'=>$businessProfileIds
+            'selected_business_profiles'=>$businessProfileIds,
+            'selected_users_phone'=>$usersPhone
         ]);
 
         // $users = User::whereIn('id',$userIds)->get();
