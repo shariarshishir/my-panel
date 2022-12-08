@@ -37,6 +37,7 @@ use App\Events\NewRFQHasPostedEvent;
 use App\Models\Manufacture\ProductCategory;
 use App\Models\Proforma;
 use App\Models\ProductTypeMapping;
+use App\Models\Countrywithcallingcode;
 
 
 class RfqController extends Controller
@@ -1332,6 +1333,12 @@ class RfqController extends Controller
     public function create($flag = false, $product_id = NULL)
     {
 
+        $countrysList = [];
+        $countries = Countrywithcallingcode::get();
+        foreach($countries as $item) {
+            array_push($countrysList, $item->name);
+        }
+
         $product_type_mapping_id = 1;
         // $child = 'design';
         // $product_type_mapping_child_id = ProductTypeMapping::select('id')->where('title',$child)->first();
@@ -1390,18 +1397,18 @@ class RfqController extends Controller
                 $profileAlias = $businessProfiles['alias'];
             }
             if($flag) {
-                return view('rfq.create_from_product',compact('profileAlias', 'flag', 'product', 'preloaded_image', 'design_products'));
+                return view('rfq.create_from_product',compact('profileAlias', 'flag', 'product', 'preloaded_image', 'design_products', 'countrysList'));
             } else {
-                return view('rfq.create',compact('profileAlias', 'design_products'));
+                return view('rfq.create',compact('profileAlias', 'design_products', 'countrysList'));
             }
 
         }
         else
         {
             if($flag) {
-                return view('rfq.create_from_product',compact('flag', 'product', 'preloaded_image', 'design_products'));
+                return view('rfq.create_from_product',compact('flag', 'product', 'preloaded_image', 'design_products', 'countrysList'));
             } else {
-                return view('rfq.create');
+                return view('rfq.create', compact('countrysList'));
             }
         }
 

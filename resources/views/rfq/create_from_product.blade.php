@@ -16,6 +16,7 @@
     }
 @endphp
 @section('content')
+@include('rfq._city_scripts')
 <div id="create-rfq-form" class="rfq_detail_from_wrap create_rfq_detail_from_wrap">
     <div class="modal-content">
         <section class="ic-buying-req rfq_create_wrap">
@@ -205,7 +206,15 @@
                                         <div class="col s12 xl4">
                                             <div class="input-field">
                                                 <label>Destination <span>*</span></label>
-                                                <input type="text" class="" name="destination" required/>
+                                                <!--input type="text" class="" name="destination" id="destination" required/-->
+                                                <div class="row">
+                                                    <div class="col m6">
+                                                        <select id="countryList" name="country" onchange="set_city_state(this,city_state)" style="display:block;"></select>
+                                                    </div>
+                                                    <div class="col m6">
+                                                        <select name="city_state" disabled="disabled" id="city-list" onchange="print_city_state(country,this)" style="display:block;"></select>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col s12 xl4">
