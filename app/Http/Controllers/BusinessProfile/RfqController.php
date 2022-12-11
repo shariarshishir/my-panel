@@ -989,7 +989,17 @@ class RfqController extends Controller
     }
 
     public function authUserQuotationsByRFQId(Request $request){
+        //dd($request->all());
+        $quotedBusinessProfilesIds = [];
         $quotations = Userchat::where('rfq_id',$request->rfqId)->where('factory',true)->get();
+        foreach($quotations as $item)
+        {
+            array_push($quotedBusinessProfilesIds, $item->business_profile_id);
+        }
+
+        $quotedBusinessProfiles = BusinessProfile::with("user")->whereIn("id", $quotedBusinessProfilesIds)->get();
+        //dd($quotedBusinessProfiles);
+
         return response()->json(["quotations"=>$quotations],200);
 
     }
