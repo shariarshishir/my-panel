@@ -111,6 +111,7 @@
                                         <option value="Kg">Kg</option>
                                         <option value="Meter">Meter</option>
                                         <option value="Dozens">Dozens</option>
+                                        <option value="Gross">Gross</option>
                                     </select>
                                 </div>
                                 <span class="text-danger error-text moq_error rm-error"></span>
@@ -397,7 +398,7 @@
             document.getElementById('edit-colors').value = cols.join(',');
             document.getElementById('edit-picked-colors').value = cols.join(',');
         }
-        
+
         const deleteeditcolor = (e) => {
             const index = e?.attributes?.index?.value;
             delete editColors[index];

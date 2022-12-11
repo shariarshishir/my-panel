@@ -127,7 +127,7 @@
 
                         <div class="product_upload_update_block">
                             <div class="no_more_tables">
-                                <table class="product_upload_update_table"> 
+                                <table class="product_upload_update_table">
                                     <thead class="cf">
                                         <tr>
                                             <th class="uploadOverlayImage">Image</th>
@@ -548,6 +548,7 @@
                                                 <option value="Feet">Feet</option>
                                                 <option value="Meter">Meter</option>
                                                 <option value="Ton">Ton</option>
+                                                <option value="Gross">Gross</option>
                                             </select>
                                             <span class="product_unit_error text-danger error-rm"></span>
                                         </div>

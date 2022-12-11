@@ -585,6 +585,7 @@
                                         <option value="Feet">Feet</option>
                                         <option value="Meter">Meter</option>
                                         <option value="Ton">Ton</option>
+                                        <option value="Gross">Gross</option>
                                     </select>
                                     <span class="product_unit_error text-danger error-rm"></span>
                                 </div>

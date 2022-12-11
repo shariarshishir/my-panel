@@ -121,6 +121,7 @@
                                         <option value="Kg">Kg</option>
                                         <option value="Meter">Meter</option>
                                         <option value="Dozens">Dozens</option>
+                                        <option value="Gross">Gross</option>
                                         <span class="text-danger error-text qty_unit_error rm-error"></span>
                                     </select>
                                     <span class="text-danger error-text moq_error rm-error"></span>
