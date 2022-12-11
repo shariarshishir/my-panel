@@ -716,6 +716,20 @@
                         $('#loadingProgressContainer').hide();
 
                         for(var i=0;i<response.quotations.length;i++){
+                            var offersSplit = response.quotations[i].message.split("offers");
+                            var html ='<div class="quatationInfo">';
+                                if(response.quotations[i].business_profile_image){
+                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
+                                } else {
+                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
+                                }
+                                html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                html+='<span class="offerPriceBox">';
+                                //html+='<span class="offers">Offers</span>';
+                                html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                                html+='</span>';
+                                html+='</div>';
+                            /*
                             var html ='<div class="row">';
                             html+='<div class="col s12 xl2 rfq_review_result_leftBox">';
                             html+='<span class="new_rfq_avatar">';
@@ -736,6 +750,7 @@
                             //html+='</div>';
                             //html+='</div>';
                             html+='</div>';
+                            */
                             $('.rfq_review_results_box').append(html);
                         }
                         $('.quotation_tab_li').addClass("active");
@@ -769,6 +784,20 @@
                         $('#loadingProgressContainer').hide();
 
                         for(var i=0;i<response.quotations.length;i++){
+                            var offersSplit = response.quotations[i].message.split("offers");
+                            var html ='<div class="quatationInfo">';
+                                if(response.quotations[i].business_profile_image){
+                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
+                                } else {
+                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
+                                }
+                                html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                html+='<span class="offerPriceBox">';
+                                //html+='<span class="offers">Offers</span>';
+                                html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                                html+='</span>';
+                                html+='</div>';
+                            /*
                             var html ='<div class="row">';
                             html+='<div class="col s12 xl2 rfq_review_result_leftBox">';
                             html+='<span class="new_rfq_avatar">';
@@ -789,6 +818,7 @@
                             //html+='</div>';
                             //html+='</div>';
                             html+='</div>';
+                            */
                             $('.rfq_review_results_box').append(html);
                         }
                         var unseenQuotationCountClass = '.unseen_quotation_count_'+rfqId;

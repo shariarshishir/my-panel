@@ -476,7 +476,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             </div>
 
                                             <div class="rfq_quotation_box" style="display:none">
-                                                <div class="rfq_review_results_box">
+                                                <div class="rfq_review_results_box quatations_infoBox">
 
                                                 </div>
                                             </div>
