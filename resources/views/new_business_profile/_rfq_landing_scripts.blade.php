@@ -654,7 +654,7 @@
                             html+='<h6>Attachments</h6>';
                             response.rfq.images.forEach((item, index)=>{
                                 //console.log(item.image);
-                                html+='<a href="'+encodeURI(item.image)+'" data-fancybox><img src='+item.image+' /></a>';
+                                html+='<a href="'+encodeURI(item.image)+'" data-fancybox><img src="'+encodeURI(item.image)+'" /></a>';
                             })
                             html+='</div>';
                             html+='</div>';
