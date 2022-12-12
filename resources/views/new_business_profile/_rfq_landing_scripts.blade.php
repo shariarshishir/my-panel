@@ -653,7 +653,8 @@
                             html+='<div class="account_rfqDetailes_imgWrap">';
                             html+='<h6>Attachments</h6>';
                             response.rfq.images.forEach((item, index)=>{
-                                html+='<a href='+item.image+' data-fancybox><img src='+item.image+' /></a>';
+                                //console.log(item.image);
+                                html+='<a href="'+encodeURI(item.image)+'" data-fancybox><img src='+item.image+' /></a>';
                             })
                             html+='</div>';
                             html+='</div>';
