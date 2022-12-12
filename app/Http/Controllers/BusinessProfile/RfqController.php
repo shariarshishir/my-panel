@@ -990,16 +990,19 @@ class RfqController extends Controller
 
     public function authUserQuotationsByRFQId(Request $request){
         //dd($request->all());
-        $quotedBusinessProfilesIds = [];
-        $quotations = Userchat::where('rfq_id',$request->rfqId)->where('factory',true)->get();
-        foreach($quotations as $item)
+        $cookie = Cookie::get('sso_token');
+        $cookie = base64_decode(explode(".",$cookie)[1]);
+        $cookie = json_decode(json_decode(json_encode($cookie)));
+        //$cookie->subscription_status = 0;
+
+        if($cookie->subscription_status)
         {
-            array_push($quotedBusinessProfilesIds, $item->business_profile_id);
+            $quotations = Userchat::where('rfq_id',$request->rfqId)->where('factory',true)->get();
         }
-
-        $quotedBusinessProfiles = BusinessProfile::with("user")->whereIn("id", $quotedBusinessProfilesIds)->get();
-        //dd($quotedBusinessProfiles);
-
+        else
+        {
+            $quotations = [];
+        }
         return response()->json(["quotations"=>$quotations],200);
 
     }
@@ -2068,6 +2071,99 @@ class RfqController extends Controller
             'product_tag' => $product_tag,
             'factory_type_as_tag_parent' => $factory_type_as_tag_parent,
         ], 200);
+    }
+
+    public function profileShortListFromFrontend( Request $request )
+    {
+        //dd($request->all());
+        $rfqId = $request->rfqId;
+        $requestForm = $request->requestForm;
+//dd($shortList);
+
+        if($requestForm == "from_selected") // request for selected list
+        {
+            $request_index_to_array = $request->request_index_to_array;
+            if($request_index_to_array == "add")
+            {
+                $responseToGetData = Http::get(env('RFQ_APP_URL').'/api/quotation/'.$rfqId);
+                $rfqData = $responseToGetData->json();
+
+                if(isset($rfqData['data']['data']['selected_profile']))
+                {
+                    $elements = $rfqData['data']['data']['selected_profile'];
+                }
+                else
+                {
+                    $elements = $rfqData['data']['data']['selected_profile'] = [];
+                }
+
+                array_push($elements, (int)$request->businessProfileId);
+
+                $response = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$rfqId, [
+                    'selected_profile' => $elements,
+                ]);
+            }
+            else
+            {
+                $responseToGetData = Http::get(env('RFQ_APP_URL').'/api/quotation/'.$rfqId);
+                $rfqData = $responseToGetData->json();
+                $elements = $rfqData['data']['data']['selected_profile'];
+
+                if (($key = array_search((int)$request->businessProfileId, $elements)) !== false) {
+                    unset($elements[$key]);
+                }
+
+                $response = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$rfqId, [
+                    'selected_profile' => $elements,
+                ]);
+            }
+        }
+        else // request for short list
+        {
+            $request_index_to_array = $request->request_index_to_array;
+            if($request_index_to_array == "add")
+            {
+                $responseToGetData = Http::get(env('RFQ_APP_URL').'/api/quotation/'.$rfqId);
+                $rfqData = $responseToGetData->json();
+
+                if(isset($rfqData['data']['data']['short_listed_profiles']))
+                {
+                    $elements = $rfqData['data']['data']['short_listed_profiles'];
+                }
+                else
+                {
+                    $elements = $rfqData['data']['data']['short_listed_profiles'] = [];
+                }
+
+                array_push($elements, (int)$request->businessProfileId);
+
+                $response = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$rfqId, [
+                    'short_listed_profiles' => $elements,
+                ]);
+            }
+            else
+            {
+                $responseToGetData = Http::get(env('RFQ_APP_URL').'/api/quotation/'.$rfqId);
+                $rfqData = $responseToGetData->json();
+                $elements = $rfqData['data']['data']['short_listed_profiles'];
+
+                if (($key = array_search((int)$request->businessProfileId, $elements)) !== false) {
+                    unset($elements[$key]);
+                }
+
+                $response = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$rfqId, [
+                    'short_listed_profiles' => $elements,
+                ]);
+            }
+        }
+
+        if( $response->status()  == 200){
+            return response()->json([
+                'msg' => "Profile added in short list successfully.",
+            ],200);
+        } else {
+            return redirect()->back()->withSuccess('Something went wrong!!');
+        }
     }
 
 }

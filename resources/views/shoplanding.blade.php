@@ -375,6 +375,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
 <script>
 
     let selected_rfq_id = undefined;
+    let rfqList = @json($rfqLists);
     const setSelectedRFQ = (e) => {
         selected_rfq_id = e?.attributes?.rfq_id?.value;
         loadSupplierList(selected_rfq_id);

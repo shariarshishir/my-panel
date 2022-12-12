@@ -715,11 +715,16 @@
                     }
                 });
             })
-
+            const getRFQFromRFQId = (rfq_id) => {
+                const rfq = rfqList?.filter(i=> i.id == rfq_id);
+                return rfq[0];
+            }
             $('.quotation_tab').on('click',function(event){
                 event.preventDefault();
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");
+                let rfqDetailsById = getRFQFromRFQId(rfqId);
+
                 $.ajax({
                     type:'GET',
                     url: "{{route('auth_user_quotations.by_rfq_id')}}",
@@ -732,46 +737,52 @@
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
 
-                        for(var i=0;i<response.quotations.length;i++){
-                            var offersSplit = response.quotations[i].message.split("offers");
-                            //console.log(offersSplit);
-                            var html ='<div class="quatationInfo">';
-                                if(response.quotations[i].business_profile_image){
-                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
-                                } else {
-                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
-                                }
-                                html+='<span class="companyName">'+offersSplit[0]+'</span>';
-                                html+='<span class="offerPriceBox">';
-                                //html+='<span class="offers">Offers</span>';
-                                html+='<span class="pointNum">'+offersSplit[1]+'</span>';
-                                html+='</span>';
-                                html+='</div>';
+                        if(response.quotations.length > 0)
+                        {
+                            for(var i=0;i<response.quotations.length;i++)
+                            {
+                                var offersSplit = response.quotations[i].message.split("offers");
+                                //console.log(offersSplit);
+                                var html ='<div class="quatationInfo">';
+                                    if(response.quotations[i].business_profile_image){
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
+                                    } else {
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
+                                    }
+                                    html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    html+='<span class="offerPriceBox">';
+                                    //html+='<span class="offers">Offers</span>';
+                                    html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                                    html+='</span>';
+                                    if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<label><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span>Add to shortlist</span></label>';
+                                    }
+                                    else
+                                    {
+                                        html+='<label><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span>Add to shortlist</span></label>';
+                                    }
 
-                            /*
-                                var html ='<div class="row">';
-                                html+='<div class="col s12 xl2 rfq_review_result_leftBox">';
-                                html+='<span class="new_rfq_avatar">';
-                                html+='';
-                                html+='</span>';
-                                html+='</div>';
-                                html+='<div class="col s12 xl5 rfq_review_result_midBox">';
-                                html+='<div class="new_rfq_review">';
-                                html+='<p><span>'+response.quotations[i].message+'</span> </p>';
-                                //html+='<button class="btn_green">Ask for PI</button>';
-                                html+='</div>';
-                                html+='</div>';
-                                //html+='<div class="col s12 xl5 rfq_review_result_rightBox">';
-                                //html+='<div class="new_rfq_review">';
-                                //html+='<span class="rfqEatting"><i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i></span>';
-                                //html+='<span class="rqf_verified"><img src="./images/account-images/rfq-verified.png" alt=""> Verified</span>';
-                                //html+='<button class="btn_green">Issue PO</button>';
-                                //html+='</div>';
-                                //html+='</div>';
-                                html+='</div>';
-                            */
+                                    if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<label><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span>Marked as Selected</span></label>';
+                                    }
+                                    else
+                                    {
+                                        html+='<label><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span>Marked as Selected</span></label>';
+                                    }
+
+                                    html+='</div>';
+
+                                $('.rfq_review_results_box').append(html);
+                            }
+                        }
+                        else
+                        {
+                            var html = 'Please <a href="/pricing-plan/form">subscribe</a> to show the quotations.';
                             $('.rfq_review_results_box').append(html);
                         }
+
                         $('.quotation_tab_li').addClass("active");
                         $('.message_tab_li').removeClass("active");
                         $('.rfq_quotation_box').show();
@@ -790,6 +801,8 @@
                 event.preventDefault();
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");
+                let rfqDetailsById = getRFQFromRFQId(rfqId);
+
                 $(".rfq_chat_box_wrapper").addClass("active");
                 $(".newAccountMyrfqBox").removeClass("active");
                 $(this).closest(".newAccountMyrfqBox").addClass("active");
@@ -808,46 +821,51 @@
                         //$(".rfq_chat_box_wrapper").show();
                         $(".new_rfq_details_wrapper_outer").removeClass("active");
 
-                        for(var i=0;i<response.quotations.length;i++){
-                            var offersSplit = response.quotations[i].message.split("offers");
-                            //console.log(offersSplit);
-                            var html ='<div class="quatationInfo">';
-                                if(response.quotations[i].business_profile_image){
-                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
-                                } else {
-                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
-                                }
-                                html+='<span class="companyName">'+offersSplit[0]+'</span>';
-                                html+='<span class="offerPriceBox">';
-                                //html+='<span class="offers">Offers</span>';
-                                html+='<span class="pointNum">'+offersSplit[1]+'</span>';
-                                html+='</span>';
-                                html+='</div>';
+                        if(response.quotations.length > 0)
+                        {
+                            for(var i=0;i<response.quotations.length;i++)
+                            {
+                                var offersSplit = response.quotations[i].message.split("offers");
+                                //console.log(offersSplit);
+                                var html ='<div class="quatationInfo">';
+                                    if(response.quotations[i].business_profile_image){
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
+                                    } else {
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
+                                    }
+                                    html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    html+='<span class="offerPriceBox">';
+                                    //html+='<span class="offers">Offers</span>';
+                                    html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                                    html+='</span>';
+                                    if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<label><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span>Add to shortlist</span></label>';
+                                    }
+                                    else
+                                    {
+                                        html+='<label><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span>Add to shortlist</span></label>';
+                                    }
 
-                            /*
-                            var html ='<div class="row">';
-                            html+='<div class="col s12 xl2 rfq_review_result_leftBox">';
-                            html+='<span class="new_rfq_avatar">';
-                            html+='<img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img">';
-                            html+='</span>';
-                            html+='</div>';
-                            html+='<div class="col s12 xl5 rfq_review_result_midBox">';
-                            html+='<div class="new_rfq_review">';
-                            html+='<p><span>'+response.quotations[i].message+'</span> </p>';
-                            //html+='<button class="btn_green">Ask for PI</button>';
-                            html+='</div>';
-                            html+='</div>';
-                            //html+='<div class="col s12 xl5 rfq_review_result_rightBox">';
-                            //html+='<div class="new_rfq_review">';
-                            //html+='<span class="rfqEatting"><i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i></span>';
-                            //html+='<span class="rqf_verified"><img src="./images/account-images/rfq-verified.png" alt=""> Verified</span>';
-                            //html+='<button class="btn_green">Issue PO</button>';
-                            //html+='</div>';
-                            //html+='</div>';
-                            html+='</div>';
-                            */
+                                    if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<label><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span>Marked as Selected</span></label>';
+                                    }
+                                    else
+                                    {
+                                        html+='<label><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span>Marked as Selected</span></label>';
+                                    }
+                                    html+='</div>';
+
+                                $('.rfq_review_results_box').append(html);
+                            }
+                        }
+                        else
+                        {
+                            var html = 'Please <a href="/pricing-plan/form">subscribe</a> to show the quotations.';
                             $('.rfq_review_results_box').append(html);
                         }
+
                         var unseenQuotationCountClass = '.unseen_quotation_count_'+rfqId;
                         $(unseenQuotationCountClass).attr('data-unseen_quotation_count',0);
                         $(unseenQuotationCountClass).text('');
@@ -865,6 +883,138 @@
                     }
                 });
             });
+
+            //var shortListedIds= new Array();
+            $(document).on("click", ".supplier_short_list_trigger_from_frontend", function(){
+                var businessProfileId = $(this).attr("data-businessprofileid");
+                var rfqId = $(this).attr("data-rfqid");
+                var from_short_list = "from_short";
+
+                if ($(this).is(':checked')) {
+
+                    if (confirm('Are you sure? You want to add this profile in short list'))
+                    {
+                        var request_index_to_array = "add";
+                        var url = "{{route('rfq.profile.shortlist.from.frontend')}}";
+                        $.ajax({
+                            method: 'get',
+                            dataType: 'json',
+                            data: {rfqId:rfqId, businessProfileId:businessProfileId, requestForm: from_short_list, request_index_to_array: request_index_to_array},
+                            enctype: 'multipart/form-data',
+                            url: url,
+                            beforeSend: function() {
+                                // $('.loading-message').html("Please Wait.");
+                                // $('#loadingProgressContainer').show();
+                            },
+                            success:function(data)
+                            {
+                                console.log(data);
+                                // boxHtml.remove();
+                                // shortListCount = parseInt(shortListCount)+1;
+                                // $(".short-list-count").text(shortListCount);
+                                // $('.loading-message').html("");
+                                // $('#loadingProgressContainer').hide();
+                                //window.location.reload();
+                            }
+                        });
+                    }
+
+                } else {
+
+                    if (confirm('Are you sure? You want to remove this profile in short list'))
+                    {
+                        var request_index_to_array = "remove";
+                        var url = "{{route('rfq.profile.shortlist.from.frontend')}}";
+                        $.ajax({
+                            method: 'get',
+                            dataType: 'json',
+                            data: {rfqId:rfqId, businessProfileId:businessProfileId, requestForm: from_short_list, request_index_to_array: request_index_to_array},
+                            enctype: 'multipart/form-data',
+                            url: url,
+                            beforeSend: function() {
+                                // $('.loading-message').html("Please Wait.");
+                                // $('#loadingProgressContainer').show();
+                            },
+                            success:function(data)
+                            {
+                                console.log(data);
+                                // boxHtml.remove();
+                                // shortListCount = parseInt(shortListCount)+1;
+                                // $(".short-list-count").text(shortListCount);
+                                // $('.loading-message').html("");
+                                // $('#loadingProgressContainer').hide();
+                                //window.location.reload();
+                            }
+                        });
+                    }
+                }
+            })
+
+            $(document).on("click", ".supplier_selected_trigger_from_frontend", function(){
+                var businessProfileId = $(this).attr("data-businessprofileid");
+                var rfqId = $(this).attr("data-rfqid");
+                var from_selected_list = "from_selected";
+
+                if ($(this).is(':checked')) {
+
+                    if (confirm('Are you sure? You want to add this profile in selected list'))
+                    {
+
+                        var request_index_to_array = "add";
+                        var url = "{{route('rfq.profile.shortlist.from.frontend')}}";
+                        $.ajax({
+                            method: 'get',
+                            dataType: 'json',
+                            data: {rfqId:rfqId, businessProfileId:businessProfileId, requestForm: from_selected_list, request_index_to_array: request_index_to_array},
+                            enctype: 'multipart/form-data',
+                            url: url,
+                            beforeSend: function() {
+                                // $('.loading-message').html("Please Wait.");
+                                // $('#loadingProgressContainer').show();
+                            },
+                            success:function(data)
+                            {
+                                console.log(data);
+                                // boxHtml.remove();
+                                // shortListCount = parseInt(shortListCount)+1;
+                                // $(".short-list-count").text(shortListCount);
+                                // $('.loading-message').html("");
+                                // $('#loadingProgressContainer').hide();
+                                //window.location.reload();
+                            }
+                        });
+                    }
+
+                } else {
+
+                    if (confirm('Are you sure? You want to remove this profile in selected list'))
+                    {
+                        var request_index_to_array = "remove";
+                        var url = "{{route('rfq.profile.shortlist.from.frontend')}}";
+                        $.ajax({
+                            method: 'get',
+                            dataType: 'json',
+                            data: {rfqId:rfqId, businessProfileId:businessProfileId, requestForm: from_selected_list, request_index_to_array: request_index_to_array},
+                            enctype: 'multipart/form-data',
+                            url: url,
+                            beforeSend: function() {
+                                // $('.loading-message').html("Please Wait.");
+                                // $('#loadingProgressContainer').show();
+                            },
+                            success:function(data)
+                            {
+                                console.log(data);
+                                // boxHtml.remove();
+                                // shortListCount = parseInt(shortListCount)+1;
+                                // $(".short-list-count").text(shortListCount);
+                                // $('.loading-message').html("");
+                                // $('#loadingProgressContainer').hide();
+                                //window.location.reload();
+                            }
+                        });
+                    }
+                }
+            })
 
         });
 

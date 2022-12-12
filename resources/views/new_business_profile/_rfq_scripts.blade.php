@@ -715,44 +715,54 @@
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
 
-                        for(var i=0;i<response.quotations.length;i++){
-                            var offersSplit = response.quotations[i].message.split("offers");
-                            var html ='<div class="quatationInfo">';
-                                if(response.quotations[i].business_profile_image){
-                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
-                                } else {
-                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
-                                }
-                                html+='<span class="companyName">'+offersSplit[0]+'</span>';
-                                html+='<span class="offerPriceBox">';
-                                //html+='<span class="offers">Offers</span>';
-                                html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                        if(response.quotations.length > 0)
+                        {
+                            for(var i=0;i<response.quotations.length;i++)
+                            {
+                                var offersSplit = response.quotations[i].message.split("offers");
+                                var html ='<div class="quatationInfo">';
+                                    if(response.quotations[i].business_profile_image){
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
+                                    } else {
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
+                                    }
+                                    html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    html+='<span class="offerPriceBox">';
+                                    //html+='<span class="offers">Offers</span>';
+                                    html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                                    html+='</span>';
+                                    html+='</div>';
+                                /*
+                                var html ='<div class="row">';
+                                html+='<div class="col s12 xl2 rfq_review_result_leftBox">';
+                                html+='<span class="new_rfq_avatar">';
+                                html+='<img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img">';
                                 html+='</span>';
                                 html+='</div>';
-                            /*
-                            var html ='<div class="row">';
-                            html+='<div class="col s12 xl2 rfq_review_result_leftBox">';
-                            html+='<span class="new_rfq_avatar">';
-                            html+='<img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img">';
-                            html+='</span>';
-                            html+='</div>';
-                            html+='<div class="col s12 xl5 rfq_review_result_midBox">';
-                            html+='<div class="new_rfq_review">';
-                            html+='<p><span>'+response.quotations[i].message+'</span> </p>';
-                            //html+='<button class="btn_green">Ask for PI</button>';
-                            html+='</div>';
-                            html+='</div>';
-                            //html+='<div class="col s12 xl5 rfq_review_result_rightBox">';
-                            //html+='<div class="new_rfq_review">';
-                            //html+='<span class="rfqEatting"><i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i></span>';
-                            //html+='<span class="rqf_verified"><img src="./images/account-images/rfq-verified.png" alt=""> Verified</span>';
-                            //html+='<button class="btn_green">Issue PO</button>';
-                            //html+='</div>';
-                            //html+='</div>';
-                            html+='</div>';
-                            */
+                                html+='<div class="col s12 xl5 rfq_review_result_midBox">';
+                                html+='<div class="new_rfq_review">';
+                                html+='<p><span>'+response.quotations[i].message+'</span> </p>';
+                                //html+='<button class="btn_green">Ask for PI</button>';
+                                html+='</div>';
+                                html+='</div>';
+                                //html+='<div class="col s12 xl5 rfq_review_result_rightBox">';
+                                //html+='<div class="new_rfq_review">';
+                                //html+='<span class="rfqEatting"><i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i></span>';
+                                //html+='<span class="rqf_verified"><img src="./images/account-images/rfq-verified.png" alt=""> Verified</span>';
+                                //html+='<button class="btn_green">Issue PO</button>';
+                                //html+='</div>';
+                                //html+='</div>';
+                                html+='</div>';
+                                */
+                                $('.rfq_review_results_box').append(html);
+                            }
+                        }
+                        else
+                        {
+                            var html = 'Please <a href="/pricing-plan/form">subscribe</a> to show the quotations.';
                             $('.rfq_review_results_box').append(html);
                         }
+
                         $('.quotation_tab_li').addClass("active");
                         $('.message_tab_li').removeClass("active");
                         $('.rfq_quotation_box').show();
@@ -783,44 +793,54 @@
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
 
-                        for(var i=0;i<response.quotations.length;i++){
-                            var offersSplit = response.quotations[i].message.split("offers");
-                            var html ='<div class="quatationInfo">';
-                                if(response.quotations[i].business_profile_image){
-                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
-                                } else {
-                                    html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
-                                }
-                                html+='<span class="companyName">'+offersSplit[0]+'</span>';
-                                html+='<span class="offerPriceBox">';
-                                //html+='<span class="offers">Offers</span>';
-                                html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                        if(response.quotations.length > 0)
+                        {
+                            for(var i=0;i<response.quotations.length;i++)
+                            {
+                                var offersSplit = response.quotations[i].message.split("offers");
+                                var html ='<div class="quatationInfo">';
+                                    if(response.quotations[i].business_profile_image){
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
+                                    } else {
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
+                                    }
+                                    html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    html+='<span class="offerPriceBox">';
+                                    //html+='<span class="offers">Offers</span>';
+                                    html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                                    html+='</span>';
+                                    html+='</div>';
+                                /*
+                                var html ='<div class="row">';
+                                html+='<div class="col s12 xl2 rfq_review_result_leftBox">';
+                                html+='<span class="new_rfq_avatar">';
+                                html+='<img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img">';
                                 html+='</span>';
                                 html+='</div>';
-                            /*
-                            var html ='<div class="row">';
-                            html+='<div class="col s12 xl2 rfq_review_result_leftBox">';
-                            html+='<span class="new_rfq_avatar">';
-                            html+='<img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img">';
-                            html+='</span>';
-                            html+='</div>';
-                            html+='<div class="col s12 xl5 rfq_review_result_midBox">';
-                            html+='<div class="new_rfq_review">';
-                            html+='<p><span>'+response.quotations[i].message+'</span> </p>';
-                            //html+='<button class="btn_green">Ask for PI</button>';
-                            html+='</div>';
-                            html+='</div>';
-                            //html+='<div class="col s12 xl5 rfq_review_result_rightBox">';
-                            //html+='<div class="new_rfq_review">';
-                            //html+='<span class="rfqEatting"><i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i></span>';
-                            //html+='<span class="rqf_verified"><img src="./images/account-images/rfq-verified.png" alt=""> Verified</span>';
-                            //html+='<button class="btn_green">Issue PO</button>';
-                            //html+='</div>';
-                            //html+='</div>';
-                            html+='</div>';
-                            */
+                                html+='<div class="col s12 xl5 rfq_review_result_midBox">';
+                                html+='<div class="new_rfq_review">';
+                                html+='<p><span>'+response.quotations[i].message+'</span> </p>';
+                                //html+='<button class="btn_green">Ask for PI</button>';
+                                html+='</div>';
+                                html+='</div>';
+                                //html+='<div class="col s12 xl5 rfq_review_result_rightBox">';
+                                //html+='<div class="new_rfq_review">';
+                                //html+='<span class="rfqEatting"><i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i> <i class="material-icons">star_border</i></span>';
+                                //html+='<span class="rqf_verified"><img src="./images/account-images/rfq-verified.png" alt=""> Verified</span>';
+                                //html+='<button class="btn_green">Issue PO</button>';
+                                //html+='</div>';
+                                //html+='</div>';
+                                html+='</div>';
+                                */
+                                $('.rfq_review_results_box').append(html);
+                            }
+                        }
+                        else
+                        {
+                            var html = 'Please <a href="/pricing-plan/form">subscribe</a> to show the quotations.';
                             $('.rfq_review_results_box').append(html);
                         }
+
                         var unseenQuotationCountClass = '.unseen_quotation_count_'+rfqId;
                         $(unseenQuotationCountClass).attr('data-unseen_quotation_count',0);
                         $(unseenQuotationCountClass).text('');
