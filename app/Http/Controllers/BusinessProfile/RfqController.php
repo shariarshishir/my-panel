@@ -2099,8 +2099,15 @@ class RfqController extends Controller
 
                 array_push($elements, (int)$request->businessProfileId);
 
+                // set unchecked if the profile id is selected from short list.
+                $shortListedElements = $rfqData['data']['data']['short_listed_profiles'];
+                if (($key = array_search((int)$request->businessProfileId, $shortListedElements)) !== false) {
+                    unset($shortListedElements[$key]);
+                }
+
                 $response = Http::put(env('RFQ_APP_URL').'/api/quotation/'.$rfqId, [
                     'selected_profile' => $elements,
+                    'short_listed_profiles' => $shortListedElements,
                 ]);
             }
             else

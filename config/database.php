@@ -107,18 +107,22 @@ return [
             'prefix_indexes' => true,
         ],
 
-       
+       // connection for LIVE
+
         'mongodb' => [
             'driver' => 'mongodb',
             'dsn' => env('APP_ENV') == 'production' ? 'mongodb+srv://chatapp:merchantbay@cluster0.18q56.mongodb.net/rfqapp?retryWrites=true&w=majority' : 'mongodb+srv://chatapp:merchantbay@cluster0.18q56.mongodb.net/rfqdev?retryWrites=true&w=majority',
             'database' => env('APP_ENV') == 'production' ? 'rfqapp' : 'rfqdev',
         ],
+
+        // connection for Local
+
         // 'mongodb' => [
         //     'driver' => 'mongodb',
         //     'dsn' =>  'mongodb+srv://chatapp:merchantbay@cluster0.18q56.mongodb.net/rfqdev?retryWrites=true&w=majority',
         //     'database' => 'rfqdev',
         // ],
-        
+
 
     ],
 
