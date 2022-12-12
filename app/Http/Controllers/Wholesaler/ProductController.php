@@ -166,10 +166,12 @@ class ProductController extends Controller
 
         try {
 
+            //dd($request->all());
+
             $productArray =[];
             if(isset($request->productImg['product_add_image'])) {
                 for($i=0; $i < count($request->productImg['product_add_image']); $i++){
-                    array_push($productArray, [$request->productImg['product_add_image'][$i], $request->productImg['product_image_label'][$i],$request->productImg['product_image_is_accessories'][$i]]);
+                    array_push($productArray, [$request->productImg['product_add_image'][$i], isset($request->productImg['product_image_label'][$i]) ? $request->productImg['product_image_label'][$i] : NULL, $request->productImg['product_image_is_accessories'][$i]]);
                 }
             }
 
@@ -508,7 +510,7 @@ class ProductController extends Controller
             if(isset($request->productImg['product_image_label'])) {
                 for($i=0; $i < count($request->productImg['product_image_label']); $i++){
                     // if(isset($request->productImg['product_add_image'][$i])){
-                        array_push($productArray, [isset($request->productImg['product_add_image'][$i])?$request->productImg['product_add_image'][$i]:null, $request->productImg['product_image_label'][$i],$request->productImg['product_image_is_accessories'][$i],$request->productImg['product_image_id'][$i]]);
+                        array_push($productArray, [isset($request->productImg['product_add_image'][$i])?$request->productImg['product_add_image'][$i]:null, isset($request->productImg['product_image_label'][$i]) ? $request->productImg['product_image_label'][$i] : NULL, $request->productImg['product_image_is_accessories'][$i],$request->productImg['product_image_id'][$i]]);
                     // }
 
                 }
