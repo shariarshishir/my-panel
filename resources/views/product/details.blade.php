@@ -398,7 +398,7 @@ $reviewsCount = count($productReviews);
 
                     <!-- Quotation button -->
                     <div class="margin_top">
-                        <a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}">REQUEST FOR QUOTATION</a>
+                        <a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}" style="display: none;">REQUEST FOR QUOTATION</a>
                     </div>
                 </div>
             </div>
@@ -572,7 +572,7 @@ $reviewsCount = count($productReviews);
                 }
             }
         }
-        
+
         $(document).ready(function() {
             const p_imgs = @json($product->images) || [];
             p_imgs?.map(i=>{

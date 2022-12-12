@@ -327,7 +327,7 @@
 					</div>
 					<!-- Quotation button -->
 					<div class="margin_top">
-						<a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}">REQUEST FOR QUOTATION</a>
+						<a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}" style="display: none;">REQUEST FOR QUOTATION</a>
 					</div>
 				</div>
 			</div>
@@ -380,7 +380,7 @@
                 if(scrollView){
                     scrollView.scrollTo(0,610 * index);
                 }
-            } 
+            }
         }
         $(document).ready(function() {
             const p_imgs = @json($product->product_images) || [];
