@@ -756,20 +756,20 @@
                                     html+='</span>';
                                     if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
                                     {
-                                        html+='<label><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span>Add to shortlist</span></label>';
+                                        html+='<label class="rfq_check_wrap"><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span class="checkText">Add to shortlist</span></label>';
                                     }
                                     else
                                     {
-                                        html+='<label><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span>Add to shortlist</span></label>';
+                                        html+='<label class="rfq_check_wrap"><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span class="checkText">Add to shortlist</span></label>';
                                     }
 
                                     if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
                                     {
-                                        html+='<label><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span>Marked as Selected</span></label>';
+                                        html+='<label class="rfq_check_wrap"><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span class="checkText">Marked as Selected</span></label>';
                                     }
                                     else
                                     {
-                                        html+='<label><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span>Marked as Selected</span></label>';
+                                        html+='<label class="rfq_check_wrap"><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span class="checkText">Marked as Selected</span></label>';
                                     }
 
                                     html+='</div>';
@@ -840,20 +840,20 @@
                                     html+='</span>';
                                     if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
                                     {
-                                        html+='<label><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span>Add to shortlist</span></label>';
+                                        html+='<label class="rfq_check_wrap"><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span class="checkText">Add to shortlist</span></label>';
                                     }
                                     else
                                     {
-                                        html+='<label><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span>Add to shortlist</span></label>';
+                                        html+='<label class="rfq_check_wrap"><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span class="checkText">Add to shortlist</span></label>';
                                     }
 
                                     if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
                                     {
-                                        html+='<label><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span>Marked as Selected</span></label>';
+                                        html+='<label class="rfq_check_wrap"><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span class="checkText">Marked as Selected</span></label>';
                                     }
                                     else
                                     {
-                                        html+='<label><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span>Marked as Selected</span></label>';
+                                        html+='<label class="rfq_check_wrap"><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span class="checkText">Marked as Selected</span></label>';
                                     }
                                     html+='</div>';
 

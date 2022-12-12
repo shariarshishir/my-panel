@@ -10212,10 +10212,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .rfq_review_message_box .chat-text {
     max-width: 265px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .rfq_review_message_box .chat-text.left-align span {
     border: 1px solid #c5dfc6;
+}
+.rfq_review_message_box .chat-text.left-align span a {
+    display: block;
 }
 .rfq_review_message_box .chat-text span {
    /* -webkit-box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
@@ -15370,7 +15373,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding-left: 0;
 }
 .new_rfq_chat_inner {
-    width: 400px;
+    width: 500px;
     padding-left: 20px;
 }
 #product-desciprtion table #product-additional-desciprtion table {
@@ -16849,12 +16852,16 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 
 /* ******************** color_picker_modal style end ******************* */
+.rfq_review_results_wrap .quatations_infoBox {
+    padding-top: 0;
+}
 .quatations_infoBox .quatationInfo {
     display: flex;
     justify-content: flex-start;
     flex-wrap: nowrap;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 0 10px;
+    vertical-align: middle;
 }
 .quatations_infoBox .quatationInfo:nth-child(odd) {
     background: #fff;
@@ -16863,26 +16870,26 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background: #f1f1f1;
 }
 .quatations_infoBox .quatationInfo .quatationProfile {
-    width: 50px;
-    height: 50px;
+    width: 60px;
 }
 .quatations_infoBox .quatationProfile img {
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     border: 1px solid #ddd;
 }
 .quatations_infoBox .companyName {
     font-size: 16px;
     line-height: 20px;
     color: #54a958;
-    padding: 0px 15px 0;
+    padding: 0px 10px 0;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    width: 50%;
+    width: 40%;
 }
 .quatations_infoBox .offerPriceBox {
     width: 100px;
@@ -16893,13 +16900,34 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     display: block;
 }
 .quatations_infoBox .offerPriceBox .pointNum {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 18px;
     text-align: right;
     font-weight: bold;
+    white-space: nowrap;
 }
 .quatations_infoBox .offerPriceBox .pointNum span {
     font-size: 12px;
+}
+.quatations_infoBox .rfq_check_wrap {
+    display: inline-flex;
+    text-align: center;
+    height: inherit;
+}
+.quatations_infoBox .rfq_check_wrap .supplier_short_list_trigger_from_frontend{
+    position: inherit;
+}
+.quatations_infoBox .rfq_check_wrap .checkText {
+    font-size: 12px;
+    line-height: normal;
+    display: inline-block;
+    width: 100%;
+    padding: 0 10px;
+}
+.quatations_infoBox .rfq_check_wrap [type="checkbox"]+span:not(.lever):before, 
+.quatations_infoBox .rfq_check_wrap [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+    top: -32px;
+    left: 38%;
 }
 
 
@@ -18968,7 +18996,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         max-width: 20px;
    }
    /* ***************************************** */
-    .new_profile_account_rightsidebar_desktop, .profile_account_desktop_menu {
+    /* .new_profile_account_rightsidebar_desktop,  */
+    .profile_account_desktop_menu {
         display: none;
    }
     .profile_account_mobile_menu {
@@ -19498,7 +19527,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         max-height: 400px;
         min-height: 400px;
    }
-    .new_rfq_chat_inner, .new_rfq_details_inner {
+    .new_rfq_chat_inner, 
+    .new_rfq_details_inner {
         width: 100% !important;
    }
     .new_profile_account_rightsidebar_desktop.rfq_chat_box_wrapper .new_profile_account_myrfq_details .rfq_review_results_wrap form {
