@@ -998,12 +998,14 @@ class RfqController extends Controller
         if($cookie->subscription_status == 1)
         {
             $quotations = Userchat::where('rfq_id',$request->rfqId)->where('factory',true)->get();
+            $subscriptionStatus = 1;
         }
         else
         {
             $quotations = [];
+            $subscriptionStatus = 0;
         }
-        return response()->json(["quotations"=>$quotations],200);
+        return response()->json(["quotations"=>$quotations, "subscriptionStatus"=>$subscriptionStatus],200);
 
     }
 

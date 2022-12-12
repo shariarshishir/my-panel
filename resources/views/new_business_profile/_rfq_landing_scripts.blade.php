@@ -738,7 +738,7 @@
                         $('.loading-message').html("");
                         $('#loadingProgressContainer').hide();
 
-                        if(response.quotations.length > 0)
+                        if(response.subscriptionStatus > 0)
                         {
                             for(var i=0;i<response.quotations.length;i++)
                             {
@@ -822,7 +822,7 @@
                         //$(".rfq_chat_box_wrapper").show();
                         $(".new_rfq_details_wrapper_outer").removeClass("active");
 
-                        if(response.quotations.length > 0)
+                        if(response.subscriptionStatus)
                         {
                             for(var i=0;i<response.quotations.length;i++)
                             {
