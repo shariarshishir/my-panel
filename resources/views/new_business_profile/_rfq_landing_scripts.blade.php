@@ -862,7 +862,7 @@
                         }
                         else
                         {
-                            var html = 'Please <a href="/pricing-plan/form">subscribe</a> to show the quotations.';
+                            var html = "Please <a href='{{route('pricing.plan.form')}}'>subscribe</a> to show the quotations.";
                             $('.rfq_review_results_box').append(html);
                         }
 

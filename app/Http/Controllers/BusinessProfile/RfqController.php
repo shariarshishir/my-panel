@@ -995,7 +995,7 @@ class RfqController extends Controller
         $cookie = json_decode(json_decode(json_encode($cookie)));
         //$cookie->subscription_status = 0;
 
-        if($cookie->subscription_status)
+        if($cookie->subscription_status == 1)
         {
             $quotations = Userchat::where('rfq_id',$request->rfqId)->where('factory',true)->get();
         }
