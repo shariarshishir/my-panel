@@ -608,6 +608,9 @@ class UserController extends Controller
             if(Cookie::has('sso_token')){
                 Cookie::queue(Cookie::forget('sso_token'));
             }
+            if(Cookie::has('sso_token_oms')){
+                Cookie::queue(Cookie::forget('sso_token_oms'));
+            }
             if(session()->has('sso_password')){
                 session()->forget('sso_password');
             }
