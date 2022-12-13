@@ -288,6 +288,7 @@ Route::get('/product/quotation-request', [HomeController::class, 'productQuotati
 
 Route::group(['middleware'=>['sso.verified','auth']],function (){
     Route::get('rfq/profile/shortlistfromfrontend',[RfqController::class, 'profileShortListFromFrontend'])->name('rfq.profile.shortlist.from.frontend');
+    Route::get('enable/productfeature/bybusinessprofileid',[HomeController::class, 'enableProductFeatureByBusinessProfileId'])->name('enable.product.feature.by.businessProfileid');
     Route::get('/cart',[ProductCartController::class,'index'])->name('cart.index');
     Route::get('/cart-item-delete/{rowId}',[ProductCartController::class,'cartItemDelete'])->name('cart.delete');
     Route::post('/cart-item-update',[ProductCartController::class,'cartItemUpdate'])->name('cart.update');

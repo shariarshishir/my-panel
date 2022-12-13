@@ -1644,4 +1644,26 @@ class HomeController extends Controller
         return response()->json(["status" => 1, "message" => "successful"]);
 
     }
+
+    public function enableProductFeatureByBusinessProfileId(Request $request)
+    {
+        //dd($request->all());
+        if($request->enabledValue == "yes")
+        {
+            $business_profile = BusinessProfile::where('id', $request->businessProfileId)->update([
+                'is_enabled_product_option' => 1,
+            ]);
+        }
+        else
+        {
+            $business_profile = BusinessProfile::where('id', $request->businessProfileId)->update([
+                'is_enabled_product_option' => 0,
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'msg'     => 'Product feature enabled',
+        ],200);
+    }
 }

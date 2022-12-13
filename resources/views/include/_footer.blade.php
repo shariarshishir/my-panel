@@ -1631,6 +1631,38 @@ function addToWishList(flag, id, obj){
             $(".banner_search").toggle();
         });
     });
+
+    $(document).ready(function(){
+        $(".enable_product_event_trigger").click(function(){
+            var businessProfileId = $(this).attr("data-businessprofileid");
+            var enabledValue = $(this).attr("data-enable");
+            if (confirm('Are you sure?'))
+            {
+                var url = "{{route('enable.product.feature.by.businessProfileid')}}";
+                $.ajax({
+                    method: 'get',
+                    dataType: 'json',
+                    data: {businessProfileId:businessProfileId, enabledValue:enabledValue},
+                    enctype: 'multipart/form-data',
+                    url: url,
+                    beforeSend: function() {
+                        // $('.loading-message').html("Please Wait.");
+                        // $('#loadingProgressContainer').show();
+                    },
+                    success:function(data)
+                    {
+                        // console.log(data);
+                        // boxHtml.remove();
+                        // shortListCount = parseInt(shortListCount)+1;
+                        // $(".short-list-count").text(shortListCount);
+                        // $('.loading-message').html("");
+                        // $('#loadingProgressContainer').hide();
+                        window.location.reload();
+                    }
+                });
+            }
+        })
+    })
 </script>
 <script>
     function mobileNavExplore() {
