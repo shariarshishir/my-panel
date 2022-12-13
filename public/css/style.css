@@ -13839,11 +13839,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .mainSidenav ul li.myBusinessProfile a {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my_profile_unselected.png") no-repeat 15px center;
-    background-size: 20px;
+    background-size: 25px;
 }
 .mainSidenav ul li.myBusinessProfile.active a, .mainSidenav ul li.myBusinessProfile:hover a {
     background: #defcdf url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my_profile_selected.png") no-repeat 15px center;
-    background-size: 20px;
+    background-size: 25px;
 }
 .mainSidenav ul li.myRfqs a {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-rfqs.png") no-repeat 15px center;
