@@ -13835,6 +13835,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background: #defcdf url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-rfqs-active.png") no-repeat 15px center;
     background-size: 20px;
 }
+.mainSidenav ul li.myShowroom a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my_showroom_unselected.png") no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.myShowroom.active a, .mainSidenav ul li.myShowroom:hover a {
+    background: #defcdf url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my_showroom_selected.png") no-repeat 15px center;
+    background-size: 20px;
+}
 .mainSidenav ul li.myOrders a {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-orders.png") no-repeat 15px center;
     background-size: 18px;
@@ -16924,7 +16932,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 100%;
     padding: 0 10px;
 }
-.quatations_infoBox .rfq_check_wrap [type="checkbox"]+span:not(.lever):before, 
+.quatations_infoBox .rfq_check_wrap [type="checkbox"]+span:not(.lever):before,
 .quatations_infoBox .rfq_check_wrap [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
     top: -32px;
     left: 38%;
@@ -19527,7 +19535,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         max-height: 400px;
         min-height: 400px;
    }
-    .new_rfq_chat_inner, 
+    .new_rfq_chat_inner,
     .new_rfq_details_inner {
         width: 100% !important;
    }
