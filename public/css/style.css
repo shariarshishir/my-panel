@@ -16948,7 +16948,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     left: 38%;
 }
 
-
+.product_event_wrap {
+    border: 1px solid #929292;
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 3px;
+}
+.product_event_wrap .enable_product_event_trigger {
+    color: #000000;
+}
+.product_event_wrap .enable_product_event_trigger .material-icons {
+    float: right;
+    margin-top: 1px;
+    margin-left: 8px;
+    font-size: 20px;
+    color: #000000;
+}
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {
     .container {
@@ -21749,6 +21764,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .profile_account_searchBar .post_new {
         margin-left: -10px;
+    }
+    .profile_account_innerinfo_wrap .profile_insight_info .profile_insight_edit {
+        text-align: left !important;
+    }
+    .profile_account_innerinfo_wrap .product_event_wrap {
+        margin-bottom: 20px;
     }
 }
 @media only screen and (max-width: 480px) {

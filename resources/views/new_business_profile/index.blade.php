@@ -43,18 +43,20 @@
                     <div class="col s12 m12 l9" style="margin: 0 auto; float: none;">
                         <div class="profile_insight_info">
                             <div class="row">
-                                <div class="col s10">
+                                <div class="col s12 m7">
                                     <h4>Profile Insights</h4>
-                                    @if(auth()->user()->user_type == "buyer")
-                                        @if($business_profile->is_enabled_product_option)
-                                            <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="no" class="enable_product_event_trigger">Disable Product Feature</a>
-                                        @else
-                                            <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="yes" class="enable_product_event_trigger">Enable Product Feature</a>
-                                        @endif
-                                    @endif
                                 </div>
-                                <div class="col s2 right-align profile_insight_edit" >
-                                    <img src="./images/account-images/Icon-edit.png" alt="" >
+                                <div class="col s12 m5 right-align profile_insight_edit" >
+                                    {{-- <img src="./images/account-images/Icon-edit.png" alt="" > --}}
+                                    <div class="product_event_wrap">
+                                        @if(auth()->user()->user_type == "buyer")
+                                            @if($business_profile->is_enabled_product_option)
+                                                <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="no" class="enable_product_event_trigger">Disable Product Feature <i class="material-icons">arrow_forward</i></a>
+                                            @else
+                                                <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="yes" class="enable_product_event_trigger">Enable Product Feature <i class="material-icons">arrow_forward</i></a>
+                                            @endif
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                             <div class="row insight_info_box">
