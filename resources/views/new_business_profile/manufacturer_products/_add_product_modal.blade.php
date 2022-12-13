@@ -62,7 +62,7 @@
                             <div class="col s12 m12 l4 input-field">
                                 <label for="product_tag">Product Tags<span class="text-danger">*</span></label>
                                 <div class="multiple_select_wrap">
-                                    <select name="product_tag[]" aria-placeholder="Choose your option" class="select2 browser-default" id="product_tag" multiple>
+                                    <select name="product_tag[]" aria-placeholder="Choose your option" class="browser-default product_tag_selection" id="product_tag" multiple>
                                         @foreach($product_tags as $product_tag)
                                             <option value="{{ $product_tag->name }}">{{$product_tag->name }}</option>
                                         @endforeach
@@ -171,7 +171,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <label for="lead_time">Lead Time <span class="text-danger">*</span></label>
                                 <div class="leadTimeDays">
                                     <input type="text" name="lead_time" id="lead_time" class="form-control negitive-or-text-not-allowed" placeholder="Days" >
@@ -180,7 +180,7 @@
                                 <span class="text-danger error-text lead_time_error rm-error"></span>
                             </div>
                             {{-- gender --}}
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <div class="genderBox">
                                     <label for="gender">Gender<span class="text-danger">*</span></label>
                                     <span class="text-danger error-text gender_error rm-error"></span>
@@ -193,7 +193,7 @@
                                 </select>
                             </div>
                             {{-- sample availability --}}
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <div class="sampleAvailabilityTitle">
                                     <label for="sample_availability">Sample Availability <span class="text-danger">*</span></label>
                                     <span class="text-danger error-text sample_availability_error rm-error"></span>
@@ -204,14 +204,15 @@
                                     <option value="0">No</option>
                                 </select>
                             </div>
-                            <div class="col s12 m6 l3 input-field">
+                            <!--div class="col s12 m6 l3 input-field">
                                 <label for="free_to_show">Free to Show</label>
                                 <select class="select2 browser-default free_to_show" name="free_to_show">
                                     <option value="" selected="true" disabled>Choose Free to Show</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
-                            </div>
+                            </div-->
+                            <input type="hidden" name="free_to_show" value="1" />
                         </div>
                     </div>{{-- input_field_wrap --}}
 

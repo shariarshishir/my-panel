@@ -143,21 +143,32 @@
 										<span>My RFQs</span>
 									</a>
 								</li>
+                                @if(auth()->user()->user_type == "supplier")
+                                <li class="myShowroom">
+                                    <a class="tooltipped" data-position="right" data-tooltip="My Showroom" href="{{ route('new.profile.products', $userBusinessProfiles[0]['alias'])}}">
+                                        <span>My Showroom</span>
+                                    </a>
+                                </li>
+                                @endif
+                                @if(auth()->user()->user_type == "buyer")
 								<li class="designStudio">
 									<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="{{route('product.type.mapping',['studio', 'design'])}}">
 										<span>Design Studio</span>
 									</a>
 								</li>
+                                @endif
 								<li class="rawMaterials">
 									<a class="tooltipped" data-position="right" data-tooltip="Raw Materials" href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">
 										<span>Raw Materials</span>
 									</a>
 								</li>
+                                @if(auth()->user()->user_type == "buyer")
 								<li class="suppliers{{ Route::is('suppliers') ? ' active' : ''}}">
 									<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="{{route('suppliers')}}">
 										<span>Suppliers</span>
 									</a>
 								</li>
+                                @endif
 								<li class="samples">
 									<a class="tooltipped" data-position="right" data-tooltip="Samples" href="javascript:void(0);">
 										<span>Samples</span>
@@ -603,21 +614,32 @@
                 <span>My RFQs</span>
             </a>
 		</li>
+        @if(auth()->user()->user_type == "supplier")
+        <li class="myShowroom">
+			<a class="tooltipped" data-position="right" data-tooltip="My Showroom" href="{{ route('new.profile.products', $userBusinessProfiles[0]['alias'])}}">
+                <span>My Showroom</span>
+            </a>
+		</li>
+        @endif
+        @if(auth()->user()->user_type == "buyer")
 		<li class="designStudio">
 			<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="{{route('product.type.mapping',['studio', 'design'])}}">
                 <span>Design Studio</span>
             </a>
 		</li>
+        @endif
         <li class="rawMaterials">
 			<a class="tooltipped" data-position="right" data-tooltip="Raw Materials" href="{{route('product.type.mapping',['raw_materials', 'textile'])}}">
                 <span>Raw Materials</span>
             </a>
 		</li>
+        @if(auth()->user()->user_type == "buyer")
         <li class="suppliers{{ Route::is('suppliers') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="{{route('suppliers')}}">
                 <span>Suppliers</span>
             </a>
 		</li>
+        @endif
         <li class="samples{{ Route::is('samples') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Samples" href="{{route('samples')}}">
                 <span>Samples</span>

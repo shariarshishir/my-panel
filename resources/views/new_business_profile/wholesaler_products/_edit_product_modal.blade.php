@@ -241,7 +241,7 @@
 
                     <div class="product-details-block">
                         <div class="row input-field">
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <label for="product_type">{{ __('Product Type') }} <span class="text-danger">*</span></label>
                                 <select class="select2 browser-default product_type_order" name="product_type" >
                                     <option value="" selected="true" disabled>Choose your option</option>
@@ -251,7 +251,7 @@
                                 </select>
                             </div>
                             {{-- gender --}}
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <label for="gender">Gender<span class="text-danger">*</span></label>
                                 <select class="select2 browser-default product_type_gender" name="gender" >
                                     <option value="" selected="true" disabled>Choose your option</option>
@@ -262,7 +262,7 @@
                                 <span class="gender_error text-danger error-rm"></span>
                             </div>
                             {{-- sample availability --}}
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <label for="sample_availability">Sample Availability <span class="text-danger">*</span></label>
                                 <select class="select2 browser-default type_sample_availability" name="sample_availability" >
                                     <option value="" selected="true" disabled>Choose your option</option>
@@ -271,14 +271,15 @@
                                 </select>
                                 <span class="sample_availability_error text-danger error-rm"></span>
                             </div>
-                            <div class="col s12 m6 l3 input-field">
+                            <!--div class="col s12 m6 l3 input-field">
                                 <label for="free_to_show">Free to Show</label>
                                 <select class="select2 browser-default free_to_show_yes" name="free_to_show" >
                                     <option value="" selected="true" disabled>Choose Free To Show</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
-                            </div>
+                            </div-->
+                            <input type="hidden" name="free_to_show" value="1" />
                         </div>
 
                         <div class="fresh-rtd-attr">

@@ -69,7 +69,8 @@
                         <div class="col s12 m12 l4 input-field">
                             <label for="product_tag">Product Tag<span class="text-danger">*</span></label>
                             <div class="multipleArrowBox">
-                                <select name="product_tag[]" class="select2 browser-default" id="product_tag" multiple>
+                                <select name="product_tag[]" class="browser-default product_tag_selection" id="product_tag" multiple>
+                                    <option value="">Shirt/Jersey/Sweater/knit...</option>
                                     @foreach($product_tags as $product_tag)
                                         <option value="{{$product_tag->name}}">{{$product_tag->name}}</option>
                                     @endforeach
@@ -213,7 +214,7 @@
                     </div>{{-- Featured Image & Video --}}
 
                     <div class="row" style="padding-bottom: 20px">
-                        <div class="col s12 m6 l3 input-field">
+                        <div class="col s12 m6 l4 input-field">
                             <label for="product_type">{{ __('Product Type') }} <span class="text-danger">*</span></label>
                             <select class="select2 browser-default" name="product_type" >
                                 <option value="" selected="true" disabled>Choose your option</option>
@@ -223,7 +224,7 @@
                             </select>
                         </div>
                         {{-- gender --}}
-                        <div class="col s12 m6 l3 input-field">
+                        <div class="col s12 m6 l4 input-field">
                             <label for="gender">Gender<span class="text-danger">*</span></label>
                             <select class="select2 browser-default" name="gender" >
                                 <option value="" selected="true" disabled>Choose your option</option>
@@ -234,7 +235,7 @@
                             <span class="gender_error text-danger error-rm"></span>
                         </div>
                         {{-- sample availability --}}
-                        <div class="col s12 m6 l3 input-field">
+                        <div class="col s12 m6 l4 input-field">
                             <label for="sample_availability">Sample Availability <span class="text-danger">*</span></label>
                             <select class="select2 browser-default" name="sample_availability" >
                                 <option value="" selected="true" disabled>Choose your option</option>
@@ -242,14 +243,15 @@
                                 <option value="0">No</option>
                             </select>
                         </div>
-                        <div class="col s12 m6 l3 input-field">
+                        <!--div class="col s12 m6 l3 input-field">
                             <label for="free_to_show">Free To Show</label>
                             <select class="select2 browser-default" name="free_to_show" >
                                 <option value="" selected="true" disabled>Choose Free To Show</option>
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
                             </select>
-                        </div>
+                        </div-->
+                        <input type="hidden" name="free_to_show" value="1" />
                     </div>
                 </div>{{-- input_field_wrap --}}
 

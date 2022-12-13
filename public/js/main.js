@@ -18,7 +18,7 @@ $(document).ready(function() {
         coverTrigger: false, // Displays dropdown below the button
         alignment: 'left', // Displays dropdown with edge aligned to the left of button
         stopPropagation: false // Stops event propagation
-    });    
+    });
     $('.shop-categories-wrap li, .products-category-block li').hover(
         function() {
             $(this).addClass("current");
@@ -28,6 +28,11 @@ $(document).ready(function() {
     );
 
     $(".select2").select2({
+        dropdownAutoWidth: true,
+        width: '100%'
+    });
+    $(".product_tag_selection").select2({
+        placeholder: "Shirt/Jersey/Sweater/knit...",
         dropdownAutoWidth: true,
         width: '100%'
     });
@@ -56,11 +61,11 @@ $(document).ready(function() {
 
     $('.tabs').tabs();
     $('.document_tabs').tabs();
-    
+
     $('.spotlight_tabs').tabs({
         "swipeable": true
     });
-    
+
 
     // var slider = document.getElementById('price-slider');
     // noUiSlider.create(slider, {

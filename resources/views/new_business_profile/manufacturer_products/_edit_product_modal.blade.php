@@ -165,7 +165,7 @@
 
                         <div class="row">
                             {{-- Lead Time --}}
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <label for="lead_time">Lead Time <span class="text-danger">*</span></label>
                                 <div class="leadTimeDays">
                                     <input type="text" name="lead_time" id="lead_time" class="form-control negitive-or-text-not-allowed" placeholder="days" >
@@ -174,7 +174,7 @@
                                 </div>
                             </div>
                             {{-- gender --}}
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <div class="genderBox">
                                     <label for="gender">Gender<span class="text-danger">*</span></label>
                                     <span class="text-danger error-text gender_error rm-error"></span>
@@ -187,7 +187,7 @@
                                 </select>
                             </div>
                             {{-- sample availability --}}
-                            <div class="col s12 m6 l3 input-field">
+                            <div class="col s12 m6 l4 input-field">
                                 <div class="sampleAvailabilityTitle">
                                     <label for="sample_availability">Sample Availability <span class="text-danger">*</span></label>
                                     <span class="text-danger error-text sample_availability_error rm-error"></span>
@@ -199,7 +199,7 @@
                                 </select>
                             </div>
                              {{-- sample availability --}}
-                             <div class="col s12 m6 l3 input-field">
+                             <!--div class="col s12 m6 l3 input-field">
                                 <div class="sampleAvailabilityTitle">
                                     <label for="free_to_show">Free to Show</label>
                                 </div>
@@ -208,8 +208,8 @@
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
-                            </div>
-
+                            </div-->
+                            <input type="hidden" name="free_to_show" value="1" />
                         </div>
                     </div>{{-- input_field_wrap --}}
 
