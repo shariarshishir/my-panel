@@ -384,7 +384,7 @@ $reviewsCount = count($productReviews);
                                 <div class="col s12 m12 xl6">
                                     <a class="request_for_sample_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Ask For Sample</a>
                                 </div>
-                                <div class="col s12 m12 xl6">
+                                <div class="col s12 m12 xl6" style="display: none;">
                                     <a class="request_for_quotation_event_trigger btn_bg_yellow" href="javascript:void(0);" data-productid="{{$product->id}}" data-productflag="{{$product->flag}}">Request for Quotation</a>
                                 </div>
                             </div>
@@ -398,7 +398,7 @@ $reviewsCount = count($productReviews);
 
                     <!-- Quotation button -->
                     <div class="margin_top">
-                        <a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}" style="display: none;">REQUEST FOR QUOTATION</a>
+                        <a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}">REQUEST FOR QUOTATION</a>
                     </div>
                 </div>
             </div>

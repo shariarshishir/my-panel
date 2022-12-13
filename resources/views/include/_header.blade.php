@@ -43,11 +43,11 @@
 								<ul id="profile-dropdown" class="dropdown-content" itemscope itemtype="https://schema.org/ListItem">
                                     @if(auth()->user()->user_type == "designer")
 									<li tabindex="0" itemprop="itemListElement">
-										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('single.designer.details', auth()->user()->id) }}"><i class="material-icons">person_outline</i> Profile</a>
+										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('single.designer.details', auth()->user()->id) }}"><i class="material-icons">person_outline</i> General Info</a>
 									</li>
                                     @else
                                     <li tabindex="0" itemprop="itemListElement">
-										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> Profile</a>
+										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> General Info</a>
 									</li>
                                     @endif
 									<li tabindex="0" itemprop="itemListElement">
@@ -138,6 +138,11 @@
 							<span class="closebtn" itemprop="Close Nav" onclick="closeNav()"><i class="material-icons right">keyboard_backspace</i></span>
 
 							<ul>
+                                <li class="myBusinessProfile">
+                                    <a class="tooltipped" data-position="right" data-tooltip="My Profile" href="{{ route('new.profile.home', $userBusinessProfiles[0]['alias'])}}">
+                                        <span>My Profile</span>
+                                    </a>
+                                </li>
 								<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 									<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
 										<span>My RFQs</span>
@@ -609,6 +614,11 @@
 <div id="mainSidenav" class="mainSidenav">
 	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose();"><i class="material-icons">chevron_left</i></span>
 	<ul>
+        <li class="myBusinessProfile">
+			<a class="tooltipped" data-position="right" data-tooltip="My Profile" href="{{ route('new.profile.home', $userBusinessProfiles[0]['alias'])}}">
+                <span>My Profile</span>
+            </a>
+		</li>
 		<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
                 <span>My RFQs</span>

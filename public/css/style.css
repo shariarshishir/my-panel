@@ -13448,12 +13448,12 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     top: 10px;
     right: 7px;
 }
-.wholesaler_edit_product_form .input-field label, 
+.wholesaler_edit_product_form .input-field label,
 .wholesaler_add_product_form .input-field label {
     float: none !important;
     margin-bottom: 0;
 }
-.multipleArrowBox, 
+.multipleArrowBox,
 .input-field .multiple_select_wrap {
     position: relative;
 }
@@ -13836,6 +13836,14 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .mainSidenav ul li.active a span {
     color: #54a958;
+}
+.mainSidenav ul li.myBusinessProfile a {
+    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my_profile_unselected.png") no-repeat 15px center;
+    background-size: 20px;
+}
+.mainSidenav ul li.myBusinessProfile.active a, .mainSidenav ul li.myBusinessProfile:hover a {
+    background: #defcdf url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my_profile_selected.png") no-repeat 15px center;
+    background-size: 20px;
 }
 .mainSidenav ul li.myRfqs a {
     background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/sidemenu-icon-img/my-rfqs.png") no-repeat 15px center;

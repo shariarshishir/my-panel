@@ -1,7 +1,7 @@
 <ul>
-    <li><a class="{{ Route::is('new.profile.index',$alias) ? 'active' : ''}}" href="{{route('new.profile.index',$alias)}}">General Info</a></li>
+    <li style="display: none;"><a class="{{ Route::is('new.profile.index',$alias) ? 'active' : ''}}" href="{{route('new.profile.index',$alias)}}">General Info</a></li>
     @if($business_profile->profile_type == 'supplier')
-        <li><a class="{{ Route::is('new.profile.home',$alias) ? 'active' : ''}}" href="{{route('new.profile.home',$alias)}}">Profile</a></li>
+        <li style="display: none;"><a class="{{ Route::is('new.profile.home',$alias) ? 'active' : ''}}" href="{{route('new.profile.home',$alias)}}">Profile</a></li>
     @endif
     @if($business_profile->is_enabled_product_option == 1 && auth()->user()->user_type == "buyer")
         <li><a class="{{ Route::is('new.profile.products',$alias) ? 'active' : ''}}" href="{{ route('new.profile.products',$alias)}}">Products</a></li>
