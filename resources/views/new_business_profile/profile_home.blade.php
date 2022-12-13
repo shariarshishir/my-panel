@@ -40,7 +40,7 @@
                     <div class="col s12 m3 l2">
                         <div class="account_item_menu">
                             <ul>
-                                <li class="profile_insight {{ Route::is('new.profile.insights',$alias) ? 'active' : ''}}">
+                                <li class="profile_insight {{ Route::is('new.profile.insights',$alias) ? 'active' : ''}}" style="display: none;">
                                     <a href="{{route('new.profile.insights', $alias)}}">
                                         <div class="icon_img">&nbsp;</div>
                                         <h4>Profile Insights</h4>

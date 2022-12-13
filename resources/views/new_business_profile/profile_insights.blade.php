@@ -7,7 +7,7 @@
             <div class="profile_account_desktop_menu">
                 @include('new_business_profile.profile_menu')
             </div>
-    
+
             <div class="profile_account_mobile_menu" style="display: none;">
                 <div class="row">
                     <div class="col s12">
@@ -26,10 +26,10 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div id="profileAccountRight">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeProfileAccountNav()"><i class="material-icons">clear</i></a>
-                    
+
                     <div class="new_profile_account_rightsidebar_mobile">
                         <div class="new_profile_account_myrfq_details">
                             <div class="new_profile_myrfq_details_topbox">
@@ -142,7 +142,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="profile_account_innerinfo_wrap">
         <div class="container">
             <div class="account_profile_box">
@@ -150,7 +150,7 @@
                     <div class="col s12 m3 l2">
                         <div class="account_item_menu">
                             <ul>
-                                <li class="profile_insight {{ Route::is('new.profile.insights',$alias) ? 'active' : ''}}">
+                                <li class="profile_insight {{ Route::is('new.profile.insights',$alias) ? 'active' : ''}}" style="display: none;">
                                     <a href="{{route('new.profile.insights', $alias)}}">
                                         <div class="icon_img">&nbsp;</div>
                                         <h4>Profile Insights</h4>
@@ -175,7 +175,7 @@
                         <div class="profile_supplier_account_insight_wrap">
                             <div class="supplier_account_progress">
                                 <h4>
-                                    <span style="vertical-align: top;">Profile Progress</span> 
+                                    <span style="vertical-align: top;">Profile Progress</span>
                                     @if($business_profile->is_business_profile_verified == 0)
                                     <div class="profile-not-verified-by-merchantbay">
                                         <a href="javascript:void(0);" class="ProfileVerificationResendTrigger">
@@ -192,9 +192,9 @@
                                         <div class="verified_by_merchantbay">
                                             <span class="leftText">Verified</span> <span class="rightText">by Merchant Bay</span>
                                         </div>
-                                    </div>    
+                                    </div>
                                     @endif
-                                </h4>                           
+                                </h4>
                                 <div id="profile-progress-wrapper">
                                     <div class="profile-progressbar-total" style="position: relative; width: 100%; background: #ccc; height: 25px; border-radius: 4px;">
                                         <div class="profile-progress-value" style="width: {{$profileProgressValue}}%; background: #54a958; height: 25px; border-radius: 4px; position: absolute; top: 0px; left: 0px;"></div>
@@ -222,7 +222,7 @@
                             <div class="supllir_profile_incomplete_field">
                                 @php
                                     $toolTipMessageForVerification = '';
-                                    if($business_profile->business_type == 'wholesaler') 
+                                    if($business_profile->business_type == 'wholesaler')
                                     {
                                         $toolTipMessageForVerification = "You have add all the Company Information from profile section to get verified and it will reflect to the progressbar as well.";
                                     } else {
@@ -252,7 +252,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
