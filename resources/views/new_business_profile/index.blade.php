@@ -45,6 +45,13 @@
                             <div class="row">
                                 <div class="col s10">
                                     <h4>Profile Insights</h4>
+                                    @if(auth()->user()->user_type == "buyer")
+                                        @if($business_profile->is_enabled_product_option)
+                                            <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="no" class="enable_product_event_trigger">Disable Product Feature</a>
+                                        @else
+                                            <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="yes" class="enable_product_event_trigger">Enable Product Feature</a>
+                                        @endif
+                                    @endif
                                 </div>
                                 <div class="col s2 right-align profile_insight_edit" >
                                     <img src="./images/account-images/Icon-edit.png" alt="" >
