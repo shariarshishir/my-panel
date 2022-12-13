@@ -13448,12 +13448,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     top: 10px;
     right: 7px;
 }
-.wholesaler_edit_product_form .input-field label, .wholesaler_add_product_form .input-field label {
+.wholesaler_edit_product_form .input-field label, 
+.wholesaler_add_product_form .input-field label {
     float: none !important;
     margin-bottom: 0;
 }
-.multipleArrowBox, .input-field .multiple_select_wrap {
+.multipleArrowBox, 
+.input-field .multiple_select_wrap {
     position: relative;
+}
+.wholesaler_add_product_form .select2-container .select2-search--inline {
+    width: 100%;
+    margin-top: 11px !important;
+}
+.profile_form_modal .wholesaler_add_product_form .input-field .select2-container .select2-search.select2-search--inline input.select2-search__field {
+    width: -webkit-fill-available !important;
+    float: left !important;
 }
 .multipleArrowBox .select2-selection__arrow, .multiple_select_wrap .select2-selection__arrow {
     height: 11px;
@@ -15050,7 +15060,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 100%;
 }
 .header_wrap .user-block .profile_sub_menu a {
-    padding: 10px 10px 10px 16px;
+    padding: 6px 10px 6px 16px;
     color: #757575;
 }
 .header_wrap .user-block .profile_sub_menu a.active {
