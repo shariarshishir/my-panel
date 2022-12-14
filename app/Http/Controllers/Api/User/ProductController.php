@@ -1542,10 +1542,11 @@ class ProductController extends Controller
 
     public function productDetails($flag,$id)
     {
+
         if($flag == 'shop')
         {
             $product = Product::with('images','productReview')->where('business_profile_id', '!=', null)->where('id',$id)->where('state',1)->where('sold',0)->first();
-
+//dd($product);
             if($product)
             {
 
@@ -1598,6 +1599,7 @@ class ProductController extends Controller
                 $newFormatedProduct->is_featured=$product->is_featured;
                 $newFormatedProduct->description=$product->description;
                 $newFormatedProduct->state= $product->state;
+                $newFormatedProduct->customize= $product->customize;
                 $newFormatedProduct->sold= $product->sold;
                 $newFormatedProduct->additional_description=$product->additional_description;
                 $newFormatedProduct->availability=$product->availability;
