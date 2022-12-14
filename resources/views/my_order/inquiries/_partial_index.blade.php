@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="rejectdetails-po-btn center-align">
                                         <a class="waves-effect waves-light btn_green modal-trigger" href="#rejectPoDetailsModal">
-                                            PO rejection Causes
+                                            PI rejection Causes
                                         </a>
                                     </div>
                                 </div>
