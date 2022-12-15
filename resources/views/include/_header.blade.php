@@ -138,24 +138,26 @@
 							<span class="closebtn" itemprop="Close Nav" onclick="closeNav()"><i class="material-icons right">keyboard_backspace</i></span>
 
 							<ul>
+                                @if(isset($userBusinessProfiles))
                                 <li class="myBusinessProfile">
                                     <a class="tooltipped" data-position="right" data-tooltip="My Profile" href="{{ route('new.profile.home', $userBusinessProfiles[0]['alias'])}}">
                                         <span>My Profile</span>
                                     </a>
                                 </li>
+                                @endif
 								<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 									<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
 										<span>My RFQs</span>
 									</a>
 								</li>
-                                @if(auth()->user()->user_type == "supplier")
+                                @if(auth()->user() && auth()->user()->user_type == "supplier")
                                 <li class="myShowroom">
                                     <a class="tooltipped" data-position="right" data-tooltip="My Showroom" href="{{ route('new.profile.products', $userBusinessProfiles[0]['alias'])}}">
                                         <span>My Showroom</span>
                                     </a>
                                 </li>
                                 @endif
-                                @if(auth()->user()->user_type == "buyer")
+                                @if(auth()->user() && auth()->user()->user_type == "buyer")
 								<li class="designStudio">
 									<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="{{route('product.type.mapping',['studio', 'design'])}}">
 										<span>Design Studio</span>
@@ -167,7 +169,7 @@
 										<span>Raw Materials</span>
 									</a>
 								</li>
-                                @if(auth()->user()->user_type == "buyer")
+                                @if(auth()->user() && auth()->user()->user_type == "buyer")
 								<li class="suppliers{{ Route::is('suppliers') ? ' active' : ''}}">
 									<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="{{route('suppliers')}}">
 										<span>Suppliers</span>
@@ -614,24 +616,26 @@
 <div id="mainSidenav" class="mainSidenav">
 	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose();"><i class="material-icons">chevron_left</i></span>
 	<ul>
+        @if(isset($userBusinessProfiles))
         <li class="myBusinessProfile">
 			<a class="tooltipped" data-position="right" data-tooltip="My Profile" href="{{ route('new.profile.home', $userBusinessProfiles[0]['alias'])}}">
                 <span>My Profile</span>
             </a>
 		</li>
+        @endif
 		<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
                 <span>My RFQs</span>
             </a>
 		</li>
-        @if(auth()->user()->user_type == "supplier")
+        @if(auth()->user() && auth()->user()->user_type == "supplier")
         <li class="myShowroom">
 			<a class="tooltipped" data-position="right" data-tooltip="My Showroom" href="{{ route('new.profile.products', $userBusinessProfiles[0]['alias'])}}">
                 <span>My Showroom</span>
             </a>
 		</li>
         @endif
-        @if(auth()->user()->user_type == "buyer")
+        @if(auth()->user() && auth()->user()->user_type == "buyer")
 		<li class="designStudio">
 			<a class="tooltipped" data-position="right" data-tooltip="Design Studio" href="{{route('product.type.mapping',['studio', 'design'])}}">
                 <span>Design Studio</span>
@@ -643,7 +647,7 @@
                 <span>Raw Materials</span>
             </a>
 		</li>
-        @if(auth()->user()->user_type == "buyer")
+        @if(auth()->user() && auth()->user()->user_type == "buyer")
         <li class="suppliers{{ Route::is('suppliers') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="{{route('suppliers')}}">
                 <span>Suppliers</span>
