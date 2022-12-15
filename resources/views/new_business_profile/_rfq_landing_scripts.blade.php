@@ -725,6 +725,7 @@
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");
                 let rfqDetailsById = getRFQFromRFQId(rfqId);
+                var is_env = "{{ env('APP_ENV') }}";
 
                 $.ajax({
                     type:'GET',
@@ -750,7 +751,11 @@
                                     } else {
                                         html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
                                     }
-                                    html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    if(is_env == "production") {
+                                        html+='<span class="companyName">'+offersSplit[0].replace('href="/', 'href="/my-panel/')+'</span>';
+                                    } else {
+                                        html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    }
                                     html+='<span class="offerPriceBox">';
                                     //html+='<span class="offers">Offers</span>';
                                     html+='<span class="pointNum">'+offersSplit[1]+'</span>';
@@ -803,6 +808,7 @@
                 $('.rfq_review_results_box').empty();
                 let rfqId = $(this).attr("data-rfq_id");
                 let rfqDetailsById = getRFQFromRFQId(rfqId);
+                var is_env = "{{ env('APP_ENV') }}";
 
                 $(".rfq_chat_box_wrapper").addClass("active");
                 $(".newAccountMyrfqBox").removeClass("active");
@@ -834,7 +840,11 @@
                                     } else {
                                         html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
                                     }
-                                    html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    if(is_env == "production") {
+                                        html+='<span class="companyName">'+offersSplit[0].replace('href="/', 'href="/my-panel/')+'</span>';
+                                    } else {
+                                        html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    }
                                     html+='<span class="offerPriceBox">';
                                     //html+='<span class="offers">Offers</span>';
                                     html+='<span class="pointNum">'+offersSplit[1]+'</span>';
