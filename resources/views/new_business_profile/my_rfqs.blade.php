@@ -119,9 +119,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                             <input class="message_type_box messagebox" type="text" placeholder="Type a message..." />
 
                                             <div class="message_icon_box">
-                                                <i class="material-icons">sentiment_satisfied</i>
                                                 <i class="material-icons">attach_file</i>
-                                                <i class="material-icons">image</i>
                                                 <a class="btn_green send messageSendButton">send</a>
                                             </div>
                                         </div>
@@ -506,9 +504,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                         <input class="message_type_box messagebox" type="text" placeholder="Type a message..." />
 
                                                         <div class="message_icon_box">
-                                                            <i class="material-icons">sentiment_satisfied</i>
                                                             <i class="material-icons">attach_file</i>
-                                                            <i class="material-icons">image</i>
                                                             <a class="btn_green send messageSendButton">send</a>
                                                         </div>
                                                     </div>
@@ -531,3 +527,8 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
 @include('new_business_profile._rfq_scripts')
 @include('new_business_profile.share_modal')
 @endsection
+@push('js')
+<script>
+    let rfqList = @json($rfqLists);
+</script>
+@endpush
