@@ -15,7 +15,13 @@
 @section('content')
 @include('sweet::alert')
 
-    <div id="buyerDesignerView">
+    <div class="coming_soon_wrap ">
+        <div class="img_box">
+            <img src="{{Storage::disk('s3')->url('public/frontendimages/coming-soon.jpg')}}" alt="" />
+        </div>
+        <a href="{{route('product.type.mapping',['studio', 'design'])}}" class="btn_design_studio">Go to Design Studio</a>
+    </div>
+    <div id="buyerDesignerView" style="display: none;">
         <div class="buyer_designer_inner_box_wrap">
             <h2>Designers</h2>
             <div class="row">
