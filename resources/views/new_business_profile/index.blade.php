@@ -48,15 +48,15 @@
                                 </div>
                                 <div class="col s12 m5 right-align profile_insight_edit" >
                                     {{-- <img src="./images/account-images/Icon-edit.png" alt="" > --}}
+                                    @if(auth()->user()->user_type == "buyer" && $business_profile->profile_type == "supplier")
                                     <div class="product_event_wrap">
-                                        @if(auth()->user()->user_type == "buyer")
-                                            @if($business_profile->is_enabled_product_option)
-                                                <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="no" class="enable_product_event_trigger">Disable Product Feature <i class="material-icons">arrow_forward</i></a>
-                                            @else
-                                                <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="yes" class="enable_product_event_trigger">Enable Product Feature <i class="material-icons">arrow_forward</i></a>
-                                            @endif
+                                        @if($business_profile->is_enabled_product_option)
+                                            <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="no" class="enable_product_event_trigger">Disable Product Feature <i class="material-icons">arrow_forward</i></a>
+                                        @else
+                                            <a href="javascript:void(0);" data-businessprofileid="{{$business_profile->id}}" data-enable="yes" class="enable_product_event_trigger">Enable Product Feature <i class="material-icons">arrow_forward</i></a>
                                         @endif
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row insight_info_box">
