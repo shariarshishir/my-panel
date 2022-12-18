@@ -1,4 +1,4 @@
-@extends('layouts.app_logout')
+@extends('layouts.app')
 @section('content')
 <div id="loadingProgressContainer" style="display: block !important; background: #fff;">
     <div id="loadingProgressElement">
