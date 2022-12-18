@@ -139,11 +139,13 @@
 
 							<ul>
                                 @if(isset($userBusinessProfiles))
-                                <li class="myBusinessProfile">
-                                    <a class="tooltipped" data-position="right" data-tooltip="My Profile" href="{{ route('new.profile.home', $userBusinessProfiles[0]['alias'])}}">
-                                        <span>My Profile</span>
-                                    </a>
-                                </li>
+                                    @if(auth()->user() && auth()->user()->user_type == "supplier")
+                                    <li class="myBusinessProfile">
+                                        <a class="tooltipped" data-position="right" data-tooltip="My Profile" href="{{ route('new.profile.home', $userBusinessProfiles[0]['alias'])}}">
+                                            <span>My Profile</span>
+                                        </a>
+                                    </li>
+                                    @endif
                                 @endif
 								<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 									<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">
@@ -617,11 +619,13 @@
 	<span class="btn_mainSidenav" id="btn_mainSidenav" onclick="openClose();"><i class="material-icons">chevron_left</i></span>
 	<ul>
         @if(isset($userBusinessProfiles))
-        <li class="myBusinessProfile">
-			<a class="tooltipped" data-position="right" data-tooltip="My Profile" href="{{ route('new.profile.home', $userBusinessProfiles[0]['alias'])}}">
-                <span>My Profile</span>
-            </a>
-		</li>
+            @if(auth()->user() && auth()->user()->user_type == "supplier")
+            <li class="myBusinessProfile">
+                <a class="tooltipped" data-position="right" data-tooltip="My Profile" href="{{ route('new.profile.home', $userBusinessProfiles[0]['alias'])}}">
+                    <span>My Profile</span>
+                </a>
+            </li>
+            @endif
         @endif
 		<li class="myRfqs{{ Route::is('home') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="My RFQs" href="{{route('home')}}">

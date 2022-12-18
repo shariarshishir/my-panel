@@ -528,6 +528,8 @@ Route::group(['prefix'=>'/user'],function (){
     Route::post('/anonymous/password/reset', [UserController::class, 'anonymousPasswordUpdate'])->name('anonymous.password.update');
     Route::get('/account-verification-successful', [UserController::class, 'anonymousAccountVerificationSuccessful'])->name('anonymous.account.verification.successful');
 
+    Route::get('/logout-loader', [UserController::class, 'logoutLoader'])->name('users.logout.loader');
+
 });
 Route::post('login-rfq-share-link',[RfqController::class, 'loginFromRfqShareLink'])->name('login.from.rfq.share.link');
 //fresh order calcualte

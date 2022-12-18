@@ -617,7 +617,31 @@ class UserController extends Controller
         }
 
         Auth::guard('web')->logout();
-        return redirect(env('SSO_URL').'?type=logout&flag=global');
+        //return redirect(env('SSO_URL').'?type=logout&flag=global');
+        return view("auth.logout_loader");
+
+    }
+
+    public function logoutLoader()
+    {
+
+        // if(env('APP_ENV') == 'production')
+        // {
+        //     if(Cookie::has('sso_token')){
+        //         Cookie::queue(Cookie::forget('sso_token'));
+        //     }
+        //     if(Cookie::has('sso_token_oms')){
+        //         Cookie::queue(Cookie::forget('sso_token_oms'));
+        //     }
+        //     if(session()->has('sso_password')){
+        //         session()->forget('sso_password');
+        //     }
+        // }
+
+        // Auth::guard('web')->logout();
+        // return redirect(env('SSO_URL').'?type=logout&flag=global');
+
+        return view("auth.logout_loader");
 
     }
 
