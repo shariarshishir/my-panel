@@ -83,7 +83,7 @@
                             <div class="subscription_plan_block_mid">
                                 <ul>
                                     <li><i class="material-icons">check</i> Unlimited Request for Quotation</li>
-                                    <li><i class="material-icons">check</i> Place orders with with 0% commission</li>
+                                    <li><i class="material-icons">check</i> Place orders with 0% commission</li>
                                     <li><i class="material-icons">check</i> Filter and visit 1000+ vetted manufacturers virtually</li>
                                     <li><i class="material-icons">check</i> Access to Digital Textile Library with 2000+ Fabrics</li>
                                     <li><i class="material-icons">check</i> Access to Digital Design Studio with 1000+ designs every season</li>
@@ -141,7 +141,7 @@
                                     <div class="subscription_plan_block_mid">
                                         <ul>
                                             <li><i class="material-icons">check</i> Unlimited Request for Quotation</li>
-                                            <li><i class="material-icons">check</i> Place orders with with 0% commission</li>
+                                            <li><i class="material-icons">check</i> Place orders with 0% commission</li>
                                             <li><i class="material-icons">check</i> Filter and visit 1000+ vetted manufacturers virtually</li>
                                             <li><i class="material-icons">check</i> Access to Digital Textile Library with 2000+ Fabrics</li>
                                             <li><i class="material-icons">check</i> Access to Digital Design Studio with 1000+ designs every season</li>
