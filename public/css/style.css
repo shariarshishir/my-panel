@@ -9955,18 +9955,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 15px;
     color: #1e1e1e;
 }
+
+
 .profile_account_myrfq_innerbox .profile_account_myrfq_box {
     padding: 20px 20px 60px;
     -webkit-box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
     -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.16);
     box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
     border-radius: 10px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     border: 1px solid #eee;
-    max-height: 265px;
-    min-height: 265px;
+    /* height: 275px; */
     position: relative;
     cursor: pointer;
+    height: 100%;
 }
 .profile_account_myrfq_innerbox .profile_account_myrfq_box center {
     height: 100%;
@@ -9979,14 +9981,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .profile_account_myrfq_innerbox .profile_account_myrfq_box.active {
     background: #f0fff0;
 }
-.new_profile_myrfq_details_topbox h5, .profile_account_myrfq_innerbox .profile_account_myrfq_box h5 {
+.new_profile_myrfq_details_topbox h5, 
+.profile_account_myrfq_innerbox .profile_account_myrfq_box h5 {
     font-family: "nexabold";
     font-size: 16px;
     color: #000;
     margin-bottom: 8px;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-transform: capitalize;
@@ -10017,7 +10020,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     right: 15px;
     bottom: 10px;
     left: 15px;
-    z-index: 99;
+    z-index: 1;
 }
 .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box {
     display: inline-block;
@@ -10292,12 +10295,20 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 13px;
     line-height: 24px;
 }
-.account_rfqDetailes_infoWrap p b, .profile_account_myrfq_box p b, .profile_account_poinfo_box p b {
+.account_rfqDetailes_infoWrap p b, 
+.profile_account_myrfq_box p b, 
+.profile_account_poinfo_box p b {
     font-family: "nexablack";
     font-size: 12px;
     opacity: 0.8;
     display: block;
     line-height: 15px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-transform: capitalize;
 }
 .profile_account_poinfo_innerbox .profile_account_poinfo_box.active {
     border: 1px solid #707070;
@@ -14004,6 +14015,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 30px;
     display: inline-block;
 }
+.profileAccountMyrfqBoxOuterWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content:stretch;
+    align-items: stretch;
+}
 .profileAccountMyrfqBoxOuter .rfq_status_dropdown, .account_myrfq_infoBox .rfq_status_dropdown {
     background: #ffffff;
     border-radius: 10px;
@@ -15425,15 +15443,21 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .profileAccountMyrfqBoxOuter {
     position: relative;
+    width: 48%;
+    margin-bottom: 30px;
 }
 .profileAccountMyrfqBoxOuter .more_vert_wrap {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 5px;
+    top: 12px;
     z-index: 99;
 }
 .new_rfq_details_inner .rfq_chat_details_close_trigger {
     margin-bottom: 5px;
+}
+.profile_account_myrfq_info .product_design_wrapper nav {
+    height: auto !important;
+    margin-bottom: 30px;
 }
 /* ******************** design_studio_product_list_wrapper style start *********************** */
 .product_design_wrapper .design_studio_product_list .favorite {
@@ -19008,10 +19032,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         text-align: center;
         right: 0;
    }
-    .profile_account_myrfq_innerbox .profile_account_myrfq_box {
-        max-height: 390px;
-        min-height: 290px;
-   }
+    /* .profile_account_myrfq_innerbox .profile_account_myrfq_box {
+        height: 390px;
+   } */
     .profile_account_myrfq_innerbox .account_rfq_btn_wrap .rfq_btn_box {
         margin: 0 5px 0;
    }
@@ -22184,6 +22207,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .new_design_product_detail_wrap .product-large-image-block {
         height: 300px;
+    }
+    .profileAccountMyrfqBoxOuter {
+        width: 100%;
     }
 }
 @media only screen and (max-width: 380px) {

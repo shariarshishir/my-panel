@@ -140,7 +140,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
         <div class="container">
             <div class="account_profile_box">
                 <div class="row">
-                    <div class="col s12 m3 l2">
+                    <div class="col s12 m3 xl2">
                         <div class="account_item_menu">
                             <ul>
                                 <li class="profile_explore {{ Route::is('new.profile.rfqs', $alias) ? 'active' : ''}}">
@@ -166,11 +166,11 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                             </ul>
                         </div>
                     </div>
-                    <div class="col s12 m9 l10">
+                    <div class="col s12 m9 xl10">
 
                         <div class="profile_account_myrfq_info">
                             <div class="row">
-                                <div class="@php echo($rfqLists) ? "col s12 m12 l7" : "col s12 m12 l12" @endphp">
+                                <div class="@php echo($rfqLists) ? "col s12 m12 xl7" : "col s12 m12 l12" @endphp">
                                     <div class="product_design_wrapper">
                                         <div class="profile_account_searchBar">
                                             <div class="row">
@@ -224,10 +224,10 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="profileAccountMyrfqBoxOuterWrap">
                                                 @if($rfqLists)
                                                     @foreach($rfqLists as $key=>$rfq)
-                                                    <div class="col s12 m6 profileAccountMyrfqBoxOuter">
+                                                    <div class="profileAccountMyrfqBoxOuter">
                                                         <div class="more_vert_wrap">
                                                             <span class="more_vert">
                                                                 <a class="dropdown-trigger" href="javascript:void(0);" data-target="rfqStatusDropdown-{{$rfq['id']}}"><i class="material-icons">more_vert</i></a>
@@ -398,7 +398,7 @@ $searchInput = isset($_REQUEST['search_input']) ? $_REQUEST['search_input'] : ''
                                 </div>
 
                                 @if($rfqLists)
-                                <div class="col s12 m12 l5 new_profile_account_rightsidebar_desktop">
+                                <div class="col s12 m12 xl5 new_profile_account_rightsidebar_desktop">
                                     <div class="new_profile_account_myrfq_details fixed-rfq-message-bar">
                                         <div class="new_profile_myrfq_details_topbox">
                                             <h6>RFQ ID <span>{{$rfqLists[0]['id']}}</span></h6>
