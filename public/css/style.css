@@ -10070,6 +10070,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 14px;
     padding-bottom: 0;
     display: inline-block;
+    margin-bottom: 8px;
 }
 .new_profile_myrfq_details_topbox {
     border: 1px solid #d9d9d9;
@@ -10129,6 +10130,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 5px 10px;
     margin-bottom: 15px;
     border-radius: 3px;
+    display: inline-block;
+    width: 100%;
 }
 .rfq_review_results_nav ul li {
     display: inline-block;
@@ -22292,6 +22295,10 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         padding-left: 12px;
         font-size: 12px;
         line-height: 16px;
+   }
+
+   .account_rfqDetailes_imgWrap img {
+        max-width: 80px;
    }
 }
 @media only screen and (max-width: 320px) {
