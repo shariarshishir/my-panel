@@ -132,58 +132,75 @@
                                         </div>
                                         <div class="col s12 xl6">
                                             <div class="input-field">
-                                                @php
-                                                    $count= count(json_decode($product->attribute));
-                                                    $count = $count-2;
-                                                @endphp
-                                                @foreach (json_decode($product->attribute) as $k => $v)
-                                                    @if($k == 0 && $v[2] == 'Negotiable')
-                                                        <div class="target_price_block">
-                                                            <label>Target Price <span>*</span></label>
-                                                            <div class="target_price_negotiable">
-                                                                <label class="tooltipped" data-position="top" data-tooltip="Check this if you want to set negotiable price.">
-                                                                    <input type="checkbox" name="target_price_negotiable" class="target_price_negotiable" checked /> <span>Negotiable</span>
-                                                                </label>
+                                                @if($product->flag == "shop")
+                                                    @php
+                                                        $count = count(json_decode($product->attribute));
+                                                        $count = $count-2;
+                                                    @endphp
+                                                    @foreach (json_decode($product->attribute) as $k => $v)
+                                                        @if($k == 0 && $v[2] == 'Negotiable')
+                                                            <div class="target_price_block">
+                                                                <label>Target Price <span>*</span></label>
+                                                                <div class="target_price_negotiable">
+                                                                    <label class="tooltipped" data-position="top" data-tooltip="Check this if you want to set negotiable price.">
+                                                                        <input type="checkbox" name="target_price_negotiable" class="target_price_negotiable" checked /> <span>Negotiable</span>
+                                                                    </label>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="rfqPrice">
-                                                            <span>USD</span>
-                                                            <input type="text" class="price_input disabled" id="target_price" name="unit_price" value="" required disabled="disabled" onchange="allowTwoDecimal()" />
-                                                        </div>
-                                                    @endif
-                                                    @if($loop->last && $v[2] != 'Negotiable')
-                                                        <div class="target_price_block">
-                                                            <label>Target Price <span>*</span></label>
-                                                            <div class="target_price_negotiable">
-                                                                <label class="tooltipped" data-position="top" data-tooltip="Check this if you want to set negotiable price.">
-                                                                    <input type="checkbox" name="target_price_negotiable" class="target_price_negotiable" /> <span>Negotiable</span>
-                                                                </label>
+                                                            <div class="rfqPrice">
+                                                                <span>USD</span>
+                                                                <input type="text" class="price_input disabled" id="target_price" name="unit_price" value="" required disabled="disabled" onchange="allowTwoDecimal()" />
                                                             </div>
-                                                        </div>
-                                                        <div class="rfqPrice">
-                                                            <span>USD</span>
-                                                            <input type="text" class="price_input" id="target_price" name="unit_price" value="{{ $v[2] }}" required onchange="allowTwoDecimal()" />
-                                                        </div>
-                                                    @endif
-                                                    @if($loop->last && $v[2] == 'Negotiable')
-                                                        @foreach (json_decode($product->attribute) as $k => $v)
-                                                            @if($k == $count)
-                                                                <div class="target_price_block">
-                                                                    <label>Target Price <span>*</span></label>
-                                                                    <div class="target_price_negotiable">
-                                                                        <label class="tooltipped" data-position="top" data-tooltip="Check this if you want to set negotiable price.">
-                                                                            <input type="checkbox" name="target_price_negotiable" class="target_price_negotiable" /> <span>Negotiable</span>
-                                                                        </label>
+                                                        @endif
+                                                        @if($loop->last && $v[2] != 'Negotiable')
+                                                            <div class="target_price_block">
+                                                                <label>Target Price <span>*</span></label>
+                                                                <div class="target_price_negotiable">
+                                                                    <label class="tooltipped" data-position="top" data-tooltip="Check this if you want to set negotiable price.">
+                                                                        <input type="checkbox" name="target_price_negotiable" class="target_price_negotiable" /> <span>Negotiable</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rfqPrice">
+                                                                <span>USD</span>
+                                                                <input type="text" class="price_input" id="target_price" name="unit_price" value="{{ $v[2] }}" required onchange="allowTwoDecimal()" />
+                                                            </div>
+                                                        @endif
+                                                        @if($loop->last && $v[2] == 'Negotiable')
+                                                            @foreach (json_decode($product->attribute) as $k => $v)
+                                                                @if($k == $count)
+                                                                    <div class="target_price_block">
+                                                                        <label>Target Price <span>*</span></label>
+                                                                        <div class="target_price_negotiable">
+                                                                            <label class="tooltipped" data-position="top" data-tooltip="Check this if you want to set negotiable price.">
+                                                                                <input type="checkbox" name="target_price_negotiable" class="target_price_negotiable" /> <span>Negotiable</span>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="rfqPrice">
-                                                                    <span>USD</span>
-                                                                    <input type="text" class="price_input" id="target_price" name="unit_price" value="{{ $v[2] }}" required onchange="allowTwoDecimal()" />
-                                                                </div>
-                                                            @endif
-                                                        @endforeach
-                                                    @endif
-                                                @endforeach
+                                                                    <div class="rfqPrice">
+                                                                        <span>USD</span>
+                                                                        <input type="text" class="price_input" id="target_price" name="unit_price" value="{{ $v[2] }}" required onchange="allowTwoDecimal()" />
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+
+                                                @if($product->flag == "mb")
+                                                    <div class="target_price_block">
+                                                        <label>Target Price <span>*</span></label>
+                                                        <div class="target_price_negotiable">
+                                                            <label class="tooltipped" data-position="top" data-tooltip="Check this if you want to set negotiable price.">
+                                                                <input type="checkbox" name="target_price_negotiable" class="target_price_negotiable" /> <span>Negotiable</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rfqPrice">
+                                                        <span>USD</span>
+                                                        <input type="text" class="price_input" id="target_price" name="unit_price" value="{{ $product->price_per_unit }}" required onchange="allowTwoDecimal()" />
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
