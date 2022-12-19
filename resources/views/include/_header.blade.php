@@ -50,6 +50,26 @@
 										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> General Info</a>
 									</li>
                                     @endif
+                                    <li>
+                                        <a href="javascript:void(0);"><i class="material-icons">menu</i> My Business Profiles</a>
+                                        @if(isset($userBusinessProfiles))
+										<ul class="profile_sub_menu">
+                                            @foreach ($userBusinessProfiles as $userBusinessProfile)
+                                            @php
+                                                $menuActiveClass = "";
+                                                $menuActiveIcon = false;
+                                                if(isset($alias)) {
+                                                    if($userBusinessProfile->alias == $alias) {
+                                                        $menuActiveClass = "active";
+                                                        $menuActiveIcon = true;
+                                                    }
+                                                }
+                                            @endphp
+                                            <li><a class="{{$menuActiveClass}}" href="{{route('new.profile.index', $userBusinessProfile->alias)}}"><i class="material-icons">{{ $menuActiveIcon ? 'check' : '' }}</i> {{$userBusinessProfile->business_name}}</a></li>
+                                            @endforeach
+										</ul>
+                                        @endif
+                                    </li>
 									<li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Settings" href="{{env('SSO_URL').'/profile'}}"><i class="material-icons">settings</i> Settings</a>
 									</li>
@@ -76,11 +96,15 @@
 								<ul id="profile-dropdown" class="dropdown-content card" itemscope itemtype="https://schema.org/ListItem">
                                     @if(auth()->user()->user_type == "designer")
 									<li tabindex="0" itemprop="itemListElement">
-										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('single.designer.details', auth()->user()->id) }}"><i class="material-icons">person_outline</i> Profile</a>
+										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('single.designer.details', auth()->user()->id) }}"><i class="material-icons">person_outline</i> General Info</a>
 									</li>
                                     @else
                                     <li tabindex="0" itemprop="itemListElement">
-										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> Profile</a>
+										<a class="grey-text text-darken-1" itemprop="Merchantbay Profile" href="{{ route('users.profile') }}"><i class="material-icons">person_outline</i> General Info</a>
+									</li>
+                                    @endif
+                                    <li>
+                                        <a href="javascript:void(0);"><i class="material-icons">menu</i> My Business Profiles</a>
                                         @if(isset($userBusinessProfiles))
 										<ul class="profile_sub_menu">
                                             @foreach ($userBusinessProfiles as $userBusinessProfile)
@@ -98,8 +122,7 @@
                                             @endforeach
 										</ul>
                                         @endif
-									</li>
-                                    @endif
+                                    </li>
 									<li tabindex="0" itemprop="itemListElement">
 										<a class="grey-text text-darken-1" itemprop="Settings" href="{{env('SSO_URL').'/profile'}}"><i class="material-icons">settings</i> Settings</a>
 									</li>
