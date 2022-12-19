@@ -221,8 +221,10 @@ Route::get('/suppliers', [HomeController::class, 'suppliers'])->name('suppliers'
 Route::get('/supplier/location/data',[HomeController::class,'getSupplierLocationData'])->name('get.supplier.location.data');
 Route::get('/pricing-plan', [HomeController::class, 'pricingPlan'])->name('pricing.plan');
 Route::get('/pricing-plan/form', [HomeController::class, 'pricingPlanForm'])->name('pricing.plan.form');
+Route::get('/pricing-plan/success', [HomeController::class, 'pricingPlanSuccess'])->name('pricing.plan.success');
 Route::get('/contactus/{subscription?}', [ContactusController::class, 'index'])->name('front.contactus');
 Route::post('/contactus/store', [ContactusController::class, 'store'])->name('front.contactus.store');
+Route::get('/contactus-success', [ContactusController::class, 'contactSuccessMessageView'])->name('front.contactus.success');
 
 Route::get('/designers', [DesignersController::class, 'designers'])->name('designers');
 Route::get('/designer/{id}', [DesignersController::class, 'singleDesignerDetails'])->name('single.designer.details');

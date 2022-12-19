@@ -33,14 +33,23 @@ class ContactusController extends Controller
         $contactData->contact_subscription_plan_type = $request->contact_subscription_plan_type ?? NULL;
         $contactData->save();
 
+        $requestFrom = "";
+
         if($request->contact_subscription == 0) { // mail send for contact us request
             //event(new NewContactRequestHasPostedEvent( $contactData ));
+            $requestFrom = "contactus";
         }
 
         if($request->contact_subscription == 1) { // mail send for subscription request
             //event(new NewSubscriptionRequestHasPostedEvent( $contactData ));
+            $requestFrom = "subscription";
         }
 
-        return response()->json(["status" => 1, "message" => "Data saved successfully."]);
+        return response()->json(["status" => 1, "requestfrom" => $requestFrom, "message" => "Data saved successfully."]);
+    }
+
+    public function contactSuccessMessageView()
+    {
+        return view('contactus.success');
     }
 }

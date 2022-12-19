@@ -9981,7 +9981,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 .profile_account_myrfq_innerbox .profile_account_myrfq_box.active {
     background: #f0fff0;
 }
-.new_profile_myrfq_details_topbox h5, 
+.new_profile_myrfq_details_topbox h5,
 .profile_account_myrfq_innerbox .profile_account_myrfq_box h5 {
     font-family: "nexabold";
     font-size: 16px;
@@ -10298,8 +10298,8 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 13px;
     line-height: 24px;
 }
-.account_rfqDetailes_infoWrap p b, 
-.profile_account_myrfq_box p b, 
+.account_rfqDetailes_infoWrap p b,
+.profile_account_myrfq_box p b,
 .profile_account_poinfo_box p b {
     font-family: "nexablack";
     font-size: 12px;
@@ -16998,6 +16998,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     margin-left: 8px;
     font-size: 20px;
     color: #000000;
+}
+.success-message-container {
+    text-align: center;
+    font-size: 20px;
+    line-height: 32px;
+    color: #54a958;
+    padding: 100px 0px;
+}
+.success-message-container .material-icons {
+    color: #54a958;
+    font-size: 120px;
+}
+.success-message-container h3 {
+    font-size: 40px;
+    font-weight: 500;
+    color: #000;
 }
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {

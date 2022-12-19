@@ -61,9 +61,18 @@ $(document).ready(function(){
                     $('.loading-message').html("");
                     $('#loadingProgressContainer').hide();
                     $('#contact-form-data')[0].reset();
-                    swal("Your request is successful. Merchant Bay will contact you within 48 Hours. Thank You!", data.msg, "success");
-                    $(".subscribe-data-modal-wrapper-outer-block").hide();
+                    // swal("Your request is successful. Merchant Bay will contact you within 48 Hours. Thank You!", data.msg, "success");
+                    // $(".subscribe-data-modal-wrapper-outer-block").hide();
                     //location.reload();
+                    if(data.requestfrom == "subscription") {
+                        var redirect_url = '{{ route("pricing.plan.success") }}';
+                        window.location.href = redirect_url;
+                    } else {
+                        // swal("Your request is successful. Merchant Bay will contact you within 48 Hours. Thank You!", data.msg, "success");
+                        // $(".subscribe-data-modal-wrapper-outer-block").hide();
+                        var redirect_url = '{{ route("front.contactus.success") }}';
+                        window.location.href = redirect_url;
+                    }
                 },
                 // error: function(xhr, status, error)
                 // {

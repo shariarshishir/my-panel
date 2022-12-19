@@ -1666,4 +1666,10 @@ class HomeController extends Controller
             'msg'     => 'Product feature enabled',
         ],200);
     }
+
+    public function pricingPlanSuccess()
+    {
+        return view('pricingplan.success');
+    }
+
 }
