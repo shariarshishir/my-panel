@@ -98,7 +98,7 @@
                                     <div class="modal-content">
                                             <div class="modal-header modal-hdr-custum" style="background: rgb(85, 168, 96) none repeat scroll 0% 0%; border-radius: 4px 4px 0px 0px;">
                                                 <h4 class="modal-title">
-                                                    Why your PO have been rejected.
+                                                    Why your PI have been rejected.
                                                 </h4>
                                             </div>
                                             <div class="modal-body modal-bdy-bdr">
