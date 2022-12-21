@@ -2175,4 +2175,20 @@ class RfqController extends Controller
         }
     }
 
+    public function rfqQuotationSetNotInterested( Request $request )
+    {
+        //dd($request->all());
+        $response = Http::post(env('RFQ_APP_URL').'/api/message/update/'.$request->rfqObjID, [
+            'not_interested' => 1,
+        ]);
+
+        if( $response->status()  == 200){
+            return response()->json([
+                'msg' => "Updated Successfully",
+            ],200);
+        } else {
+            return redirect()->back()->withSuccess('Something went wrong!!');
+        }
+    }
+
 }

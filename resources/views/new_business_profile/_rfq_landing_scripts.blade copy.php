@@ -741,7 +741,7 @@
 
                         if(response.subscriptionStatus > 0)
                         {
-                            var html='<table class="rfq-quotation-list-table">';
+                            var html='<table>';
                             html+='<thead>';
                             html+='<tr>';
                             html+='<th>&nbsp;</th>';
@@ -749,35 +749,16 @@
                             html+='<th>&nbsp;</th>';
                             html+='<th>Shortlist</th>';
                             html+='<th>Selected</th>';
-                            html+='<th>&nbsp;</th>';
                             html+='</tr>';
                             html+='</thead>';
                             html+='<tbody>';
-
                             for(var i=0;i<response.quotations.length;i++)
                             {
-                                var elementHide = "";
-                                var shortListCheckedTrue = "";
-                                var selectedCheckedTrue = "";
-                                var disabledSwitch = "";
-                                if(response.quotations[i].not_interested == 1)
-                                {
-                                    elementHide = 'style="display: none;"';
-                                }
-                                if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
-                                {
-                                    shortListCheckedTrue = 'checked="checked"';
-                                }
-                                if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
-                                {
-                                    selectedCheckedTrue = 'checked="checked"';
-                                }
-                                if(rfqDetailsById?.selected_profile.length > 0 && rfqDetailsById?.selected_profile[0] != response.quotations[i].business_profile_id) {
-                                    disabledSwitch = 'disabled="disabled"';
-                                }
                                 var offersSplit = response.quotations[i].message.split("offers");
                                 //console.log(offersSplit);
-                                html+='<tr '+elementHide+'>';
+
+
+                                html+='<tr>';
                                 html+='<td>';
                                     if(response.quotations[i].business_profile_image){
                                         html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
@@ -800,30 +781,119 @@
                                 html+='</td>';
                                 html+='<td>';
                                     // profile short list actions start
-                                    html+='<div class="switch rfq_check_wrap btn-profile-shortlist">';
-                                    html+='<label>';
-                                    html+='<input '+shortListCheckedTrue +' '+disabledSwitch+' data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" data-rfqobjid="'+response.quotations[i]._id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" />';
-                                    html+='<span class="lever"></span>';
-                                    html+='</label>';
-                                    html+='</div>';
+                                    if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<div class="switch rfq_check_wrap btn-profile-shortlist shortlisted-profile">';
+                                        html+='<label>';
+                                        html+='<input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" />';
+                                        html+='<span class="lever"></span>';
+                                        html+='</label>';
+                                        html+='</div>';
+                                    }
+                                    else
+                                    {
+                                        html+='<div class="switch rfq_check_wrap btn-profile-shortlist">';
+                                        html+='<label>';
+                                        html+='<input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" />';
+                                        html+='<span class="lever"></span>';
+                                        html+='</label>';
+                                        html+='</div>';
+                                    }
                                     // profile short list actions end
                                 html+='</td>';
                                 html+='<td>';
                                     // profile selected actions start
-                                    html+='<div class="switch rfq_check_wrap btn-profile-selected">';
-                                    html+='<label>';
-                                    html+='<input '+selectedCheckedTrue +' '+disabledSwitch+' data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" data-rfqobjid="'+response.quotations[i]._id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" />';
-                                    html+='<span class="lever"></span>';
-                                    html+='</label>';
-                                    html+='</div>';
+                                    if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<div class="switch rfq_check_wrap btn-profile-selected selected-supplier-profile">';
+                                        html+='<label>';
+                                        html+='<input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" />';
+                                        html+='<span class="lever"></span>';
+                                        html+='</label>';
+                                        html+='</div>';
+                                    }
+                                    else
+                                    {
+                                        html+='<div class="switch rfq_check_wrap btn-profile-selected">';
+                                        html+='<label>';
+                                        html+='<input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" />';
+                                        html+='<span class="lever"></span>';
+                                        html+='</label>';
+                                        html+='</div>';
+                                    }
                                     // profile selected actions end
                                 html+='</td>';
-                                html+='<td>';
-                                    html+='<a href="javascript:void(0);" data-rfqobjid="'+response.quotations[i]._id+'" class="quotation_remove_event_trigger"><i class="material-icons">clear</i></a>';
-                                html+='</td>';
                                 html+='</tr>';
-                            }
 
+
+/*
+                                var html = '<div class="quatationInfo">';
+                                    if(response.quotations[i].business_profile_image){
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
+                                    } else {
+                                        html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
+                                    }
+                                    if(is_env == "production") {
+                                        html+='<span class="companyName">'+offersSplit[0].replace('href="/', 'href="/my-panel/')+'</span>';
+                                    } else {
+                                        html+='<span class="companyName">'+offersSplit[0]+'</span>';
+                                    }
+                                    html+='<span class="offerPriceBox">';
+                                    //html+='<span class="offers">Offers</span>';
+                                    html+='<span class="pointNum">'+offersSplit[1]+'</span>';
+                                    html+='</span>';
+
+                                    // profile short list actions start
+                                    if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<div class="switch rfq_check_wrap btn-profile-shortlist shortlisted-profile">';
+                                        html+='<label>';
+                                        html+='<input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" />';
+                                        html+='<span class="lever"></span>';
+                                        html+='<p>Add to shortlist</p>';
+                                        html+='</label>';
+                                        html+='</div>';
+                                    }
+                                    else
+                                    {
+                                        html+='<div class="switch rfq_check_wrap btn-profile-shortlist">';
+                                        html+='<label>';
+                                        html+='<input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" />';
+                                        html+='<span class="lever"></span>';
+                                        html+='<p>Add to shortlist</p>';
+                                        html+='</label>';
+                                        html+='</div>';
+                                    }
+                                    // profile short list actions end
+
+                                    // profile selected actions start
+                                    if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<div class="switch rfq_check_wrap btn-profile-selected selected-supplier-profile">';
+                                        html+='<label>';
+                                        html+='<input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" />';
+                                        html+='<span class="lever"></span>';
+                                        html+='<p>Mark as selected</p>';
+                                        html+='</label>';
+                                        html+='</div>';
+                                    }
+                                    else
+                                    {
+                                        html+='<div class="switch rfq_check_wrap btn-profile-selected">';
+                                        html+='<label>';
+                                        html+='<input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" />';
+                                        html+='<span class="lever"></span>';
+                                        html+='<p>Mark as selected</p>';
+                                        html+='</label>';
+                                        html+='</div>';
+                                    }
+                                    // profile selected actions end
+
+                                    html+='</div>';
+*/
+
+
+                            }
                             html+='</tbody>';
                             html+='</table>';
 
@@ -876,93 +946,46 @@
 
                         if(response.subscriptionStatus)
                         {
-                            var html='<table class="rfq-quotation-list-table">';
-                            html+='<thead>';
-                            html+='<tr>';
-                            html+='<th>&nbsp;</th>';
-                            html+='<th>&nbsp;</th>';
-                            html+='<th>&nbsp;</th>';
-                            html+='<th>Shortlist</th>';
-                            html+='<th>Selected</th>';
-                            html+='<th>&nbsp;</th>';
-                            html+='</tr>';
-                            html+='</thead>';
-                            html+='<tbody>';
-
                             for(var i=0;i<response.quotations.length;i++)
                             {
-                                var elementHide = "";
-                                var shortListCheckedTrue = "";
-                                var selectedCheckedTrue = "";
-                                var disabledSwitch = "";
-                                if(response.quotations[i].not_interested == 1)
-                                {
-                                    elementHide = 'style="display: none;"';
-                                }
-                                if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
-                                {
-                                    shortListCheckedTrue = 'checked="checked"';
-                                }
-                                if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
-                                {
-                                    selectedCheckedTrue = 'checked="checked"';
-                                }
-                                if(rfqDetailsById?.selected_profile.length > 0 && rfqDetailsById?.selected_profile[0] != response.quotations[i].business_profile_id) {
-                                    disabledSwitch = 'disabled="disabled"';
-                                }
                                 var offersSplit = response.quotations[i].message.split("offers");
                                 //console.log(offersSplit);
-                                html+='<tr '+elementHide+'>';
-                                html+='<td>';
+                                var html ='<div class="quatationInfo">';
                                     if(response.quotations[i].business_profile_image){
                                         html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/') }}'+response.quotations[i].business_profile_image+'" alt="avatar" itemprop="img"></span>';
                                     } else {
                                         html+='<span class="quatationProfile"><img src="{{ Storage::disk('s3')->url('public/account-images/avatar.jpg') }}" alt="avatar" itemprop="img"></span>';
                                     }
-                                html+='</td>';
-                                html+='<td>';
                                     if(is_env == "production") {
                                         html+='<span class="companyName">'+offersSplit[0].replace('href="/', 'href="/my-panel/')+'</span>';
                                     } else {
                                         html+='<span class="companyName">'+offersSplit[0]+'</span>';
                                     }
-                                html+='</td>';
-                                html+='<td>';
                                     html+='<span class="offerPriceBox">';
                                     //html+='<span class="offers">Offers</span>';
                                     html+='<span class="pointNum">'+offersSplit[1]+'</span>';
                                     html+='</span>';
-                                html+='</td>';
-                                html+='<td>';
-                                    // profile short list actions start
-                                    html+='<div class="switch rfq_check_wrap btn-profile-shortlist">';
-                                    html+='<label>';
-                                    html+='<input '+shortListCheckedTrue +' '+disabledSwitch+' data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" data-rfqobjid="'+response.quotations[i]._id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" />';
-                                    html+='<span class="lever"></span>';
-                                    html+='</label>';
+                                    if(rfqDetailsById?.short_listed_profiles?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<label class="rfq_check_wrap"><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span class="checkText">Add to shortlist</span></label>';
+                                    }
+                                    else
+                                    {
+                                        html+='<label class="rfq_check_wrap"><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_short_list_trigger_from_frontend" /><span class="checkText">Add to shortlist</span></label>';
+                                    }
+
+                                    if(rfqDetailsById?.selected_profile?.includes(response.quotations[i].business_profile_id))
+                                    {
+                                        html+='<label class="rfq_check_wrap"><input checked="checked" data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span class="checkText">Marked as Selected</span></label>';
+                                    }
+                                    else
+                                    {
+                                        html+='<label class="rfq_check_wrap"><input data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" /><span class="checkText">Marked as Selected</span></label>';
+                                    }
                                     html+='</div>';
-                                    // profile short list actions end
-                                html+='</td>';
-                                html+='<td>';
-                                    // profile selected actions start
-                                    html+='<div class="switch rfq_check_wrap btn-profile-selected">';
-                                    html+='<label>';
-                                    html+='<input '+selectedCheckedTrue +' '+disabledSwitch+' data-businessprofileid="'+response.quotations[i].business_profile_id+'" data-rfqid="'+response.quotations[i].rfq_id+'" data-rfqobjid="'+response.quotations[i]._id+'" type="checkbox" class="supplier_selected_trigger_from_frontend" />';
-                                    html+='<span class="lever"></span>';
-                                    html+='</label>';
-                                    html+='</div>';
-                                    // profile selected actions end
-                                html+='</td>';
-                                html+='<td>';
-                                    html+='<a href="javascript:void(0);" data-rfqobjid="'+response.quotations[i]._id+'" class="quotation_remove_event_trigger"><i class="material-icons">clear</i></a>';
-                                html+='</td>';
-                                html+='</tr>';
+
+                                $('.rfq_review_results_box').append(html);
                             }
-
-                            html+='</tbody>';
-                            html+='</table>';
-
-                            $('.rfq_review_results_box').append(html);
                         }
                         else
                         {
@@ -1023,7 +1046,15 @@
                                 },
                                 success:function(data)
                                 {
+                                    // $(btnObj).closest(".btn-profile-shortlist").addClass("shortlisted-profile");
+                                    //$(btnObj).closest(".btn-profile-shortlist").next(".btn-profile-selected").show();
                                     console.log(data);
+                                    // boxHtml.remove();
+                                    // shortListCount = parseInt(shortListCount)+1;
+                                    // $(".short-list-count").text(shortListCount);
+                                    // $('.loading-message').html("");
+                                    // $('#loadingProgressContainer').hide();
+                                    //window.location.reload();
                                 }
                             });
                         }
@@ -1061,7 +1092,15 @@
                                 },
                                 success:function(data)
                                 {
+                                    // $(btnObj).closest(".btn-profile-shortlist").removeClass("shortlisted-profile");
+                                    //$(btnObj).closest(".btn-profile-shortlist").next(".btn-profile-selected").hide();
                                     console.log(data);
+                                    // boxHtml.remove();
+                                    // shortListCount = parseInt(shortListCount)+1;
+                                    // $(".short-list-count").text(shortListCount);
+                                    // $('.loading-message').html("");
+                                    // $('#loadingProgressContainer').hide();
+                                    //window.location.reload();
                                 }
                             });
                         }
@@ -1108,8 +1147,17 @@
                                 },
                                 success:function(data)
                                 {
+                                    // $(btnObj).closest(".btn-profile-selected").addClass("selected-supplier-profile");
+                                    // $(btnObj).closest(".btn-profile-selected").prev(".btn-profile-shortlist").removeClass("shortlisted-profile").children("input:checkbox").prop("checked", false);
+
+                                    //$(btnObj).closest(".btn-profile-selected").prev(".btn-profile-shortlist").hide();
                                     console.log(data);
-                                    $("table.rfq-quotation-list-table").find('input[type="checkbox"]').not(btnObj).attr("disabled", true);
+                                    // boxHtml.remove();
+                                    // shortListCount = parseInt(shortListCount)+1;
+                                    // $(".short-list-count").text(shortListCount);
+                                    // $('.loading-message').html("");
+                                    // $('#loadingProgressContainer').hide();
+                                    //window.location.reload();
                                 }
                             });
                         }
@@ -1147,8 +1195,15 @@
                                 },
                                 success:function(data)
                                 {
+                                    //$(btnObj).closest(".btn-profile-selected").removeClass("selected-supplier-profile").hide();
+                                    // $(btnObj).closest(".btn-profile-selected").prev(".btn-profile-shortlist").removeClass("shortlisted-profile");
                                     console.log(data);
-                                    $("table.rfq-quotation-list-table").find('input[type="checkbox"]').not(btnObj).attr("disabled", false);
+                                    // boxHtml.remove();
+                                    // shortListCount = parseInt(shortListCount)+1;
+                                    // $(".short-list-count").text(shortListCount);
+                                    // $('.loading-message').html("");
+                                    // $('#loadingProgressContainer').hide();
+                                    //window.location.reload();
                                 }
                             });
                         }
@@ -1162,48 +1217,6 @@
             })
 
         });
-
-        $(document).on("click", ".quotation_remove_event_trigger", function(){
-
-            var rfqObjID = $(this).attr("data-rfqobjid");
-            var btnObj = $(this);
-
-            swal({
-                title: "Are you sure? You want to remove this quotation.",
-                text: "",
-                type: "warning",
-                showCancelButton: !0,
-                confirmButtonText: "Yes",
-                cancelButtonText: "No",
-                reverseButtons: !0
-            })
-            .then((willDelete) => {
-                if (willDelete.value === true)
-                {
-                    var url = "{{route('rfq.quotation.setnotinterested.frombuyer.atfrontend')}}";
-                    $.ajax({
-                        method: 'get',
-                        dataType: 'json',
-                        data: {rfqObjID:rfqObjID},
-                        enctype: 'multipart/form-data',
-                        url: url,
-                        beforeSend: function() {
-                            // $('.loading-message').html("Please Wait.");
-                            // $('#loadingProgressContainer').show();
-                        },
-                        success:function(data)
-                        {
-                            $(btnObj).closest("tr").remove();
-                            //console.log(data);
-                        }
-                    });
-                }
-                else {
-                    willDelete.dismiss;
-                }
-            });
-
-        })
 
         $(".rfq_chat_box_close_trigger").click(function(){
             $(this).closest(".rfq_chat_box_wrapper").removeClass("active");

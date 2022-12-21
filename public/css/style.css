@@ -15420,7 +15420,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding-left: 0;
 }
 .new_rfq_chat_inner {
-    width: 500px;
+    width: 650px;
     padding-left: 20px;
 }
 #product-desciprtion table #product-additional-desciprtion table {
@@ -16916,6 +16916,22 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     padding: 20px 0 10px;
     vertical-align: middle;
 }
+.quatations_infoBox .quatationInfo span.checkText:before {
+    display: none;
+}
+.quatations_infoBox .quatationInfo label.shortlisted-profile {
+    color: red;
+}
+.quatations_infoBox .quatationInfo label.selected-supplier-profile {
+    color: red;
+}
+.quatations_infoBox .quatationInfo [type="checkbox"]:not(:checked),
+.quatations_infoBox .quatationInfo [type="checkbox"]:checked {
+    opacity: 0;
+}
+.quatations_infoBox .quatationInfo .switch p {
+    line-height: normal;
+}
 .quatations_infoBox .quatationInfo:nth-child(odd) {
     background: #fff;
 }
@@ -16942,7 +16958,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    width: 40%;
+    /* width: 40%; */
 }
 .quatations_infoBox .offerPriceBox {
     width: 100px;
@@ -16967,9 +16983,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     text-align: center;
     height: inherit;
 }
-.quatations_infoBox .rfq_check_wrap .supplier_short_list_trigger_from_frontend{
+/* .quatations_infoBox .rfq_check_wrap .supplier_short_list_trigger_from_frontend{
     position: inherit;
-}
+} */
 .quatations_infoBox .rfq_check_wrap .checkText {
     font-size: 12px;
     line-height: normal;
@@ -17014,6 +17030,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 40px;
     font-weight: 500;
     color: #000;
+}
+.rfq_review_results_wrap .quatations_infoBox table tr td .quatationProfile {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
 }
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {
