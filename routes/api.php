@@ -281,3 +281,5 @@ Route::get('/product/{productId}/reviews',[ReviewController::class,'productRevie
 Route::get('/store/{vendorId}/reviews',[ReviewController::class,'vendorReviews']);
 
 Route::post('/supplier-quotation-to-buyer',[BusinessProfileController::class, 'supplierQuotationToBuyer']);
+Route::get('rfq/matched-suppleirs/{rfqid?}',[RfqController::class, 'matchedSuppleirs'])->name('rfq.matched-suppleirs');
+Route::get('/design-product-list-for-rfq',[RfqController::class, 'designProductListForRfq'])->name('design.product.list.for.rfq');
