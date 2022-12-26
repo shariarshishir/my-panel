@@ -772,7 +772,7 @@
                                 {
                                     selectedCheckedTrue = 'checked="checked"';
                                 }
-                                if(rfqDetailsById?.selected_profile.length > 0 && rfqDetailsById?.selected_profile[0] != response.quotations[i].business_profile_id) {
+                                if(rfqDetailsById?.selected_profile?.length > 0 && rfqDetailsById?.selected_profile[0] != response.quotations[i].business_profile_id) {
                                     disabledSwitch = 'disabled="disabled"';
                                 }
                                 var offersSplit = response.quotations[i].message.split("offers");
@@ -907,7 +907,7 @@
                                 {
                                     selectedCheckedTrue = 'checked="checked"';
                                 }
-                                if(rfqDetailsById?.selected_profile.length > 0 && rfqDetailsById?.selected_profile[0] != response.quotations[i].business_profile_id) {
+                                if(rfqDetailsById?.selected_profile?.length > 0 && rfqDetailsById?.selected_profile[0] != response.quotations[i].business_profile_id) {
                                     disabledSwitch = 'disabled="disabled"';
                                 }
                                 var offersSplit = response.quotations[i].message.split("offers");
