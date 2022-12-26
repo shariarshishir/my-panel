@@ -144,7 +144,7 @@ $cookie = json_decode(json_decode(json_encode($cookie)));
 						@endif
 					</div>
 
-                    @if($cookie->subscription_status == 1)
+                    @if($cookie->subscription_status == 0)
 					<a href="{{route('pricing.plan.form')}}" itemprop="Subscribe" type="button" class="btn_profile btn_green">
 					    Subscribe
 					</a>
@@ -384,7 +384,7 @@ $cookie = json_decode(json_decode(json_encode($cookie)));
 
 						@endif
 					</div>
-                    @if($cookie->subscription_status == 1)
+                    @if($cookie->subscription_status == 0)
 					<a href="javascript:void(0);" itemprop="Subscribe" type="button" class="btn_profile btn_green">
 					    Subscribe
 					</a>
