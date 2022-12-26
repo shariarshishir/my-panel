@@ -1,6 +1,12 @@
 <!-- Header section start  -->
 @php $studio_child= productTypeMapping(1); @endphp
 @php $raw_materials_child= productTypeMapping(2); @endphp
+@php
+$cookie = Cookie::get('sso_token');
+$cookie = base64_decode(explode(".",$cookie)[1]);
+$cookie = json_decode(json_decode(json_encode($cookie)));
+//$cookie->subscription_status = 1;
+@endphp
 <section class="header_wrap sticky_header" itemscope>
 	<div class="container" itemscope>
 		<!-- Desktop header start -->
@@ -138,9 +144,11 @@
 						@endif
 					</div>
 
+                    @if($cookie->subscription_status == 1)
 					<a href="{{route('pricing.plan.form')}}" itemprop="Subscribe" type="button" class="btn_profile btn_green">
 					    Subscribe
 					</a>
+                    @endif
 
 				</div>
 			</div>
@@ -376,9 +384,11 @@
 
 						@endif
 					</div>
+                    @if($cookie->subscription_status == 1)
 					<a href="javascript:void(0);" itemprop="Subscribe" type="button" class="btn_profile btn_green">
 					    Subscribe
 					</a>
+                    @endif
 
 					<!-- @if(auth()->user())
 						<div class="notifications_icon_wrap mobile_top_icon_box">
