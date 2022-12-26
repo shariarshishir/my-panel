@@ -489,15 +489,20 @@ class UserController extends Controller
         */
 
         $token = $mbtoken;
-        $decode_token = base64_decode($token);
-        $json_decode_token = json_decode($decode_token);
-        $access_token = $json_decode_token->access;
-        $user_obj = $json_decode_token->user;
+
+        $getUserData = explode(".", $token);
+        $getUserData1 = base64_decode($getUserData[1]);
+        $user_obj = json_decode($getUserData1);
+//dd(base64_decode($explode[1]));
+        // $decode_token = base64_decode($token);
+        // $json_decode_token = json_decode($decode_token);
+        // $access_token = $json_decode_token->access;
+        // $user_obj = $json_decode_token->user;
         //user loging credential
         $email = $user_obj->email;
         $password = base64_decode($user_obj->password);
         //access token
-        $explode = explode(".",$access_token);
+        $explode = explode(".",$token);
         $time = base64_decode($explode[1]);
         $decode_time = json_decode($time);
         $get_time = $decode_time->exp;
@@ -525,7 +530,7 @@ class UserController extends Controller
             if(Cookie::has('sso_token')){
                 Cookie::queue(Cookie::forget('sso_token'));
             }
-            Cookie::queue(Cookie::make('sso_token', $access_token, $totalMinutesDiff));
+            Cookie::queue(Cookie::make('sso_token', $token, $totalMinutesDiff));
             //set cookie for OMS
             if(Cookie::has('sso_token_oms')){
                 Cookie::queue(Cookie::forget('sso_token_oms'));
