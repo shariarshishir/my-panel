@@ -32,6 +32,7 @@ use App\Userchat;
 use App\RfqApp;
 use Illuminate\Support\Facades\Cookie;
 use Carbon\Carbon;
+use stdClass;
 
 class HomeController extends Controller
 {
@@ -917,53 +918,118 @@ class HomeController extends Controller
     //suppliers
     public function suppliers(Request $request)
     {
-        $suppliers = BusinessProfile::select('business_profiles.*')
+        if(Cookie::get('sso_token') !== null)
+        {
+            $cookie = Cookie::get('sso_token');
+            $cookie = base64_decode(explode(".",$cookie)[1]);
+            $cookie = json_decode(json_decode(json_encode($cookie)));
+        }
+        else
+        {
+            $cookie = new stdClass();
+            $cookie->subscription_status = 0;
+        }
+
+        if(auth()->user() && $cookie->subscription_status = 1)
+        {
+            $suppliers = BusinessProfile::select('business_profiles.*')
             ->leftJoin('certifications', 'certifications.business_profile_id', '=', 'business_profiles.id')
             ->with(['businessCategory', 'user', 'companyOverview'])->where(function($query) use ($request){
-            if($request->business_type){
-                $query->whereIn('business_type',$request->business_type)->get();
-            }
-            // if($request->industry_type){
-            //     $query->whereIn('industry_type',$request->industry_type)->get();
-            // }
-            if($request->factory_type){
-                $query->whereIn('factory_type',$request->factory_type)->get();
-            }
-            // if($request->factory_type){
-            //     $query->whereHas('businessCategory', function ($sub_query) use ($request) {
-            //         $sub_query->where('id', $request->factory_type);
-            //     })->get();
-            // }
-            if(isset($request->business_name)){
-                $query-> where('business_name', 'like', '%'.$request->business_name.'%')->get();
-            }
-            if(isset($request->location)){
-                $query-> where('location', 'like', '%'.$request->location.'%')->get();
-            }
-            if(isset($request->verified)){
-                $query-> whereIn('is_business_profile_verified', $request->verified)->get();
-            }
-            if(isset($request->standard)){
-                $target = array('compliance', 'non_compliance');
-                if(count(array_intersect($request->standard, $target)) == count($target)){
-                    $query->get();
-                }else{
-
-                    if(in_array('compliance', $request->standard)){
-                        $query->has('certifications')->get();
-                    }
-                    if(in_array('non_compliance', $request->standard)){
-                        $query->has('certifications', '<', 1)->get();
-                    }
+                if($request->business_type){
+                    $query->whereIn('business_type',$request->business_type)->get();
                 }
+                // if($request->industry_type){
+                //     $query->whereIn('industry_type',$request->industry_type)->get();
+                // }
+                if($request->factory_type){
+                    $query->whereIn('factory_type',$request->factory_type)->get();
+                }
+                // if($request->factory_type){
+                //     $query->whereHas('businessCategory', function ($sub_query) use ($request) {
+                //         $sub_query->where('id', $request->factory_type);
+                //     })->get();
+                // }
+                if(isset($request->business_name)){
+                    $query-> where('business_name', 'like', '%'.$request->business_name.'%')->get();
+                }
+                if(isset($request->location)){
+                    $query-> where('location', 'like', '%'.$request->location.'%')->get();
+                }
+                if(isset($request->verified)){
+                    $query-> whereIn('is_business_profile_verified', $request->verified)->get();
+                }
+                if(isset($request->standard)){
+                    $target = array('compliance', 'non_compliance');
+                    if(count(array_intersect($request->standard, $target)) == count($target)){
+                        $query->get();
+                    }else{
+
+                        if(in_array('compliance', $request->standard)){
+                            $query->has('certifications')->get();
+                        }
+                        if(in_array('non_compliance', $request->standard)){
+                            $query->has('certifications', '<', 1)->get();
+                        }
+                    }
 
 
-            }
-        })
-        ->groupBy('business_profiles.id')
-        ->orderBy('profile_verified_by_admin', 'desc')
-        ->orderBy('certifications.created_at', 'desc')
-        ->paginate(12);
+                }
+            })
+            ->groupBy('business_profiles.id')
+            ->orderBy('profile_verified_by_admin', 'desc')
+            ->orderBy('certifications.created_at', 'desc')
+            ->paginate(12);
+        }
+        else
+        {
+            $suppliers = BusinessProfile::select('business_profiles.*')
+            ->leftJoin('certifications', 'certifications.business_profile_id', '=', 'business_profiles.id')
+            ->with(['businessCategory', 'user', 'companyOverview'])->where("show_for_non_subscribe_user", 1)->where(function($query) use ($request){
+                if($request->business_type){
+                    $query->whereIn('business_type',$request->business_type)->get();
+                }
+                // if($request->industry_type){
+                //     $query->whereIn('industry_type',$request->industry_type)->get();
+                // }
+                if($request->factory_type){
+                    $query->whereIn('factory_type',$request->factory_type)->get();
+                }
+                // if($request->factory_type){
+                //     $query->whereHas('businessCategory', function ($sub_query) use ($request) {
+                //         $sub_query->where('id', $request->factory_type);
+                //     })->get();
+                // }
+                if(isset($request->business_name)){
+                    $query-> where('business_name', 'like', '%'.$request->business_name.'%')->get();
+                }
+                if(isset($request->location)){
+                    $query-> where('location', 'like', '%'.$request->location.'%')->get();
+                }
+                if(isset($request->verified)){
+                    $query-> whereIn('is_business_profile_verified', $request->verified)->get();
+                }
+                if(isset($request->standard)){
+                    $target = array('compliance', 'non_compliance');
+                    if(count(array_intersect($request->standard, $target)) == count($target)){
+                        $query->get();
+                    }else{
+
+                        if(in_array('compliance', $request->standard)){
+                            $query->has('certifications')->get();
+                        }
+                        if(in_array('non_compliance', $request->standard)){
+                            $query->has('certifications', '<', 1)->get();
+                        }
+                    }
+
+
+                }
+            })
+            ->groupBy('business_profiles.id')
+            ->orderBy('profile_verified_by_admin', 'desc')
+            ->orderBy('certifications.created_at', 'desc')
+            ->paginate(12);
+        }
 
         $suppliersCount = BusinessProfile::select('business_profiles.*')->get();
 

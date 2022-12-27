@@ -16738,23 +16738,24 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .suppliers_non_subscriber_message_block_outer {
     position: relative;
-    height: calc(100vh - 80px);
+    /* height: calc(100vh - 80px); */
     margin: 0 20px;
 }
 .suppliers_non_subscriber_message_block_outer .non_subscriber_message_block {
-    background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/rfq_non_subscribers_background.png") no-repeat center center;
+    background-color: rgba(0,0,0, 0.1);
+    /* background: url("https://s3.ap-southeast-1.amazonaws.com/service.products/public/frontendimages/rfq_non_subscribers_background.png") no-repeat center center;
     background-size: cover;
     height: 500px;
     position: absolute;
     top: 50%;
     left: 0;
     right: 0;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
 }
 .suppliers_non_subscriber_message_block_outer .non-subscribe-message-block {
     background: rgba(0, 0, 0, 0.5);
     color: #ffffff;
-    padding: 195px 50px;
+    padding: 50px;
     text-align: center;
     height: 100%;
 }
