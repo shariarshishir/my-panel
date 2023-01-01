@@ -209,8 +209,8 @@ $cookie = json_decode(json_decode(json_encode($cookie)));
 									</a>
 								</li>
                                 @endif
-								<li class="samples">
-									<a class="tooltipped" data-position="right" data-tooltip="Samples" href="javascript:void(0);">
+								<li class="samples{{ Route::is('samples') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="Samples" href="{{route('samples')}}">
 										<span>Samples</span>
 									</a>
 								</li>
@@ -219,8 +219,8 @@ $cookie = json_decode(json_decode(json_encode($cookie)));
 										<span>Designers</span>
 									</a>
 								</li>
-								<li class="mySupplyChain">
-									<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="javascript:void(0);">
+								<li class="mySupplyChain{{ Route::is('front.supplychain') ? ' active' : ''}}">
+									<a class="tooltipped" data-position="right" data-tooltip="My Supply Chain" href="{{route('front.supplychain')}}">
 										<span>My Supply Chain</span>
 									</a>
 								</li>
@@ -235,12 +235,12 @@ $cookie = json_decode(json_decode(json_encode($cookie)));
 									</a>
 								</li>
 								<li class="liveMarket">
-									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
+									<a class="tooltipped" data-position="right" data-tooltip="Live Market" href="https://live.merchantbay.com/" target="_blank">
 										<span>Live Market</span>
 									</a>
 								</li>
 								<li class="oms">
-									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="javascript:void(0);">
+									<a class="tooltipped" data-position="right" data-tooltip="OMS" href="https://app.merchantbay.com/console/?token={{Cookie::get('sso_token')}}" target="_blank">
 										<span>OMS</span>
 									</a>
 								</li>

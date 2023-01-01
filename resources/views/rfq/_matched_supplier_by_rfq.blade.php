@@ -135,7 +135,7 @@
 
                                             <!-- First div part -->
                                             <div class="row sparkle_part">
-                                                <div class="col s12 m3">
+                                                <div class="col s12 m3 rfq_profile_image">
                                                     <div class="image_width_wrap">
                                                         @if($businessProfile['user']['image'])
                                                         <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['user']['image'])}}' alt="">
@@ -144,25 +144,23 @@
                                                         @endif
                                                     </div>
                                                 </div>
-                                                <div class="col s12 m7">
+                                                <div class="col s12 m9 rfq_profile_content">
                                                     <h3>{{$businessProfile['business_name']}}</h3>
                                                     <span class="location">{{$businessProfile['location']}}</span>
                                                 </div>
-                                                <div class="col s12 m2">
-                                                    <div class="middle_wrap">
-                                                        <span class="check_circle">
-                                                            @if($businessProfile['profile_verified_by_admin'] == 1)
-                                                            <i class="material-icons">check_circle</i>
+                                                <div class="middle_wrap">
+                                                    <span class="check_circle">
+                                                        @if($businessProfile['profile_verified_by_admin'] == 1)
+                                                        <i class="material-icons">check_circle</i>
+                                                        @endif
+                                                    </span>
+                                                    <span class="icon_wrap">
+                                                        @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                            @if($data->name == 'year_of_establishment')
+                                                            {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}} Y
                                                             @endif
-                                                        </span>
-                                                        <span class="icon_wrap">
-                                                            @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
-                                                                @if($data->name == 'year_of_establishment')
-                                                                {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}} Y
-                                                                @endif
-                                                            @endforeach
-                                                        </span>
-                                                    </div>
+                                                        @endforeach
+                                                    </span>
                                                 </div>
                                             </div>
 

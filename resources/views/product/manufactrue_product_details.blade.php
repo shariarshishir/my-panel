@@ -59,7 +59,7 @@
 									<button class="arrival_btn">NEW ARRIVAL</button>
 								</div>
 							</div>
-							<div>
+							<div class="product_details">
 								{!! $product->product_details !!}
 							</div>
 
@@ -255,7 +255,7 @@
 			<!-- Third Column Container-->
 			<div class="col s12 m3 new_design_detail_right">
                 @if(isset($product->product_video->video))
-                <div>
+                <div class="new_design_detail_video_box">
                     <video controls height="245" width="300">
                         <source src="{{Storage::disk('s3')->url('public/'.$product->product_video->video)}}" type="video/mp4" />
                     </video>

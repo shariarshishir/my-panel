@@ -58,7 +58,7 @@ $reviewsCount = count($productReviews);
                                     @endif
                                 </div>
                             </div>
-                            <div>
+                            <div class="product_details">
                                 {!! $product->description !!}
                             </div>
                             @if($product->product_type==2 || $product->product_type== 3)
@@ -254,7 +254,7 @@ $reviewsCount = count($productReviews);
             <!-- Third Column Container-->
             <div class="col s12 m3 new_design_detail_right">
                 @if(isset($product->video))
-                <div>
+                <div class="new_design_detail_video_box">
                     <video controls height="245" width="300">
                         <source src="{{Storage::disk('s3')->url('public/'.$product->video->video)}}" type="video/mp4" />
                     </video>

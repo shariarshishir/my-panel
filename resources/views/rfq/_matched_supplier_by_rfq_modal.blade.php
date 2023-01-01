@@ -318,25 +318,23 @@
         '							<div class="match_supplier_rfq_single_content_inner_part">'+
         '								<!-- First div part -->'+
         '								<div class="row sparkle_part">'+
-        '									<div class="col s12 m3">'+
+        '									<div class="col s12 m3 rfq_profile_image">'+
         '										<div class="image_width_wrap">'+
         '											<img class="image_width" src="'+getBusinessProfileLogo(businessProfile)+'" alt="avatar" itemprop="img">'+
         '										</div>'+
         '									</div>'+
-        '									<div class="col s12 m6">'+
+        '									<div class="col s12 m9 rfq_profile_content">'+
         '										<h3>'+businessProfile?.business_name+'</h3>'+
         '										<span class="location">'+businessProfile?.location+'</span>'+
         '									</div>'+
-        '									<div class="col s12 m3">'+
-        '										<div class="middle_wrap">'+
-        '											<span class="check_circle">'+
-        '											<i class="material-icons">check_circle</i>'+
-        '											</span>'+
-        '											<span class="icon_wrap">'+
-        '											'+getYearOfExperiance(businessProfile)+' Y'+
-        '											</span>'+
-        '										</div>'+
-        '									</div>'+
+    '										<div class="middle_wrap">'+
+    '											<span class="check_circle">'+
+    '											<i class="material-icons">check_circle</i>'+
+    '											</span>'+
+    '											<span class="icon_wrap">'+
+    '											'+getYearOfExperiance(businessProfile)+' Y'+
+    '											</span>'+
+    '										</div>'+
         '								</div>'+
         '								<!-- Second div part -->'+
         '								<div class="middle_part_image_wrapper">'+
@@ -379,25 +377,23 @@
         '							<div class="match_supplier_rfq_single_content_inner_part">'+
         '								<!-- First div part -->'+
         '								<div class="row sparkle_part">'+
-        '									<div class="col s12 m3">'+
+        '									<div class="col s12 m3 rfq_profile_image">'+
         '										<div class="image_width_wrap">'+
         '											<img class="image_width" src="'+getBusinessProfileLogo(businessProfile)+'" alt="avatar" itemprop="img">'+
         '										</div>'+
         '									</div>'+
-        '									<div class="col s12 m6">'+
+        '									<div class="col s12 m9 rfq_profile_content">'+
         '										<h3>'+businessProfile?.business_name+'</h3>'+
         '										<span class="location">'+businessProfile?.location+'</span>'+
         '									</div>'+
-        '									<div class="col s12 m3">'+
-        '										<div class="middle_wrap">'+
-        '											<span class="check_circle">'+
-        '											<i class="material-icons">check_circle</i>'+
-        '											</span>'+
-        '											<span class="icon_wrap">'+
-        '											'+getYearOfExperiance(businessProfile)+' Y'+
-        '											</span>'+
-        '										</div>'+
-        '									</div>'+
+        '									<div class="middle_wrap">'+
+    '											<span class="check_circle">'+
+    '											<i class="material-icons">check_circle</i>'+
+    '											</span>'+
+    '											<span class="icon_wrap">'+
+    '											'+getYearOfExperiance(businessProfile)+' Y'+
+    '											</span>'+
+    '										</div>'+
         '								</div>'+
         '								<!-- Second div part -->'+
         '								<div class="middle_part_image_wrapper">'+
