@@ -697,7 +697,7 @@ else
                 <span>Raw Materials</span>
             </a>
 		</li>
-        @if(auth()->user() && auth()->user()->user_type == "buyer")
+        @if(auth()->user() && auth()->user()->user_type == "buyer" && auth()->user()->business_type != "tradingCompany")
         <li class="suppliers{{ Route::is('suppliers') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Suppliers" href="{{route('suppliers')}}">
                 <span>Suppliers</span>
@@ -709,6 +709,7 @@ else
                 <span>Samples</span>
             </a>
 		</li>
+        @if(auth()->user() && auth()->user()->business_type != "tradingCompany")
         <li class="designers{{ Route::is('designers') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Designers" href="{{route('designers')}}">
                 <span>Designers</span>
@@ -719,6 +720,7 @@ else
                 <span>My Supply Chain</span>
             </a>
 		</li>
+        @endif
         <li class="messages{{ Route::is('message.center') ? ' active' : ''}}">
 			<a class="tooltipped" data-position="right" data-tooltip="Messages" href="{{route('message.center')}}">
                 <span>Messages</span>
@@ -729,11 +731,13 @@ else
                 <span>Orders</span>
             </a>
 		</li>
+        @if(auth()->user() && auth()->user()->business_type != "tradingCompany")
         <li class="liveMarket">
 			<a class="tooltipped" data-position="right" data-tooltip="Live Market" href="https://live.merchantbay.com/" target="_blank">
 				<span>Live Market</span>
 			</a>
 		</li>
+        @endif
         <li class="oms">
 			<a class="tooltipped" data-position="right" data-tooltip="OMS" href="https://app.merchantbay.com/console/?token={{Cookie::get('sso_token')}}" target="_blank">
                 <span>OMS</span>
