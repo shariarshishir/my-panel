@@ -16183,6 +16183,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     color: #ffffff;
     padding: 50px 50px;
     text-align: center;
+    position: relative;
 }
 .new_rfq_supplier_product_info h4 {
     text-transform: uppercase;
@@ -17122,6 +17123,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     width: 60px;
     height: 60px;
     display: inline-block;
+}
+.supplier-matched-count-box-for-non-subscribe-user {
+    background: #defcdf;
+    padding: 15px 0px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
 }
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {

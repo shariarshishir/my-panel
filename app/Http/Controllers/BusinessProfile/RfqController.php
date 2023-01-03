@@ -1840,6 +1840,18 @@ class RfqController extends Controller
         $businessProfilesShortListed = 0;
         $businessProfilesSelectedListed = 0;
 
+        if(Cookie::get('sso_token') !== null)
+        {
+            $cookie = Cookie::get('sso_token');
+            $cookie = base64_decode(explode(".",$cookie)[1]);
+            $cookie = json_decode(json_decode(json_encode($cookie)));
+        }
+        else
+        {
+            $cookie = new stdClass();
+            $cookie->subscription_status = 0;
+        }
+
         if( isset($rfq['short_listed_profiles']) ) {
             $rfq['short_listed_profiles'] = $rfq['short_listed_profiles'];
             $rfq['short_listed_profiles'] = implode("," , $rfq['short_listed_profiles']);
@@ -1873,18 +1885,52 @@ class RfqController extends Controller
         // WHERE business_profile_id=5640
         // ->leftJoin('certifications', 'certifications.business_profile_id', '=', 'business_profiles.id')
         // ->where('profile_verified_by_admin', '!=', 0)
-        $businessProfiles = BusinessProfile::select('business_profiles.*')
-        ->leftJoin('rfq_quotation_sent_supplier_to_buyer_rel', 'rfq_quotation_sent_supplier_to_buyer_rel.business_profile_id', '=', 'business_profiles.id')
-        ->with(['user','supplierQuotationToBuyer'=> function($q) use ($rfqid){
-            $q->where('rfq_id', $rfqid);}])
-        ->with(['certifications'])
-        ->with(['CompanyOverview'])
-        ->whereIn('factory_type',$factory_type_value)
-        ->orWhereIn('factory_type',$factory_type_as_tag_parent)
-        ->groupBy('business_profiles.id')
-        ->orderBy('rfq_quotation_sent_supplier_to_buyer_rel.created_at', 'desc')
-        ->get()
-        ->toArray();
+
+        if($cookie->subscription_status == 1)
+        {
+            $businessProfiles = BusinessProfile::select('business_profiles.*')
+            ->leftJoin('rfq_quotation_sent_supplier_to_buyer_rel', 'rfq_quotation_sent_supplier_to_buyer_rel.business_profile_id', '=', 'business_profiles.id')
+            ->with(['user','supplierQuotationToBuyer'=> function($q) use ($rfqid){
+                $q->where('rfq_id', $rfqid);}])
+            ->with(['certifications'])
+            ->with(['CompanyOverview'])
+            ->whereIn('factory_type',$factory_type_value)
+            ->orWhereIn('factory_type',$factory_type_as_tag_parent)
+            ->groupBy('business_profiles.id')
+            ->orderBy('rfq_quotation_sent_supplier_to_buyer_rel.created_at', 'desc')
+            ->get()
+            ->toArray();
+        }
+        else
+        {
+            // All business profile which is matched with rfq.
+            $businessProfilesAllCount = BusinessProfile::select('business_profiles.*')
+            ->leftJoin('rfq_quotation_sent_supplier_to_buyer_rel', 'rfq_quotation_sent_supplier_to_buyer_rel.business_profile_id', '=', 'business_profiles.id')
+            ->with(['user','supplierQuotationToBuyer'=> function($q) use ($rfqid){
+                $q->where('rfq_id', $rfqid);}])
+            ->with(['certifications'])
+            ->with(['CompanyOverview'])
+            ->whereIn('factory_type',$factory_type_value)
+            ->orWhereIn('factory_type',$factory_type_as_tag_parent)
+            ->groupBy('business_profiles.id')
+            ->orderBy('rfq_quotation_sent_supplier_to_buyer_rel.created_at', 'desc')
+            ->get()
+            ->toArray();
+
+            // Radiant sweater and kims corporation business profile for default show.
+            $businessProfiles = BusinessProfile::select('business_profiles.*')->where("show_for_non_subscribe_user", 1)
+            ->leftJoin('rfq_quotation_sent_supplier_to_buyer_rel', 'rfq_quotation_sent_supplier_to_buyer_rel.business_profile_id', '=', 'business_profiles.id')
+            ->with(['user','supplierQuotationToBuyer'=> function($q) use ($rfqid){
+                $q->where('rfq_id', $rfqid);}])
+            ->with(['certifications'])
+            ->with(['CompanyOverview'])
+            ->groupBy('business_profiles.id')
+            ->orderBy('rfq_quotation_sent_supplier_to_buyer_rel.created_at', 'desc')
+            ->get()
+            ->toArray();
+
+            //dd($businessProfiles);
+        }
 
         $productCategories = ProductCategory::all('id','name');
         if( env('APP_ENV') == 'production') {
@@ -1939,7 +1985,7 @@ class RfqController extends Controller
         $proforma_invoice_url_for_buyer =$profromaInvoice ? route('open.proforma.single.html', $profromaInvoice->id) : '';
         $url_exists=$link;
 
-        return view('rfq._matched_supplier_by_rfq', compact('rfq','businessProfiles','businessProfilesShortListed','businessProfilesSelectedListed','buyerBusinessProfile','chatdata','from_user_image','to_user_image','user','buyer','productCategories','userNameShortForm','profromaInvoice','associativeArrayUsingIDandCount','proforma_invoice_url_for_buyer','url_exists', 'product_tag', 'factory_type_as_tag_parent'));
+        return view('rfq._matched_supplier_by_rfq', compact('rfq','businessProfiles','businessProfilesAllCount','businessProfilesShortListed','businessProfilesSelectedListed','buyerBusinessProfile','chatdata','from_user_image','to_user_image','user','buyer','productCategories','userNameShortForm','profromaInvoice','associativeArrayUsingIDandCount','proforma_invoice_url_for_buyer','url_exists', 'product_tag', 'factory_type_as_tag_parent'));
     }
 
     public function matchedSuppleirsDataModal(Request $request, $rfqid, $link = false)

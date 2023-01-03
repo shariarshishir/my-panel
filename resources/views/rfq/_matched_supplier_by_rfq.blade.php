@@ -1,3 +1,10 @@
+@php
+$cookie = Cookie::get('sso_token');
+$cookie = base64_decode(explode(".",$cookie)[1]);
+$cookie = json_decode(json_decode(json_encode($cookie)));
+//$cookie->subscription_status = 1;
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -47,7 +54,9 @@
                     </div>
                     <div class="col s12 l8">
                         <div class="supplier-matched-count-wrapper">
+                            @if($cookie->subscription_status == 1)
                             <div class="supplier-matched-count-box">{{ count($businessProfiles) }} Supplier Matched</div>
+                            @endif
                             <div class="supplier-matched-selected-box" id="supplier-matched-selected-count"></div>
                         </div>
                     </div>
@@ -55,15 +64,8 @@
             </div>
 
             {{-- Need to recommend --}}
-            @php
-                $cookie = Cookie::get('sso_token');
-                $cookie = base64_decode(explode(".",$cookie)[1]);
-                $cookie = json_decode(json_decode(json_encode($cookie)));
-                //$cookie->subscription_status = 1;
-            @endphp
-
             <div class="rfq_new_layout_match_suppliers_wrap">
-                @if($cookie->subscription_status == 1)
+            @if($cookie->subscription_status == 1)
                 <div class="new_rfq_filter_wrapper">
                     <div class="new_rfq_filter_select">
                         <div class="new_rfq_filter_wrap">
@@ -205,7 +207,7 @@
                                                     @endforeach
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="chatbox_wrap">
                                                 {{-- <img src="./images/chat-img.png" alt="">  --}}
                                                 <a href="javascript:void(0)">
@@ -223,11 +225,122 @@
                 </div>
             {{-- Need to recommend --}}
             @else
-                <div class="non_subscriber_message_block_outer">
-                    <div class="non-subscribe-message-block">
-                        <div class="non-subscribe-block-text">
-                            <h4>We have {{count($businessProfiles)}} suppliers matched <br/> with your Quotation.</h4>
+
+                <div class="rfq_new_layout_match_supplier_with_rfq suppliers_for_non_subscribe_user">
+                    <div class="match_supplier_rfq_single_wrapper">
+                        <div class="single_wraper_gapping">
+                            <div class="single_wraper_inner_infoBox">
+                                @foreach($businessProfiles as $businessProfile)
+                                <div class="matched_supplier_item" name="{{$businessProfile['business_name']}}">
+                                    <div class="match_supplier_rfq_single_content">
+                                        <div class="match_supplier_rfq_single_content_inner_part">
+
+                                            <!-- First div part -->
+                                            <div class="row sparkle_part">
+                                                <div class="col s12 m3 rfq_profile_image">
+                                                    <div class="image_width_wrap">
+                                                        @if($businessProfile['user']['image'])
+                                                        <img class="image_width" src='{{Storage::disk('s3')->url('public/'.$businessProfile['user']['image'])}}' alt="">
+                                                        @else
+                                                        <img class="image_width" src="{{Storage::disk('s3')->url('public/frontendimages/no-image.png')}}" alt="avatar" itemprop="img">
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="col s12 m9 rfq_profile_content">
+                                                    <h3>{{$businessProfile['business_name']}}</h3>
+                                                    <span class="location">{{$businessProfile['location']}}</span>
+                                                </div>
+                                                <div class="middle_wrap">
+                                                    <span class="check_circle">
+                                                        @if($businessProfile['profile_verified_by_admin'] == 1)
+                                                        <i class="material-icons">check_circle</i>
+                                                        @endif
+                                                    </span>
+                                                    <span class="icon_wrap">
+                                                        @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                            @if($data->name == 'year_of_establishment')
+                                                            {{isset($data->value) ? ((int)date('Y') - (int)$data->value) :''}} Y
+                                                            @endif
+                                                        @endforeach
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second div part -->
+
+                                            <div class="middle_part_image_wrapper">
+                                                <h6>Certification:</h6>
+                                                @if($businessProfile['certifications'])
+                                                <div class="inner_content_image suppliers_certificates_list">
+                                                    @foreach($businessProfile['certifications'] as $cert)
+                                                        <img class="" src='{{Storage::disk('s3')->url('public/'.$cert['image'])}}' alt="">
+                                                    @endforeach
+                                                </div>
+                                                @else
+                                                    <span>No Certifications found.</span>
+                                                @endif
+                                            </div>
+                                            <div class="workers_number_box">
+                                                <h6>Workers:</h6>
+                                                <div class="workers_inner_box">
+                                                    @php $t=0; @endphp
+                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                        @if($data->name == 'number_of_worker' || $data->name == 'number_of_female_worker')
+                                                            @php $t = (int)$t + (int)$data->value @endphp
+                                                        @endif
+                                                    @endforeach
+                                                    @php echo $t; @endphp
+                                                </div>
+                                            </div>
+                                            <!-- Third div part -->
+                                            <div class="main_product_wrap">
+                                                <h6>Main Products:</h6>
+                                                <div class="main_product_inner">
+                                                    @foreach(json_decode($businessProfile['company_overview']['data']) as $data)
+                                                        @if($data->name == 'main_products')
+                                                            @if($data->value == '')
+                                                            <p>No Main Product Found</p>
+                                                            @else
+                                                            <p>{{$data->value}}</p>
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </div>
+
+                                            <div class="chatbox_wrap">
+                                                {{-- <img src="./images/chat-img.png" alt="">  --}}
+                                                <a href="javascript:void(0)">
+                                                    {{-- <i class="material-icons">chat</i> <!--span>5</span--> --}}
+                                                    <img src="{{Storage::disk('s3')->url('public/frontendimages/chatbox_iocn.png')}}" alt="Chatbox Iocn">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
+                        @if($cookie->subscription_status == 0)
+                            // if factory count less than five then supplier count will not show.
+                            @if(count($businessProfilesAllCount) < 5)
+                                <div class="supplier-matched-count-box-for-non-subscribe-user">To see more supplier <a href="javascript:void(0);" class="btn_green show_more_supplier_for_non_subscriber_event_trigger">Click Here</a></div>
+                            @else
+                                <div class="supplier-matched-count-box-for-non-subscribe-user">{{ count($businessProfilesAllCount) }} Supplier Matched <a href="javascript:void(0);" class="btn_green show_more_supplier_for_non_subscriber_event_trigger">Show More</a></div>
+                            @endif
+                        @endif
+                    </div>
+                </div>
+
+                <div class="non_subscriber_message_block_outer" style="display: none;">
+                    <div class="non-subscribe-message-block">
+                        <a href="javascript:void(0);" class="btn btn-floating green non_subscriber_message_block_outer_close_event_trigger" style="position:absolute;top:10px;right:10px;"><i class="material-icons">close</i></a>
+                        // if factory count grater than five then supplier count will show.
+                        @if(count($businessProfilesAllCount) > 5)
+                        <div class="non-subscribe-block-text">
+                            <h4>We have {{count($businessProfilesAllCount)}} suppliers matched <br/> with your Quotation.</h4>
+                        </div>
+                        @endif
                         <div class="new_rfq_subscribe_wrap">
                             <div class="row">
                                 <div class="col s12 m5 new_rfq_subscribe_box">
@@ -343,6 +456,16 @@
             }
         }
         $(document).ready(function(){
+
+            $(".show_more_supplier_for_non_subscriber_event_trigger").click(function(){
+                $(".suppliers_for_non_subscribe_user").hide();
+                $(".non_subscriber_message_block_outer").show();
+            })
+
+            $(".non_subscriber_message_block_outer_close_event_trigger").click(function(){
+                $(".suppliers_for_non_subscribe_user").show();
+                $(".non_subscriber_message_block_outer").hide();
+            })
 
             business_profiles = @json($businessProfiles);
             rfq = @json($rfq);

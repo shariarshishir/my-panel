@@ -930,7 +930,7 @@ class HomeController extends Controller
             $cookie->subscription_status = 0;
         }
 
-        if(auth()->user() && $cookie->subscription_status = 1)
+        if(auth()->user() && $cookie->subscription_status == 1)
         {
             $suppliers = BusinessProfile::select('business_profiles.*')
             ->leftJoin('certifications', 'certifications.business_profile_id', '=', 'business_profiles.id')
