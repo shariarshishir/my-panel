@@ -322,7 +322,7 @@ $cookie = json_decode(json_decode(json_encode($cookie)));
                             </div>
                         </div>
                         @if($cookie->subscription_status == 0)
-                            // if factory count less than five then supplier count will not show.
+                            <!-- if factory count less than five then supplier count will not show. -->
                             @if(count($businessProfilesAllCount) < 5)
                                 <div class="supplier-matched-count-box-for-non-subscribe-user">To see more supplier <a href="javascript:void(0);" class="btn_green show_more_supplier_for_non_subscriber_event_trigger">Click Here</a></div>
                             @else
@@ -335,7 +335,7 @@ $cookie = json_decode(json_decode(json_encode($cookie)));
                 <div class="non_subscriber_message_block_outer" style="display: none;">
                     <div class="non-subscribe-message-block">
                         <a href="javascript:void(0);" class="btn btn-floating green non_subscriber_message_block_outer_close_event_trigger" style="position:absolute;top:10px;right:10px;"><i class="material-icons">close</i></a>
-                        // if factory count grater than five then supplier count will show.
+                        <!-- if factory count grater than five then supplier count will show. -->
                         @if(count($businessProfilesAllCount) > 5)
                         <div class="non-subscribe-block-text">
                             <h4>We have {{count($businessProfilesAllCount)}} suppliers matched <br/> with your Quotation.</h4>
