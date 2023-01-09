@@ -1924,7 +1924,17 @@
             var invoice_url_for_buyer='{{$proforma_invoice_url_for_buyer ?? ''}}';
             var url_exists= '{{$url_exists}}';
             if(url_exists == true){
-                var msg = invoice_url_for_buyer;
+                //var msg = invoice_url_for_buyer;
+                if(is_env == "production")
+                {
+                    var msg = invoice_url_for_buyer;
+                    var msg = msg.replace("www.merchantbay.com", "www.app.merchantbay.com/my-panel");
+                }
+                else
+                {
+                    var msg = invoice_url_for_buyer;
+                }
+
                 let message = {'message': msg, 'image': "", 'from_id' : fromId, 'to_id' : "{{$rfq['user']['user_id']}}",'rfq_id': "{{$rfq['id']}}",'factory':false, 'product': null};
                 socket.emit('new message', message);
                 $(".chat-area").animate({ scrollTop:$('#messagedata').prop("scrollHeight")});
