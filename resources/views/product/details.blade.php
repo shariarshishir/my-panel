@@ -60,6 +60,9 @@ $reviewsCount = count($productReviews);
                             </div>
                             <div class="product_details">
                                 {!! $product->description !!}
+                                @if($product->additional_description)
+                                    <a class="modal-trigger" href="#show-additional-description-modal">Show More</a>
+                                @endif
                             </div>
                             @if($product->product_type==2 || $product->product_type== 3)
                             <div class="margin_top">
@@ -275,14 +278,22 @@ $reviewsCount = count($productReviews);
                             </div>
                         </div>
                         <div class="col s6">
+                            @if($product->full_stock != 1)
                             <div class="attribute_box">
                                 <P>MOQ</P>
                                 <P><span class="font_weight">{{ $product->moq }}</span> {{$product->product_unit}}</P>
                             </div>
+                            @else
+                            <div class="attribute_box">
+                                <P>MOQ</P>
+                                <P><span class="font_weight">{{ $product->availability }}</span> PCS</P>
+                            </div>
+                            @endif
                         </div>
                         <!-- Pricing  -->
                         <div class="col s6">
                             <div class="attribute_box">
+                                @if($product->full_stock != 1)
                                 <p>PRICE</p>
                                 <p>
                                     <span class="font_weight">
@@ -311,6 +322,20 @@ $reviewsCount = count($productReviews);
                                         </span>
                                     </span>
                                 </p>
+                                @else
+                                <p>PRICE</p>
+                                <p>
+                                    <span class="font_weight">
+                                    @if($product->full_stock_negotiable == 1)
+                                    Negotiable
+                                    @else
+                                    ${{ $product->full_stock_price }} / FULL STOCK
+                                    @endif
+                                    </span>
+                                </p>
+                                @endif
+
+                                @if($product->full_stock != 1)
                                 <a class="modal-trigger" href="#price-breakdown-modal">View details</a>
                                 <!-- Modal Structure -->
                                 <div id="price-breakdown-modal" class="modal">
@@ -340,6 +365,7 @@ $reviewsCount = count($productReviews);
                                             class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                                     </div>
                                 </div>
+                                @endif
                             </div>
                         </div>
 
@@ -401,6 +427,16 @@ $reviewsCount = count($productReviews);
                         <a class="quotation_btn margin_top" href="{{route('rfq.create',[$product->flag, $product->id])}}">REQUEST FOR QUOTATION</a>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="show-additional-description-modal" class="modal">
+            <h5>ADDITIONAL DESCRIPTION</h5>
+            {!! $product->additional_description !!}
+            <div class="modal-footer">
+                <a href="javascript:void(0);"
+                    class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
             </div>
         </div>
 

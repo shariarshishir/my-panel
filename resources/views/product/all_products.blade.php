@@ -87,7 +87,16 @@
                                     </ul>
                                 </div>
                                 @endif
-                                @if($mapping_type_child == "design")
+                                @if($mapping_type_child == "design" || $mapping_type_child == "ready stock" || $mapping_type_child == "product sample")
+                                <div class="product_design_tabNab">
+                                    <ul>
+                                        <li class="@php echo ($mapping_type_child=="design") ? "active":""; @endphp"><a href="{{route('product.type.mapping',['studio', 'design'])}}">Design</a></li>
+                                        <li class="@php echo ($mapping_type_child=="ready stock") ? "active":""; @endphp"><a href="{{route('product.type.mapping',['studio', 'ready stock'])}}">Ready Stock</a></li>
+                                        <li class="@php echo ($mapping_type_child=="product sample") ? "active":""; @endphp"><a href="{{route('product.type.mapping',['studio', 'product sample'])}}">Product Sample</a></li>
+                                    </ul>
+                                </div>
+                                @endif
+                                @if($mapping_type_child == "design" || $mapping_type_child == "ready stock" || $mapping_type_child == "product sample")
                                 @include('product._all_product_design_studio_data')
                                 @else
                                 @include('product._all_product_data')

@@ -118,25 +118,33 @@
                                                                 @if($loop->last) <span class="price">Lead Time</span>  {{ $v[3] }} <span class="days">days</span> @endif
                                                             @endforeach
                                                         @else
-                                                            @php
-                                                            $count= count(json_decode($list->attribute));
-                                                            $count = $count-2;
-                                                            @endphp
-                                                            @foreach (json_decode($list->attribute) as $k => $v)
-                                                                @if($k == 0 && $v[2] == 'Negotiable')
+                                                            @if($list->full_stock == 1)
+                                                                @if($list->full_stock_negotiable == 0)
+                                                                <span class="price">Price</span> <span class="price_negotiable">${{ $list->full_stock_price }}</span> / FULL STOCK
+                                                                @else
                                                                 <span class="price">Price</span> <span class="price_negotiable">{{ 'Negotiable' }}</span>
                                                                 @endif
-                                                                @if($loop->last && $v[2] != 'Negotiable')
-                                                                <span class="price">Price</span>  ${{ $v[2] }} / {{$list->product_unit}}{{-- $ is the value for price unite --}}
-                                                                @endif
-                                                                @if($loop->last && $v[2] == 'Negotiable')
-                                                                    @foreach (json_decode($list->attribute) as $k => $v)
-                                                                            @if($k == $count)
-                                                                            <span class="price">Price</span>  ${{ $v[2]  }} {{ 'Negotiable' }} {{-- $ is the value for price unite --}}
-                                                                            @endif
-                                                                    @endforeach
-                                                                @endif
-                                                            @endforeach
+                                                            @else
+                                                                @php
+                                                                $count= count(json_decode($list->attribute));
+                                                                $count = $count-2;
+                                                                @endphp
+                                                                @foreach (json_decode($list->attribute) as $k => $v)
+                                                                    @if($k == 0 && $v[2] == 'Negotiable')
+                                                                    <span class="price">Price</span> <span class="price_negotiable">{{ 'Negotiable' }}</span>
+                                                                    @endif
+                                                                    @if($loop->last && $v[2] != 'Negotiable')
+                                                                    <span class="price">Price</span>  ${{ $v[2] }} / {{$list->product_unit}}{{-- $ is the value for price unite --}}
+                                                                    @endif
+                                                                    @if($loop->last && $v[2] == 'Negotiable')
+                                                                        @foreach (json_decode($list->attribute) as $k => $v)
+                                                                                @if($k == $count)
+                                                                                <span class="price">Price</span>  ${{ $v[2]  }} {{ 'Negotiable' }} {{-- $ is the value for price unite --}}
+                                                                                @endif
+                                                                        @endforeach
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
                                                         @endif
                                                     @endif
                                                 </div>
