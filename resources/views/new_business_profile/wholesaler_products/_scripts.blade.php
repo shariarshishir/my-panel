@@ -208,7 +208,8 @@
                 },
                 success:function(data)
                     {
-                        console.log(data.product.images);
+                        //console.log(data.product.images);
+                        console.log(data);
 
                         $('.loading-message').html("");
 		                $('#loadingProgressContainer').hide();
@@ -328,7 +329,8 @@
                                 $('#product-edit-modal-block .edit-video-show-block').append(html);
                         }
 
-                        $('#product-edit-modal-block .product_type_order').val(data.product.product_type_mapping_id).trigger('change');
+                        $('#product-edit-modal-block .product_type_order').val(data.product.product_type).trigger('change');
+                        $("#product-edit-modal-block select[name=product_type][value=" + data.product.product_type + "]").prop('selected', true);
                         $('#product-edit-modal-block .product_type_gender').val(data.product.gender).trigger('change');
                         $("#product-edit-modal-block select[name=gender][value=" + data.product.gender + "]").prop('selected', true);
                         $('#product-edit-modal-block .type_sample_availability').val(data.product.sample_availability).trigger('change');
