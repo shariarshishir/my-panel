@@ -10351,6 +10351,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     overflow: hidden;
     text-transform: capitalize;
 }
+.profile_account_poinfo_box .po_block_modal p b {
+    font-size: 14px;
+    opacity: 1;
+    line-height: normal;
+}
 .profile_account_poinfo_innerbox .profile_account_poinfo_box.active {
     border: 1px solid #707070;
 }
@@ -10359,17 +10364,30 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     background: #fff6f6;
     position: relative;
 }
-.profile_account_poinfo_innerbox .profile_account_poinfo_box {
-    padding: 20px 20px 15px;
+.product_design_wrapper .po_block_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.product_design_wrapper .po_block_wrapper .po_block {
+    width: 31%;
     -webkit-box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
     -moz-box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.16);
     box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 16%);
     border-radius: 10px;
-    margin-bottom: 30px;
     border: 1px solid #eee;
+    margin: 0 20px 20px 0;
+}
+.product_design_wrapper .po_block_wrapper .po_block:nth-child(3n+0) {
+    margin-right: 0;
+}
+.profile_account_poinfo_innerbox .profile_account_poinfo_box {
+/* 
     max-height: 250px;
     min-height: 250px;
-    overflow: hidden;
+    overflow: hidden; */
+    height: 100%;
+    padding: 20px 20px 15px;
+    position: relative;
 }
 .profile_account_poinfo_innerbox .profile_account_poinfo_box h5 {
     font-weight: 400;
@@ -10388,7 +10406,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-weight: 400;
     font-size: 12px;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .profile_account_poinfo_innerbox h4 {
     font-weight: 400;
@@ -10419,11 +10437,15 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
 }
 .profile_account_poinfo_box .moreItem {
     position: absolute;
+    right: 12px;
+    bottom: 7px;
     color: #54a958;
     font-size: 14px;
     line-height: 12px;
-    right: 12px;
-    bottom: 7px;
+    margin-top: 0;
+    text-align: right;
+    width: 100%;
+    display: inline-block;
 }
 /* ******************** FAQ css style start *********************** */
 .faq_contentinfo_wrapper {
@@ -17131,6 +17153,78 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     font-size: 18px;
     font-weight: 600;
 }
+
+
+
+/* ******************** PO?PI css style start *********************** */
+ .proforma_invoice_pdf_design_table_wrap {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000;
+}
+.proforma_invoice_pdf_design_table_wrap h3 {
+    font-size: 17px;
+    color: #000;
+    margin: 0;
+    font-weight: 600;
+}
+.proforma_invoice_pdf_design_table_wrap h6 {
+    font-size: 16px;
+}
+.proforma_address_table .addressBar {
+    padding-top: 5px;
+}
+.proforma_invoice_pdf_design_table_wrap .table {
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+.proforma_invoice_pdf_design_table_wrap .table-bordered td, 
+.proforma_invoice_pdf_design_table_wrap .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+.proforma_invoice_pdf_design_table_wrap .table tr th {
+    font-weight: 600;
+    line-height: normal;
+}
+.proforma_invoice_pdf_design_table_wrap .proformaInvoiceTiytle {
+    text-align: center;
+    padding: 0 0 22px;
+}
+.proforma_invoice_pdf_design_table_wrap .proformaInvoiceTiytle h3 {
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 22px;
+}
+.proforma_invoice_pdf_design_table_wrap .logoImg {
+    width: 75px;
+}
+.proforma_invoice_pdf_design_table_wrap .logoImg img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+}
+.proforma_invoice_pdf_design_table_wrap .proforma_terms_onditions_table .fa {
+    margin-right: 5px;
+    font-weight: 700;
+}
+.proforma_invoice_pdf_design_table_wrap p {
+    margin-bottom: 0;
+}
+.proforma_invoice_pdf_design_table_wrap .signature {
+    padding-top: 60px;
+}
+.proforma_advising_bank_table .conactInfo b {
+    display: initial;
+}
+.proforma_terms_onditions_table .terms_conditions_list ul li .input-group span {
+    color: #000000;
+}
+
+
 /* ******************** Media css style start *********************** */
 @media only screen and (min-width: 1900px) {
     .container {
@@ -17337,7 +17431,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .account_profile_box .profile_account_dev_design .product_cards .modal {
         width: 70%;
    }
-    .account_rfqDetailes_infoWrap p b, .profile_account_myrfq_box p b, .profile_account_poinfo_box p b {
+    .account_rfqDetailes_infoWrap p b, 
+    .profile_account_myrfq_box p b, 
+    .profile_account_poinfo_box p b {
         font-size: 13px;
    }
     .order_management_inner_left ul {
@@ -18262,6 +18358,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    }
    .color-and-size-block .non-clothing-color-quantity-table-block .colorPickerBox input.colorName {
         width: 82% !important;
+   }
+
+   .product_design_wrapper .po_block_wrapper .po_block {
+    width: 46%;
+   }
+   .product_design_wrapper .po_block_wrapper .po_block:nth-child(3n+0) {
+    margin-right: 20px;
    }
 }
 @media only screen and (min-device-width: 993px) and (max-device-width: 1300px) {
@@ -19821,6 +19924,9 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .new_rfq_supplier_outer_wrapper {
         padding-left: 0;
     }
+    .product_design_wrapper .po_block_wrapper .po_block {
+        width: 46%;
+    }
 }
 @media only screen and (max-width: 900px) {
     .chat-application .app-sidebar {
@@ -20167,6 +20273,11 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
    .product_upload_update_block .product_upload_update_table tbody {
         display: block;
    }
+
+   .proforma_invoice_pdf_design_table_wrap .no_more_tables td:before {
+    top: 5px;
+   }
+
 }
 @media only screen and (max-width: 768px) {
     .logo {
@@ -20958,6 +21069,13 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     }
     .new_design_product_detail_wrap .new_design_product_detail .tabs_wrapper {
         position: inherit;
+    }
+    .product_design_wrapper .po_block_wrapper .po_block {
+        width: 100%;
+        margin-right: 0;
+    }
+    .product_design_wrapper .po_block_wrapper .po_block:nth-child(3n+0) {
+        margin-right: 0;
     }
 }
 @media only screen and (max-width: 600px) {
@@ -22021,6 +22139,7 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
     .profile_account_innerinfo_wrap .product_event_wrap {
         margin-bottom: 20px;
     }
+
 }
 @media only screen and (max-width: 480px) {
     /* .profile_wholesaler_tab_menu ul li, .profile_tab_menu .tabs .tab {

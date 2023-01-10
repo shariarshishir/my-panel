@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Proforma;
 use App\Models\BusinessProfile;
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use App\Events\ProfromaInvoiceHasRejectedEvent;
 use App\Events\ProfromaInvoiceHasAcceptedEvent;

@@ -119,8 +119,12 @@ class AdminPoController extends Controller
     {
         $users[] = auth()->id();
         $po = Proforma::with('performa_items','checkedMerchantAssistances','proFormaShippingDetails','proFormaAdvisingBank','proFormaShippingFiles','proFormaSignature','paymentTerm','shipmentTerm','businessProfile','supplierCheckedProFormaTermAndConditions')->where('id', $id)->first();
+        $buyerInfo = User::where('id', $po->buyer_id)->first();
+        $buyerBusinessProfileInfo = BusinessProfile::where('user_id', $po->buyer_id)->first();
         $totalInvoice = ProformaProduct::where('performa_id',$id)->sum('tax_total_price');
         $supplierInfo = User::where('id', $po->created_by)->first();
+
+        
         if( env('APP_ENV') == 'production')
         {
             $merchantbayUserInfo = User::where("id", 5771)->first();
@@ -130,7 +134,7 @@ class AdminPoController extends Controller
             $merchantbayUserInfo = User::where("id", 5552)->first();
         }
         if($po){
-            return view('admin.proforma_invoice.show',compact('po','users','supplierInfo','totalInvoice','merchantbayUserInfo'));
+            return view('admin.proforma_invoice.show',compact('po','users','supplierInfo','totalInvoice','merchantbayUserInfo', 'buyerInfo','buyerBusinessProfileInfo'));
         }
 
     }

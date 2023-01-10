@@ -104,11 +104,11 @@ $searchInput = isset($_REQUEST['poSearchInput']) ? $_REQUEST['poSearchInput'] : 
                                                     <span class="rfqView">{{count($proformas)}} results</span>
                                                 </div>
                                             </div>
-                                            <div class="row po_block_wrapper">
+                                            <div class="po_block_wrapper">
                                                 @foreach($proformas as $proforma)
-                                                <div class="col s12 m6 l4 po_block {{($proforma->status == -1) ? 'rejected':'' }}" data-potitle="{{$proforma->proforma_id}}">
-                                                    <a href="#po_block_{{$proforma->id}}" class="po_overlay modal-trigger"></a>
+                                                <div class="po_block {{($proforma->status == -1) ? 'rejected':'' }}" data-potitle="{{$proforma->proforma_id}}">
                                                     <div class="profile_account_poinfo_box">
+                                                        <a href="#po_block_{{$proforma->id}}" class="po_overlay modal-trigger"></a>
                                                         <div class="row top_download_bar">
                                                             @if(($proforma->status == -1))
                                                             <a href="#po_reject_block_{{$proforma->id}}" class="reject_message_box modal-trigger" data-toggle="tooltip" title="Click here to see the cause of rejection"><i class="material-icons">message</i></a>
@@ -197,7 +197,6 @@ $searchInput = isset($_REQUEST['poSearchInput']) ? $_REQUEST['poSearchInput'] : 
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

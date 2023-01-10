@@ -142,3 +142,69 @@ td span {
 .line_item_table_wrap {
     margin: 0 10px;
 }
+
+
+/* ******************** PO?PI css style start *********************** */
+ .proforma_invoice_pdf_design_table_wrap {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000;
+}
+.proforma_invoice_pdf_design_table_wrap h3 {
+    font-size: 17px;
+    color: #000;
+    margin: 0;
+    font-weight: 600;
+}
+.proforma_invoice_pdf_design_table_wrap h6 {
+    font-size: 16px;
+}
+.proforma_address_table .addressBar {
+    padding-top: 5px;
+}
+.proforma_invoice_pdf_design_table_wrap .table {
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+.proforma_invoice_pdf_design_table_wrap .table-bordered td, 
+.proforma_invoice_pdf_design_table_wrap .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+.proforma_invoice_pdf_design_table_wrap .table tr th {
+    font-weight: 600;
+    line-height: normal;
+}
+.proforma_invoice_pdf_design_table_wrap .proformaInvoiceTiytle {
+    text-align: center;
+    padding: 0 0 22px;
+}
+.proforma_invoice_pdf_design_table_wrap .proformaInvoiceTiytle h3 {
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 22px;
+}
+.proforma_invoice_pdf_design_table_wrap .logoImg {
+    width: 75px;
+}
+.proforma_invoice_pdf_design_table_wrap .logoImg img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+}
+.proforma_invoice_pdf_design_table_wrap .proforma_terms_onditions_table .fa {
+    margin-right: 5px;
+    font-weight: 700;
+}
+.proforma_invoice_pdf_design_table_wrap p {
+    margin-bottom: 0;
+}
+.proforma_invoice_pdf_design_table_wrap .signature {
+    padding-top: 60px;
+}
+.proforma_advising_bank_table .conactInfo b {
+    display: initial;
+}
