@@ -304,9 +304,9 @@ function printDiv(divName) {
         //console.log(abc);
         numbers = String(abc).split(".");
         if(numbers[1] == "00") {
-            res = intToEnglish(numbers[0])+ " Taka" + " And Zero Poisa";
+            res = intToEnglish(numbers[0])+ " Taka" + " And Zero Poisa Only";
         } else {
-            res = intToEnglish(numbers[0])+ " Taka" + " And " + intToEnglish(numbers[1]) + " Poisa";
+            res = intToEnglish(numbers[0])+ " Taka" + " And " + intToEnglish(numbers[1]) + " Poisa Only";
         }
         return res;
     }
