@@ -1839,6 +1839,7 @@ class RfqController extends Controller
 
         $businessProfilesShortListed = 0;
         $businessProfilesSelectedListed = 0;
+        $businessProfilesAllCount = [];
 
         if(Cookie::get('sso_token') !== null)
         {
