@@ -20269,15 +20269,32 @@ button.mdc-button.mdc-button--colored.mdc-button--raised {
         top: 22px;
         width: 25px !important;
    }
-
    .product_upload_update_block .product_upload_update_table tbody {
         display: block;
    }
-
-   .proforma_invoice_pdf_design_table_wrap .no_more_tables td:before {
-    top: 5px;
+   .proforma_invoice_pdf_design_table_wrap .no_more_tables {
+        padding-bottom: 0;
    }
-
+   .proforma_invoice_pdf_design_table_wrap .table {
+        margin-bottom: 15px !important;
+   }
+   .proforma_invoice_pdf_design_table_wrap .no_more_tables td:before {
+        top: 5px;
+   }
+   .proforma_invoice_pdf_design_table_wrap .table-bordered td, 
+   .proforma_invoice_pdf_design_table_wrap .table-bordered th {
+        border: none;
+        border-bottom: 1px solid #ddd;
+   }
+   .proforma_invoice_pdf_design_table_wrap .no_more_tables tr {
+        border: none !important;
+        margin-bottom: 0;
+   }
+   .proforma_invoice_pdf_design_table_wrap .proforma_forward_table,
+   .proforma_invoice_pdf_design_table_wrap .proforma_shipment_table,
+   .proforma_invoice_pdf_design_table_wrap .proforma_item_info_table {
+        border-bottom: none !important;
+   }
 }
 @media only screen and (max-width: 768px) {
     .logo {

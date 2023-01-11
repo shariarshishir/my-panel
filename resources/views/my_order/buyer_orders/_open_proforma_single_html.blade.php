@@ -13,7 +13,6 @@
             <button onclick="printDiv('purchase_order_wrap');" id="printPageButtonTrigger" class="btn_green printPageButton">Print</button>
         </div>
 
-
         <div class="proforma_invoice_pdf_design_table_wrap">
             <div class="proformaInvoiceTiytle">
                 <h3>Proforma Invoice</h3>
@@ -27,7 +26,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="col-sm-12 col-md-12">
+                        <td>
                             <div class="beneficiarybox">
                                 <h6>Buyer Detail :</h6>
                                 <div class="form-group has-feedback">
