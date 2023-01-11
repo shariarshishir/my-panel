@@ -512,6 +512,7 @@ class UserController extends Controller
         $totalMinutesDiff = $totalSecondsDiff/60;
         //check user exists
         $user=User::where('email', $email)->first();
+
         if(!$user){
             $data = new stdClass();
             $data->name= $user_obj->name;
@@ -524,25 +525,32 @@ class UserController extends Controller
             $this->userRegFromSsoIfNOtExists($data);
         }
 
-        if(Auth::attempt(['email' => $email, 'password' => $password]))
+        if($user->is_email_verified == 1)
         {
-            //set cookie
-            if(Cookie::has('sso_token')){
-                Cookie::queue(Cookie::forget('sso_token'));
-            }
-            Cookie::queue(Cookie::make('sso_token', $token, $totalMinutesDiff));
-            //set cookie for OMS
-            if(Cookie::has('sso_token_oms')){
-                Cookie::queue(Cookie::forget('sso_token_oms'));
-            }
-            Cookie::queue(Cookie::make('sso_token_oms', $token, $totalMinutesDiff));
-            //set password to session
-            if($request->session()->has('sso_password')){
-                $request->session()->forget('sso_password');
-            }
-            $request->session()->put('sso_password', $password);
+            if(Auth::attempt(['email' => $email, 'password' => $password]))
+            {
+                //set cookie
+                if(Cookie::has('sso_token')){
+                    Cookie::queue(Cookie::forget('sso_token'));
+                }
+                Cookie::queue(Cookie::make('sso_token', $token, $totalMinutesDiff));
+                //set cookie for OMS
+                if(Cookie::has('sso_token_oms')){
+                    Cookie::queue(Cookie::forget('sso_token_oms'));
+                }
+                Cookie::queue(Cookie::make('sso_token_oms', $token, $totalMinutesDiff));
+                //set password to session
+                if($request->session()->has('sso_password')){
+                    $request->session()->forget('sso_password');
+                }
+                $request->session()->put('sso_password', $password);
 
-            return redirect()->route("home");
+                return redirect()->route("home");
+            }
+        }
+        else
+        {
+            return redirect()->route("user.unverify");
         }
 
         return abort(405);
