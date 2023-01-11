@@ -299,11 +299,16 @@ function printDiv(divName) {
 
     function getNumber(abc)
     {
-        numbers = []
-        console.log(abc)
-        numbers = String(abc).split(".")
-        const res = intToEnglish(numbers[0])+ " Taka" + " And " + intToEnglish(numbers[1]) + " Poisa"
-        return res
+        let res = "";
+        numbers = [];
+        //console.log(abc);
+        numbers = String(abc).split(".");
+        if(numbers[1] == "00") {
+            res = intToEnglish(numbers[0])+ " Taka" + " And Zero Poisa";
+        } else {
+            res = intToEnglish(numbers[0])+ " Taka" + " And " + intToEnglish(numbers[1]) + " Poisa";
+        }
+        return res;
     }
     //console.log();
     proformaList.map(i=>{
