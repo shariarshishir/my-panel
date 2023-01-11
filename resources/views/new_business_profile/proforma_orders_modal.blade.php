@@ -96,7 +96,7 @@
                 @endif
                 <tr>
                     <td colspan="5" class="right-align grand_total_title" style="padding-right: 20px"><b>Grand Total: </b></td>
-                    <td data-title="Grand Total:" colspan="2"><div><b id="proformaGrandTotal">{{ number_format((float)$proforma->proforma_grand_total, 2, '.', '') }}</b></div></td>
+                    <td data-title="Grand Total:" colspan="2"><div><b id="proformaGrandTotal_{{$proforma->id}}">{{ number_format((float)$proforma->proforma_grand_total, 2, '.', '') }}</b></div></td>
                 </tr>
                 @foreach($proforma->checkedMerchantAssistances as $assistance)
                 <tr>
@@ -112,7 +112,7 @@
                 @endif
                 <tr>
                     <td colspan="6" style="text-align: left;">In Word:
-                        <b><span id="totalResultFront"></span></b>
+                        <b><span id="totalResultFront_{{$proforma->id}}"></span></b>
                     </td>
                 </tr>
             </table>
@@ -526,8 +526,8 @@
 <div id="proforma-print-block_{{$proforma->id}}" style="display: none;">
     @include('new_business_profile._proforma_orders_modal_print')
 </div>
-    
-    
+
+
     {{-- <div class="invoice_page_header">
         <legend>
             <i class="fa fa-table fa-fw " aria-hidden="true"></i> Pro-Forma Invoice
@@ -768,77 +768,3 @@
         </article>
         <!-- WIDGET END -->
     </section> --}}
-
-
-
-<script>
-        function intToEnglish(number)
-        {
-            var NS = [
-                { value: 10000000, str: "Crore" },
-                { value: 100000, str: "Lakh" },
-                { value: 1000, str: "Thousand" },
-                { value: 100, str: "Hundred" },
-                { value: 90, str: "Ninety" },
-                { value: 80, str: "Eighty" },
-                { value: 70, str: "Seventy" },
-                { value: 60, str: "Sixty" },
-                { value: 50, str: "Fifty" },
-                { value: 40, str: "Forty" },
-                { value: 30, str: "Thirty" },
-                { value: 20, str: "Twenty" },
-                { value: 19, str: "Nineteen" },
-                { value: 18, str: "Eighteen" },
-                { value: 17, str: "Seventeen" },
-                { value: 16, str: "Sixteen" },
-                { value: 15, str: "Fifteen" },
-                { value: 14, str: "Fourteen" },
-                { value: 13, str: "Thirteen" },
-                { value: 12, str: "Twelve" },
-                { value: 11, str: "Eleven" },
-                { value: 10, str: "Ten" },
-                { value: 9, str: "Nine" },
-                { value: 8, str: "Eight" },
-                { value: 7, str: "Seven" },
-                { value: 6, str: "Six" },
-                { value: 5, str: "Five" },
-                { value: 4, str: "Four" },
-                { value: 3, str: "Three" },
-                { value: 2, str: "Two" },
-                { value: 1, str: "One" }
-            ];
-            var result = '';
-            for (var n of NS) {
-                if (number >= n.value) {
-                if (number <= 99) {
-                    result += n.str;
-                    number -= n.value;
-                    if (number > 0) result += ' ';
-                } else {
-                    var t = Math.floor(number / n.value);
-                    // console.log(t);
-                    var d = number % n.value;
-                    if (d > 0) {
-                        return intToEnglish(t) + ' ' + n.str + ' ' + intToEnglish(d);
-                    } else {
-                        return intToEnglish(t) + ' ' + n.str;
-                    }
-
-                }
-                }
-            }
-            return result;
-        }
-
-        function getNumber(abc)
-        {
-            numbers = []
-            console.log(abc)
-            numbers = String(abc).split(".")
-            const res = intToEnglish(numbers[0])+ " Taka" + " And " + intToEnglish(numbers[1]) + " Poisa"
-            return res
-        }
-        console.log();
-        document.getElementById("totalResultFront").innerHTML = getNumber(document.getElementById("proformaGrandTotal").innerHTML);
-        document.getElementById("totalResultPdfFront").innerHTML = getNumber(document.getElementById("proformaGrandTotal").innerHTML);
-</script>

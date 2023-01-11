@@ -123,7 +123,7 @@
                         @endif
                         <tr>
                             <td colspan="6" style="text-align: left; border: 1px solid #ddd; padding: 10px;">In Word:
-                                <b><span id="totalResultPdfFront"></span></b>
+                                <b><span id="totalResultPdfFront_{{$proforma->id}}"></span></b>
                             </td>
                         </tr>
                     </table>
@@ -207,7 +207,7 @@
                     </tbody>
                 </table>
             </div>
-            
+
             <div class="no_more_tables">
                 <table class="table proforma_advising_bank_table" style="border: 1px solid #ddd; margin-bottom: 15px;">
                     <thead style="border: none">
@@ -229,7 +229,7 @@
                     </tbody>
                 </table>
             </div>
-            
+
             <table class="table proforma_terms_onditions_table" style="border: 1px solid #ddd; margin-bottom: 15px">
                 <thead style="border: none">
                     <tr style="border: none">
@@ -290,4 +290,3 @@
             </table>
             <div class="signature" style="padding: 60px 10px 0px; margin: 0;"><b>Authorized Signature</b></div>
     </div>
-    
