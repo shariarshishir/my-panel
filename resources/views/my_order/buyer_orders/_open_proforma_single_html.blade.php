@@ -21,18 +21,18 @@
             <table class="table table-bordered proforma_beneficiary_table">
                 <thead>
                     <tr>
-                        <th style="padding-top: 10px">PI No: <span>{{ $po->proforma_id }}</span></th>
+                        <th style="padding: 10px">PI No: <span>{{ $po->proforma_id }}</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td style="padding: 5px 10px; margin: 0;">
                             <div class="beneficiarybox">
-                                <h6>Buyer Detail :</h6>
+                                <h6 style="margin: 0 0 5px; font-size: 15px; ">Buyer Detail :</h6>
                                 <div class="form-group has-feedback">
-                                    <p><b> {{ $po->proFormaSignature->buyer_singature_name }}</b> </p>
-                                    <p>Buyer Location</p>
-                                    <p> Date: <span>{{ $po->proforma_date }}</span></p>
+                                    <p style="margin: 0; padding: 0; line-height: 18px;"><b> {{ $po->businessProfile->business_name ?? "" }}</b> </p>
+                                    <p style="margin: 0; padding: 0; line-height: 18px;">{{ $po->businessProfile->location ?? "" }}</p>
+                                    <p style="margin: 0; padding: 0; line-height: 18px;"> Date: <span>{{ $po->proforma_date }}</span></p>
                                 </div>
                             </div>
                         </td>
@@ -45,78 +45,78 @@
                     <table class="table table-bordered proforma_item_info_table" style="text-align: center; border-bottom:1px solid #ccc; margin-bottom:15px;">
                         <thead class="cf">
                             <tr>
-                                <th style="padding-top: 10px">Sl. No.</th>
-                                <th style="padding-top: 10px">Item / Description</th>
-                                <th style="padding-top: 10px">Quantity</th>
-                                <th style="padding-top: 10px">Unit Price</th>
-                                <th style="padding-top: 10px">Sub Total</th>
+                                <th style="padding: 10px">Sl. No.</th>
+                                <th style="padding: 10px">Item / Description</th>
+                                <th style="padding: 10px">Quantity</th>
+                                <th style="padding: 10px">Unit Price</th>
+                                <th style="padding: 10px">Sub Total</th>
                                 <!-- <th style="width:15%;">Tax</th> -->
-                                <th style="padding-top: 10px">Total Price</th>
+                                <th style="padding: 10px">Total Price</th>
                                 <!-- <th style="width:5%; text-align:center;"></th> -->
                             </tr>
                         </thead>
                         <tbody id="lineitems" class="">
                             @foreach($po->performa_items as  $key => $proFormaItem)
                                 <tr>
-                                    <td data-title="Sl. No.">{{$key+1 }}</td>
-                                    <td data-title="Item / Description">
+                                    <td style="padding: 5px 10px; margin: 0;" data-title="Sl. No.">{{$key+1 }}</td>
+                                    <td style="padding: 5px 10px; margin: 0;" data-title="Item / Description">
                                         <span>{{ $proFormaItem->item_title }}</span>
                                     </td>
-                                    <td data-title="Quantity">
+                                    <td style="padding: 5px 10px; margin: 0;" data-title="Quantity">
                                         <span>{{ $proFormaItem->unit }}</span>
                                     </td>
-                                    <td data-title="Unit Price">
+                                    <td style="padding: 5px 10px; margin: 0;" data-title="Unit Price">
                                         <span>{{ $proFormaItem->unit_price }}</span>
                                     </td>
-                                    <td data-title="Sub Total">
+                                    <td style="padding: 5px 10px; margin: 0;" data-title="Sub Total">
                                         <span>{{ $proFormaItem->total_price }}</span>
                                     </td>
-                                    <td data-title="Total Price">
+                                    <td style="padding: 5px 10px; margin: 0;" data-title="Total Price">
                                         <span>{{ $proFormaItem->tax_total_price }}</span>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                         <tr>
-                            <td colspan="5" class="right-align sub_total_title" style="padding-right: 20px"><b>Sub Total: </b></td>
+                            <td colspan="5" class="right-align sub_total_title" style="padding: 5px 10px; margin: 0;"><b>Sub Total: </b></td>
                             <td data-title="Sub Total:" colspan="2"><b>{{ number_format((float)$po->proforma_sub_total, 2, '.', '') }}</b></td>
                         </tr>
                         @if($po->proforma_commission)
                         <tr>
-                            <td colspan="5" class="right-align sub_total_title" style="padding-right: 20px">Commission:</td>
+                            <td colspan="5" class="right-align sub_total_title" style="padding: 5px 10px; margin: 0;">Commission:</td>
                             <td data-title="Commission:" colspan="2">{{ number_format((float)$po->proforma_commission, 2, '.', '') }} %</td>
                         </tr>
                         @endif
                         @if($po->proforma_vat)
                         <tr>
-                            <td colspan="5" class="right-align sub_total_title" style="padding-right: 20px">Vat:</td>
+                            <td colspan="5" class="right-align sub_total_title" style="padding: 5px 10px; margin: 0;">Vat:</td>
                             <td data-title="Vat:" colspan="2">{{ number_format((float)$po->proforma_vat, 2, '.', '') }} %</td>
                         </tr>
                         @endif
                         @if($po->proforma_tax)
                         <tr>
-                            <td colspan="5" class="right-align sub_total_title" style="padding-right: 20px">Tax:</td>
+                            <td colspan="5" class="right-align sub_total_title" style="padding: 5px 10px; margin: 0;">Tax:</td>
                             <td data-title="Tax:" colspan="2">{{ number_format((float)$po->proforma_tax, 2, '.', '') }} %</td>
                         </tr>
                         @endif
                         <tr>
-                            <td colspan="5" class="right-align grand_total_title" style="padding-right: 20px"><b>Grand Total: </b></td>
+                            <td colspan="5" class="right-align grand_total_title" style="padding: 5px 10px; margin: 0;"><b>Grand Total: </b></td>
                             <td data-title="Grand Total:" colspan="2"><div><b id="proformaGrandTotal">{{ number_format((float)$po->proforma_grand_total, 2, '.', '') }}</b></div></td>
                         </tr>
                         @foreach($po->checkedMerchantAssistances as $assistance)
                         <tr>
-                            <td colspan="5" class="right-align grand_total_title" style="padding-right: 20px"><b>{{$assistance->merchantAssistance->name}}: </b></td>
+                            <td colspan="5" class="right-align grand_total_title" style="padding: 5px 10px; margin: 0;"><b>{{$assistance->merchantAssistance->name}}: </b></td>
                             <td data-title="Total Invoice Amount:" colspan="2" id="total_price_amount">{{ $assistance->merchantAssistance->amount }}<b> {{ $assistance->merchantAssistance->type=='Percentage' ? '%' :'USD'}} <b></td>
                         </tr>
                         @endforeach
                         @if($po->total_invoice_amount_with_merchant_assistant)
                         <tr>
-                            <td colspan="5" class="right-align grand_total_title" style="padding-right: 20px"><b>Your total order amount with merchant assistant : </b></td>
+                            <td colspan="5" class="right-align grand_total_title" style="padding: 5px 10px; margin: 0;"><b>Your total order amount with merchant assistant : </b></td>
                             <td data-title="Total Invoice Amount:" colspan="2" id="total_price_amount">{{$po->total_invoice_amount_with_merchant_assistant}} <b> USD <b></td>
                         </tr>
                         @endif
                         <tr>
-                            <td colspan="6" style="text-align: left;">In Word:
+                            <td colspan="6" style="text-align: left; padding: 5px 10px; margin: 0;">In Word:
                                 <b><span id="totalResultFront"></span></b>
                             </td>
                         </tr>
@@ -127,20 +127,20 @@
                 <table class="table table-bordered proforma_forward_table" style="text-align: left;">
                     <thead>
                         <tr>
-                            <th style="padding-top: 10px">Forwarder Name</th>
-                            <th style="padding-top: 10px">Forwarder Address</th>
-                            <th style="padding-top: 10px">Payable Party</th>
+                            <th style="padding: 10px; margin: 0;">Forwarder Name</th>
+                            <th style="padding: 10px; margin: 0;">Forwarder Address</th>
+                            <th style="padding: 10px; margin: 0;">Payable Party</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-title="forwarder Name">
+                            <td style="padding: 5px 10px; margin: 0;" data-title="forwarder Name">
                                 <span> {{$po->forwarder_name}} </span>
                             </td>
-                            <td data-title="forwarder Address">
+                            <td style="padding: 5px 10px; margin: 0;" data-title="forwarder Address">
                                 <span> {{$po->forwarder_address}} </span>
                             </td>
-                            <td data-title="Payable Party">
+                            <td style="padding: 5px 10px; margin: 0;" data-title="Payable Party">
                                 <span> {{$po->payable_party}} </span>
                             </td>
                         </tr>
@@ -152,27 +152,27 @@
                 <table class="table table-bordered proforma_shipment_table" style="text-align: center;">
                     <thead>
                         <tr>
-                            <th style="padding-top: 10px">Shipment Term</th>
-                            <th style="padding-top: 10px">Place of Shipment</th>
-                            <th style="padding-top: 10px">Mode of Transport</th>
-                            <th style="padding-top: 10px">Place of Destination</th>
-                            <th style="padding-top: 10px">UOM</th>
-                            <th style="padding-top: 10px">Per UOM Price ($)</th>
-                            <th style="padding-top: 10px">QTY</th>
-                            <th style="padding-top: 10px">Total ($)</th>
+                            <th style="padding: 10px">Shipment Term</th>
+                            <th style="padding: 10px">Place of Shipment</th>
+                            <th style="padding: 10px">Mode of Transport</th>
+                            <th style="padding: 10px">Place of Destination</th>
+                            <th style="padding: 10px">UOM</th>
+                            <th style="padding: 10px">Per UOM Price ($)</th>
+                            <th style="padding: 10px">QTY</th>
+                            <th style="padding: 10px">Total ($)</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($po->proFormaShippingDetails as $shippingDetails)
                             <tr>
-                                <td data-title="Shipment Term">
+                                <td style="padding: 5px 10px; margin: 0;" data-title="Shipment Term">
                                     <span>{{ $shippingDetails->shippingMethod->name }}</span>
                                 </td>
-                                <td data-title="Place of Shipment">Merchant Bay Ltd.</td>
-                                <td data-title="Mode of Transport">
+                                <td style="padding: 5px 10px; margin: 0;" data-title="Place of Shipment">Merchant Bay Ltd.</td>
+                                <td style="padding: 5px 10px; margin: 0;" data-title="Mode of Transport">
                                     <span>{{ $shippingDetails->shipmentType->name }}</span>
                                 </td>
-                                <td data-title="Place of Destination">
+                                <td style="padding: 5px 10px; margin: 0;" data-title="Place of Destination">
                                     <span>
                                         @if($po->updated_buyer_shipping_address)
                                         {{$po->updated_buyer_shipping_address}}
@@ -181,16 +181,16 @@
                                         @endif
                                     </span>
                                 </td>
-                                <td data-title="UOM">
+                                <td style="padding: 5px 10px; margin: 0;" data-title="UOM">
                                     <span>{{ $shippingDetails->uom->name }} </span>
                                 </td>
-                                <td data-title="Per UOM Price ($)">
+                                <td style="padding: 5px 10px; margin: 0;" data-title="Per UOM Price ($)">
                                     <span>{{ $shippingDetails->shipping_details_per_uom_price }}</span>
                                 </td>
-                                <td data-title="QTY">
+                                <td style="padding: 5px 10px; margin: 0;" data-title="QTY">
                                     <span>{{ $shippingDetails->shipping_details_qty }}</span>
                                 </td>
-                                <td data-title="Total ($)">
+                                <td style="padding: 5px 10px; margin: 0;" data-title="Total ($)">
                                     <span>{{ $shippingDetails->shipping_details_total }}</span>
                                 </td>
                             </tr>
@@ -204,14 +204,14 @@
                 <table class="table proforma_advising_bank_table">
                     <thead>
                         <tr>
-                            <th style="padding-top: 10px">
+                            <th style="padding: 10px; margin: 0">
                                 <h3>Payment Info: </h3>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
+                            <td style="padding: 5px 10px; margin: 0;">
                                 <div class="conactInfo">
                                     <p>Payment Within: <b><span> {{$po->payment_within ?? ""}} </span></b></p>
                                     <p>Payment Term: <b><span> {{$po->paymentTerm->name ?? ""}} </span></b></p>
@@ -226,18 +226,18 @@
             <table class="table proforma_terms_onditions_table">
                 <thead>
                     <tr>
-                        <th style="padding-top: 10px">
+                        <th style="padding: 10px; margin: 0;">
                             <h3>Terms & Conditions</h3>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-                            <div class="terms_conditions_list buyerdata_info_admin">
-                                <ul class="list-group terms-lists">
+                        <td style="padding: 5px; 10px 0; margin: 0;">
+                            <div class="terms_conditions_list buyerdata_info_admin" style="padding: 0;">
+                                <ul class="list-group terms-lists" style="padding: 10px 5px 0; margin: 0;">
                                     @foreach($po->supplierCheckedProFormaTermAndConditions as $supplierCheckedProFormaTermAndCondition)
-                                    <li class="list-group-item">
+                                    <li class="list-group-item" style="padding: 5px 0; margin: 0; border: none; line-height: normal;">
                                         <div class="input-group">
                                             <label class="terms-label">
                                                 <i class="fa fa-light fa-check"></i> <span>{{$supplierCheckedProFormaTermAndCondition->proFormaTermAndCondition->term_and_condition}}</span>
@@ -246,9 +246,9 @@
                                     </li>
                                     @endforeach
                                 </ul>
-                                <ul class="list-group terms-lists">
+                                <ul class="list-group terms-lists" style="padding: 10px 5px 0; margin: 0;">
                                     @foreach(json_decode($po->condition) as $key=>$condition)
-                                    <li class="list-group-item">
+                                    <li class="list-group-item" style="padding: 5px 0; margin: 0; border: none; line-height: normal;">
                                         <div class="input-group">
                                             <label class="terms-label">
                                                 <i class="fa fa-light fa-check"></i> <span>{{$condition}}</span>
@@ -265,19 +265,19 @@
             <table class="table proforma_advising_bank_table">
                 <thead>
                     <tr>
-                        <th style="padding-top: 10px">
+                        <th style="padding: 10px; margin: 0;">
                             <h3>Advising Bank: </h3>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td style="padding: 10px;">
                             <div class="conactInfo">
-                                <p><b><span> {{$po->proFormaAdvisingBank->bank_name ?? ""}} </span></b></p>
-                                <p><span>{{ $po->proFormaAdvisingBank->branch_name ?? "" }}</span></p>
-                                <p><span> {{ $po->proFormaAdvisingBank->bank_address ?? "" }} </span></p>
-                                <p>Swift code: <b> <span>{{ $po->proFormaAdvisingBank->swift_code ?? "" }}</span></b> </p>
+                                <p style="padding: 0px; margin: 0; line-height: 16px;"><b><span> {{$po->proFormaAdvisingBank->bank_name ?? ""}} </span></b></p>
+                                <p style="padding: 0px; margin: 0; line-height: 16px;"><span>{{ $po->proFormaAdvisingBank->branch_name ?? "" }}</span></p>
+                                <p style="padding: 0px; margin: 0; line-height: 16px;"><span> {{ $po->proFormaAdvisingBank->bank_address ?? "" }} </span></p>
+                                <p style="padding: 0px; margin: 0; line-height: 16px;">Swift code: <b> <span>{{ $po->proFormaAdvisingBank->swift_code ?? "" }}</span></b> </p>
                             </div>
                         </td>
                     </tr>
